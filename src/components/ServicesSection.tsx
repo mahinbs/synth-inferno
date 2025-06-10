@@ -35,8 +35,7 @@ const ServicesSection = memo(() => {
   return (
     <section 
       id="services" 
-      className="py-16 md:py-20 bg-gradient-to-br from-gray-50 via-blue-50/30 to-purple-50/20 relative overflow-hidden"
-      style={{ contain: 'layout style paint' }}
+      className="py-16 md:py-20 bg-gradient-to-br from-gray-50 via-blue-50/30 to-purple-50/20 relative overflow-hidden services-section"
     >
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
@@ -44,7 +43,7 @@ const ServicesSection = memo(() => {
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-emerald-400/20 to-cyan-400/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 relative z-10 max-w-full overflow-x-hidden">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         {/* Header */}
         <div className="text-center mb-12 md:mb-16">
           <h2 className={`font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 text-[#1c1c1e] leading-tight tracking-tight ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
@@ -62,27 +61,20 @@ const ServicesSection = memo(() => {
           isVisible={isVisible}
         />
 
-        {/* Services Grid - Enhanced with CSS Grid and responsive design */}
-        <div className="w-full max-w-7xl mx-auto overflow-x-hidden">
-          <div className="services-grid grid gap-6 sm:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-fr">
-            {filteredServices.map((service, index) => (
-              <div 
-                key={service.id}
-                className="service-card-container"
-                style={{ 
-                  contain: 'layout style paint',
-                  contentVisibility: 'auto',
-                  containIntrinsicSize: '1px 400px'
-                }}
-              >
-                <AnimatedServiceCard
-                  service={service}
-                  index={index}
-                  isVisible={isVisible}
-                />
-              </div>
-            ))}
-          </div>
+        {/* Services Container with 3-2-1 responsive layout */}
+        <div className="services-container">
+          {filteredServices.map((service, index) => (
+            <div 
+              key={service.id}
+              className="service-card"
+            >
+              <AnimatedServiceCard
+                service={service}
+                index={index}
+                isVisible={isVisible}
+              />
+            </div>
+          ))}
         </div>
       </div>
     </section>

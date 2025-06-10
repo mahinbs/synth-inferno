@@ -29,7 +29,7 @@ const AnimatedServiceCard = memo(({
 
   return (
     <div 
-      className={`group relative transform transition-all duration-500 ease-out h-full min-h-[500px] ${
+      className={`group relative transform transition-all duration-500 ease-out h-full ${
         isVisible 
           ? `animate-fade-in-up opacity-100 translate-y-0` 
           : 'opacity-0 translate-y-8'
@@ -48,8 +48,8 @@ const AnimatedServiceCard = memo(({
       {/* Main Card */}
       <div className="relative bg-white/85 backdrop-blur-sm rounded-3xl border border-white/60 shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-[1.02] group-hover:-translate-y-1 overflow-hidden h-full flex flex-col">
         
-        {/* Background Image Container with fixed aspect ratio */}
-        <div className="absolute inset-0 overflow-hidden rounded-3xl" style={{ aspectRatio: '1 / 1.2' }}>
+        {/* Background Image Container */}
+        <div className="absolute inset-0 overflow-hidden rounded-3xl">
           {/* Image Loading Skeleton */}
           {!imageLoaded && (
             <div className="absolute inset-0 bg-gradient-to-br from-gray-300 to-gray-400 animate-pulse"></div>
@@ -63,7 +63,8 @@ const AnimatedServiceCard = memo(({
             } ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
             style={{ 
               filter: 'brightness(0.25) saturate(1.1)',
-              willChange: isHovered ? 'transform' : 'auto'
+              willChange: isHovered ? 'transform' : 'auto',
+              aspectRatio: '1 / 1.3'
             }}
             loading="lazy"
             decoding="async"
@@ -79,7 +80,7 @@ const AnimatedServiceCard = memo(({
           }`}></div>
         </div>
         
-        {/* Floating Particles - Simplified for performance */}
+        {/* Floating Particles */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-4 right-4 w-1.5 h-1.5 bg-blue-400 rounded-full opacity-0 group-hover:opacity-50 transition-all duration-300 transform group-hover:translate-x-1 group-hover:-translate-y-1"></div>
           <div className="absolute bottom-6 left-6 w-1 h-1 bg-emerald-400 rounded-full opacity-0 group-hover:opacity-40 transition-all duration-300 delay-100 transform group-hover:-translate-x-1 group-hover:translate-y-1"></div>
@@ -132,9 +133,8 @@ const AnimatedServiceCard = memo(({
               )}
             </div>
 
-            {/* Key Highlights */}
+            {/* Highlights - without "Key Features" heading */}
             <div className="space-y-2 mt-4">
-              <h4 className="text-xs sm:text-sm font-semibold text-white/90 uppercase tracking-wide">Key Features</h4>
               {service.highlights.slice(0, 2).map((highlight, idx) => (
                 <div 
                   key={idx}
