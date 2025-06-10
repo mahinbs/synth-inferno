@@ -62,7 +62,7 @@ const About = memo(() => {
               and immersive technologies, we bridge the gap between cutting-edge innovation and real-world impact.
             </p>
             
-            <p className="text-xl text-muted-foreground leading-relaxed max-w-4xl mx-auto mb-8">
+            <p className="text-xl text-black-foreground leading-relaxed max-w-4xl mx-auto mb-8">
               From startups looking to disrupt entire industries to established enterprises seeking digital transformation, 
               we partner with ambitious organizations to bring their boldest ideas to life. Our approach combines 
               human-centered design with the latest technological advances, ensuring that every solution we create 
