@@ -1,6 +1,16 @@
 
 import { Smartphone, Gamepad2, Palette, Code, MessageSquare, Cloud, Phone, Cpu, Brain, Camera, BarChart3 } from 'lucide-react';
 
+export interface Service {
+  id: string;
+  icon: any;
+  title: string;
+  category: string;
+  intro: string;
+  technologies: string[];
+  highlights: string[];
+}
+
 export const filterCategories = [
   {
     id: 'all',
@@ -28,7 +38,7 @@ export const filterCategories = [
   }
 ];
 
-export const services = [
+export const services: Service[] = [
   {
     id: 'mobile-dev',
     icon: Smartphone,
