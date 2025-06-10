@@ -292,14 +292,7 @@ const Contact = () => {
 
         {/* Global Offices */}
         <div className={`transition-all duration-1000 delay-800 ${isVisible ? 'animate-fade-in opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-white mb-4">
-              Our <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Global Offices</span>
-            </h3>
-            <p className="text-gray-400 max-w-3xl mx-auto">
-              With presence across 5 strategic locations, we're always close to our clients, ensuring seamless collaboration and support across multiple time zones.
-            </p>
-          </div>
+          
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
             {offices.map((office, index) => {
@@ -314,30 +307,7 @@ const Contact = () => {
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gray-900/40 to-gray-900/80" />
                   
                   {/* Content */}
-                  <div className="relative z-10 p-6">
-                    <div className={`w-12 h-12 rounded-xl ${colors.icon} border flex items-center justify-center mb-4`}>
-                      <MapPin className="h-6 w-6" />
-                    </div>
-                    <div className={`text-xl font-bold ${colors.text} mb-2`}>
-                      {office.city}
-                    </div>
-                    <div className="text-gray-400 text-sm mb-2">
-                      {office.country} • {office.timezone}
-                    </div>
-                    <div className="space-y-2 text-sm">
-                      <p className="text-gray-300 line-clamp-3">{office.address}</p>
-                      <p className={`${colors.text} font-medium`}>{office.phone}</p>
-                      <p className="text-gray-400">{office.email}</p>
-                    </div>
-                    
-                    {/* WhatsApp Quick Contact */}
-                    <div className="mt-4 pt-4 border-t border-gray-700/50">
-                      <a href={`https://wa.me/${office.phone.replace(/[^0-9]/g, '')}`} className="inline-flex items-center space-x-2 text-green-400 hover:text-green-300 transition-colors text-sm">
-                        <MessageCircle className="h-4 w-4" />
-                        <span>WhatsApp</span>
-                      </a>
-                    </div>
-                  </div>
+                  
                 </div>;
           })}
           </div>
