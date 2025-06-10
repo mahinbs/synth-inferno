@@ -1,64 +1,50 @@
 import { useState, useEffect, memo } from 'react';
 import { Target, Zap, Shield, Rocket } from 'lucide-react';
-
 const WhyUsSection = memo(() => {
   const [isVisible, setIsVisible] = useState(false);
-
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1, rootMargin: '100px' }
-    );
-
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setIsVisible(true);
+      }
+    }, {
+      threshold: 0.1,
+      rootMargin: '100px'
+    });
     const section = document.getElementById('why-us');
     if (section) {
       observer.observe(section);
     }
-
     return () => {
       if (section) {
         observer.unobserve(section);
       }
     };
   }, []);
-
-  const differentiators = [
-    {
-      icon: Target,
-      title: "Cross-functional teams with product-first mindset",
-      description: "Our diverse teams combine technical expertise with business acumen, ensuring every solution drives real business value and user satisfaction.",
-      color: "blue-600"
-    },
-    {
-      icon: Zap,
-      title: "Deep expertise across AI, cloud, web, mobile, and immersive tech",
-      description: "From artificial intelligence and cloud architecture to immersive VR experiences, our comprehensive skill set covers the entire technology spectrum.",
-      color: "emerald-600"
-    },
-    {
-      icon: Shield,
-      title: "Proven track record with startups, agencies, and scale-ups",
-      description: "We've successfully partnered with organizations at every stage, from early-stage startups to established enterprises seeking digital transformation.",
-      color: "violet-600"
-    },
-    {
-      icon: Rocket,
-      title: "Design, develop, deploy — and scale with you",
-      description: "Our partnership doesn't end at launch. We provide ongoing support, optimization, and scaling solutions as your business grows and evolves.",
-      color: "slate-600"
-    }
-  ];
-
-  return (
-    <section 
-      id="why-us" 
-      className="py-20 relative overflow-hidden"
-      style={{ backgroundColor: '#F9FAFB' }}
-    >
+  const differentiators = [{
+    icon: Target,
+    title: "Cross-functional teams with product-first mindset",
+    description: "Our diverse teams combine technical expertise with business acumen, ensuring every solution drives real business value and user satisfaction.",
+    color: "blue-600"
+  }, {
+    icon: Zap,
+    title: "Deep expertise across AI, cloud, web, mobile, and immersive tech",
+    description: "From artificial intelligence and cloud architecture to immersive VR experiences, our comprehensive skill set covers the entire technology spectrum.",
+    color: "emerald-600"
+  }, {
+    icon: Shield,
+    title: "Proven track record with startups, agencies, and scale-ups",
+    description: "We've successfully partnered with organizations at every stage, from early-stage startups to established enterprises seeking digital transformation.",
+    color: "violet-600"
+  }, {
+    icon: Rocket,
+    title: "Design, develop, deploy — and scale with you",
+    description: "Our partnership doesn't end at launch. We provide ongoing support, optimization, and scaling solutions as your business grows and evolves.",
+    color: "slate-600"
+  }];
+  return <section id="why-us" className="py-20 relative overflow-hidden" style={{
+    backgroundColor: '#F9FAFB'
+  }}>
       <div className="container mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
@@ -72,11 +58,7 @@ const WhyUsSection = memo(() => {
 
         {/* Differentiators Grid */}
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-          {differentiators.map((item, index) => (
-            <div 
-              key={index}
-              className={`group relative bg-card rounded-3xl p-8 border border-border hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 ${isVisible ? `animate-fade-in-up animate-stagger-${index + 2}` : 'opacity-0'}`}
-            >
+          {differentiators.map((item, index) => <div key={index} className={`group relative bg-card rounded-3xl p-8 border border-border hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 ${isVisible ? `animate-fade-in-up animate-stagger-${index + 2}` : 'opacity-0'}`}>
               {/* Background Gradient */}
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               
@@ -90,15 +72,14 @@ const WhyUsSection = memo(() => {
                 <h3 className="text-2xl font-bold text-card-foreground mb-4 group-hover:text-primary transition-colors duration-300">
                   {item.title}
                 </h3>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-black-foreground leading-relaxed">
                   {item.description}
                 </p>
 
                 {/* Hover Effect Line */}
                 <div className="absolute bottom-0 left-8 right-8 h-0.5 bg-gradient-to-r from-primary to-secondary scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
               </div>
-            </div>
-          ))}
+            </div>)}
         </div>
 
         {/* Call to Action */}
@@ -121,9 +102,7 @@ const WhyUsSection = memo(() => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 });
-
 WhyUsSection.displayName = 'WhyUsSection';
 export default WhyUsSection;
