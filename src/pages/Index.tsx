@@ -1,9 +1,10 @@
 
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
-import Services from '@/components/Services';
-import PortfolioSection from '@/components/PortfolioSection';
 import About from '@/components/About';
+import ServicesSection from '@/components/ServicesSection';
+import WhyUsSection from '@/components/WhyUsSection';
+import FAQSection from '@/components/FAQSection';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 
@@ -12,19 +13,12 @@ const Index = () => {
     <div className="min-h-screen w-full overflow-x-hidden">
       <Header />
       <main className="w-full">
-        <div id="hero">
-          <Hero />
-        </div>
-        <div id="services">
-          <Services />
-        </div>
-        <PortfolioSection />
-        <div id="about">
-          <About />
-        </div>
-        <div id="contact">
-          <Contact />
-        </div>
+        <Hero />
+        <About />
+        <ServicesSection />
+        <WhyUsSection />
+        <FAQSection />
+        <Contact />
       </main>
       <Footer />
     </div>
