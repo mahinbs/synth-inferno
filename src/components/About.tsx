@@ -69,7 +69,7 @@ const About = memo(() => {
               is not only technically superior but also intuitive and impactful.
             </p>
 
-            <p className="text-xl text-muted-foreground leading-relaxed max-w-4xl mx-auto">
+            <p className="text-xl text-black-foreground leading-relaxed max-w-4xl mx-auto">
               Whether you need an AI-powered chatbot that feels genuinely conversational, a mobile app that seamlessly 
               integrates complex workflows, or an immersive VR experience that transports users to new dimensions, 
               we have the expertise and passion to make it happen.
