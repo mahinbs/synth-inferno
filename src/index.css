@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -210,8 +211,6 @@
     -webkit-backdrop-filter: blur(10px);
   }
 }
-
-// ... keep existing code (keyframes and other utilities)
 
 /* Performance optimizations for glassmorphism */
 @supports (backdrop-filter: blur(10px)) {
