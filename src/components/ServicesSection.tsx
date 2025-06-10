@@ -133,7 +133,7 @@ const ServicesSection = memo(() => {
     highlights: ['Real-time dashboard development', 'Data warehouse design and optimization', 'ETL pipeline automation', 'Predictive modeling and forecasting', 'A/B testing and experimentation platforms', 'Custom reporting and visualization']
   }];
   const filteredServices = activeFilter === 'all' ? services : services.filter(service => service.category === activeFilter);
-  return <section id="services" className="py-20 bg-gradient-to-b from-accent/10 to-background relative overflow-hidden">
+  return <section id="services" className="py-20 bg-background relative overflow-hidden" style={{ backgroundColor: '#F9FAFB' }}>
       <div className="container mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
@@ -155,18 +155,18 @@ const ServicesSection = memo(() => {
         {/* Services Grid */}
         <div className="max-w-6xl mx-auto space-y-6">
           {filteredServices.map((service, index) => <Collapsible key={service.id} open={expandedService === service.id} onOpenChange={open => setExpandedService(open ? service.id : null)}>
-              <div className={`group bg-card rounded-2xl border border-border hover:border-brand-primary/30 transition-all duration-300 overflow-hidden ${isVisible ? `animate-fade-in-up animate-stagger-${index + 3}` : 'opacity-0'}`}>
+              <div className={`group bg-card rounded-2xl border border-border hover:border-primary/30 transition-all duration-300 overflow-hidden ${isVisible ? `animate-fade-in-up animate-stagger-${index + 3}` : 'opacity-0'}`}>
                 <CollapsibleTrigger asChild>
-                  <div className="flex items-center p-8 cursor-pointer hover:bg-accent/5 transition-colors duration-300">
-                    <div className="w-16 h-16 bg-brand-primary/10 rounded-2xl flex items-center justify-center mr-6 group-hover:scale-110 transition-transform duration-300">
-                      <service.icon className="h-8 w-8 text-brand-primary" />
+                  <div className="flex items-center p-8 cursor-pointer hover:bg-muted/50 transition-colors duration-300">
+                    <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mr-6 group-hover:scale-110 transition-transform duration-300">
+                      <service.icon className="h-8 w-8 text-primary" />
                     </div>
                     
                     <div className="flex-1">
-                      <h3 className="text-2xl font-bold text-card-foreground mb-2 group-hover:text-brand-primary transition-colors duration-300">
+                      <h3 className="text-2xl font-bold text-card-foreground mb-2 group-hover:text-primary transition-colors duration-300">
                         {service.title}
                       </h3>
-                      <p className="text-muted-foreground leading-black">
+                      <p className="text-muted-foreground leading-relaxed">
                         {service.intro}
                       </p>
                     </div>
@@ -182,7 +182,7 @@ const ServicesSection = memo(() => {
                       <div>
                         <h4 className="text-lg font-semibold text-card-foreground mb-4">Technologies & Tools</h4>
                         <div className="flex flex-wrap gap-2">
-                          {service.technologies.map((tech, idx) => <span key={idx} className="px-3 py-1 bg-brand-primary/10 text-brand-primary rounded-full text-sm font-medium border border-brand-primary/20">
+                          {service.technologies.map((tech, idx) => <span key={idx} className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium border border-primary/20">
                               {tech}
                             </span>)}
                         </div>
@@ -193,7 +193,7 @@ const ServicesSection = memo(() => {
                         <h4 className="text-lg font-semibold text-card-foreground mb-4">Key Capabilities</h4>
                         <ul className="space-y-3">
                           {service.highlights.map((highlight, idx) => <li key={idx} className="flex items-start">
-                              <div className="w-2 h-2 bg-brand-secondary rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                              <div className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></div>
                               <span className="text-muted-foreground">{highlight}</span>
                             </li>)}
                         </ul>
@@ -202,10 +202,10 @@ const ServicesSection = memo(() => {
 
                     {/* Action Buttons */}
                     <div className="flex flex-col sm:flex-row gap-4 mt-8 pt-6 border-t border-border/50">
-                      <button className="flex-1 bg-brand-primary text-white px-6 py-3 rounded-xl font-medium hover:bg-brand-primary/90 transition-colors duration-300">
+                      <button className="flex-1 bg-primary text-primary-foreground px-6 py-3 rounded-xl font-medium hover:bg-primary/90 transition-colors duration-300">
                         Get Started
                       </button>
-                      <button className="flex-1 border border-brand-primary text-brand-primary px-6 py-3 rounded-xl font-medium hover:bg-brand-primary/5 transition-colors duration-300">
+                      <button className="flex-1 border border-primary text-primary px-6 py-3 rounded-xl font-medium hover:bg-primary/5 transition-colors duration-300">
                         Learn More
                       </button>
                     </div>

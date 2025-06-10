@@ -22,8 +22,8 @@
     --muted: 248 250 252;
     --muted-foreground: 100 116 139;
 
-    --accent: 236 254 255;
-    --accent-foreground: 12 74 110;
+    --accent: 249 250 251;
+    --accent-foreground: 51 65 85;
 
     --destructive: 239 68 68;
     --destructive-foreground: 255 255 255;
@@ -33,6 +33,14 @@
     --ring: 59 130 246;
 
     --radius: 0.5rem;
+
+    /* Brand colors - updated to remove fluorescent */
+    --brand-primary: 59 130 246;
+    --brand-secondary: 100 116 139;
+    --brand-accent: 249 250 251;
+    --brand-neutral: 100 116 139;
+    --brand-light: 249 250 251;
+    --brand-dark: 15 23 42;
   }
 
   .dark {
@@ -159,7 +167,12 @@
   }
 
   .filter-button:not(.active) {
-    @apply bg-secondary text-secondary-foreground hover:bg-secondary/80;
+    @apply bg-card text-muted-foreground hover:bg-muted border border-border;
+  }
+
+  /* Brand gradient text utility */
+  .brand-gradient-text {
+    @apply bg-gradient-to-r from-primary to-brand-secondary bg-clip-text text-transparent;
   }
 }
 
