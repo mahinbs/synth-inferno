@@ -1,4 +1,5 @@
-import { Menu, X, Sun, Moon } from "lucide-react";
+
+import { Menu, X } from "lucide-react";
 import { useState, memo, useCallback, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useScrollSpy } from "@/hooks/useScrollSpy";
@@ -6,7 +7,6 @@ import { useIsMobile } from "@/hooks/use-mobile";
 
 const Header = memo(() => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
   const isHomePage = location.pathname === "/";
@@ -50,14 +50,6 @@ const Header = memo(() => {
     };
   }, [isMenuOpen, isMobile]);
 
-  // Dark mode toggle
-  useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, [isDarkMode]);
   const menuItems = [{
     name: "Home",
     href: "/",
@@ -83,6 +75,7 @@ const Header = memo(() => {
     href: "/#contact",
     section: "contact"
   }];
+
   const handleSmoothScroll = useCallback((href: string, sectionId: string) => {
     if (isHomePage && href.startsWith("/#")) {
       const element = document.getElementById(sectionId);
@@ -95,12 +88,15 @@ const Header = memo(() => {
       }
     }
   }, [isHomePage]);
+
   const closeMenu = useCallback(() => {
     setIsMenuOpen(false);
   }, []);
+
   const toggleMenu = useCallback(() => {
     setIsMenuOpen(prev => !prev);
   }, []);
+
   const isActive = useCallback((item: any) => {
     if (item.name === "Home") {
       return location.pathname === "/" && (activeSection === "home" || !activeSection);
@@ -110,6 +106,7 @@ const Header = memo(() => {
     }
     return location.pathname === item.href;
   }, [isHomePage, activeSection, location.pathname]);
+
   return <>
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
@@ -148,21 +145,15 @@ const Header = memo(() => {
             })}
             </div>
 
-            {/* Desktop CTA & Theme Toggle */}
-            <div className="hidden lg:flex items-center space-x-4">
-              <button onClick={() => setIsDarkMode(!isDarkMode)} className="p-2 rounded-lg hover:bg-white/10 transition-colors duration-300" aria-label="Toggle theme">
-                {isDarkMode ? <Sun className="h-5 w-5 text-foreground" /> : <Moon className="h-5 w-5 text-foreground" />}
-              </button>
+            {/* Desktop CTA */}
+            <div className="hidden lg:flex items-center">
               <button onClick={() => handleSmoothScroll('/#contact', 'contact')} className="bg-primary text-primary-foreground px-6 py-2 rounded-lg font-medium hover:bg-primary/90 transition-colors duration-300">
                 Get Started
               </button>
             </div>
 
             {/* Mobile Menu Button */}
-            <div className="lg:hidden flex items-center space-x-2">
-              <button onClick={() => setIsDarkMode(!isDarkMode)} className="p-2 rounded-lg hover:bg-white/10 transition-colors duration-300" aria-label="Toggle theme">
-                {isDarkMode ? <Sun className="h-5 w-5 text-foreground" /> : <Moon className="h-5 w-5 text-foreground" />}
-              </button>
+            <div className="lg:hidden">
               <button className="p-2 z-50 relative" onClick={toggleMenu} aria-label="Toggle menu" aria-expanded={isMenuOpen}>
                 {isMenuOpen ? <X className="h-6 w-6 text-foreground" /> : <Menu className="h-6 w-6 text-foreground" />}
               </button>
