@@ -90,7 +90,7 @@ const About = memo(() => {
                     </div>
                     <div>
                       <h4 className="text-xl font-semibold mb-3 text-card-foreground">{item.title}</h4>
-                      <p className="text-muted-foreground leading-relaxed text-black ">{item.description}</p>
+                      <p className="text-muted-foreground leading-relaxed">{item.description}</p>
                     </div>
                   </div>
                 </div>)}
