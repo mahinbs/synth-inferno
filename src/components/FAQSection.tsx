@@ -91,7 +91,7 @@ const FAQSection = memo(() => {
                   <div className="bg-card rounded-2xl mt-2 border border-border">
                     <div className="p-6 pt-0">
                       <div className="pt-4 border-t border-border/50">
-                        <p className="text-muted-foreground leading-relaxed">
+                        <p className="text-black-foreground leading-relaxed">
                           {faq.answer}
                         </p>
                       </div>
