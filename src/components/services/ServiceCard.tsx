@@ -1,9 +1,15 @@
-
 import { memo } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
-import { Service } from './ServiceData';
-
+interface Service {
+  id: string;
+  icon: any;
+  title: string;
+  category: string;
+  intro: string;
+  technologies: string[];
+  highlights: string[];
+}
 interface ServiceCardProps {
   service: Service;
   isExpanded: boolean;
@@ -11,7 +17,6 @@ interface ServiceCardProps {
   index: number;
   isVisible: boolean;
 }
-
 const ServiceCard = memo(({
   service,
   isExpanded,
@@ -19,8 +24,7 @@ const ServiceCard = memo(({
   index,
   isVisible
 }: ServiceCardProps) => {
-  return (
-    <Collapsible open={isExpanded} onOpenChange={open => onToggle(open ? service.id : null)}>
+  return <Collapsible open={isExpanded} onOpenChange={open => onToggle(open ? service.id : null)}>
       <div className={`group bg-card rounded-2xl border border-border hover:border-primary/30 transition-all duration-300 overflow-hidden ${isVisible ? `animate-fade-in-up animate-stagger-${index + 3}` : 'opacity-0'}`}>
         <CollapsibleTrigger asChild>
           <div className="flex items-center p-8 cursor-pointer hover:bg-muted/50 transition-colors duration-300">
@@ -28,11 +32,11 @@ const ServiceCard = memo(({
               <service.icon className="h-8 w-8 text-primary" />
             </div>
             
-            <div className="flex-1">
+            <div className="flex-1 text-black">
               <h3 className="text-2xl font-bold text-card-foreground mb-2 group-hover:text-primary transition-colors duration-300">
                 {service.title}
               </h3>
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-black-foreground leading-relaxed">
                 {service.intro}
               </p>
             </div>
@@ -48,14 +52,9 @@ const ServiceCard = memo(({
               <div>
                 <h4 className="text-lg font-semibold text-card-foreground mb-4">Technologies & Tools</h4>
                 <div className="flex flex-wrap gap-2">
-                  {service.technologies.map((tech, idx) => (
-                    <span
-                      key={idx}
-                      className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium border border-primary/20"
-                    >
+                  {service.technologies.map((tech, idx) => <span key={idx} className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium border border-primary/20">
                       {tech}
-                    </span>
-                  ))}
+                    </span>)}
                 </div>
               </div>
 
@@ -63,12 +62,10 @@ const ServiceCard = memo(({
               <div>
                 <h4 className="text-lg font-semibold text-card-foreground mb-4">Key Capabilities</h4>
                 <ul className="space-y-3">
-                  {service.highlights.map((highlight, idx) => (
-                    <li key={idx} className="flex items-start">
+                  {service.highlights.map((highlight, idx) => <li key={idx} className="flex items-start">
                       <div className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></div>
                       <span className="text-muted-foreground">{highlight}</span>
-                    </li>
-                  ))}
+                    </li>)}
                 </ul>
               </div>
             </div>
@@ -85,9 +82,7 @@ const ServiceCard = memo(({
           </div>
         </CollapsibleContent>
       </div>
-    </Collapsible>
-  );
+    </Collapsible>;
 });
-
 ServiceCard.displayName = 'ServiceCard';
 export default ServiceCard;
