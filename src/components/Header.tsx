@@ -1,10 +1,8 @@
-
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { useState, memo, useCallback, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useScrollSpy } from "@/hooks/useScrollSpy";
 import { useIsMobile } from "@/hooks/use-mobile";
-
 const Header = memo(() => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -22,7 +20,6 @@ const Header = memo(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -59,16 +56,31 @@ const Header = memo(() => {
       document.documentElement.classList.remove('dark');
     }
   }, [isDarkMode]);
-
-  const menuItems = [
-    { name: "Home", href: "/", section: "home" },
-    { name: "About", href: "/#about", section: "about" },
-    { name: "Services", href: "/#services", section: "services" },
-    { name: "Why Us", href: "/#why-us", section: "why-us" },
-    { name: "FAQ", href: "/#faq", section: "faq" },
-    { name: "Contact", href: "/#contact", section: "contact" }
-  ];
-
+  const menuItems = [{
+    name: "Home",
+    href: "/",
+    section: "home"
+  }, {
+    name: "About",
+    href: "/#about",
+    section: "about"
+  }, {
+    name: "Services",
+    href: "/#services",
+    section: "services"
+  }, {
+    name: "Why Us",
+    href: "/#why-us",
+    section: "why-us"
+  }, {
+    name: "FAQ",
+    href: "/#faq",
+    section: "faq"
+  }, {
+    name: "Contact",
+    href: "/#contact",
+    section: "contact"
+  }];
   const handleSmoothScroll = useCallback((href: string, sectionId: string) => {
     if (isHomePage && href.startsWith("/#")) {
       const element = document.getElementById(sectionId);
@@ -81,37 +93,24 @@ const Header = memo(() => {
       }
     }
   }, [isHomePage]);
-
   const closeMenu = useCallback(() => {
     setIsMenuOpen(false);
   }, []);
-
   const toggleMenu = useCallback(() => {
     setIsMenuOpen(prev => !prev);
   }, []);
-
   const isActive = useCallback((item: any) => {
     if (item.name === "Home") {
       return location.pathname === "/" && (activeSection === "home" || !activeSection);
     }
-
     if (isHomePage && item.href.startsWith("/#")) {
       return activeSection === item.section;
     }
-
     return location.pathname === item.href;
   }, [isHomePage, activeSection, location.pathname]);
-
-  return (
-    <>
-      <header 
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled 
-            ? 'bg-background/80 backdrop-blur-md border-b border-border shadow-lg' 
-            : 'bg-transparent'
-        }`}
-      >
-        <nav className="container mx-auto px-6 py-4">
+  return <>
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-background/80 backdrop-blur-md border-b border-border shadow-lg' : 'bg-transparent'}`}>
+        <nav className="container mx-white px-6 py-4">
           <div className="flex justify-between items-center">
             {/* Logo */}
             <Link to="/" className="flex items-center z-50 relative">
@@ -123,102 +122,43 @@ const Header = memo(() => {
             {/* Desktop Menu */}
             <div className="hidden lg:flex items-center space-x-8 flex-1 justify-center">
               {menuItems.map(item => {
-                const active = isActive(item);
-                
-                if (item.name === "Home") {
-                  return (
-                    <Link
-                      key={item.name}
-                      to={item.href}
-                      className={`transition-all duration-300 font-medium relative group ${
-                        active ? "text-brand-primary" : "text-foreground hover:text-brand-primary"
-                      }`}
-                    >
+              const active = isActive(item);
+              if (item.name === "Home") {
+                return <Link key={item.name} to={item.href} className={`transition-all duration-300 font-medium relative group ${active ? "text-brand-primary" : "text-foreground hover:text-brand-primary"}`}>
                       {item.name}
-                      <span className={`absolute bottom-0 left-0 h-0.5 bg-brand-primary transition-all duration-300 ${
-                        active ? "w-full" : "w-0 group-hover:w-full"
-                      }`}></span>
-                    </Link>
-                  );
-                } else if (isHomePage && item.href.startsWith("/#")) {
-                  return (
-                    <button
-                      key={item.name}
-                      onClick={() => handleSmoothScroll(item.href, item.section)}
-                      className={`transition-all duration-300 font-medium relative group ${
-                        active ? "text-brand-primary" : "text-foreground hover:text-brand-primary"
-                      }`}
-                    >
+                      <span className={`absolute bottom-0 left-0 h-0.5 bg-brand-primary transition-all duration-300 ${active ? "w-full" : "w-0 group-hover:w-full"}`}></span>
+                    </Link>;
+              } else if (isHomePage && item.href.startsWith("/#")) {
+                return <button key={item.name} onClick={() => handleSmoothScroll(item.href, item.section)} className={`transition-all duration-300 font-medium relative group ${active ? "text-brand-primary" : "text-foreground hover:text-brand-primary"}`}>
                       {item.name}
-                      <span className={`absolute bottom-0 left-0 h-0.5 bg-brand-primary transition-all duration-300 ${
-                        active ? "w-full" : "w-0 group-hover:w-full"
-                      }`}></span>
-                    </button>
-                  );
-                } else {
-                  return (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      className={`transition-all duration-300 font-medium relative group ${
-                        active ? "text-brand-primary" : "text-foreground hover:text-brand-primary"
-                      }`}
-                    >
+                      <span className={`absolute bottom-0 left-0 h-0.5 bg-brand-primary transition-all duration-300 ${active ? "w-full" : "w-0 group-hover:w-full"}`}></span>
+                    </button>;
+              } else {
+                return <a key={item.name} href={item.href} className={`transition-all duration-300 font-medium relative group ${active ? "text-brand-primary" : "text-foreground hover:text-brand-primary"}`}>
                       {item.name}
-                      <span className={`absolute bottom-0 left-0 h-0.5 bg-brand-primary transition-all duration-300 ${
-                        active ? "w-full" : "w-0 group-hover:w-full"
-                      }`}></span>
-                    </a>
-                  );
-                }
-              })}
+                      <span className={`absolute bottom-0 left-0 h-0.5 bg-brand-primary transition-all duration-300 ${active ? "w-full" : "w-0 group-hover:w-full"}`}></span>
+                    </a>;
+              }
+            })}
             </div>
 
             {/* Desktop CTA & Theme Toggle */}
             <div className="hidden lg:flex items-center space-x-4">
-              <button
-                onClick={() => setIsDarkMode(!isDarkMode)}
-                className="p-2 rounded-lg hover:bg-accent transition-colors duration-300"
-                aria-label="Toggle theme"
-              >
-                {isDarkMode ? (
-                  <Sun className="h-5 w-5 text-foreground" />
-                ) : (
-                  <Moon className="h-5 w-5 text-foreground" />
-                )}
+              <button onClick={() => setIsDarkMode(!isDarkMode)} className="p-2 rounded-lg hover:bg-accent transition-colors duration-300" aria-label="Toggle theme">
+                {isDarkMode ? <Sun className="h-5 w-5 text-foreground" /> : <Moon className="h-5 w-5 text-foreground" />}
               </button>
-              <button 
-                onClick={() => handleSmoothScroll('/#contact', 'contact')}
-                className="bg-brand-primary text-white px-6 py-2 rounded-lg font-medium hover:bg-brand-primary/90 transition-colors duration-300"
-              >
+              <button onClick={() => handleSmoothScroll('/#contact', 'contact')} className="bg-brand-primary text-white px-6 py-2 rounded-lg font-medium hover:bg-brand-primary/90 transition-colors duration-300">
                 Get Started
               </button>
             </div>
 
             {/* Mobile Menu Button */}
             <div className="lg:hidden flex items-center space-x-2">
-              <button
-                onClick={() => setIsDarkMode(!isDarkMode)}
-                className="p-2 rounded-lg hover:bg-accent transition-colors duration-300"
-                aria-label="Toggle theme"
-              >
-                {isDarkMode ? (
-                  <Sun className="h-5 w-5 text-foreground" />
-                ) : (
-                  <Moon className="h-5 w-5 text-foreground" />
-                )}
+              <button onClick={() => setIsDarkMode(!isDarkMode)} className="p-2 rounded-lg hover:bg-accent transition-colors duration-300" aria-label="Toggle theme">
+                {isDarkMode ? <Sun className="h-5 w-5 text-foreground" /> : <Moon className="h-5 w-5 text-foreground" />}
               </button>
-              <button 
-                className="p-2 z-50 relative" 
-                onClick={toggleMenu} 
-                aria-label="Toggle menu" 
-                aria-expanded={isMenuOpen}
-              >
-                {isMenuOpen ? (
-                  <X className="h-6 w-6 text-foreground" />
-                ) : (
-                  <Menu className="h-6 w-6 text-foreground" />
-                )}
+              <button className="p-2 z-50 relative" onClick={toggleMenu} aria-label="Toggle menu" aria-expanded={isMenuOpen}>
+                {isMenuOpen ? <X className="h-6 w-6 text-foreground" /> : <Menu className="h-6 w-6 text-foreground" />}
               </button>
             </div>
           </div>
@@ -226,14 +166,9 @@ const Header = memo(() => {
       </header>
 
       {/* Mobile Menu Overlay */}
-      {isMenuOpen && (
-        <>
+      {isMenuOpen && <>
           {/* Backdrop */}
-          <div 
-            className="lg:hidden fixed z-40 inset-0 bg-black/50 backdrop-blur-sm" 
-            onClick={closeMenu} 
-            aria-hidden="true" 
-          />
+          <div className="lg:hidden fixed z-40 inset-0 bg-black/50 backdrop-blur-sm" onClick={closeMenu} aria-hidden="true" />
 
           {/* Mobile Menu */}
           <div className="lg:hidden fixed top-0 right-0 h-full w-full max-w-sm bg-background border-l border-border shadow-xl transform transition-transform duration-300 z-[999]">
@@ -252,76 +187,37 @@ const Header = memo(() => {
               <div className="flex-1 overflow-y-auto p-6">
                 <div className="space-y-4">
                   {menuItems.map(item => {
-                    const active = isActive(item);
-                    
-                    if (item.name === "Home") {
-                      return (
-                        <Link
-                          key={item.name}
-                          to={item.href}
-                          className={`block text-lg font-medium py-3 px-4 rounded-lg transition-all duration-300 ${
-                            active 
-                              ? "text-brand-primary bg-brand-primary/10" 
-                              : "text-foreground hover:text-brand-primary hover:bg-accent"
-                          }`}
-                          onClick={closeMenu}
-                        >
+                const active = isActive(item);
+                if (item.name === "Home") {
+                  return <Link key={item.name} to={item.href} className={`block text-lg font-medium py-3 px-4 rounded-lg transition-all duration-300 ${active ? "text-brand-primary bg-brand-primary/10" : "text-foreground hover:text-brand-primary hover:bg-accent"}`} onClick={closeMenu}>
                           {item.name}
-                        </Link>
-                      );
-                    } else if (isHomePage && item.href.startsWith("/#")) {
-                      return (
-                        <button
-                          key={item.name}
-                          onClick={() => handleSmoothScroll(item.href, item.section)}
-                          className={`block w-full text-left text-lg font-medium py-3 px-4 rounded-lg transition-all duration-300 ${
-                            active 
-                              ? "text-brand-primary bg-brand-primary/10" 
-                              : "text-foreground hover:text-brand-primary hover:bg-accent"
-                          }`}
-                        >
+                        </Link>;
+                } else if (isHomePage && item.href.startsWith("/#")) {
+                  return <button key={item.name} onClick={() => handleSmoothScroll(item.href, item.section)} className={`block w-full text-left text-lg font-medium py-3 px-4 rounded-lg transition-all duration-300 ${active ? "text-brand-primary bg-brand-primary/10" : "text-foreground hover:text-brand-primary hover:bg-accent"}`}>
                           {item.name}
-                        </button>
-                      );
-                    } else {
-                      return (
-                        <a
-                          key={item.name}
-                          href={item.href}
-                          className={`block text-lg font-medium py-3 px-4 rounded-lg transition-all duration-300 ${
-                            active 
-                              ? "text-brand-primary bg-brand-primary/10" 
-                              : "text-foreground hover:text-brand-primary hover:bg-accent"
-                          }`}
-                          onClick={closeMenu}
-                        >
+                        </button>;
+                } else {
+                  return <a key={item.name} href={item.href} className={`block text-lg font-medium py-3 px-4 rounded-lg transition-all duration-300 ${active ? "text-brand-primary bg-brand-primary/10" : "text-foreground hover:text-brand-primary hover:bg-accent"}`} onClick={closeMenu}>
                           {item.name}
-                        </a>
-                      );
-                    }
-                  })}
+                        </a>;
+                }
+              })}
                 </div>
 
                 {/* Mobile CTA */}
                 <div className="mt-8 pt-8 border-t border-border">
-                  <button 
-                    onClick={() => {
-                      handleSmoothScroll('/#contact', 'contact');
-                      closeMenu();
-                    }}
-                    className="w-full bg-brand-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-brand-primary/90 transition-colors duration-300"
-                  >
+                  <button onClick={() => {
+                handleSmoothScroll('/#contact', 'contact');
+                closeMenu();
+              }} className="w-full bg-brand-primary text-white px-6 py-3 rounded-lg font-medium hover:bg-brand-primary/90 transition-colors duration-300">
                     Get Started
                   </button>
                 </div>
               </div>
             </div>
           </div>
-        </>
-      )}
-    </>
-  );
+        </>}
+    </>;
 });
-
 Header.displayName = "Header";
 export default Header;
