@@ -1,19 +1,11 @@
-
 import { Mail, Phone, MapPin, Github, Linkedin, Twitter } from 'lucide-react';
-
 const Footer = () => {
-  return (
-    <footer className="bg-gray-900 text-white">
+  return <footer className="bg-gray-900 text-white">
       <div className="container mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center space-x-3 mb-4">
-              <img 
-                src="https://res.cloudinary.com/dknafpppp/image/upload/v1748806784/freepik_br_f976b57b-9b0c-47dc-8aa0-439758154a91_cpevk3.png" 
-                alt="Dee&Cee Labs Logo" 
-                className="h-8 w-8 object-contain"
-                loading="lazy"
-              />
+              <img src="https://res.cloudinary.com/dknafpppp/image/upload/v1748806784/freepik_br_f976b57b-9b0c-47dc-8aa0-439758154a91_cpevk3.png" alt="Dee&Cee Labs Logo" className="h-8 w-8 object-contain" loading="lazy" />
               <span className="text-xl font-bold">Dee&Cee Labs</span>
             </div>
             <p className="text-gray-400 mb-6 leading-relaxed">
@@ -74,11 +66,9 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-          <p>&copy; 2024 Dee&Cee Labs. All rights reserved. Built with passion for innovation.</p>
+          <p>© 2025 Dee&Cee Labs. All rights reserved. Built with passion for innovation.</p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
