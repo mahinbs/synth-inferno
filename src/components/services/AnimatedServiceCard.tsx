@@ -10,6 +10,7 @@ interface Service {
   intro: string;
   technologies: string[];
   highlights: string[];
+  backgroundImage: string;
 }
 
 interface AnimatedServiceCardProps {
@@ -34,7 +35,8 @@ const AnimatedServiceCard = memo(({
       }`}
       style={{ 
         animationDelay: `${index * 200}ms`,
-        transformStyle: 'preserve-3d'
+        transformStyle: 'preserve-3d',
+        willChange: 'transform, opacity'
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -43,10 +45,30 @@ const AnimatedServiceCard = memo(({
       <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600 rounded-3xl opacity-0 group-hover:opacity-30 blur-xl transition-all duration-500 animate-glow-pulse"></div>
       
       {/* Main Card */}
-      <div className="relative bg-white/80 backdrop-blur-xl rounded-3xl p-8 border border-white/50 shadow-xl hover:shadow-2xl transition-all duration-500 group-hover:scale-105 group-hover:-translate-y-2 overflow-hidden">
+      <div className="relative bg-white/80 backdrop-blur-xl rounded-3xl border border-white/50 shadow-xl hover:shadow-2xl transition-all duration-500 group-hover:scale-105 group-hover:-translate-y-2 overflow-hidden">
         
-        {/* Animated Background Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-purple-50/30 to-emerald-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        {/* Background Image */}
+        <div className="absolute inset-0 overflow-hidden rounded-3xl">
+          <img 
+            src={service.backgroundImage}
+            alt=""
+            className={`w-full h-full object-cover transition-all duration-700 ${
+              isHovered ? 'scale-110' : 'scale-100'
+            }`}
+            style={{ 
+              filter: 'brightness(0.3) saturate(1.2)',
+              willChange: 'transform'
+            }}
+            loading="lazy"
+            decoding="async"
+          />
+          {/* Enhanced Gradient Overlays */}
+          <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/50 to-black/70"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-blue-900/30 via-transparent to-purple-900/20"></div>
+          <div className={`absolute inset-0 bg-gradient-to-br from-blue-600/20 via-purple-600/10 to-emerald-600/20 transition-opacity duration-500 ${
+            isHovered ? 'opacity-100' : 'opacity-0'
+          }`}></div>
+        </div>
         
         {/* Floating Particles */}
         <div className="absolute inset-0 overflow-hidden">
@@ -55,16 +77,16 @@ const AnimatedServiceCard = memo(({
           <div className="absolute bottom-6 left-6 w-1.5 h-1.5 bg-emerald-400 rounded-full opacity-0 group-hover:opacity-50 transition-all duration-600 delay-100 transform group-hover:-translate-x-3 group-hover:translate-y-3"></div>
         </div>
 
-        <div className="relative z-10">
+        <div className="relative z-10 p-8">
           {/* Icon Container with Advanced Animation */}
           <div className="relative mb-6">
-            <div className={`w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-500/10 to-purple-500/10 flex items-center justify-center transition-all duration-500 transform ${
+            <div className={`w-20 h-20 rounded-2xl bg-gradient-to-br from-white/20 to-white/10 backdrop-blur-sm border border-white/30 flex items-center justify-center transition-all duration-500 transform ${
               isHovered ? 'scale-110 rotate-6' : 'scale-100 rotate-0'
             }`}>
               {/* Icon Glow Effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-purple-400 rounded-2xl opacity-0 group-hover:opacity-20 blur-lg transition-all duration-500"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-purple-400 rounded-2xl opacity-0 group-hover:opacity-30 blur-lg transition-all duration-500"></div>
               
-              <service.icon className={`h-10 w-10 text-blue-600 transition-all duration-500 transform ${
+              <service.icon className={`h-10 w-10 text-white transition-all duration-500 transform ${
                 isHovered ? 'scale-110 rotate-12' : 'scale-100 rotate-0'
               }`} />
               
@@ -77,13 +99,13 @@ const AnimatedServiceCard = memo(({
 
           {/* Content */}
           <div className="space-y-4">
-            <h3 className={`text-2xl font-bold text-[#1c1c1e] transition-all duration-300 ${
-              isHovered ? 'text-blue-600' : 'text-[#1c1c1e]'
+            <h3 className={`text-2xl font-bold text-white transition-all duration-300 ${
+              isHovered ? 'text-blue-200' : 'text-white'
             }`}>
               {service.title}
             </h3>
             
-            <p className="text-[#1c1c1e]/70 leading-relaxed group-hover:text-[#1c1c1e]/90 transition-colors duration-300">
+            <p className="text-white/80 leading-relaxed group-hover:text-white/90 transition-colors duration-300">
               {service.intro}
             </p>
 
@@ -92,8 +114,8 @@ const AnimatedServiceCard = memo(({
               {service.technologies.slice(0, 3).map((tech, idx) => (
                 <span 
                   key={idx}
-                  className={`px-3 py-1 bg-gradient-to-r from-blue-100 to-purple-100 text-blue-700 rounded-full text-sm font-medium border border-blue-200/50 transition-all duration-300 delay-${idx * 50} ${
-                    isHovered ? 'scale-105 shadow-md' : 'scale-100'
+                  className={`px-3 py-1 bg-white/20 backdrop-blur-sm text-white rounded-full text-sm font-medium border border-white/30 transition-all duration-300 delay-${idx * 50} ${
+                    isHovered ? 'scale-105 shadow-md bg-white/30' : 'scale-100'
                   }`}
                   style={{ transitionDelay: `${idx * 50}ms` }}
                 >
@@ -101,7 +123,7 @@ const AnimatedServiceCard = memo(({
                 </span>
               ))}
               {service.technologies.length > 3 && (
-                <span className="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-sm font-medium">
+                <span className="px-3 py-1 bg-white/10 text-white/70 rounded-full text-sm font-medium border border-white/20">
                   +{service.technologies.length - 3} more
                 </span>
               )}
@@ -109,11 +131,11 @@ const AnimatedServiceCard = memo(({
 
             {/* Key Highlights */}
             <div className="space-y-2 mt-6">
-              <h4 className="text-sm font-semibold text-[#1c1c1e]/80 uppercase tracking-wide">Key Features</h4>
+              <h4 className="text-sm font-semibold text-white/90 uppercase tracking-wide">Key Features</h4>
               {service.highlights.slice(0, 2).map((highlight, idx) => (
                 <div 
                   key={idx}
-                  className={`flex items-center text-sm text-[#1c1c1e]/70 transition-all duration-300 delay-${idx * 100} ${
+                  className={`flex items-center text-sm text-white/80 transition-all duration-300 delay-${idx * 100} ${
                     isHovered ? 'translate-x-1' : 'translate-x-0'
                   }`}
                   style={{ transitionDelay: `${idx * 100}ms` }}
@@ -125,10 +147,10 @@ const AnimatedServiceCard = memo(({
             </div>
 
             {/* Action Button */}
-            <div className="pt-6 mt-6 border-t border-gray-200/50">
-              <button className={`w-full flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-medium transition-all duration-300 transform ${
+            <div className="pt-6 mt-6 border-t border-white/20">
+              <button className={`w-full flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600/80 to-purple-600/80 backdrop-blur-sm text-white rounded-xl font-medium border border-white/30 transition-all duration-300 transform ${
                 isHovered 
-                  ? 'scale-105 shadow-lg shadow-blue-500/25 from-blue-500 to-purple-500' 
+                  ? 'scale-105 shadow-lg shadow-blue-500/25 from-blue-500/90 to-purple-500/90' 
                   : 'scale-100 hover:scale-105'
               }`}>
                 <span>Explore Service</span>
