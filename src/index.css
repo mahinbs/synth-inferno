@@ -85,10 +85,14 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     touch-action: manipulation;
+    line-height: 1.6;
+    letter-spacing: 0.01em;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-bold leading-tight;
+    @apply font-bold;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
   }
 
   h1 {
@@ -101,6 +105,23 @@
 
   h3 {
     @apply text-2xl md:text-4xl;
+  }
+
+  p {
+    line-height: 1.7;
+    letter-spacing: 0.01em;
+  }
+
+  section {
+    padding-top: 3.75rem; /* 60px */
+    padding-bottom: 3.75rem; /* 60px */
+  }
+
+  @media (min-width: 768px) {
+    section {
+      padding-top: 5rem; /* 80px */
+      padding-bottom: 5rem; /* 80px */
+    }
   }
 
   img, video, iframe {
@@ -173,6 +194,81 @@
   /* Brand gradient text utility */
   .brand-gradient-text {
     @apply bg-gradient-to-r from-primary to-brand-secondary bg-clip-text text-transparent;
+  }
+
+  /* Glassmorphism utilities */
+  .glass-header {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .glass-content {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+}
+
+// ... keep existing code (keyframes and other utilities)
+
+/* Performance optimizations for glassmorphism */
+@supports (backdrop-filter: blur(10px)) {
+  .glass-header,
+  .glass-content {
+    backdrop-filter: blur(12px);
+  }
+}
+
+@supports not (backdrop-filter: blur(10px)) {
+  .glass-header {
+    background: rgba(255, 255, 255, 0.9);
+  }
+  .glass-content {
+    background: rgba(255, 255, 255, 0.95);
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--primary));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--primary) / 0.8);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+.focus-visible:focus {
+  @apply outline-2 outline-offset-2 outline-primary;
+}
+
+@media (prefers-contrast: high) {
+  .bg-gradient-to-r {
+    background: none;
+    background-clip: unset;
+    -webkit-text-fill-color: currentColor;
+    color: rgb(var(--foreground));
   }
 }
 
@@ -248,42 +344,4 @@
 
 .animate-float {
   animation: float 3s ease-in-out infinite;
-}
-
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: rgb(var(--background));
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgb(var(--primary));
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgb(var(--primary) / 0.8);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-}
-
-.focus-visible:focus {
-  @apply outline-2 outline-offset-2 outline-primary;
-}
-
-@media (prefers-contrast: high) {
-  .bg-gradient-to-r {
-    background: none;
-    background-clip: unset;
-    -webkit-text-fill-color: currentColor;
-    color: rgb(var(--foreground));
-  }
 }

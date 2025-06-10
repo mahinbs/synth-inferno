@@ -1,9 +1,11 @@
 import { useState, useEffect, memo } from 'react';
 import { Plus, Minus } from 'lucide-react';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
+
 const FAQSection = memo(() => {
   const [isVisible, setIsVisible] = useState(false);
   const [openFAQ, setOpenFAQ] = useState<string | null>(null);
+
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
@@ -13,16 +15,19 @@ const FAQSection = memo(() => {
       threshold: 0.1,
       rootMargin: '100px'
     });
+
     const section = document.getElementById('faq');
     if (section) {
       observer.observe(section);
     }
+
     return () => {
       if (section) {
         observer.unobserve(section);
       }
     };
   }, []);
+
   const faqs = [{
     id: 'timeline',
     question: 'What is the typical timeline for a project?',
@@ -56,28 +61,29 @@ const FAQSection = memo(() => {
     question: 'What industries do you work with?',
     answer: 'We work across various industries including healthcare, fintech, e-commerce, education, gaming, IoT, and enterprise software. Our diverse experience allows us to bring cross-industry insights and best practices to every project, regardless of your specific sector.'
   }];
-  return <section id="faq" className="py-20 relative overflow-hidden" style={{
-    backgroundColor: '#F9FAFB'
-  }}>
+
+  return (
+    <section id="faq" className="py-16 md:py-20 relative overflow-hidden bg-gray-50/80 backdrop-blur-[10px]">
       <div className="container mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className={`font-heading text-5xl md:text-6xl font-bold mb-6 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+          <h2 className={`font-heading text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-[#1c1c1e] leading-tight tracking-tight ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
             Frequently Asked <span className="bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent">Questions</span>
           </h2>
-          <p className={`text-xl text-muted-foreground max-w-3xl mx-auto ${isVisible ? 'animate-fade-in-up animate-stagger-1' : 'opacity-0'}`}>
+          <p className={`text-lg md:text-xl text-[#1c1c1e]/80 max-w-3xl mx-auto leading-relaxed tracking-wide ${isVisible ? 'animate-fade-in-up animate-stagger-1' : 'opacity-0'}`}>
             Get answers to common questions about our services, process, and expertise.
           </p>
         </div>
 
         {/* FAQ List */}
         <div className="max-w-4xl mx-auto">
-          {faqs.map((faq, index) => <Collapsible key={faq.id} open={openFAQ === faq.id} onOpenChange={open => setOpenFAQ(open ? faq.id : null)}>
+          {faqs.map((faq, index) => (
+            <Collapsible key={faq.id} open={openFAQ === faq.id} onOpenChange={open => setOpenFAQ(open ? faq.id : null)}>
               <div className={`mb-4 ${isVisible ? `animate-fade-in-up animate-stagger-${index + 2}` : 'opacity-0'}`}>
                 <CollapsibleTrigger asChild>
-                  <button className="w-full bg-card rounded-2xl p-6 border border-border hover:border-primary/30 transition-all duration-300 text-left group">
+                  <button className="w-full bg-white/60 backdrop-blur-[10px] rounded-2xl p-6 border border-white/30 hover:border-primary/30 transition-all duration-300 text-left group shadow-sm">
                     <div className="flex items-center justify-between">
-                      <h3 className="text-lg md:text-xl font-semibold text-card-foreground group-hover:text-primary transition-colors duration-300">
+                      <h3 className="text-lg md:text-xl font-semibold text-[#1c1c1e] group-hover:text-primary transition-colors duration-300 leading-relaxed tracking-wide">
                         {faq.question}
                       </h3>
                       <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center ml-4 group-hover:bg-primary/20 transition-colors duration-300">
@@ -88,10 +94,10 @@ const FAQSection = memo(() => {
                 </CollapsibleTrigger>
 
                 <CollapsibleContent>
-                  <div className="bg-card rounded-2xl mt-2 border border-border">
+                  <div className="bg-white/60 backdrop-blur-[10px] rounded-2xl mt-2 border border-white/30 shadow-sm">
                     <div className="p-6 pt-0">
-                      <div className="pt-4 border-t border-border/50">
-                        <p className="text-black-foreground leading-relaxed">
+                      <div className="pt-4 border-t border-white/50">
+                        <p className="text-[#1c1c1e]/80 leading-relaxed tracking-wide">
                           {faq.answer}
                         </p>
                       </div>
@@ -99,16 +105,17 @@ const FAQSection = memo(() => {
                   </div>
                 </CollapsibleContent>
               </div>
-            </Collapsible>)}
+            </Collapsible>
+          ))}
         </div>
 
         {/* Contact CTA */}
         <div className={`text-center mt-16 ${isVisible ? 'animate-fade-in-up animate-stagger-4' : 'opacity-0'}`}>
-          <div className="bg-gradient-to-r from-primary/5 to-secondary/5 rounded-3xl p-8 max-w-2xl mx-auto">
-            <h3 className="text-2xl md:text-3xl font-bold mb-4">
+          <div className="bg-white/60 backdrop-blur-[10px] rounded-3xl p-8 max-w-2xl mx-auto border border-white/30 shadow-sm">
+            <h3 className="text-2xl md:text-3xl font-bold mb-4 text-[#1c1c1e] leading-tight tracking-tight">
               Still have questions?
             </h3>
-            <p className="text-black-foreground mb-6">
+            <p className="text-[#1c1c1e]/80 mb-6 leading-relaxed tracking-wide">
               We're here to help! Reach out to our team for personalized answers and project consultation.
             </p>
             <button className="bg-primary text-white px-8 py-3 rounded-xl font-semibold hover:bg-primary/90 transition-colors duration-300 hover:scale-105 transform">
@@ -117,7 +124,9 @@ const FAQSection = memo(() => {
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 });
+
 FAQSection.displayName = 'FAQSection';
 export default FAQSection;

@@ -34,14 +34,14 @@ const ServicesSection = memo(() => {
   const filteredServices = activeFilter === 'all' ? services : services.filter(service => service.category === activeFilter);
 
   return (
-    <section id="services" className="py-20 bg-background relative overflow-hidden" style={{ backgroundColor: '#F9FAFB' }}>
+    <section id="services" className="py-16 md:py-20 bg-background relative overflow-hidden" style={{ backgroundColor: '#F9FAFB' }}>
       <div className="container mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className={`font-heading text-5xl md:text-6xl font-bold mb-6 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+          <h2 className={`font-heading text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-[#1c1c1e] leading-tight tracking-tight ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
             Our <span className="brand-gradient-text">Services</span>
           </h2>
-          <p className={`text-xl text-muted-foreground max-w-3xl mx-auto ${isVisible ? 'animate-fade-in-up animate-stagger-1' : 'opacity-0'}`}>
+          <p className={`text-lg md:text-xl text-[#1c1c1e]/80 max-w-3xl mx-auto leading-relaxed tracking-wide ${isVisible ? 'animate-fade-in-up animate-stagger-1' : 'opacity-0'}`}>
             Comprehensive digital solutions tailored to transform your business and drive innovation across every touchpoint.
           </p>
         </div>
