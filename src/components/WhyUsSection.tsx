@@ -1,4 +1,3 @@
-
 import { useState, useEffect, memo } from 'react';
 import { Target, Zap, Shield, Rocket } from 'lucide-react';
 
@@ -57,7 +56,8 @@ const WhyUsSection = memo(() => {
   return (
     <section 
       id="why-us" 
-      className="py-20 bg-gradient-to-b from-background to-accent/10 relative overflow-hidden"
+      className="py-20 relative overflow-hidden"
+      style={{ backgroundColor: '#F9FAFB' }}
     >
       <div className="container mx-auto px-6 relative z-10">
         {/* Header */}
@@ -82,8 +82,8 @@ const WhyUsSection = memo(() => {
               
               <div className="relative z-10">
                 {/* Icon */}
-                <div className={`w-16 h-16 bg-${item.color}/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                  <item.icon className={`h-8 w-8 text-${item.color}`} />
+                <div className="w-16 h-16 bg-blue-600/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <item.icon className="h-8 w-8 text-blue-600" />
                 </div>
 
                 {/* Content */}

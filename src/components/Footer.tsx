@@ -10,11 +10,11 @@ const Footer = () => {
             <div className="flex items-center space-x-3 mb-4">
               <img 
                 src="https://res.cloudinary.com/dknafpppp/image/upload/v1748806784/freepik_br_f976b57b-9b0c-47dc-8aa0-439758154a91_cpevk3.png" 
-                alt="Boostmysites Logo" 
+                alt="Dee&Cee Labs Logo" 
                 className="h-8 w-8 object-contain"
                 loading="lazy"
               />
-              <span className="text-xl font-bold">Boostmysites</span>
+              <span className="text-xl font-bold">Dee&Cee Labs</span>
             </div>
             <p className="text-gray-400 mb-6 leading-relaxed">
               Building innovative AI-powered software solutions that transform businesses and drive digital success.
@@ -59,7 +59,7 @@ const Footer = () => {
             <div className="space-y-3 text-gray-400">
               <div className="flex items-center space-x-3">
                 <Mail className="h-4 w-4 flex-shrink-0" />
-                <span>hello@boostmysites.com</span>
+                <span>hello@deeceelabs.com</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="h-4 w-4 flex-shrink-0" />
@@ -74,7 +74,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-          <p>&copy; 2024 Boostmysites. All rights reserved. Built with passion for innovation.</p>
+          <p>&copy; 2024 Dee&Cee Labs. All rights reserved. Built with passion for innovation.</p>
         </div>
       </div>
     </footer>
