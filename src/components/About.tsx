@@ -100,7 +100,7 @@ const About = memo(() => {
           {/* Mission Statement */}
           <div className={`text-center bg-gradient-to-r from-primary/5 to-secondary/5 rounded-3xl p-12 ${isVisible ? 'animate-fade-in-up animate-stagger-4' : 'opacity-0'}`}>
             <h3 className="font-heading text-3xl md:text-4xl font-bold mb-6">Our Mission</h3>
-            <p className="text-xl text-muted-foreground leading-relaxed max-w-4xl mx-auto mb-8 colour-black">
+            <p className="text-xl text-black-foreground leading-relaxed max-w-4xl mx-auto mb-8">
               We believe technology should amplify human potential, not replace it. Our mission is to create 
               digital solutions that enhance creativity, productivity, and connection—building bridges between 
               what exists today and what's possible tomorrow.
