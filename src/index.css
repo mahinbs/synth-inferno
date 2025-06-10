@@ -34,14 +34,6 @@
     --ring: 59 130 246;
 
     --radius: 0.5rem;
-
-    /* Dee&Cee Labs Brand Colors */
-    --brand-primary: 59 130 246;
-    --brand-secondary: 16 185 129;
-    --brand-accent: 139 92 246;
-    --brand-neutral: 71 85 105;
-    --brand-light: 249 250 251;
-    --brand-dark: 15 23 42;
   }
 
   .dark {
@@ -88,7 +80,6 @@
     touch-action: manipulation;
   }
 
-  /* Enhanced typography */
   h1, h2, h3, h4, h5, h6 {
     @apply font-bold leading-tight;
   }
@@ -105,7 +96,6 @@
     @apply text-2xl md:text-4xl;
   }
 
-  /* Enhanced performance optimizations */
   img, video {
     content-visibility: auto;
     contain-intrinsic-size: 1px 300px;
@@ -113,7 +103,6 @@
     will-change: auto;
   }
 
-  /* Mobile optimization */
   @media screen and (max-width: 768px) {
     html {
       font-size: 16px;
@@ -126,23 +115,6 @@
 }
 
 @layer utilities {
-  /* Dee&Cee Labs Brand Utilities */
-  .brand-gradient {
-    background: linear-gradient(135deg, rgb(var(--brand-primary)) 0%, rgb(var(--brand-secondary)) 100%);
-  }
-
-  .brand-gradient-text {
-    background: linear-gradient(135deg, rgb(var(--brand-primary)) 0%, rgb(var(--brand-secondary)) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .brand-glow {
-    box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
-  }
-
-  /* Advanced animations */
   .animate-fade-in-up {
     animation: fade-in-up 0.6s ease-out forwards;
   }
@@ -163,7 +135,6 @@
     animation: bounce-in 0.6s ease-out forwards;
   }
 
-  /* Stagger animations */
   .animate-stagger-1 {
     animation-delay: 0.1s;
   }
@@ -180,30 +151,19 @@
     animation-delay: 0.4s;
   }
 
-  /* Interactive elements */
-  .interactive-card {
-    @apply transition-all duration-300 hover:shadow-xl hover:scale-105 cursor-pointer;
+  .filter-button {
+    @apply px-4 py-2 rounded-full transition-all duration-300;
   }
 
-  .interactive-button {
-    @apply transition-all duration-300 hover:scale-105 hover:shadow-lg;
+  .filter-button.active {
+    @apply bg-primary text-primary-foreground shadow-lg;
   }
 
-  /* Glass morphism effect */
-  .glass {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-  }
-
-  .glass-dark {
-    background: rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+  .filter-button:not(.active) {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/80;
   }
 }
 
-/* Enhanced keyframes */
 @keyframes fade-in-up {
   from {
     opacity: 0;
@@ -265,20 +225,19 @@
   }
 }
 
-/* Service filter animations */
-.filter-button {
-  @apply px-4 py-2 rounded-full transition-all duration-300;
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
-.filter-button.active {
-  @apply bg-primary text-primary-foreground shadow-lg;
+.animate-float {
+  animation: float 3s ease-in-out infinite;
 }
 
-.filter-button:not(.active) {
-  @apply bg-secondary text-secondary-foreground hover:bg-secondary/80;
-}
-
-/* Enhanced scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -288,25 +247,14 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgb(var(--brand-primary));
+  background: rgb(var(--primary));
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgb(var(--brand-secondary));
+  background: rgb(var(--primary) / 0.8);
 }
 
-/* Dark mode optimizations */
-.dark .glass {
-  background: rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.dark .brand-glow {
-  box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
-}
-
-/* Accessibility improvements */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -315,15 +263,14 @@
   }
 }
 
-/* Focus indicators */
 .focus-visible:focus {
   @apply outline-2 outline-offset-2 outline-primary;
 }
 
-/* High contrast mode support */
 @media (prefers-contrast: high) {
-  .brand-gradient-text {
+  .bg-gradient-to-r {
     background: none;
+    background-clip: unset;
     -webkit-text-fill-color: currentColor;
     color: rgb(var(--foreground));
   }
