@@ -19,28 +19,31 @@ interface CategoryAccent {
 interface ServiceHoverDropdownProps {
   service: Service;
   accent: CategoryAccent;
+  isLastCard?: boolean;
 }
 
-const ServiceHoverDropdown = memo(({ service, accent }: ServiceHoverDropdownProps) => {
+const ServiceHoverDropdown = memo(({ service, accent, isLastCard = false }: ServiceHoverDropdownProps) => {
   return (
-    <div className="absolute top-full left-0 right-0 z-50 mt-2 bg-white/95 backdrop-blur-sm border border-gray-200/60 rounded-xl p-6 shadow-xl animate-fade-in-up transition-all duration-300 ease-in-out">
+    <div className={`absolute top-full z-50 mt-2 w-full max-w-lg bg-white border border-gray-300 rounded-xl p-6 shadow-2xl animate-fade-in-up transition-all duration-300 ease-in-out ${
+      isLastCard ? 'right-0 left-auto' : 'left-0 right-0'
+    }`}>
       <div className="space-y-4">
         <div>
-          <h4 className="text-sm font-semibold text-[#1c1c1e] mb-3 flex items-center gap-2">
+          <h4 className="text-sm font-semibold text-gray-900 mb-3 flex items-center gap-2">
             🧾 About This Service
           </h4>
-          <p className="text-xs text-[#1c1c1e]/80 leading-relaxed">
+          <p className="text-sm text-gray-700 leading-relaxed">
             {service.aboutService.substring(0, 120)}...
           </p>
         </div>
         
         <div>
-          <h4 className="text-sm font-semibold text-[#1c1c1e] mb-3 flex items-center gap-2">
+          <h4 className="text-sm font-semibold text-gray-900 mb-3 flex items-center gap-2">
             ✅ Key Features
           </h4>
           <ul className="space-y-1">
             {service.keyFeatures.slice(0, 3).map((feature, idx) => (
-              <li key={idx} className="text-xs text-[#1c1c1e]/80 flex items-start gap-2">
+              <li key={idx} className="text-sm text-gray-700 flex items-start gap-2">
                 <span className={`${accent.text} mt-1 flex-shrink-0`}>•</span>
                 {feature}
               </li>
@@ -49,7 +52,7 @@ const ServiceHoverDropdown = memo(({ service, accent }: ServiceHoverDropdownProp
         </div>
         
         <div>
-          <h4 className="text-sm font-semibold text-[#1c1c1e] mb-3 flex items-center gap-2">
+          <h4 className="text-sm font-semibold text-gray-900 mb-3 flex items-center gap-2">
             🧰 Technologies Used
           </h4>
           <div className="flex flex-wrap gap-2">
@@ -61,11 +64,11 @@ const ServiceHoverDropdown = memo(({ service, accent }: ServiceHoverDropdownProp
           </div>
         </div>
         
-        <div className="flex gap-3 pt-3 border-t border-gray-200/40">
+        <div className="flex gap-3 pt-3 border-t border-gray-200">
           <Button size="sm" className={`bg-gradient-to-r ${accent.gradient} text-white hover:opacity-90 text-xs px-4 py-2 rounded-lg transition-all duration-200 hover:scale-105`}>
             🔘 View Details
           </Button>
-          <Button size="sm" variant="outline" className="text-xs px-4 py-2 rounded-lg border-gray-300 text-[#1c1c1e]/80 hover:bg-gray-100/60 transition-all duration-200 hover:scale-105">
+          <Button size="sm" variant="outline" className="text-xs px-4 py-2 rounded-lg border-gray-300 text-gray-700 hover:bg-gray-100 transition-all duration-200 hover:scale-105">
             Get Quote
           </Button>
         </div>

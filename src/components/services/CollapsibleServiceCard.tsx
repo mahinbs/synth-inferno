@@ -24,12 +24,14 @@ interface CollapsibleServiceCardProps {
   service: Service;
   index: number;
   isVisible: boolean;
+  isLastCard?: boolean;
 }
 
 const CollapsibleServiceCard = memo(({
   service,
   index,
-  isVisible
+  isVisible,
+  isLastCard = false
 }: CollapsibleServiceCardProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
@@ -51,7 +53,7 @@ const CollapsibleServiceCard = memo(({
       <Collapsible open={isOpen} onOpenChange={setIsOpen}>
         {/* Hover Preview Dropdown */}
         {isHovered && !isOpen && (
-          <ServiceHoverDropdown service={service} accent={accent} />
+          <ServiceHoverDropdown service={service} accent={accent} isLastCard={isLastCard} />
         )}
 
         {/* Main Card */}

@@ -21,8 +21,8 @@ const ServiceFilter = memo(({
           onClick={() => onFilterChange(category.id)}
           className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
             activeFilter === category.id
-              ? 'bg-primary text-primary-foreground shadow-lg'
-              : 'bg-card text-card-foreground border border-border hover:bg-muted/50'
+              ? 'bg-slate-800 text-white shadow-lg'
+              : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 hover:border-slate-300'
           }`}
         >
           {category.label}

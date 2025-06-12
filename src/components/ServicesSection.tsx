@@ -73,6 +73,7 @@ const ServicesSection = memo(() => {
               service={service}
               index={index}
               isVisible={isVisible}
+              isLastCard={index === filteredServices.length - 1}
             />
           ))}
         </div>
