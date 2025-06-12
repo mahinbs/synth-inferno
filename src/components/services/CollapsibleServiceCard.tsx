@@ -15,6 +15,7 @@ interface Service {
   aboutService: string;
   keyFeatures: string[];
   technologies: string[];
+  highlights: string[];
   price: string;
   duration: string;
 }
