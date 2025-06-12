@@ -35,15 +35,8 @@ const ServicesSection = memo(() => {
   return (
     <section 
       id="services" 
-      style={{ background: 'linear-gradient(to bottom, #0e1015, #111319)' }}
-      className="py-16 md:py-20 relative overflow-hidden"
+      className="py-16 md:py-20 relative overflow-hidden bg-gray-50/80 backdrop-blur-[10px]"
     >
-      {/* Subtle Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-600/5 rounded-full blur-3xl"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-600/5 rounded-full blur-3xl"></div>
-      </div>
-
       <div className="container mx-auto px-4 sm:px-6 max-w-6xl relative z-10">
         {/* Header */}
         <div className="text-center mb-12 md:mb-16">
@@ -60,7 +53,7 @@ const ServicesSection = memo(() => {
               Services
             </span>
           </h2>
-          <p className={`text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed tracking-wide px-4 ${isVisible ? 'animate-fade-in-up animate-stagger-1' : 'opacity-0'}`}>
+          <p className={`text-base sm:text-lg md:text-xl text-[#1c1c1e]/80 max-w-3xl mx-auto leading-relaxed tracking-wide px-4 ${isVisible ? 'animate-fade-in-up animate-stagger-1' : 'opacity-0'}`}>
             Comprehensive digital solutions tailored to transform your business and drive innovation across every touchpoint.
           </p>
         </div>
