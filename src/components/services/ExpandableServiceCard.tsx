@@ -22,7 +22,7 @@ const ExpandableServiceCard = memo(({
 
   return (
     <div
-      className={`group relative rounded-2xl bg-gray-900/80 backdrop-blur-sm border ${colors.border} hover:bg-gray-800/90 transition-all duration-300 overflow-hidden will-change-auto`}
+      className={`group relative rounded-2xl bg-gray-900/80 backdrop-blur-sm border ${colors.border} hover:bg-gray-800/90 transition-all duration-300 overflow-hidden will-change-auto service-card-bg ${service.id}`}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
       style={{ contentVisibility: "auto" }}

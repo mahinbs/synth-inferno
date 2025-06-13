@@ -25,6 +25,80 @@
     backface-visibility: hidden;
   }
 
+  /* Service Background Images */
+  .service-card-bg {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: 160px auto;
+    background-blend-mode: soft-light;
+    opacity: 0.12;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .service-card-bg.web-apps::before {
+    background-image: url('/images/bg-web-ui.svg');
+    color: #3b82f6;
+  }
+
+  .service-card-bg.saas::before {
+    background-image: url('/images/bg-saas-metrics.svg');
+    color: #3b82f6;
+  }
+
+  .service-card-bg.mobile-apps::before {
+    background-image: url('/images/bg-mobile-app.svg');
+    color: #6b7280;
+  }
+
+  .service-card-bg.ai-calling::before {
+    background-image: url('/images/bg-ai-call.svg');
+    color: #64748b;
+  }
+
+  .service-card-bg.ai-automation::before {
+    background-image: url('/images/bg-ai-automation.svg');
+    color: #78716c;
+  }
+
+  /* Fallback colors for failed image loads */
+  .service-card-bg.web-apps::before {
+    background-color: rgba(59, 130, 246, 0.05);
+  }
+
+  .service-card-bg.saas::before {
+    background-color: rgba(59, 130, 246, 0.05);
+  }
+
+  .service-card-bg.mobile-apps::before {
+    background-color: rgba(107, 114, 128, 0.05);
+  }
+
+  .service-card-bg.ai-calling::before {
+    background-color: rgba(100, 116, 139, 0.05);
+  }
+
+  .service-card-bg.ai-automation::before {
+    background-color: rgba(120, 113, 108, 0.05);
+  }
+
+  /* Ensure content stays on top */
+  .service-card-bg > * {
+    position: relative;
+    z-index: 2;
+  }
+
   /* Horizontal Service Cards Styling */
   .horizontal-service-card {
     contain: layout style paint;
@@ -71,6 +145,12 @@
   .service-background-overlay {
     display: none; /* Hide background overlays on mobile for better performance */
   }
+
+  /* Reduce background size on mobile */
+  .service-card-bg::before {
+    background-size: 120px auto;
+    opacity: 0.08;
+  }
 }
 
 /* Reduced motion for service components */
@@ -81,6 +161,10 @@
 
   .service-card-expanded,
   .service-card-collapsed {
+    transition: none !important;
+  }
+
+  .service-card-bg::before {
     transition: none !important;
   }
 }

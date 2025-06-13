@@ -1,0 +1,16 @@
+
+<svg width="160" height="120" viewBox="0 0 160 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M20 60 Q30 50 40 60 Q50 70 60 60 Q70 50 80 60 Q90 70 100 60 Q110 50 120 60 Q130 70 140 60" stroke="currentColor" stroke-width="2" fill="none" opacity="0.2"/>
+  <path d="M20 45 Q35 35 50 45 Q65 55 80 45 Q95 35 110 45 Q125 55 140 45" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.15"/>
+  <path d="M20 75 Q35 85 50 75 Q65 65 80 75 Q95 85 110 75 Q125 65 140 75" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.15"/>
+  <circle cx="30" cy="35" r="3" fill="currentColor" opacity="0.2"/>
+  <circle cx="50" cy="30" r="2" fill="currentColor" opacity="0.15"/>
+  <circle cx="70" cy="35" r="2.5" fill="currentColor" opacity="0.2"/>
+  <circle cx="90" cy="30" r="2" fill="currentColor" opacity="0.15"/>
+  <circle cx="110" cy="35" r="3" fill="currentColor" opacity="0.2"/>
+  <circle cx="130" cy="30" r="2" fill="currentColor" opacity="0.15"/>
+  <rect x="25" y="85" width="20" height="15" rx="8" fill="none" stroke="currentColor" stroke-width="1" opacity="0.2"/>
+  <rect x="115" y="85" width="20" height="15" rx="8" fill="none" stroke="currentColor" stroke-width="1" opacity="0.2"/>
+  <path d="M30 92 L35 92" stroke="currentColor" stroke-width="2" opacity="0.25"/>
+  <path d="M125 92 L130 92" stroke="currentColor" stroke-width="2" opacity="0.25"/>
+</svg>

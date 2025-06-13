@@ -1,0 +1,14 @@
+
+<svg width="160" height="120" viewBox="0 0 160 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="40" cy="60" r="25" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.2"/>
+  <path d="M40 35 L50 45 L40 55 L30 45 Z" fill="currentColor" opacity="0.15"/>
+  <rect x="80" y="40" width="4" height="40" rx="2" fill="currentColor" opacity="0.2"/>
+  <rect x="90" y="50" width="4" height="30" rx="2" fill="currentColor" opacity="0.2"/>
+  <rect x="100" y="35" width="4" height="45" rx="2" fill="currentColor" opacity="0.2"/>
+  <rect x="110" y="45" width="4" height="35" rx="2" fill="currentColor" opacity="0.2"/>
+  <path d="M20 25 Q30 20 40 25 Q50 30 60 25" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.2"/>
+  <path d="M20 90 Q40 85 60 90 Q80 95 100 90 Q120 85 140 90" stroke="currentColor" stroke-width="1" fill="none" opacity="0.15"/>
+  <circle cx="25" cy="25" r="1.5" fill="currentColor" opacity="0.3"/>
+  <circle cx="45" cy="25" r="1.5" fill="currentColor" opacity="0.3"/>
+  <circle cx="65" cy="25" r="1.5" fill="currentColor" opacity="0.3"/>
+</svg>

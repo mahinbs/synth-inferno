@@ -18,6 +18,7 @@ export const servicesData = [
       "Full-stack web applications built with React, Node.js, and modern frameworks. We create scalable, secure, and high-performance solutions tailored to your business needs.",
     image:
       "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    backgroundImage: "/images/bg-web-ui.svg",
     features: [
       "React & Next.js",
       "Real-time Features",
@@ -40,6 +41,7 @@ export const servicesData = [
       "Complete SAAS platforms with multi-tenancy, payment processing, analytics dashboards, and user management. Built for scale and optimized for recurring revenue.",
     image:
       "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    backgroundImage: "/images/bg-saas-metrics.svg",
     features: [
       "Multi-tenant Architecture",
       "Payment Integration",
@@ -62,6 +64,7 @@ export const servicesData = [
       "iOS and Android applications built with React Native or native technologies. Focus on performance, user experience, and app store optimization.",
     image:
       "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    backgroundImage: "/images/bg-mobile-app.svg",
     features: [
       "iOS & Android",
       "Cross-platform",
@@ -84,6 +87,7 @@ export const servicesData = [
       "Advanced AI-powered calling systems for lead generation, customer support, and sales automation. Featuring voice AI, sentiment analysis, and CRM integration.",
     image:
       "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    backgroundImage: "/images/bg-ai-call.svg",
     features: [
       "Voice AI",
       "Call Analytics",
@@ -106,6 +110,7 @@ export const servicesData = [
       "Intelligent automation solutions using machine learning and AI to streamline operations, reduce costs, and improve efficiency across your organization.",
     image:
       "https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    backgroundImage: "/images/bg-ai-automation.svg",
     features: [
       "Process Automation",
       "Machine Learning",
