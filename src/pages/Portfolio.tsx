@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -6,6 +5,7 @@ import PortfolioHero from '@/components/portfolio/PortfolioHero';
 import PortfolioServiceFilter from '@/components/portfolio/PortfolioServiceFilter';
 import PortfolioProjectsGrid from '@/components/portfolio/PortfolioProjectsGrid';
 import PortfolioCTASection from '@/components/portfolio/PortfolioCTASection';
+import FloatingChatbot from '@/components/chatbot/FloatingChatbot';
 import { getPortfolioData } from '@/services/portfolioDataService';
 import { Service } from '@/data/projects';
 
@@ -64,6 +64,30 @@ const Portfolio = () => {
     window.location.href = `/case-study/${projectId}`;
   };
 
+  const handleShowWebProjects = () => {
+    setSelectedService('web-apps');
+    // Scroll to projects grid
+    const projectsSection = document.querySelector('#projects-grid');
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  const handleContactHuman = () => {
+    // Scroll to contact section or CTA
+    const contactSection = document.getElementById('contact');
+    const ctaSection = document.querySelector('.portfolio-cta');
+    
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    } else if (ctaSection) {
+      ctaSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } else {
+      // Navigate to home page contact section
+      window.location.href = '/#contact';
+    }
+  };
+
   const totalProjects = services.reduce((total, service) => total + service.projects.length, 0);
 
   if (loading) {
@@ -81,7 +105,7 @@ const Portfolio = () => {
       <PortfolioHero totalProjects={totalProjects} />
 
       {/* Portfolio Grid */}
-      <section className="py-20 bg-gradient-to-b from-gray-50 to-white relative">
+      <section id="projects-grid" className="py-20 bg-gradient-to-b from-gray-50 to-white relative">
         {/* Light Background Pattern */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50/20 via-transparent to-purple-50/20 pointer-events-none"></div>
 
@@ -99,11 +123,19 @@ const Portfolio = () => {
             handleProjectClick={handleProjectClick}
           />
           
-          <PortfolioCTASection />
+          <div className="portfolio-cta">
+            <PortfolioCTASection />
+          </div>
         </div>
       </section>
 
       <Footer />
+      
+      {/* Floating Chatbot */}
+      <FloatingChatbot 
+        onShowWebProjects={handleShowWebProjects}
+        onContactHuman={handleContactHuman}
+      />
     </div>
   );
 };
