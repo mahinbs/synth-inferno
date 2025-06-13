@@ -1,0 +1,99 @@
+
+@layer utilities {
+  /* Enhanced Glassmorphic Portfolio Cards */
+  .glassmorphic-portfolio-card {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transition: all 300ms ease-in-out;
+    padding: 16px;
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    contain: layout style paint;
+    content-visibility: auto;
+    position: relative;
+  }
+
+  .glassmorphic-portfolio-card:hover {
+    transform: scale(1.03) translate3d(0, -2px, 0);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  /* Enhanced portfolio card animations */
+  .portfolio-card-enter {
+    animation: portfolioCardFadeIn 0.4s ease-out forwards;
+  }
+
+  @keyframes portfolioCardFadeIn {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 12px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  /* Responsive grid utilities */
+  .portfolio-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 1024px) {
+    .portfolio-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .portfolio-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+/* Responsive adjustments for portfolio cards */
+@media (max-width: 640px) {
+  .glassmorphic-portfolio-card {
+    padding: 12px;
+    border-radius: 16px;
+  }
+  
+  .glassmorphic-portfolio-card:hover {
+    transform: scale(1.02) translate3d(0, -1px, 0);
+  }
+}
+
+@media (max-width: 768px) {
+  .glassmorphic-portfolio-card {
+    will-change: auto;
+  }
+  
+  .glassmorphic-portfolio-card:hover {
+    will-change: transform;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Reduced motion for portfolio components */
+@media (prefers-reduced-motion: reduce) {
+  .glassmorphic-portfolio-card {
+    transition: none !important;
+  }
+
+  .portfolio-card-enter {
+    animation: none !important;
+  }
+}

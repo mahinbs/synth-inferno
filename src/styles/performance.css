@@ -1,0 +1,40 @@
+
+@layer utilities {
+  /* Performance optimizations for images */
+  .optimized-image {
+    will-change: auto;
+    contain: layout style paint;
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 200px;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    transform: translate3d(0, 0, 0);
+  }
+
+  /* Text utilities */
+  .brand-gradient-text {
+    @apply bg-gradient-to-r from-primary to-brand-secondary bg-clip-text text-transparent;
+  }
+
+  /* Line clamp utilities for text truncation */
+  .line-clamp-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+/* Performance optimizations for mobile */
+@media (max-width: 768px) {
+  .optimized-image {
+    contain-intrinsic-size: 1px 150px;
+  }
+}

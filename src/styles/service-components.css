@@ -1,0 +1,86 @@
+
+@layer utilities {
+  /* Enhanced Service Card Styling */
+  .service-card {
+    contain: layout style paint;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+  }
+
+  .service-card-expanded {
+    background: linear-gradient(to bottom, #ffffff, #f8f9fb);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+    border: 1px solid #ebeff3;
+    border-radius: 16px;
+    transform: translate3d(0, 0, 0);
+  }
+
+  .service-card-collapsed {
+    transform: translate3d(0, 0, 0);
+    transition: all 300ms ease-in-out;
+  }
+
+  .service-card-content {
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+  }
+
+  /* Horizontal Service Cards Styling */
+  .horizontal-service-card {
+    contain: layout style paint;
+    will-change: transform, opacity;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+  }
+
+  /* Service background overlay effects */
+  .service-background-overlay {
+    position: absolute;
+    inset: 0;
+    opacity: 0.05;
+    pointer-events: none;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: soft-light;
+    filter: blur(1px);
+    transform: scale(1.1);
+    will-change: auto;
+    contain: layout style paint;
+  }
+
+  /* Filter buttons */
+  .filter-button {
+    @apply px-4 py-2 rounded-full transition-all duration-300;
+  }
+
+  .filter-button.active {
+    @apply bg-primary text-primary-foreground shadow-lg;
+  }
+
+  .filter-button:not(.active) {
+    @apply bg-card text-muted-foreground hover:bg-muted border border-border;
+  }
+}
+
+/* Mobile optimizations for service components */
+@media (max-width: 768px) {
+  .service-card-content {
+    transition-duration: 200ms;
+  }
+
+  .service-background-overlay {
+    display: none; /* Hide background overlays on mobile for better performance */
+  }
+}
+
+/* Reduced motion for service components */
+@media (prefers-reduced-motion: reduce) {
+  .service-card-content {
+    transition: none !important;
+  }
+
+  .service-card-expanded,
+  .service-card-collapsed {
+    transition: none !important;
+  }
+}
