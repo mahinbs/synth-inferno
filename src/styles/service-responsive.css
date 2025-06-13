@@ -1,0 +1,57 @@
+
+/* Mobile optimizations for service components */
+@media (max-width: 768px) {
+  .service-card-content {
+    transition-duration: 200ms;
+  }
+
+  .service-background-overlay {
+    display: none; /* Hide background overlays on mobile for better performance */
+  }
+
+  /* Reduce background size and effects on mobile */
+  .service-card-bg::before {
+    background-size: 140px auto;
+    opacity: 0.35;
+    animation-duration: 12s; /* Slower animation on mobile */
+  }
+
+  .service-card-bg::after {
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+
+  .service-card-bg:hover::after {
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+}
+
+/* Reduced motion for service components */
+@media (prefers-reduced-motion: reduce) {
+  .service-card-content {
+    transition: none !important;
+  }
+
+  .service-card-expanded,
+  .service-card-collapsed {
+    transition: none !important;
+  }
+
+  .service-card-bg::before,
+  .service-card-bg::after {
+    animation: none !important;
+  }
+
+  .service-card-bg:hover::before {
+    animation: none !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .service-card-bg {
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid white;
+  }
+}

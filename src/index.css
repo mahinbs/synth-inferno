@@ -1,7 +1,10 @@
 
 /* Import all CSS modules */
 @import './styles/base.css';
-@import './styles/service-components.css';
+@import './styles/service-cards.css';
+@import './styles/service-backgrounds.css';
+@import './styles/service-animations.css';
+@import './styles/service-responsive.css';
 @import './styles/enhanced-services.css';
 @import './styles/portfolio-components.css';
 @import './styles/glass-effects.css';

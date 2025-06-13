@@ -1,0 +1,121 @@
+
+@layer utilities {
+  /* Enhanced Service Background Images with Glassmorphic Effects */
+  .service-card-bg {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: 180px auto;
+    opacity: 0.45;
+    pointer-events: none;
+    z-index: 1;
+    will-change: transform;
+  }
+
+  /* Glassmorphic overlay for enhanced visual effect */
+  .service-card-bg::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: 2;
+    transition: all 300ms ease-in-out;
+  }
+
+  .service-card-bg:hover::after {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  /* Service-specific background images */
+  .service-card-bg.web-apps::before {
+    background-image: url('/images/bg-web-ui.svg');
+    color: #3b82f6;
+    background-color: rgba(59, 130, 246, 0.1);
+  }
+
+  .service-card-bg.saas::before {
+    background-image: url('/images/bg-saas-metrics.svg');
+    color: #3b82f6;
+    background-color: rgba(59, 130, 246, 0.1);
+  }
+
+  .service-card-bg.mobile-apps::before {
+    background-image: url('/images/bg-mobile-app.svg');
+    color: #6b7280;
+    background-color: rgba(107, 114, 128, 0.1);
+  }
+
+  .service-card-bg.ai-calling::before {
+    background-image: url('/images/bg-ai-call.svg');
+    color: #64748b;
+    background-color: rgba(100, 116, 139, 0.1);
+  }
+
+  .service-card-bg.ai-automation::before {
+    background-image: url('/images/bg-ai-automation.svg');
+    color: #78716c;
+    background-color: rgba(120, 113, 108, 0.1);
+  }
+
+  /* Ensure content stays on top with enhanced text readability */
+  .service-card-bg > * {
+    position: relative;
+    z-index: 3;
+  }
+
+  /* Service background overlay effects */
+  .service-background-overlay {
+    position: absolute;
+    inset: 0;
+    opacity: 0.05;
+    pointer-events: none;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: soft-light;
+    filter: blur(1px);
+    transform: scale(1.1);
+    will-change: auto;
+    contain: layout style paint;
+  }
+
+  /* Shimmer effect for premium feel */
+  .service-card-bg:hover::before {
+    background-image: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    ), var(--bg-image);
+    background-size: 200% 100%, 180px auto;
+  }
+}
+
+/* Fallback for browsers that don't support backdrop-filter */
+@supports not (backdrop-filter: blur(8px)) {
+  .service-card-bg::after {
+    background: rgba(255, 255, 255, 0.3);
+  }
+
+  .service-card-bg:hover::after {
+    background: rgba(255, 255, 255, 0.4);
+  }
+}
