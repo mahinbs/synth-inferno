@@ -35,9 +35,10 @@ const ServicesSection = memo(() => {
   return (
     <section 
       id="services" 
-      className="py-16 md:py-20 relative overflow-hidden bg-gray-50/80 backdrop-blur-[10px]"
+      className="py-16 md:py-20 relative bg-gray-50/80 backdrop-blur-[10px]"
+      style={{ overflow: 'visible' }}
     >
-      <div className="container mx-auto px-4 sm:px-6 max-w-6xl relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 max-w-6xl relative z-10" style={{ overflow: 'visible' }}>
         {/* Header */}
         <div className="text-center mb-12 md:mb-16">
           <h2 className={`font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight tracking-tight ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
@@ -66,7 +67,7 @@ const ServicesSection = memo(() => {
         />
 
         {/* Services Container */}
-        <div className="space-y-6 md:space-y-8">
+        <div className="space-y-6 md:space-y-8" style={{ overflow: 'visible' }}>
           {filteredServices.map((service, index) => (
             <CollapsibleServiceCard
               key={service.id}

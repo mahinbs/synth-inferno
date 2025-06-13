@@ -1,10 +1,10 @@
-
 import { memo, useState } from 'react';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import { getCategoryAccent } from './utils/categoryAccents';
 import ServiceHoverDropdown from './ServiceHoverDropdown';
 import ServiceCardHeader from './ServiceCardHeader';
 import ServiceCardContent from './ServiceCardContent';
+import { useSmartDropdownPosition } from '@/hooks/useSmartDropdownPosition';
 
 interface Service {
   id: string;
@@ -36,10 +36,12 @@ const CollapsibleServiceCard = memo(({
   const [isOpen, setIsOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const accent = getCategoryAccent(service.category);
+  const { elementRef, position } = useSmartDropdownPosition();
 
   return (
     <div 
-      className={`group transform transition-all duration-500 ease-out ${
+      ref={elementRef}
+      className={`group transform transition-all duration-500 ease-out relative ${
         isVisible 
           ? `animate-fade-in-up opacity-100 translate-y-0` 
           : 'opacity-0 translate-y-8'
@@ -53,11 +55,15 @@ const CollapsibleServiceCard = memo(({
       <Collapsible open={isOpen} onOpenChange={setIsOpen}>
         {/* Hover Preview Dropdown */}
         {isHovered && !isOpen && (
-          <ServiceHoverDropdown service={service} accent={accent} isLastCard={isLastCard} />
+          <ServiceHoverDropdown 
+            service={service} 
+            accent={accent} 
+            position={position}
+          />
         )}
 
         {/* Main Card */}
-        <div className={`relative bg-white/60 backdrop-blur-sm rounded-xl border border-white/40 shadow-lg transition-all duration-300 overflow-hidden hover:shadow-xl hover:border-gray-200/60 ${
+        <div className={`relative bg-white/60 backdrop-blur-sm rounded-xl border border-white/40 shadow-lg transition-all duration-300 overflow-visible hover:shadow-xl hover:border-gray-200/60 ${
           isOpen ? 'ring-1 ring-gray-300/50' : ''
         }`}>
           
@@ -73,7 +79,7 @@ const CollapsibleServiceCard = memo(({
           </CollapsibleTrigger>
 
           {/* Collapsible Content */}
-          <CollapsibleContent className="data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up">
+          <CollapsibleContent className="data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up overflow-visible">
             <ServiceCardContent service={service} accent={accent} />
           </CollapsibleContent>
         </div>

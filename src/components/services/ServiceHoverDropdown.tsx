@@ -16,18 +16,48 @@ interface CategoryAccent {
   text: string;
 }
 
+interface DropdownPosition {
+  shouldPositionAbove: boolean;
+  shouldPositionLeft: boolean;
+}
+
 interface ServiceHoverDropdownProps {
   service: Service;
   accent: CategoryAccent;
-  isLastCard?: boolean;
+  position: DropdownPosition;
 }
 
-const ServiceHoverDropdown = memo(({ service, accent, isLastCard = false }: ServiceHoverDropdownProps) => {
+const ServiceHoverDropdown = memo(({ service, accent, position }: ServiceHoverDropdownProps) => {
+  const getPositionClasses = () => {
+    let classes = 'absolute z-[100] w-full max-w-lg bg-white border border-gray-300 rounded-xl p-6 shadow-2xl transition-all duration-300 ease-in-out';
+    
+    if (position.shouldPositionAbove) {
+      classes += ' bottom-full mb-2';
+    } else {
+      classes += ' top-full mt-2';
+    }
+    
+    if (position.shouldPositionLeft) {
+      classes += ' right-0';
+    } else {
+      classes += ' left-0';
+    }
+    
+    return classes;
+  };
+
   return (
-    <div className={`absolute top-full z-50 mt-2 w-full max-w-lg bg-white border border-gray-300 rounded-xl p-6 shadow-2xl animate-fade-in-up transition-all duration-300 ease-in-out ${
-      isLastCard ? 'right-0 left-auto' : 'left-0 right-0'
-    }`}>
-      <div className="space-y-4">
+    <div className={getPositionClasses()}>
+      {/* Position indicator arrow */}
+      <div className={`absolute w-3 h-3 bg-white border transform rotate-45 ${
+        position.shouldPositionAbove 
+          ? 'top-full -mt-1.5 border-t-0 border-l-0' 
+          : 'bottom-full -mb-1.5 border-b-0 border-r-0'
+      } ${
+        position.shouldPositionLeft ? 'right-6' : 'left-6'
+      } border-gray-300`} />
+      
+      <div className="space-y-4 relative z-10">
         <div>
           <h4 className="text-sm font-semibold text-gray-900 mb-3 flex items-center gap-2">
             🧾 About This Service
