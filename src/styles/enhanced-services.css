@@ -1,0 +1,134 @@
+
+@layer utilities {
+  /* Enhanced Service Cards */
+  .enhanced-service-card {
+    contain: layout style paint;
+    will-change: transform, opacity;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+  }
+
+  /* Shimmer animation for premium feel */
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%) skewX(-12deg);
+    }
+    100% {
+      transform: translateX(200%) skewX(-12deg);
+    }
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2s ease-in-out infinite;
+  }
+
+  /* Floating particles animation */
+  @keyframes float {
+    0%, 100% {
+      transform: translate3d(0, 0, 0) scale(1);
+      opacity: 0.3;
+    }
+    50% {
+      transform: translate3d(5px, -5px, 0) scale(1.1);
+      opacity: 0.7;
+    }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* Enhanced glassmorphic effects */
+  .glass-enhanced {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  /* Performance optimizations */
+  .optimized-card {
+    contain: layout style paint;
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 200px;
+  }
+
+  /* Enhanced gradients */
+  .gradient-electric {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+
+  .gradient-cyber {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  }
+
+  /* Hover effects with hardware acceleration */
+  .card-hover-lift {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+  }
+
+  .card-hover-lift:hover {
+    transform: translate3d(0, -8px, 0) scale(1.02);
+  }
+
+  /* Text glow effects */
+  .text-glow {
+    text-shadow: 0 0 10px rgba(139, 92, 246, 0.3),
+                 0 0 20px rgba(139, 92, 246, 0.2),
+                 0 0 30px rgba(139, 92, 246, 0.1);
+  }
+
+  /* Enhanced border animations */
+  @keyframes border-pulse {
+    0%, 100% {
+      border-color: rgba(139, 92, 246, 0.3);
+      box-shadow: 0 0 20px rgba(139, 92, 246, 0.1);
+    }
+    50% {
+      border-color: rgba(139, 92, 246, 0.6);
+      box-shadow: 0 0 30px rgba(139, 92, 246, 0.2);
+    }
+  }
+
+  .animate-border-pulse {
+    animation: border-pulse 2s ease-in-out infinite;
+  }
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .enhanced-service-card {
+    contain-intrinsic-size: 1px 150px;
+  }
+
+  .card-hover-lift:hover {
+    transform: translate3d(0, -4px, 0) scale(1.01);
+  }
+
+  /* Reduce animations on mobile for better performance */
+  .animate-shimmer,
+  .animate-float {
+    animation-duration: 4s;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .enhanced-service-card,
+  .card-hover-lift,
+  .animate-shimmer,
+  .animate-float,
+  .animate-border-pulse {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .glass-enhanced {
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid white;
+  }
+}

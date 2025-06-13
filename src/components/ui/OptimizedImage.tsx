@@ -21,6 +21,7 @@ const OptimizedImage = ({
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(priority);
   const [imageSrc, setImageSrc] = useState(priority ? src : '');
+  const [hasError, setHasError] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
@@ -34,7 +35,7 @@ const OptimizedImage = ({
           observer.disconnect();
         }
       },
-      { threshold: 0.1, rootMargin: '50px' }
+      { threshold: 0.1, rootMargin: '100px' }
     );
 
     if (imgRef.current) {
@@ -46,33 +47,44 @@ const OptimizedImage = ({
 
   const handleLoad = () => {
     setIsLoaded(true);
+    setHasError(false);
     onLoad?.();
   };
 
   const handleError = () => {
-    // Fallback to a placeholder or retry logic
+    setHasError(true);
     console.warn(`Failed to load image: ${src}`);
   };
 
   return (
-    <div ref={imgRef} className={`relative overflow-hidden optimized-image ${className}`}>
-      {/* Loading skeleton with improved performance */}
-      {!isLoaded && (
-        <div 
-          className="absolute inset-0 bg-gray-200 animate-pulse"
-          style={{
-            contain: 'layout style paint',
-            willChange: 'auto'
-          }}
-        />
+    <div 
+      ref={imgRef} 
+      className={`relative overflow-hidden optimized-image ${className}`}
+      style={{
+        contain: 'layout style paint',
+        contentVisibility: 'auto'
+      }}
+    >
+      {/* Loading skeleton */}
+      {!isLoaded && !hasError && (
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-800 to-slate-700 animate-pulse">
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-slate-600/50 to-transparent animate-shimmer" />
+        </div>
+      )}
+      
+      {/* Error fallback */}
+      {hasError && (
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-800 to-slate-700 flex items-center justify-center">
+          <div className="text-slate-400 text-sm">Image unavailable</div>
+        </div>
       )}
       
       {/* Main image */}
-      {isInView && imageSrc && (
+      {isInView && imageSrc && !hasError && (
         <img
           src={imageSrc}
           alt={alt}
-          className={`w-full h-full object-cover transition-opacity duration-300 ${
+          className={`w-full h-full object-cover transition-opacity duration-500 ${
             isLoaded ? 'opacity-100' : 'opacity-0'
           }`}
           onLoad={handleLoad}
@@ -82,8 +94,7 @@ const OptimizedImage = ({
           style={{
             willChange: isLoaded ? 'auto' : 'opacity',
             transform: 'translate3d(0, 0, 0)',
-            contain: 'layout style paint',
-            contentVisibility: 'auto'
+            contain: 'layout style paint'
           }}
         />
       )}

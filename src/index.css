@@ -2,6 +2,7 @@
 /* Import all CSS modules */
 @import './styles/base.css';
 @import './styles/service-components.css';
+@import './styles/enhanced-services.css';
 @import './styles/portfolio-components.css';
 @import './styles/glass-effects.css';
 @import './styles/performance.css';
