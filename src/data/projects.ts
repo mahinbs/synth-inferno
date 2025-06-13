@@ -1,3 +1,4 @@
+import { Smartphone, Code, Cloud, Phone, Brain } from 'lucide-react';
 
 export interface Project {
   id: string;

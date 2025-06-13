@@ -1,5 +1,5 @@
 
-import { memo } from 'react';
+import { memo, useState, useEffect } from 'react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { ExternalLink } from 'lucide-react';
@@ -11,14 +11,32 @@ interface ServicePortfolioPreviewsProps {
 }
 
 const ServicePortfolioPreviews = memo(({ serviceId, projects }: ServicePortfolioPreviewsProps) => {
+  const [isVisible, setIsVisible] = useState(false);
+
   // Filter projects by service and limit to 2-3 featured projects
   const filteredProjects = projects.filter(project => 
     project.serviceId === serviceId
   ).slice(0, 3);
 
+  useEffect(() => {
+    // Trigger animation after component mounts
+    const timer = setTimeout(() => setIsVisible(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
+
   if (filteredProjects.length === 0) {
     return null;
   }
+
+  // Get project type based on service and project
+  const getProjectType = (project: Project) => {
+    if (project.industry) return project.industry;
+    if (project.title.toLowerCase().includes('ecommerce') || project.title.toLowerCase().includes('retail')) return 'E-commerce';
+    if (project.title.toLowerCase().includes('healthcare') || project.title.toLowerCase().includes('medical')) return 'Healthcare';
+    if (project.title.toLowerCase().includes('education') || project.title.toLowerCase().includes('learning')) return 'EdTech';
+    if (project.title.toLowerCase().includes('saas') || project.title.toLowerCase().includes('platform')) return 'SAAS Platform';
+    return 'Enterprise';
+  };
 
   return (
     <div className="mt-8 pt-6 border-t border-gray-200/30">
@@ -26,13 +44,27 @@ const ServicePortfolioPreviews = memo(({ serviceId, projects }: ServicePortfolio
         🚀 Featured Projects
       </h4>
       
-      <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-        {filteredProjects.map((project) => (
+      <div className="grid gap-4 grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
+        {filteredProjects.map((project, index) => (
           <div
             key={project.id}
-            className="glassmorphic-portfolio-card group cursor-pointer"
+            className={`glassmorphic-portfolio-card group cursor-pointer transition-all duration-300 ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
+            }`}
+            style={{
+              transitionDelay: `${index * 150}ms`,
+              willChange: 'transform, opacity',
+              contain: 'layout style paint'
+            }}
             onClick={() => window.open(`/case-study/${project.id}`, '_blank')}
           >
+            {/* Project Type Badge */}
+            <div className="absolute top-3 right-3 z-10">
+              <Badge className="text-xs px-2 py-1 bg-white/90 text-gray-700 border border-gray-200/60 backdrop-blur-sm">
+                {getProjectType(project)}
+              </Badge>
+            </div>
+
             {/* Project Image */}
             <div className="relative overflow-hidden rounded-xl mb-3">
               <img
@@ -43,7 +75,8 @@ const ServicePortfolioPreviews = memo(({ serviceId, projects }: ServicePortfolio
                 decoding="async"
                 style={{
                   willChange: 'transform',
-                  transform: 'translate3d(0, 0, 0)'
+                  transform: 'translate3d(0, 0, 0)',
+                  containIntrinsicSize: '1px 128px'
                 }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

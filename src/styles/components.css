@@ -1,3 +1,4 @@
+
 @layer utilities {
   /* Enhanced Service Card Styling */
   .service-card {
@@ -32,7 +33,7 @@
     backface-visibility: hidden;
   }
 
-  /* Glassmorphic Portfolio Cards */
+  /* Enhanced Glassmorphic Portfolio Cards */
   .glassmorphic-portfolio-card {
     background: rgba(255, 255, 255, 0.15);
     border-radius: 20px;
@@ -47,6 +48,7 @@
     backface-visibility: hidden;
     contain: layout style paint;
     content-visibility: auto;
+    position: relative;
   }
 
   .glassmorphic-portfolio-card:hover {
@@ -65,6 +67,37 @@
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
     transform: translate3d(0, 0, 0);
+  }
+
+  /* Enhanced portfolio card animations */
+  .portfolio-card-enter {
+    animation: portfolioCardFadeIn 0.4s ease-out forwards;
+  }
+
+  @keyframes portfolioCardFadeIn {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 12px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  /* Service background overlay effects */
+  .service-background-overlay {
+    position: absolute;
+    inset: 0;
+    opacity: 0.05;
+    pointer-events: none;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: soft-light;
+    filter: blur(1px);
+    transform: scale(1.1);
+    will-change: auto;
+    contain: layout style paint;
   }
 
   /* Filter buttons */
@@ -115,6 +148,25 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
+
+  /* Responsive grid utilities */
+  .portfolio-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 1024px) {
+    .portfolio-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .portfolio-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
 }
 
 /* Responsive adjustments */
@@ -141,12 +193,20 @@
   .service-card-content {
     transition-duration: 200ms;
   }
+
+  .portfolio-grid {
+    grid-template-columns: 1fr !important;
+  }
 }
 
 /* Performance optimizations for mobile */
 @media (max-width: 768px) {
   .optimized-image {
     contain-intrinsic-size: 1px 150px;
+  }
+
+  .service-background-overlay {
+    display: none; /* Hide background overlays on mobile for better performance */
   }
 }
 
@@ -159,5 +219,13 @@
   .service-card-expanded,
   .service-card-collapsed {
     transition: none !important;
+  }
+
+  .glassmorphic-portfolio-card {
+    transition: none !important;
+  }
+
+  .portfolio-card-enter {
+    animation: none !important;
   }
 }

@@ -59,7 +59,7 @@ export const services: Service[] = [
     ],
     technologies: ['React', 'Next.js', 'Node.js', 'TypeScript', 'PostgreSQL', 'GraphQL'],
     highlights: ['Server-side rendering and static generation', 'Progressive Web App development', 'API design and microservices architecture'],
-    backgroundImage: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    backgroundImage: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
     price: '$5,000',
     duration: '4-12 weeks'
   },
@@ -78,7 +78,7 @@ export const services: Service[] = [
     ],
     technologies: ['React', 'Node.js', 'AWS', 'Stripe', 'PostgreSQL', 'Redis'],
     highlights: ['Multi-tenant architecture', 'Subscription billing integration', 'Real-time analytics dashboard'],
-    backgroundImage: 'https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    backgroundImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
     price: '$15,000',
     duration: '8-16 weeks'
   },
@@ -97,7 +97,7 @@ export const services: Service[] = [
     ],
     technologies: ['Flutter', 'React Native', 'Swift', 'Kotlin', 'Firebase', 'AWS Amplify'],
     highlights: ['Cross-platform development', 'Native performance optimization', 'Push notifications and real-time features'],
-    backgroundImage: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    backgroundImage: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
     price: '$10,000',
     duration: '6-14 weeks'
   },
@@ -116,7 +116,7 @@ export const services: Service[] = [
     ],
     technologies: ['Twilio', 'OpenAI Whisper', 'Azure Speech', 'Python', 'TensorFlow', 'WebRTC'],
     highlights: ['Natural voice synthesis and recognition', 'Real-time conversation analysis', 'CRM integration and lead qualification'],
-    backgroundImage: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    backgroundImage: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
     price: '$8,000',
     duration: '6-10 weeks'
   },
@@ -135,7 +135,7 @@ export const services: Service[] = [
     ],
     technologies: ['TensorFlow', 'PyTorch', 'OpenAI GPT', 'LangChain', 'Python', 'MLflow'],
     highlights: ['Custom model development and training', 'Process automation and optimization', 'Intelligent workflow management'],
-    backgroundImage: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    backgroundImage: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
     price: '$12,000',
     duration: '8-12 weeks'
   }
