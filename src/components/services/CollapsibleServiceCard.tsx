@@ -1,5 +1,5 @@
 
-import { memo, useState, useCallback } from 'react';
+import { memo, useState, useCallback, useRef } from 'react';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import { getCategoryAccent } from './utils/categoryAccents';
 import ServiceHoverDropdown from './ServiceHoverDropdown';
@@ -38,14 +38,36 @@ const CollapsibleServiceCard = memo(({
   const [isHovered, setIsHovered] = useState(false);
   const accent = getCategoryAccent(service.category);
   const { elementRef, position } = useSmartDropdownPosition();
+  const hoverTimeoutRef = useRef<NodeJS.Timeout>();
 
-  // Optimized hover handlers with useCallback
+  // Enhanced hover handlers with proper timeout management
   const handleMouseEnter = useCallback(() => {
+    // Clear any existing timeout
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current);
+    }
     setIsHovered(true);
   }, []);
 
   const handleMouseLeave = useCallback(() => {
-    setIsHovered(false);
+    // Set a delay before hiding dropdown
+    hoverTimeoutRef.current = setTimeout(() => {
+      setIsHovered(false);
+    }, 200);
+  }, []);
+
+  const handleDropdownMouseEnter = useCallback(() => {
+    // Cancel hide timeout when hovering over dropdown
+    if (hoverTimeoutRef.current) {
+      clearTimeout(hoverTimeoutRef.current);
+    }
+  }, []);
+
+  const handleDropdownMouseLeave = useCallback(() => {
+    // Hide dropdown when leaving dropdown area
+    hoverTimeoutRef.current = setTimeout(() => {
+      setIsHovered(false);
+    }, 200);
   }, []);
 
   return (
@@ -63,13 +85,18 @@ const CollapsibleServiceCard = memo(({
       onMouseLeave={handleMouseLeave}
     >
       <Collapsible open={isOpen} onOpenChange={setIsOpen}>
-        {/* Enhanced Hover Preview Dropdown */}
+        {/* Enhanced Hover Preview Dropdown with proper event handling */}
         {isHovered && !isOpen && (
-          <ServiceHoverDropdown 
-            service={service} 
-            accent={accent} 
-            position={position}
-          />
+          <div
+            onMouseEnter={handleDropdownMouseEnter}
+            onMouseLeave={handleDropdownMouseLeave}
+          >
+            <ServiceHoverDropdown 
+              service={service} 
+              accent={accent} 
+              position={position}
+            />
+          </div>
         )}
 
         {/* Main Card with enhanced styling */}

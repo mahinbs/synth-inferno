@@ -20,19 +20,22 @@ export const useSmartDropdownPosition = () => {
     const viewportHeight = window.innerHeight;
     const viewportWidth = window.innerWidth;
     
-    // More accurate dropdown dimensions based on actual content
-    const dropdownHeight = 400; // Increased for better content display
-    const dropdownWidth = 480; // Slightly wider for better readability
+    // Enhanced dropdown dimensions for better content display
+    const dropdownHeight = 420;
+    const dropdownWidth = 500;
     
-    // Add padding from viewport edges for better visual spacing
-    const bottomPadding = 40;
-    const rightPadding = 20;
+    // Improved padding from viewport edges
+    const bottomPadding = 60;
+    const rightPadding = 40;
+    const topPadding = 20;
+    const leftPadding = 20;
     
-    // Check if dropdown would be cut off at bottom with better threshold
-    const shouldPositionAbove = rect.bottom + dropdownHeight > viewportHeight - bottomPadding;
+    // Enhanced positioning logic with better thresholds
+    const shouldPositionAbove = rect.bottom + dropdownHeight > viewportHeight - bottomPadding && 
+                               rect.top - dropdownHeight > topPadding;
     
-    // Check if dropdown would be cut off at right edge with better threshold
-    const shouldPositionLeft = rect.right + dropdownWidth > viewportWidth - rightPadding;
+    const shouldPositionLeft = rect.right + dropdownWidth > viewportWidth - rightPadding &&
+                              rect.left - dropdownWidth > leftPadding;
 
     setPosition({
       shouldPositionAbove,
@@ -43,9 +46,19 @@ export const useSmartDropdownPosition = () => {
   useEffect(() => {
     calculatePosition();
     
-    // Use passive listeners for better scroll performance
-    const handleScroll = () => calculatePosition();
-    const handleResize = () => calculatePosition();
+    // Optimized event listeners with debouncing
+    let scrollTimeout: NodeJS.Timeout;
+    let resizeTimeout: NodeJS.Timeout;
+
+    const handleScroll = () => {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(calculatePosition, 10);
+    };
+
+    const handleResize = () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(calculatePosition, 100);
+    };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('resize', handleResize, { passive: true });
@@ -53,6 +66,8 @@ export const useSmartDropdownPosition = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleResize);
+      clearTimeout(scrollTimeout);
+      clearTimeout(resizeTimeout);
     };
   }, [calculatePosition]);
 
