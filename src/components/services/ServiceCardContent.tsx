@@ -2,12 +2,15 @@
 import { memo } from 'react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import ServicePortfolioPreviews from './ServicePortfolioPreviews';
+import { projectsData } from '@/data/projects';
 
 interface Service {
   aboutService: string;
   keyFeatures: string[];
   technologies: string[];
   highlights: string[];
+  id: string;
 }
 
 interface CategoryAccent {
@@ -23,6 +26,9 @@ interface ServiceCardContentProps {
 }
 
 const ServiceCardContent = memo(({ service, accent }: ServiceCardContentProps) => {
+  // Get all projects for portfolio previews
+  const allProjects = projectsData.flatMap(serviceData => serviceData.projects);
+
   return (
     <div className="px-6 pb-6 space-y-6 border-t border-gray-200/30">
       {/* About Service */}
@@ -81,6 +87,12 @@ const ServiceCardContent = memo(({ service, accent }: ServiceCardContentProps) =
           ))}
         </ul>
       </div>
+
+      {/* Portfolio Previews */}
+      <ServicePortfolioPreviews 
+        serviceId={service.id} 
+        projects={allProjects}
+      />
 
       {/* Action Buttons */}
       <div className="flex gap-3 pt-4">

@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -300,6 +299,43 @@
     transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
   }
+
+  /* Glassmorphic Portfolio Cards */
+  .glassmorphic-portfolio-card {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transition: all 300ms ease-in-out;
+    padding: 16px;
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+  }
+
+  .glassmorphic-portfolio-card:hover {
+    transform: scale(1.03) translate3d(0, -2px, 0);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  /* Line clamp utilities for text truncation */
+  .line-clamp-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
 }
 
 /* Fix horizontal scrolling globally */
@@ -556,5 +592,26 @@ body, html {
   .animate-float,
   .animate-glow-pulse {
     animation: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .glassmorphic-portfolio-card {
+    padding: 12px;
+    border-radius: 16px;
+  }
+  
+  .glassmorphic-portfolio-card:hover {
+    transform: scale(1.02) translate3d(0, -1px, 0);
+  }
+}
+
+@media (max-width: 768px) {
+  .glassmorphic-portfolio-card {
+    will-change: auto;
+  }
+  
+  .glassmorphic-portfolio-card:hover {
+    will-change: transform;
   }
 }
