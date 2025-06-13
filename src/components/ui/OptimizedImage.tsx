@@ -34,7 +34,7 @@ const OptimizedImage = ({
           observer.disconnect();
         }
       },
-      { threshold: 0.1, rootMargin: '20px' }
+      { threshold: 0.1, rootMargin: '50px' }
     );
 
     if (imgRef.current) {
@@ -55,10 +55,16 @@ const OptimizedImage = ({
   };
 
   return (
-    <div ref={imgRef} className={`relative overflow-hidden ${className}`}>
-      {/* Optimized loading skeleton */}
+    <div ref={imgRef} className={`relative overflow-hidden optimized-image ${className}`}>
+      {/* Loading skeleton with improved performance */}
       {!isLoaded && (
-        <div className="absolute inset-0 bg-gray-800 animate-pulse" />
+        <div 
+          className="absolute inset-0 bg-gray-200 animate-pulse"
+          style={{
+            contain: 'layout style paint',
+            willChange: 'auto'
+          }}
+        />
       )}
       
       {/* Main image */}
@@ -66,13 +72,19 @@ const OptimizedImage = ({
         <img
           src={imageSrc}
           alt={alt}
-          className={`w-full h-full object-cover transition-opacity duration-200 ${
+          className={`w-full h-full object-cover transition-opacity duration-300 ${
             isLoaded ? 'opacity-100' : 'opacity-0'
           }`}
           onLoad={handleLoad}
           onError={handleError}
           loading={priority ? 'eager' : 'lazy'}
           decoding="async"
+          style={{
+            willChange: isLoaded ? 'auto' : 'opacity',
+            transform: 'translate3d(0, 0, 0)',
+            contain: 'layout style paint',
+            contentVisibility: 'auto'
+          }}
         />
       )}
     </div>

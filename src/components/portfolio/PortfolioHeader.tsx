@@ -31,10 +31,10 @@ const PortfolioHeader = ({ isVisible, setIsVisible }: PortfolioHeaderProps) => {
 
   return (
     <div className={`text-center mb-16 transition-all duration-700 ${isVisible ? 'animate-fade-in opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-      <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-        Our Latest <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Projects</span>
+      <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+        Our Latest <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Projects</span>
       </h2>
-      <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+      <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
         Discover some of our most innovative solutions that have transformed businesses across industries.
       </p>
     </div>

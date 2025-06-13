@@ -26,7 +26,7 @@ const ServicePortfolioPreviews = memo(({ serviceId, projects }: ServicePortfolio
         🚀 Featured Projects
       </h4>
       
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         {filteredProjects.map((project) => (
           <div
             key={project.id}
@@ -40,6 +40,11 @@ const ServicePortfolioPreviews = memo(({ serviceId, projects }: ServicePortfolio
                 alt={project.title}
                 className="w-full h-32 object-cover transition-transform duration-300 group-hover:scale-105"
                 loading="lazy"
+                decoding="async"
+                style={{
+                  willChange: 'transform',
+                  transform: 'translate3d(0, 0, 0)'
+                }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>

@@ -64,25 +64,17 @@ const PortfolioSection = () => {
   return (
     <section 
       id="portfolio"
-      className="py-20 bg-gradient-to-b from-black to-gray-900 relative overflow-hidden"
-      style={{
-        backgroundImage: `url('https://res.cloudinary.com/dknafpppp/image/upload/v1748805837/representation-user-experience-interface-design_1_halzwq.jpg')`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundAttachment: 'scroll'
-      }}
+      className="py-20 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden"
     >
-      {/* Optimized Background Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-gray-900/80"></div>
-      <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30"></div>
+      {/* Subtle background pattern overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-transparent to-purple-50/20 pointer-events-none"></div>
 
       <div className="container mx-auto px-6 relative z-10">
         <PortfolioHeader isVisible={isVisible} setIsVisible={setIsVisible} />
         
         {loading ? (
           <div className="flex items-center justify-center py-12">
-            <div className="text-white">Loading portfolio...</div>
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
           </div>
         ) : (
           <>

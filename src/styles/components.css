@@ -1,4 +1,3 @@
-
 @layer utilities {
   /* Enhanced Service Card Styling */
   .service-card {
@@ -46,6 +45,8 @@
     will-change: transform;
     transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
+    contain: layout style paint;
+    content-visibility: auto;
   }
 
   .glassmorphic-portfolio-card:hover {
@@ -53,6 +54,17 @@
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
     border-color: rgba(255, 255, 255, 0.3);
     background: rgba(255, 255, 255, 0.2);
+  }
+
+  /* Performance optimizations for images */
+  .optimized-image {
+    will-change: auto;
+    contain: layout style paint;
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 200px;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    transform: translate3d(0, 0, 0);
   }
 
   /* Filter buttons */
@@ -128,6 +140,13 @@
 
   .service-card-content {
     transition-duration: 200ms;
+  }
+}
+
+/* Performance optimizations for mobile */
+@media (max-width: 768px) {
+  .optimized-image {
+    contain-intrinsic-size: 1px 150px;
   }
 }
 

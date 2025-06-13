@@ -13,7 +13,7 @@ const Header = memo(() => {
   const isMobile = useIsMobile();
   
   const activeSection = useScrollSpy({
-    sectionIds: ["home", "about", "services", "why-us", "faq", "contact"],
+    sectionIds: ["home", "about", "services", "portfolio", "why-us", "faq", "contact"],
     rootMargin: "-20% 0px -80% 0px"
   });
 
@@ -62,6 +62,10 @@ const Header = memo(() => {
     name: "Services",
     href: "/#services",
     section: "services"
+  }, {
+    name: "Portfolio",
+    href: "/#portfolio",
+    section: "portfolio"
   }, {
     name: "Why Us",
     href: "/#why-us",
