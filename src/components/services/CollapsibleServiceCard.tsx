@@ -1,9 +1,12 @@
 
-import { memo, useState, useCallback, useRef, useEffect } from 'react';
+import { memo, useState } from 'react';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import { getCategoryAccent } from './utils/categoryAccents';
 import ServiceCardHeader from './ServiceCardHeader';
 import ServiceCardContent from './ServiceCardContent';
+import ServiceCardWrapper from './ServiceCardWrapper';
+import { useServiceCardInteractions } from './hooks/useServiceCardInteractions';
+import { useTouchOutside } from './hooks/useTouchOutside';
 
 interface Service {
   id: string;
@@ -33,137 +36,39 @@ const CollapsibleServiceCard = memo(({
   isLastCard = false
 }: CollapsibleServiceCardProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isTouchDevice, setIsTouchDevice] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
   const accent = getCategoryAccent(service.category);
-  const collapseTimeoutRef = useRef<NodeJS.Timeout>();
-  const cardRef = useRef<HTMLDivElement>(null);
 
-  // Detect touch device on mount
-  useEffect(() => {
-    const checkTouchDevice = () => {
-      setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
-    };
-    
-    checkTouchDevice();
-    
-    const handleResize = () => {
-      checkTouchDevice();
-    };
-    
-    window.addEventListener('resize', handleResize, { passive: true });
-    
-    return () => {
-      window.removeEventListener('resize', handleResize);
-      if (collapseTimeoutRef.current) {
-        clearTimeout(collapseTimeoutRef.current);
-      }
-    };
-  }, []);
-
-  // Auto-expand on mouse enter (desktop only)
-  const handleMouseEnter = useCallback(() => {
-    if (isTouchDevice || isAnimating) return;
-    
-    // Clear any pending collapse timeout
-    if (collapseTimeoutRef.current) {
-      clearTimeout(collapseTimeoutRef.current);
-    }
-    
-    // Immediately expand
-    setIsAnimating(true);
-    setIsOpen(true);
-    
-    // Reset animation flag after transition
-    setTimeout(() => setIsAnimating(false), 300);
-  }, [isTouchDevice, isAnimating]);
-
-  // Delayed collapse on mouse leave (desktop only)
-  const handleMouseLeave = useCallback(() => {
-    if (isTouchDevice || isAnimating) return;
-    
-    // Set a 200ms delay before collapsing
-    collapseTimeoutRef.current = setTimeout(() => {
-      setIsAnimating(true);
-      setIsOpen(false);
-      
-      // Reset animation flag after transition
-      setTimeout(() => setIsAnimating(false), 300);
-    }, 200);
-  }, [isTouchDevice, isAnimating]);
-
-  // Prevent collapse when hovering over expanded content
-  const handleContentMouseEnter = useCallback(() => {
-    if (isTouchDevice) return;
-    
-    // Cancel any pending collapse
-    if (collapseTimeoutRef.current) {
-      clearTimeout(collapseTimeoutRef.current);
-    }
-  }, [isTouchDevice]);
-
-  // Resume collapse timing when leaving expanded content
-  const handleContentMouseLeave = useCallback(() => {
-    if (isTouchDevice) return;
-    
-    // Set a 200ms delay before collapsing
-    collapseTimeoutRef.current = setTimeout(() => {
-      setIsAnimating(true);
-      setIsOpen(false);
-      
-      // Reset animation flag after transition
-      setTimeout(() => setIsAnimating(false), 300);
-    }, 200);
-  }, [isTouchDevice]);
-
-  // Click handler for mobile/touch devices
-  const handleClick = useCallback(() => {
-    if (isTouchDevice) {
-      setIsAnimating(true);
-      setIsOpen(!isOpen);
-      
-      // Reset animation flag after transition
-      setTimeout(() => setIsAnimating(false), 300);
-    }
-  }, [isTouchDevice, isOpen]);
+  const {
+    isTouchDevice,
+    cardRef,
+    handleMouseEnter,
+    handleMouseLeave,
+    handleContentMouseEnter,
+    handleContentMouseLeave,
+    handleClick
+  } = useServiceCardInteractions({
+    isAnimating,
+    setIsAnimating,
+    setIsOpen
+  });
 
   // Handle touch outside to close on mobile
-  useEffect(() => {
-    if (!isTouchDevice || !isOpen) return;
-
-    const handleTouchOutside = (event: TouchEvent) => {
-      if (cardRef.current && !cardRef.current.contains(event.target as Node)) {
-        setIsOpen(false);
-      }
-    };
-
-    const handleScroll = () => {
-      setIsOpen(false);
-    };
-
-    document.addEventListener('touchstart', handleTouchOutside, { passive: true });
-    document.addEventListener('scroll', handleScroll, { passive: true });
-
-    return () => {
-      document.removeEventListener('touchstart', handleTouchOutside);
-      document.removeEventListener('scroll', handleScroll);
-    };
-  }, [isTouchDevice, isOpen]);
+  useTouchOutside({
+    isTouchDevice,
+    isOpen,
+    cardRef,
+    setIsOpen
+  });
 
   return (
-    <div 
-      ref={cardRef}
-      className={`group transform transition-all duration-500 ease-out relative service-card ${
-        isVisible 
-          ? `animate-fade-in-up opacity-100 translate-y-0` 
-          : 'opacity-0 translate-y-8'
-      }`}
-      style={{ 
-        animationDelay: `${Math.min(index * 100, 500)}ms`,
-        willChange: isAnimating ? 'transform, opacity' : 'auto'
-      }}
+    <ServiceCardWrapper
+      isVisible={isVisible}
+      index={index}
+      isAnimating={isAnimating}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      cardRef={cardRef}
     >
       <Collapsible open={isOpen} onOpenChange={isTouchDevice ? setIsOpen : undefined}>
         {/* Main Card with enhanced styling */}
@@ -206,7 +111,7 @@ const CollapsibleServiceCard = memo(({
           </CollapsibleContent>
         </div>
       </Collapsible>
-    </div>
+    </ServiceCardWrapper>
   );
 });
 
