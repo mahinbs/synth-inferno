@@ -11,6 +11,22 @@
     transform: translate3d(0, 0, 0);
   }
 
+  /* Enhanced shimmer animation for loading states */
+  .animate-shimmer {
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
   /* Text utilities */
   .brand-gradient-text {
     @apply bg-gradient-to-r from-primary to-brand-secondary bg-clip-text text-transparent;
@@ -30,6 +46,23 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
+
+  /* GPU acceleration for animated elements */
+  .gpu-accelerated {
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
+  /* Performance-optimized hover effects */
+  .hover-lift {
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+  }
+
+  .hover-lift:hover {
+    transform: translate3d(0, -2px, 0) scale(1.02);
+  }
 }
 
 /* Performance optimizations for mobile */
@@ -37,4 +70,41 @@
   .optimized-image {
     contain-intrinsic-size: 1px 150px;
   }
+
+  /* Reduce animations on mobile for better performance */
+  .hover-lift {
+    transition: none;
+  }
+
+  .hover-lift:hover {
+    transform: none;
+  }
+}
+
+/* Reduce motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .animate-shimmer {
+    animation: none;
+  }
+
+  .hover-lift {
+    transition: none;
+  }
+
+  .hover-lift:hover {
+    transform: none;
+  }
+}
+
+/* Critical CSS for above-the-fold content */
+.critical-content {
+  contain: layout style;
+  content-visibility: visible;
+}
+
+/* Optimize heavy visual sections */
+.heavy-section {
+  contain: layout style paint;
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 400px;
 }

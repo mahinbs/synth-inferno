@@ -62,7 +62,7 @@ const PortfolioProjectsGrid = ({
     <div className="space-y-20">
       {services
         .filter(service => !selectedService || service.id === selectedService)
-        .map((service) => {
+        .map((service, serviceIndex) => {
           const colors = colorClasses[service.color];
           
           return (
@@ -72,7 +72,7 @@ const PortfolioProjectsGrid = ({
                   <service.icon className="h-6 w-6" />
                 </div>
                 <div>
-                  <h2 className="text-3xl font-bold text-gray-900 transition-colors duration-300">
+                  <h2 className="text-3xl font-bold text-gray-900 transition-colors duration-200">
                     {service.title}
                   </h2>
                   <p className="text-gray-600 mt-1">{service.projects.length} projects completed</p>
@@ -80,14 +80,14 @@ const PortfolioProjectsGrid = ({
               </div>
 
               <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
-                {service.projects.map((project) => (
+                {service.projects.map((project, projectIndex) => (
                   <div
                     key={project.id}
-                    className={`group relative rounded-2xl bg-white/90 backdrop-blur-sm border ${colors.border} hover:bg-white transition-all duration-500 overflow-hidden cursor-pointer hover:transform hover:scale-105 hover:shadow-xl`}
+                    className={`group relative rounded-2xl bg-white/90 backdrop-blur-sm border ${colors.border} hover:bg-white transition-all duration-300 overflow-hidden cursor-pointer hover:transform hover:scale-[1.02] hover:shadow-lg`}
                     onClick={() => handleProjectClick(project.id)}
                     style={{
-                      willChange: 'transform, opacity',
-                      contentVisibility: 'auto'
+                      willChange: 'transform',
+                      contain: 'layout style paint'
                     }}
                   >
                     {/* Project Image */}
@@ -95,7 +95,9 @@ const PortfolioProjectsGrid = ({
                       <OptimizedImage
                         src={project.image}
                         alt={project.title}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        className="w-full h-full"
+                        priority={serviceIndex === 0 && projectIndex < 3}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       />
                       <div className={`absolute inset-0 bg-gradient-to-t ${colors.gradient} opacity-40`}></div>
                       <div className={`absolute top-4 left-4 w-10 h-10 rounded-lg ${colors.icon} border flex items-center justify-center shadow-sm`}>
@@ -112,10 +114,10 @@ const PortfolioProjectsGrid = ({
                     <div className="p-6">
                       <div className="flex items-start justify-between mb-4">
                         <div className="flex-1">
-                          <h3 className={`text-xl font-bold text-gray-900 mb-2 group-hover:${colors.text} transition-colors duration-300`}>
+                          <h3 className={`text-xl font-bold text-gray-900 mb-2 group-hover:${colors.text} transition-colors duration-200`}>
                             {project.title}
                           </h3>
-                          <p className="text-gray-600 group-hover:text-gray-700 transition-colors duration-300 text-sm leading-relaxed">
+                          <p className="text-gray-600 group-hover:text-gray-700 transition-colors duration-200 text-sm leading-relaxed">
                             {project.description}
                           </p>
                         </div>
@@ -140,7 +142,7 @@ const PortfolioProjectsGrid = ({
                       {/* Action Button */}
                       <Link 
                         to={`/case-study/${project.id}`}
-                        className={`w-full flex items-center justify-center space-x-2 px-4 py-3 rounded-xl ${colors.button} border font-medium transition-all duration-300 hover:transform hover:scale-105 mt-4 shadow-sm`}
+                        className={`w-full flex items-center justify-center space-x-2 px-4 py-3 rounded-xl ${colors.button} border font-medium transition-all duration-200 hover:transform hover:scale-[1.02] mt-4 shadow-sm`}
                         onClick={(e) => e.stopPropagation()}
                       >
                         <span>View Full Case Study</span>

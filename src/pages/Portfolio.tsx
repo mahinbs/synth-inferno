@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -8,11 +9,15 @@ import PortfolioCTASection from '@/components/portfolio/PortfolioCTASection';
 import FloatingChatbot from '@/components/chatbot/FloatingChatbot';
 import { getPortfolioData } from '@/services/portfolioDataService';
 import { Service } from '@/data/projects';
+import { usePerformanceOptimization } from '@/hooks/usePerformanceOptimization';
 
 const Portfolio = () => {
   const [selectedService, setSelectedService] = useState<string | null>(null);
   const [services, setServices] = useState<Service[]>([]);
   const [loading, setLoading] = useState(true);
+
+  // Initialize performance optimizations
+  usePerformanceOptimization();
 
   // Load data when component mounts
   useEffect(() => {
@@ -26,15 +31,6 @@ const Portfolio = () => {
         // Log the total number of projects
         const totalProjects = data.reduce((total, service) => total + service.projects.length, 0);
         console.log(`Portfolio Page - Total projects loaded: ${totalProjects}`);
-        
-        // Check specifically for Crave Kitchen
-        const allProjects = data.flatMap(service => service.projects);
-        const craveKitchenProject = allProjects.find(p => p.title.toLowerCase().includes('crave kitchen'));
-        if (craveKitchenProject) {
-          console.log('Portfolio Page - ✅ Crave Kitchen found in loaded data');
-        } else {
-          console.log('Portfolio Page - ❌ Crave Kitchen NOT found in loaded data');
-        }
         
         setServices(data);
       } catch (error) {
@@ -93,7 +89,7 @@ const Portfolio = () => {
   if (loading) {
     return (
       <div className="min-h-screen bg-white flex items-center justify-center">
-        <div className="text-gray-900">Loading portfolio...</div>
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
       </div>
     );
   }
@@ -131,7 +127,7 @@ const Portfolio = () => {
 
       <Footer />
       
-      {/* Floating Chatbot */}
+      {/* Floating Chatbot - Load only after initial render */}
       <FloatingChatbot 
         onShowWebProjects={handleShowWebProjects}
         onContactHuman={handleContactHuman}

@@ -9,8 +9,12 @@ import FAQSection from '@/components/FAQSection';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import FloatingChatbot from '@/components/chatbot/FloatingChatbot';
+import { usePerformanceOptimization } from '@/hooks/usePerformanceOptimization';
 
 const Index = () => {
+  // Initialize performance optimizations
+  usePerformanceOptimization();
+
   const handleShowWebProjects = () => {
     // Navigate to portfolio page with web projects filter
     window.location.href = '/portfolio#projects-grid';

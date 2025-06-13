@@ -8,6 +8,7 @@ interface OptimizedImageProps {
   blurDataURL?: string;
   priority?: boolean;
   onLoad?: () => void;
+  sizes?: string;
 }
 
 const OptimizedImage = ({ 
@@ -16,7 +17,8 @@ const OptimizedImage = ({
   className = '', 
   blurDataURL,
   priority = false,
-  onLoad 
+  onLoad,
+  sizes = "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
 }: OptimizedImageProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(priority);
@@ -24,8 +26,24 @@ const OptimizedImage = ({
   const [hasError, setHasError] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
 
+  // Generate WebP source with fallback
+  const getWebPSrc = (originalSrc: string) => {
+    if (originalSrc.includes('unsplash.com')) {
+      return `${originalSrc}&fm=webp&q=80`;
+    }
+    return originalSrc;
+  };
+
   useEffect(() => {
-    if (priority) return;
+    if (priority) {
+      // Preload critical images immediately
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.as = 'image';
+      link.href = getWebPSrc(src);
+      document.head.appendChild(link);
+      return;
+    }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -35,7 +53,7 @@ const OptimizedImage = ({
           observer.disconnect();
         }
       },
-      { threshold: 0.1, rootMargin: '100px' }
+      { threshold: 0.1, rootMargin: '50px' }
     );
 
     if (imgRef.current) {
@@ -59,44 +77,48 @@ const OptimizedImage = ({
   return (
     <div 
       ref={imgRef} 
-      className={`relative overflow-hidden optimized-image ${className}`}
+      className={`relative overflow-hidden ${className}`}
       style={{
         contain: 'layout style paint',
-        contentVisibility: 'auto'
+        contentVisibility: priority ? 'visible' : 'auto'
       }}
     >
-      {/* Loading skeleton */}
+      {/* Light theme loading skeleton */}
       {!isLoaded && !hasError && (
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-800 to-slate-700 animate-pulse">
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-slate-600/50 to-transparent animate-shimmer" />
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 animate-pulse">
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shimmer" />
         </div>
       )}
       
       {/* Error fallback */}
       {hasError && (
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-800 to-slate-700 flex items-center justify-center">
-          <div className="text-slate-400 text-sm">Image unavailable</div>
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
+          <div className="text-gray-500 text-sm">Image unavailable</div>
         </div>
       )}
       
-      {/* Main image */}
+      {/* Main image with WebP support */}
       {isInView && imageSrc && !hasError && (
-        <img
-          src={imageSrc}
-          alt={alt}
-          className={`w-full h-full object-cover transition-opacity duration-500 ${
-            isLoaded ? 'opacity-100' : 'opacity-0'
-          }`}
-          onLoad={handleLoad}
-          onError={handleError}
-          loading={priority ? 'eager' : 'lazy'}
-          decoding="async"
-          style={{
-            willChange: isLoaded ? 'auto' : 'opacity',
-            transform: 'translate3d(0, 0, 0)',
-            contain: 'layout style paint'
-          }}
-        />
+        <picture>
+          <source srcSet={getWebPSrc(imageSrc)} type="image/webp" />
+          <img
+            src={imageSrc}
+            alt={alt}
+            sizes={sizes}
+            className={`w-full h-full object-cover transition-opacity duration-300 ${
+              isLoaded ? 'opacity-100' : 'opacity-0'
+            }`}
+            onLoad={handleLoad}
+            onError={handleError}
+            loading={priority ? 'eager' : 'lazy'}
+            decoding="async"
+            fetchPriority={priority ? 'high' : 'low'}
+            style={{
+              willChange: isLoaded ? 'auto' : 'opacity',
+              transform: 'translate3d(0, 0, 0)'
+            }}
+          />
+        </picture>
       )}
     </div>
   );

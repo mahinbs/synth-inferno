@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { MessageCircle, X, Send } from 'lucide-react';
+import { MessageCircle, X } from 'lucide-react';
 import ChatMessage from './ChatMessage';
 import QuickReplyButtons from './QuickReplyButtons';
 
@@ -22,11 +22,11 @@ const FloatingChatbot = ({ onShowWebProjects, onContactHuman }: FloatingChatbotP
   const [showQuickReplies, setShowQuickReplies] = useState(true);
   const [isVisible, setIsVisible] = useState(true); // Force visible for testing
 
-  // Show chatbot after 1 second or on scroll (reduced for testing)
+  // Show chatbot after 1 second or on scroll
   useEffect(() => {
     console.log('FloatingChatbot - Component mounted');
     
-    // Temporarily force immediate visibility for testing
+    // Force immediate visibility for testing
     setIsVisible(true);
     console.log('FloatingChatbot - Forced visible for testing');
     
@@ -42,7 +42,7 @@ const FloatingChatbot = ({ onShowWebProjects, onContactHuman }: FloatingChatbotP
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     
     return () => {
       clearTimeout(timer);
@@ -78,7 +78,7 @@ const FloatingChatbot = ({ onShowWebProjects, onContactHuman }: FloatingChatbotP
     setMessages(prev => [...prev, userMessage]);
     setShowQuickReplies(false);
 
-    // Add bot response after short delay
+    // Add bot response after short delay (reduced from 800ms to 400ms)
     setTimeout(() => {
       let botResponse = '';
       
@@ -86,13 +86,13 @@ const FloatingChatbot = ({ onShowWebProjects, onContactHuman }: FloatingChatbotP
         case 'Show me Web projects':
           botResponse = "Great choice! I'll show you our web development projects. You can see our web applications, SaaS solutions, and more below. 🚀";
           if (onShowWebProjects) {
-            setTimeout(() => onShowWebProjects(), 1000);
+            setTimeout(() => onShowWebProjects(), 500); // Reduced delay
           }
           break;
         case 'I want to talk to a human':
           botResponse = "I'd love to connect you with our team! You can reach us through the contact form below or email us directly. We typically respond within 2-4 hours. 📧";
           if (onContactHuman) {
-            setTimeout(() => onContactHuman(), 1000);
+            setTimeout(() => onContactHuman(), 500); // Reduced delay
           }
           break;
         case 'How do I start my project?':
@@ -111,7 +111,7 @@ const FloatingChatbot = ({ onShowWebProjects, onContactHuman }: FloatingChatbotP
 
       setMessages(prev => [...prev, botMessage]);
       setShowQuickReplies(true);
-    }, 800);
+    }, 400); // Reduced from 800ms
   };
 
   const toggleChat = () => {
@@ -127,7 +127,13 @@ const FloatingChatbot = ({ onShowWebProjects, onContactHuman }: FloatingChatbotP
   }
 
   return (
-    <div className="fixed bottom-6 right-6 z-[9999]" style={{ zIndex: 9999 }}>
+    <div 
+      className="fixed bottom-6 right-6 z-[9999]" 
+      style={{ 
+        zIndex: 9999,
+        willChange: isOpen ? 'transform' : 'auto'
+      }}
+    >
       {/* Chat Modal */}
       {isOpen && (
         <div className="mb-4 w-80 h-96 bg-white/95 backdrop-blur-md rounded-2xl shadow-xl border border-white/20 flex flex-col overflow-hidden animate-scale-in">
@@ -171,13 +177,16 @@ const FloatingChatbot = ({ onShowWebProjects, onContactHuman }: FloatingChatbotP
       {/* Floating Button */}
       <button
         onClick={toggleChat}
-        className="w-14 h-14 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group hover:scale-110"
-        style={{ zIndex: 9999 }}
+        className="w-14 h-14 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center group hover:scale-105"
+        style={{ 
+          zIndex: 9999,
+          transform: 'translate3d(0, 0, 0)'
+        }}
       >
         {isOpen ? (
           <X className="h-6 w-6" />
         ) : (
-          <MessageCircle className="h-6 w-6 group-hover:scale-110 transition-transform duration-300" />
+          <MessageCircle className="h-6 w-6 group-hover:scale-105 transition-transform duration-200" />
         )}
       </button>
 
