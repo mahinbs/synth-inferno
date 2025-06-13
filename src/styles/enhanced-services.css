@@ -1,6 +1,6 @@
 
 @layer utilities {
-  /* Enhanced Service Cards */
+  /* Enhanced Service Cards - Light Theme */
   .enhanced-service-card {
     contain: layout style paint;
     will-change: transform, opacity;
@@ -8,8 +8,19 @@
     backface-visibility: hidden;
   }
 
-  /* Shimmer animation for premium feel */
-  @keyframes shimmer {
+  /* Glassmorphic Portfolio Card for Light Theme */
+  .glassmorphic-portfolio-card {
+    @apply relative p-4 rounded-xl bg-white/90 backdrop-blur-sm border border-gray-200/60 hover:border-blue-300/60 shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer;
+    contain: layout style paint;
+    will-change: transform, opacity;
+  }
+
+  .glassmorphic-portfolio-card:hover {
+    @apply transform translate-y-[-2px] bg-white/95;
+  }
+
+  /* Shimmer animation for light theme */
+  @keyframes shimmer-light {
     0% {
       transform: translateX(-100%) skewX(-12deg);
     }
@@ -18,19 +29,19 @@
     }
   }
 
-  .animate-shimmer {
-    animation: shimmer 2s ease-in-out infinite;
+  .animate-shimmer-light {
+    animation: shimmer-light 2s ease-in-out infinite;
   }
 
   /* Floating particles animation */
   @keyframes float {
     0%, 100% {
       transform: translate3d(0, 0, 0) scale(1);
-      opacity: 0.3;
+      opacity: 0.4;
     }
     50% {
       transform: translate3d(5px, -5px, 0) scale(1.1);
-      opacity: 0.7;
+      opacity: 0.8;
     }
   }
 
@@ -38,12 +49,12 @@
     animation: float 3s ease-in-out infinite;
   }
 
-  /* Enhanced glassmorphic effects */
-  .glass-enhanced {
-    background: rgba(255, 255, 255, 0.1);
+  /* Enhanced glassmorphic effects for light theme */
+  .glass-enhanced-light {
+    background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(59, 130, 246, 0.2);
   }
 
   /* Performance optimizations */
@@ -53,46 +64,61 @@
     contain-intrinsic-size: 1px 200px;
   }
 
-  /* Enhanced gradients */
-  .gradient-electric {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  /* Light theme gradients */
+  .gradient-light-blue {
+    background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
   }
 
-  .gradient-cyber {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  .gradient-light-purple {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
   }
 
   /* Hover effects with hardware acceleration */
-  .card-hover-lift {
+  .card-hover-lift-light {
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     will-change: transform;
   }
 
-  .card-hover-lift:hover {
-    transform: translate3d(0, -8px, 0) scale(1.02);
+  .card-hover-lift-light:hover {
+    transform: translate3d(0, -4px, 0) scale(1.01);
   }
 
-  /* Text glow effects */
-  .text-glow {
-    text-shadow: 0 0 10px rgba(139, 92, 246, 0.3),
-                 0 0 20px rgba(139, 92, 246, 0.2),
-                 0 0 30px rgba(139, 92, 246, 0.1);
+  /* Text glow effects for light theme */
+  .text-glow-light {
+    text-shadow: 0 0 10px rgba(59, 130, 246, 0.3),
+                 0 0 20px rgba(59, 130, 246, 0.2),
+                 0 0 30px rgba(59, 130, 246, 0.1);
   }
 
-  /* Enhanced border animations */
-  @keyframes border-pulse {
+  /* Enhanced border animations for light theme */
+  @keyframes border-pulse-light {
     0%, 100% {
-      border-color: rgba(139, 92, 246, 0.3);
-      box-shadow: 0 0 20px rgba(139, 92, 246, 0.1);
+      border-color: rgba(59, 130, 246, 0.3);
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.1);
     }
     50% {
-      border-color: rgba(139, 92, 246, 0.6);
-      box-shadow: 0 0 30px rgba(139, 92, 246, 0.2);
+      border-color: rgba(59, 130, 246, 0.6);
+      box-shadow: 0 0 30px rgba(59, 130, 246, 0.2);
     }
   }
 
-  .animate-border-pulse {
-    animation: border-pulse 2s ease-in-out infinite;
+  .animate-border-pulse-light {
+    animation: border-pulse-light 2s ease-in-out infinite;
+  }
+
+  /* Line clamp utilities */
+  .line-clamp-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
   }
 }
 
@@ -102,24 +128,28 @@
     contain-intrinsic-size: 1px 150px;
   }
 
-  .card-hover-lift:hover {
-    transform: translate3d(0, -4px, 0) scale(1.01);
+  .card-hover-lift-light:hover {
+    transform: translate3d(0, -2px, 0) scale(1.005);
   }
 
   /* Reduce animations on mobile for better performance */
-  .animate-shimmer,
+  .animate-shimmer-light,
   .animate-float {
     animation-duration: 4s;
+  }
+
+  .glassmorphic-portfolio-card {
+    @apply p-3;
   }
 }
 
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
   .enhanced-service-card,
-  .card-hover-lift,
-  .animate-shimmer,
+  .card-hover-lift-light,
+  .animate-shimmer-light,
   .animate-float,
-  .animate-border-pulse {
+  .animate-border-pulse-light {
     animation: none !important;
     transition: none !important;
   }
@@ -127,8 +157,12 @@
 
 /* High contrast mode support */
 @media (prefers-contrast: high) {
-  .glass-enhanced {
-    background: rgba(0, 0, 0, 0.8);
-    border: 2px solid white;
+  .glass-enhanced-light {
+    background: rgba(255, 255, 255, 0.95);
+    border: 2px solid #3b82f6;
+  }
+
+  .glassmorphic-portfolio-card {
+    @apply border-2 border-gray-800;
   }
 }
