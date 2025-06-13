@@ -59,7 +59,7 @@ const EnhancedServiceCard = memo(({
             <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/15 to-blue-600/20 backdrop-blur-sm" />
             
             {/* Floating Particles Effect */}
-            <div className="absolute inset-0 opacity-0">
+            <div className="absolute inset-70 opacity-0">
               <div className="absolute top-4 left-4 w-1 h-1 bg-blue-500 rounded-full animate-ping" />
               <div className="absolute bottom-6 right-6 w-1.5 h-1.5 bg-purple-500 rounded-full animate-pulse" />
               <div className="absolute top-1/2 left-1/2 w-0.5 h-0.5 bg-blue-400 rounded-full animate-bounce" />
