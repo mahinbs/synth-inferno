@@ -18,6 +18,7 @@ interface Service {
   keyFeatures: string[];
   technologies: string[];
   highlights: string[];
+  backgroundImage: string;
   price: string;
   duration: string;
 }
