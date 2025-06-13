@@ -1,0 +1,32 @@
+
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  /* Layout utilities */
+  .smooth-scroll {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+
+  .optimized-image {
+    will-change: auto;
+    contain: layout style paint;
+    content-visibility: auto;
+  }
+
+  .prevent-overflow {
+    overflow-x: hidden;
+    max-width: 100vw;
+    width: 100%;
+  }
+}
+
+/* Mobile specific adjustments */
+@media (max-width: 768px) {
+  body {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: contain;
+  }
+}
