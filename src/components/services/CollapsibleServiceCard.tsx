@@ -1,11 +1,9 @@
 
-import { memo, useState, useCallback, useRef } from 'react';
+import { memo, useState, useCallback, useRef, useEffect } from 'react';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import { getCategoryAccent } from './utils/categoryAccents';
-import ServiceHoverDropdown from './ServiceHoverDropdown';
 import ServiceCardHeader from './ServiceCardHeader';
 import ServiceCardContent from './ServiceCardContent';
-import { useSmartDropdownPosition } from '@/hooks/useSmartDropdownPosition';
 
 interface Service {
   id: string;
@@ -35,44 +33,79 @@ const CollapsibleServiceCard = memo(({
   isLastCard = false
 }: CollapsibleServiceCardProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
   const accent = getCategoryAccent(service.category);
-  const { elementRef, position } = useSmartDropdownPosition();
-  const hoverTimeoutRef = useRef<NodeJS.Timeout>();
+  const collapseTimeoutRef = useRef<NodeJS.Timeout>();
 
-  // Enhanced hover handlers with proper timeout management
+  // Detect touch device on mount
+  useEffect(() => {
+    const checkTouchDevice = () => {
+      setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
+    };
+    
+    checkTouchDevice();
+    window.addEventListener('resize', checkTouchDevice);
+    
+    return () => {
+      window.removeEventListener('resize', checkTouchDevice);
+      if (collapseTimeoutRef.current) {
+        clearTimeout(collapseTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  // Auto-expand on mouse enter (desktop only)
   const handleMouseEnter = useCallback(() => {
-    // Clear any existing timeout
-    if (hoverTimeoutRef.current) {
-      clearTimeout(hoverTimeoutRef.current);
+    if (isTouchDevice) return;
+    
+    // Clear any pending collapse timeout
+    if (collapseTimeoutRef.current) {
+      clearTimeout(collapseTimeoutRef.current);
     }
-    setIsHovered(true);
-  }, []);
+    
+    // Immediately expand
+    setIsOpen(true);
+  }, [isTouchDevice]);
 
+  // Delayed collapse on mouse leave (desktop only)
   const handleMouseLeave = useCallback(() => {
-    // Set a delay before hiding dropdown
-    hoverTimeoutRef.current = setTimeout(() => {
-      setIsHovered(false);
+    if (isTouchDevice) return;
+    
+    // Set a 200ms delay before collapsing
+    collapseTimeoutRef.current = setTimeout(() => {
+      setIsOpen(false);
     }, 200);
-  }, []);
+  }, [isTouchDevice]);
 
-  const handleDropdownMouseEnter = useCallback(() => {
-    // Cancel hide timeout when hovering over dropdown
-    if (hoverTimeoutRef.current) {
-      clearTimeout(hoverTimeoutRef.current);
+  // Prevent collapse when hovering over expanded content
+  const handleContentMouseEnter = useCallback(() => {
+    if (isTouchDevice) return;
+    
+    // Cancel any pending collapse
+    if (collapseTimeoutRef.current) {
+      clearTimeout(collapseTimeoutRef.current);
     }
-  }, []);
+  }, [isTouchDevice]);
 
-  const handleDropdownMouseLeave = useCallback(() => {
-    // Hide dropdown when leaving dropdown area
-    hoverTimeoutRef.current = setTimeout(() => {
-      setIsHovered(false);
+  // Resume collapse timing when leaving expanded content
+  const handleContentMouseLeave = useCallback(() => {
+    if (isTouchDevice) return;
+    
+    // Set a 200ms delay before collapsing
+    collapseTimeoutRef.current = setTimeout(() => {
+      setIsOpen(false);
     }, 200);
-  }, []);
+  }, [isTouchDevice]);
+
+  // Click handler for mobile/touch devices
+  const handleClick = useCallback(() => {
+    if (isTouchDevice) {
+      setIsOpen(!isOpen);
+    }
+  }, [isTouchDevice, isOpen]);
 
   return (
     <div 
-      ref={elementRef}
       className={`group transform transition-all duration-500 ease-out relative ${
         isVisible 
           ? `animate-fade-in-up opacity-100 translate-y-0` 
@@ -84,39 +117,34 @@ const CollapsibleServiceCard = memo(({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <Collapsible open={isOpen} onOpenChange={setIsOpen}>
-        {/* Enhanced Hover Preview Dropdown with proper event handling */}
-        {isHovered && !isOpen && (
-          <div
-            onMouseEnter={handleDropdownMouseEnter}
-            onMouseLeave={handleDropdownMouseLeave}
-          >
-            <ServiceHoverDropdown 
-              service={service} 
-              accent={accent} 
-              position={position}
-            />
-          </div>
-        )}
-
+      <Collapsible open={isOpen} onOpenChange={isTouchDevice ? setIsOpen : undefined}>
         {/* Main Card with enhanced styling */}
-        <div className={`relative bg-white/70 backdrop-blur-sm rounded-xl border border-white/50 shadow-lg transition-all duration-300 overflow-visible hover:shadow-xl hover:border-gray-200/70 hover:bg-white/80 ${
+        <div className={`relative bg-white/70 backdrop-blur-sm rounded-xl border border-white/50 shadow-lg transition-all duration-300 overflow-hidden hover:shadow-xl hover:border-gray-200/70 hover:bg-white/80 ${
           isOpen ? 'ring-1 ring-gray-300/60 shadow-xl' : ''
         }`}>
           
           <CollapsibleTrigger asChild>
-            <div className="cursor-pointer p-6 hover:bg-gray-50/40 transition-colors duration-200 rounded-xl">
+            <div 
+              className={`p-6 transition-colors duration-200 rounded-xl ${
+                isTouchDevice ? 'cursor-pointer hover:bg-gray-50/40' : 'cursor-default'
+              }`}
+              onClick={handleClick}
+            >
               <ServiceCardHeader 
                 service={service} 
                 accent={accent} 
-                isHovered={isHovered} 
+                isHovered={isOpen} 
                 isOpen={isOpen} 
               />
             </div>
           </CollapsibleTrigger>
 
-          {/* Collapsible Content */}
-          <CollapsibleContent className="data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up overflow-visible">
+          {/* Collapsible Content with enhanced animations */}
+          <CollapsibleContent 
+            className="data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up overflow-hidden transition-all duration-300 ease-out"
+            onMouseEnter={handleContentMouseEnter}
+            onMouseLeave={handleContentMouseLeave}
+          >
             <ServiceCardContent service={service} accent={accent} />
           </CollapsibleContent>
         </div>
