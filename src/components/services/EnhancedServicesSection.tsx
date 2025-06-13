@@ -35,8 +35,12 @@ const EnhancedServicesSection = memo(() => {
     };
   }, [createOptimizedObserver, enableLazyLoading]);
 
-  const handleToggleExpand = useCallback((serviceId: string) => {
-    setExpandedService(prev => prev === serviceId ? null : serviceId);
+  const handleExpand = useCallback((serviceId: string) => {
+    setExpandedService(serviceId);
+  }, []);
+
+  const handleCollapse = useCallback(() => {
+    setExpandedService(null);
   }, []);
 
   return (
@@ -84,7 +88,8 @@ const EnhancedServicesSection = memo(() => {
               <EnhancedServiceCard
                 service={service}
                 isExpanded={expandedService === service.id}
-                onToggle={() => handleToggleExpand(service.id)}
+                onExpand={handleExpand}
+                onCollapse={handleCollapse}
                 index={index}
                 projects={projectsData}
               />

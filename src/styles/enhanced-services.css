@@ -1,11 +1,55 @@
 
 @layer utilities {
-  /* Enhanced Service Cards - Light Theme */
+  /* Enhanced Service Cards - Light Theme with Hover Animations */
   .enhanced-service-card {
     contain: layout style paint;
     will-change: transform, opacity;
     transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
+  }
+
+  /* Smooth hover transitions for service cards */
+  .enhanced-service-card .group {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .enhanced-service-card:hover {
+    transform: translate3d(0, -2px, 0);
+  }
+
+  /* Enhanced expansion animations */
+  .service-expand-enter {
+    animation: slideDownFadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  .service-expand-exit {
+    animation: slideUpFadeOut 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  @keyframes slideDownFadeIn {
+    0% {
+      max-height: 0;
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    100% {
+      max-height: 1000px;
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideUpFadeOut {
+    0% {
+      max-height: 1000px;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    100% {
+      max-height: 0;
+      opacity: 0;
+      transform: translateY(-5px);
+    }
   }
 
   /* Glassmorphic Portfolio Card for Light Theme */
@@ -120,6 +164,15 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
   }
+
+  /* Enhanced hover states for interactive elements */
+  .service-button-hover {
+    @apply transition-all duration-200 ease-out;
+  }
+
+  .service-button-hover:hover {
+    @apply transform scale-105 shadow-lg;
+  }
 }
 
 /* Mobile optimizations */
@@ -141,6 +194,17 @@
   .glassmorphic-portfolio-card {
     @apply p-3;
   }
+
+  /* Disable hover effects on touch devices */
+  @media (hover: none) {
+    .enhanced-service-card:hover {
+      transform: none;
+    }
+    
+    .card-hover-lift-light:hover {
+      transform: none;
+    }
+  }
 }
 
 /* Reduced motion support */
@@ -149,7 +213,9 @@
   .card-hover-lift-light,
   .animate-shimmer-light,
   .animate-float,
-  .animate-border-pulse-light {
+  .animate-border-pulse-light,
+  .service-expand-enter,
+  .service-expand-exit {
     animation: none !important;
     transition: none !important;
   }

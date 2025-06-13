@@ -5,11 +5,13 @@ import { ServiceData } from './ServicesData';
 import { Service } from '@/data/projects';
 import OptimizedImage from '../ui/OptimizedImage';
 import ServicePortfolioPreviews from './ServicePortfolioPreviews';
+import { useServiceHover } from './hooks/useServiceHover';
 
 interface EnhancedServiceCardProps {
   service: ServiceData;
   isExpanded: boolean;
-  onToggle: () => void;
+  onExpand: (serviceId: string) => void;
+  onCollapse: () => void;
   index: number;
   projects: Service[];
 }
@@ -17,27 +19,46 @@ interface EnhancedServiceCardProps {
 const EnhancedServiceCard = memo(({
   service,
   isExpanded,
-  onToggle,
+  onExpand,
+  onCollapse,
   index,
   projects
 }: EnhancedServiceCardProps) => {
   const [imageLoaded, setImageLoaded] = useState(false);
+
+  const {
+    isTouchDevice,
+    cardRef,
+    handleMouseEnter,
+    handleMouseLeave,
+    handleContentMouseEnter,
+    handleContentMouseLeave,
+    handleClick
+  } = useServiceHover({
+    onExpand,
+    onCollapse,
+    serviceId: service.id,
+    isExpanded
+  });
 
   // Get all projects from all services and flatten them
   const allProjects = projects.flatMap(serviceData => serviceData.projects);
 
   return (
     <div
-      className={`group relative overflow-hidden transition-all duration-500 ease-out ${
+      ref={cardRef}
+      className={`group relative overflow-hidden transition-all duration-300 ease-out ${
         isExpanded
           ? 'bg-white/95 backdrop-blur-xl border border-blue-200/40 rounded-2xl shadow-2xl shadow-blue-500/10'
           : 'bg-white/80 backdrop-blur-sm border border-gray-200/60 rounded-xl hover:border-blue-300/50 shadow-lg hover:shadow-xl hover:bg-white/90'
       }`}
       style={{
         animationDelay: `${index * 150}ms`,
-        willChange: 'transform, opacity',
+        willChange: isExpanded ? 'transform, opacity' : 'auto',
         contain: 'layout style paint'
       }}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       {/* Subtle Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-r from-blue-50/30 via-purple-50/20 to-blue-50/30 opacity-50" />
@@ -46,8 +67,8 @@ const EnhancedServiceCard = memo(({
       <div className="relative z-10">
         {/* Header Section with Image */}
         <div 
-          className="flex items-center cursor-pointer"
-          onClick={onToggle}
+          className={`flex items-center ${isTouchDevice ? 'cursor-pointer' : 'cursor-default'}`}
+          onClick={handleClick}
         >
           {/* Left Image Section */}
           <div className="relative w-48 h-32 flex-shrink-0 overflow-hidden rounded-l-xl">
@@ -111,12 +132,14 @@ const EnhancedServiceCard = memo(({
 
         {/* Expanded Content */}
         <div
-          className={`overflow-hidden transition-all duration-500 ${
+          className={`overflow-hidden transition-all duration-500 ease-out ${
             isExpanded
-              ? "max-h-[1000px] opacity-100"
-              : "max-h-0 opacity-0"
+              ? "max-h-[1000px] opacity-100 transform translate-y-0"
+              : "max-h-0 opacity-0 transform -translate-y-2"
           }`}
           style={{ contentVisibility: isExpanded ? 'visible' : 'hidden' }}
+          onMouseEnter={handleContentMouseEnter}
+          onMouseLeave={handleContentMouseLeave}
         >
           <div className="px-6 pb-6 border-t border-gray-200/50 mt-4 pt-6">
             <div className="grid md:grid-cols-2 gap-8">
