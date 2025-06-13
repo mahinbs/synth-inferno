@@ -20,15 +20,25 @@ const FloatingChatbot = ({ onShowWebProjects, onContactHuman }: FloatingChatbotP
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [showQuickReplies, setShowQuickReplies] = useState(true);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true); // Force visible for testing
 
-  // Show chatbot after 3 seconds or on scroll
+  // Show chatbot after 1 second or on scroll (reduced for testing)
   useEffect(() => {
-    const timer = setTimeout(() => setIsVisible(true), 3000);
+    console.log('FloatingChatbot - Component mounted');
+    
+    // Temporarily force immediate visibility for testing
+    setIsVisible(true);
+    console.log('FloatingChatbot - Forced visible for testing');
+    
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+      console.log('FloatingChatbot - Timer triggered, setting visible');
+    }, 1000); // Reduced to 1 second
     
     const handleScroll = () => {
       if (window.scrollY > 200) {
         setIsVisible(true);
+        console.log('FloatingChatbot - Scroll triggered, setting visible');
       }
     };
 
@@ -50,10 +60,13 @@ const FloatingChatbot = ({ onShowWebProjects, onContactHuman }: FloatingChatbotP
         timestamp: new Date()
       };
       setMessages([welcomeMessage]);
+      console.log('FloatingChatbot - Welcome message added');
     }
   }, [isOpen, messages.length]);
 
   const handleQuickReply = (reply: string) => {
+    console.log('FloatingChatbot - Quick reply selected:', reply);
+    
     // Add user message
     const userMessage: Message = {
       id: Date.now().toString(),
@@ -103,12 +116,18 @@ const FloatingChatbot = ({ onShowWebProjects, onContactHuman }: FloatingChatbotP
 
   const toggleChat = () => {
     setIsOpen(!isOpen);
+    console.log('FloatingChatbot - Chat toggled, isOpen:', !isOpen);
   };
 
-  if (!isVisible) return null;
+  console.log('FloatingChatbot - Rendering, isVisible:', isVisible, 'isOpen:', isOpen);
+
+  if (!isVisible) {
+    console.log('FloatingChatbot - Not visible, returning null');
+    return null;
+  }
 
   return (
-    <div className="fixed bottom-6 right-6 z-50">
+    <div className="fixed bottom-6 right-6 z-[9999]" style={{ zIndex: 9999 }}>
       {/* Chat Modal */}
       {isOpen && (
         <div className="mb-4 w-80 h-96 bg-white/95 backdrop-blur-md rounded-2xl shadow-xl border border-white/20 flex flex-col overflow-hidden animate-scale-in">
@@ -153,6 +172,7 @@ const FloatingChatbot = ({ onShowWebProjects, onContactHuman }: FloatingChatbotP
       <button
         onClick={toggleChat}
         className="w-14 h-14 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group hover:scale-110"
+        style={{ zIndex: 9999 }}
       >
         {isOpen ? (
           <X className="h-6 w-6" />

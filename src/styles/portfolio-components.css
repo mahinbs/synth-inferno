@@ -71,12 +71,46 @@
                 0 4px 6px rgba(0, 0, 0, 0.15);
   }
 
+  /* Chatbot Specific Styles */
+  .chatbot-container {
+    position: fixed !important;
+    bottom: 1.5rem !important;
+    right: 1.5rem !important;
+    z-index: 9999 !important;
+    pointer-events: auto !important;
+  }
+
+  /* Force chatbot visibility */
+  .floating-chatbot {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: fixed !important;
+    z-index: 9999 !important;
+  }
+
+  /* Chatbot animations */
+  .animate-scale-in {
+    animation: scaleIn 0.2s ease-out forwards;
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95) translate3d(0, 10px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translate3d(0, 0, 0);
+    }
+  }
+
   /* Chatbot Mobile Styles */
   .chatbot-mobile {
     position: fixed;
     bottom: 1rem;
     right: 1rem;
-    z-index: 50;
+    z-index: 9999;
   }
 
   @media (max-width: 640px) {
@@ -145,4 +179,13 @@
 
 .portfolio-light-gradient {
   background: linear-gradient(to bottom, #ffffff, #f1f3f9);
+}
+
+/* Ensure chatbot is always visible */
+.floating-chatbot-widget {
+  position: fixed !important;
+  bottom: 1.5rem !important;
+  right: 1.5rem !important;
+  z-index: 9999 !important;
+  display: block !important;
 }
