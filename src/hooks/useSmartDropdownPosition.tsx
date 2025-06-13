@@ -20,15 +20,19 @@ export const useSmartDropdownPosition = () => {
     const viewportHeight = window.innerHeight;
     const viewportWidth = window.innerWidth;
     
-    // Estimated dropdown dimensions
-    const dropdownHeight = 320;
-    const dropdownWidth = 448; // max-w-lg is roughly 448px
+    // More accurate dropdown dimensions based on actual content
+    const dropdownHeight = 400; // Increased for better content display
+    const dropdownWidth = 480; // Slightly wider for better readability
     
-    // Check if dropdown would be cut off at bottom
-    const shouldPositionAbove = rect.bottom + dropdownHeight > viewportHeight - 20;
+    // Add padding from viewport edges for better visual spacing
+    const bottomPadding = 40;
+    const rightPadding = 20;
     
-    // Check if dropdown would be cut off at right edge
-    const shouldPositionLeft = rect.right + dropdownWidth > viewportWidth - 20;
+    // Check if dropdown would be cut off at bottom with better threshold
+    const shouldPositionAbove = rect.bottom + dropdownHeight > viewportHeight - bottomPadding;
+    
+    // Check if dropdown would be cut off at right edge with better threshold
+    const shouldPositionLeft = rect.right + dropdownWidth > viewportWidth - rightPadding;
 
     setPosition({
       shouldPositionAbove,
@@ -39,6 +43,7 @@ export const useSmartDropdownPosition = () => {
   useEffect(() => {
     calculatePosition();
     
+    // Use passive listeners for better scroll performance
     const handleScroll = () => calculatePosition();
     const handleResize = () => calculatePosition();
 

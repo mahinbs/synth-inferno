@@ -1,4 +1,5 @@
-import { memo, useState } from 'react';
+
+import { memo, useState, useCallback } from 'react';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import { getCategoryAccent } from './utils/categoryAccents';
 import ServiceHoverDropdown from './ServiceHoverDropdown';
@@ -38,6 +39,15 @@ const CollapsibleServiceCard = memo(({
   const accent = getCategoryAccent(service.category);
   const { elementRef, position } = useSmartDropdownPosition();
 
+  // Optimized hover handlers with useCallback
+  const handleMouseEnter = useCallback(() => {
+    setIsHovered(true);
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    setIsHovered(false);
+  }, []);
+
   return (
     <div 
       ref={elementRef}
@@ -49,11 +59,11 @@ const CollapsibleServiceCard = memo(({
       style={{ 
         animationDelay: `${Math.min(index * 100, 500)}ms`
       }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       <Collapsible open={isOpen} onOpenChange={setIsOpen}>
-        {/* Hover Preview Dropdown */}
+        {/* Enhanced Hover Preview Dropdown */}
         {isHovered && !isOpen && (
           <ServiceHoverDropdown 
             service={service} 
@@ -62,13 +72,13 @@ const CollapsibleServiceCard = memo(({
           />
         )}
 
-        {/* Main Card */}
-        <div className={`relative bg-white/60 backdrop-blur-sm rounded-xl border border-white/40 shadow-lg transition-all duration-300 overflow-visible hover:shadow-xl hover:border-gray-200/60 ${
-          isOpen ? 'ring-1 ring-gray-300/50' : ''
+        {/* Main Card with enhanced styling */}
+        <div className={`relative bg-white/70 backdrop-blur-sm rounded-xl border border-white/50 shadow-lg transition-all duration-300 overflow-visible hover:shadow-xl hover:border-gray-200/70 hover:bg-white/80 ${
+          isOpen ? 'ring-1 ring-gray-300/60 shadow-xl' : ''
         }`}>
           
           <CollapsibleTrigger asChild>
-            <div className="cursor-pointer p-6 hover:bg-gray-50/30 transition-colors duration-200">
+            <div className="cursor-pointer p-6 hover:bg-gray-50/40 transition-colors duration-200 rounded-xl">
               <ServiceCardHeader 
                 service={service} 
                 accent={accent} 
