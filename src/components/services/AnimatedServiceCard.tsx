@@ -1,6 +1,6 @@
 
 import { memo, useState } from 'react';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 interface Service {
   id: string;
@@ -42,8 +42,8 @@ const AnimatedServiceCard = memo(({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Glow Effect */}
-      <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 via-purple-600 to-emerald-600 rounded-3xl opacity-0 group-hover:opacity-25 blur-xl transition-opacity duration-300"></div>
+      {/* Subtle Glow Effect */}
+      <div className="absolute -inset-1 bg-gradient-to-r from-gray-400 via-gray-500 to-gray-600 rounded-3xl opacity-0 group-hover:opacity-15 blur-xl transition-opacity duration-300"></div>
       
       {/* Main Card */}
       <div className="relative bg-white/85 backdrop-blur-sm rounded-3xl border border-white/60 shadow-lg hover:shadow-xl transition-all duration-300 group-hover:scale-[1.02] group-hover:-translate-y-1 overflow-hidden h-full flex flex-col">
@@ -74,16 +74,16 @@ const AnimatedServiceCard = memo(({
           
           {/* Enhanced Gradient Overlays */}
           <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/80"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-blue-900/40 via-transparent to-purple-900/30"></div>
-          <div className={`absolute inset-0 bg-gradient-to-br from-blue-600/15 via-purple-600/10 to-emerald-600/15 transition-opacity duration-300 ${
+          <div className="absolute inset-0 bg-gradient-to-t from-gray-900/40 via-transparent to-gray-800/30"></div>
+          <div className={`absolute inset-0 bg-gradient-to-br from-gray-600/15 via-gray-700/10 to-gray-800/15 transition-opacity duration-300 ${
             isHovered ? 'opacity-100' : 'opacity-70'
           }`}></div>
         </div>
         
-        {/* Floating Particles */}
+        {/* Floating Particles - Neutral Colors */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-4 right-4 w-1.5 h-1.5 bg-blue-400 rounded-full opacity-0 group-hover:opacity-50 transition-all duration-300 transform group-hover:translate-x-1 group-hover:-translate-y-1"></div>
-          <div className="absolute bottom-6 left-6 w-1 h-1 bg-emerald-400 rounded-full opacity-0 group-hover:opacity-40 transition-all duration-300 delay-100 transform group-hover:-translate-x-1 group-hover:translate-y-1"></div>
+          <div className="absolute top-4 right-4 w-1.5 h-1.5 bg-gray-300 rounded-full opacity-0 group-hover:opacity-50 transition-all duration-300 transform group-hover:translate-x-1 group-hover:-translate-y-1"></div>
+          <div className="absolute bottom-6 left-6 w-1 h-1 bg-gray-400 rounded-full opacity-0 group-hover:opacity-40 transition-all duration-300 delay-100 transform group-hover:-translate-x-1 group-hover:translate-y-1"></div>
         </div>
 
         <div className="relative z-10 p-6 sm:p-8 flex flex-col h-full">
@@ -95,17 +95,13 @@ const AnimatedServiceCard = memo(({
               <service.icon className={`h-8 w-8 sm:h-9 sm:w-9 text-white transition-all duration-300 transform ${
                 isHovered ? 'scale-110' : 'scale-100'
               }`} />
-              
-              <Sparkles className={`absolute -top-0.5 -right-0.5 h-3 w-3 text-yellow-400 transition-all duration-200 ${
-                isHovered ? 'opacity-100 scale-100' : 'opacity-0 scale-0'
-              }`} />
             </div>
           </div>
 
           {/* Content - Flexible layout */}
           <div className="space-y-4 flex-grow flex flex-col">
             <h3 className={`text-xl sm:text-2xl font-bold text-white transition-colors duration-200 ${
-              isHovered ? 'text-blue-100' : 'text-white'
+              isHovered ? 'text-gray-100' : 'text-white'
             }`}>
               {service.title}
             </h3>
@@ -133,14 +129,14 @@ const AnimatedServiceCard = memo(({
               )}
             </div>
 
-            {/* Highlights - without "Key Features" heading */}
+            {/* Highlights */}
             <div className="space-y-2 mt-4">
               {service.highlights.slice(0, 2).map((highlight, idx) => (
                 <div 
                   key={idx}
                   className="flex items-start text-xs sm:text-sm text-white/80 transition-colors duration-200 group-hover:text-white/90"
                 >
-                  <div className="w-1 h-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full mr-2 mt-2 flex-shrink-0"></div>
+                  <div className="w-1 h-1 bg-gradient-to-r from-gray-300 to-gray-400 rounded-full mr-2 mt-2 flex-shrink-0"></div>
                   <span className="leading-relaxed">{highlight}</span>
                 </div>
               ))}
@@ -148,9 +144,9 @@ const AnimatedServiceCard = memo(({
 
             {/* Action Button */}
             <div className="pt-4 mt-auto border-t border-white/20">
-              <button className={`w-full flex items-center justify-center gap-2 px-4 py-2.5 sm:py-3 bg-gradient-to-r from-blue-600/80 to-purple-600/80 backdrop-blur-sm text-white rounded-xl font-medium border border-white/30 transition-all duration-200 transform text-sm sm:text-base ${
+              <button className={`w-full flex items-center justify-center gap-2 px-4 py-2.5 sm:py-3 bg-gradient-to-r from-gray-600/80 to-gray-700/80 backdrop-blur-sm text-white rounded-xl font-medium border border-white/30 transition-all duration-200 transform text-sm sm:text-base ${
                 isHovered 
-                  ? 'scale-105 shadow-lg from-blue-500/90 to-purple-500/90' 
+                  ? 'scale-105 shadow-lg from-gray-500/90 to-gray-600/90' 
                   : 'scale-100'
               }`}>
                 <span>Explore Service</span>

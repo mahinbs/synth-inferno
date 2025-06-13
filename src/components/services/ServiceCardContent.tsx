@@ -2,7 +2,6 @@
 import { memo } from 'react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, ExternalLink } from 'lucide-react';
 import ServicePortfolioPreviews from './ServicePortfolioPreviews';
 import { projectsData } from '@/data/projects';
 
@@ -41,18 +40,6 @@ const ServiceCardContent = memo(({ service, accent }: ServiceCardContentProps) =
   };
 
   const portfolioServiceId = servicePortfolioMapping[service.id as keyof typeof servicePortfolioMapping] || service.id;
-
-  const handleSeeMoreProjects = () => {
-    // Scroll to portfolio section with filter
-    const portfolioSection = document.getElementById('portfolio');
-    if (portfolioSection) {
-      portfolioSection.scrollIntoView({ behavior: 'smooth' });
-      // Add a small delay then apply filter (simulated for now)
-      setTimeout(() => {
-        console.log(`Filter portfolio by: ${portfolioServiceId}`);
-      }, 500);
-    }
-  };
 
   return (
     <div 
@@ -141,36 +128,10 @@ const ServiceCardContent = memo(({ service, accent }: ServiceCardContentProps) =
           projects={allProjects}
         />
 
-        {/* See More Projects Button */}
-        <div className="pt-4 border-t border-gray-200/30">
-          <Button
-            onClick={handleSeeMoreProjects}
-            variant="outline"
-            className="w-full border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 transition-all duration-200 font-medium shadow-sm group"
-          >
-            <span>See More Projects</span>
-            <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
-          </Button>
-        </div>
-
-        {/* Action Buttons */}
-        <div className="flex gap-3 pt-4">
+        {/* Single Action Button - Get Quote Only */}
+        <div className="pt-6 border-t border-gray-200/30">
           <Button 
-            className="flex-1 bg-gradient-to-r from-purple-100 to-blue-100 text-purple-700 border border-purple-200/60 hover:from-purple-200 hover:to-blue-200 hover:text-purple-800 transition-all duration-200 hover:scale-[1.02] transform font-medium shadow-sm"
-            style={{ backgroundColor: '#f4efff' }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#e5dcff';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#f4efff';
-            }}
-          >
-            <ExternalLink className="w-4 h-4 mr-2" />
-            View Details
-          </Button>
-          <Button 
-            variant="outline" 
-            className="flex-1 border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 transition-all duration-200 hover:scale-[1.02] transform font-medium shadow-sm"
+            className="w-full bg-gray-100 text-gray-700 border border-gray-300 hover:bg-gray-200 hover:text-gray-800 transition-all duration-200 font-medium shadow-sm"
           >
             💬 Get Quote
           </Button>

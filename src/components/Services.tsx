@@ -35,7 +35,7 @@ const Services = () => {
       technologies: ["TypeScript", "Tailwind CSS", "Node.js", "PostgreSQL"],
       startingPrice: "$5,000",
       timeline: "4-12 weeks",
-      color: "cyan",
+      color: "blue",
       route: "/web-apps",
     },
     {
@@ -79,7 +79,7 @@ const Services = () => {
       technologies: ["React Native", "Swift", "Kotlin", "Firebase"],
       startingPrice: "$10,000",
       timeline: "6-14 weeks",
-      color: "purple",
+      color: "gray",
       route: "/mobile-apps",
     },
     {
@@ -101,7 +101,7 @@ const Services = () => {
       technologies: ["OpenAI", "Twilio", "Python", "TensorFlow"],
       startingPrice: "$8,000",
       timeline: "6-10 weeks",
-      color: "pink",
+      color: "slate",
       route: "/ai-calling",
     },
     {
@@ -123,21 +123,12 @@ const Services = () => {
       technologies: ["Python", "TensorFlow", "AWS Lambda", "Zapier"],
       startingPrice: "$12,000",
       timeline: "8-12 weeks",
-      color: "green",
+      color: "stone",
       route: "/ai-automation",
     },
   ];
 
   const colorClasses = {
-    cyan: {
-      border: "border-cyan-400/30",
-      gradient: "from-cyan-400/10 to-cyan-600/10",
-      icon: "bg-cyan-500/10 text-cyan-400 border-cyan-400/30",
-      text: "text-cyan-400",
-      button:
-        "bg-cyan-500/20 border-cyan-400/30 text-cyan-400 hover:bg-cyan-500/30",
-      tag: "bg-cyan-500/20 text-cyan-300 border-cyan-500/30",
-    },
     blue: {
       border: "border-blue-400/30",
       gradient: "from-blue-400/10 to-blue-600/10",
@@ -147,32 +138,32 @@ const Services = () => {
         "bg-blue-500/20 border-blue-400/30 text-blue-400 hover:bg-blue-500/30",
       tag: "bg-blue-500/20 text-blue-300 border-blue-500/30",
     },
-    purple: {
-      border: "border-purple-400/30",
-      gradient: "from-purple-400/10 to-purple-600/10",
-      icon: "bg-purple-500/10 text-purple-400 border-purple-400/30",
-      text: "text-purple-400",
+    gray: {
+      border: "border-gray-400/30",
+      gradient: "from-gray-400/10 to-gray-600/10",
+      icon: "bg-gray-500/10 text-gray-400 border-gray-400/30",
+      text: "text-gray-400",
       button:
-        "bg-purple-500/20 border-purple-400/30 text-purple-400 hover:bg-purple-500/30",
-      tag: "bg-purple-500/20 text-purple-300 border-purple-500/30",
+        "bg-gray-500/20 border-gray-400/30 text-gray-400 hover:bg-gray-500/30",
+      tag: "bg-gray-500/20 text-gray-300 border-gray-500/30",
     },
-    pink: {
-      border: "border-pink-400/30",
-      gradient: "from-pink-400/10 to-pink-600/10",
-      icon: "bg-pink-500/10 text-pink-400 border-pink-400/30",
-      text: "text-pink-400",
+    slate: {
+      border: "border-slate-400/30",
+      gradient: "from-slate-400/10 to-slate-600/10",
+      icon: "bg-slate-500/10 text-slate-400 border-slate-400/30",
+      text: "text-slate-400",
       button:
-        "bg-pink-500/20 border-pink-400/30 text-pink-400 hover:bg-pink-500/30",
-      tag: "bg-pink-500/20 text-pink-300 border-pink-500/30",
+        "bg-slate-500/20 border-slate-400/30 text-slate-400 hover:bg-slate-500/30",
+      tag: "bg-slate-500/20 text-slate-300 border-slate-500/30",
     },
-    green: {
-      border: "border-green-400/30",
-      gradient: "from-green-400/10 to-green-600/10",
-      icon: "bg-green-500/10 text-green-400 border-green-400/30",
-      text: "text-green-400",
+    stone: {
+      border: "border-stone-400/30",
+      gradient: "from-stone-400/10 to-stone-600/10",
+      icon: "bg-stone-500/10 text-stone-400 border-stone-400/30",
+      text: "text-stone-400",
       button:
-        "bg-green-500/20 border-green-400/30 text-green-400 hover:bg-green-500/30",
-      tag: "bg-green-500/20 text-green-300 border-green-500/30",
+        "bg-stone-500/20 border-stone-400/30 text-stone-400 hover:bg-stone-500/30",
+      tag: "bg-stone-500/20 text-stone-300 border-stone-500/30",
     },
   };
 
@@ -229,13 +220,13 @@ const Services = () => {
       </div>
 
       {/* Simplified gradient overlay */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,255,255,0.08),transparent_60%)] z-10"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(100,116,139,0.08),transparent_60%)] z-10"></div>
 
       <div className="container mx-auto px-6 relative z-20">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             Boostmysites{" "}
-            <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-400 to-gray-500 bg-clip-text text-transparent">
               Services
             </span>
           </h2>
@@ -407,7 +398,7 @@ const Services = () => {
                             to={service.route}
                             className={`flex-1 inline-flex items-center justify-center px-6 py-3 rounded-xl ${colors.button} border font-medium transition-all duration-300`}
                           >
-                            View Details
+                            Learn More
                           </Link>
                           <button
                             className={`px-6 py-3 rounded-xl border ${colors.border} ${colors.text} hover:bg-gray-700/50 transition-all duration-300 font-medium`}
