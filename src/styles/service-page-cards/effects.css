@@ -1,0 +1,25 @@
+
+@layer utilities {
+  /* Dark overlay for code images */
+  .service-page-card .w-24 img {
+    filter: brightness(0.8) contrast(1.1);
+    transition: filter 0.3s ease;
+  }
+
+  .service-page-card:hover .w-24 img {
+    filter: brightness(0.9) contrast(1.2);
+  }
+
+  /* Enhanced hover effects */
+  .service-page-card:hover {
+    transform: translate3d(0, -3px, 0);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12) !important;
+    border-color: #d1d5db !important;
+  }
+
+  /* Focus states for accessibility */
+  .service-page-card:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+  }
+}

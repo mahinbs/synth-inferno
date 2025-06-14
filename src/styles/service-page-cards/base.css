@@ -1,0 +1,29 @@
+
+@layer utilities {
+  /* Service Page Cards - Base Styling */
+  .service-page-card {
+    contain: layout style paint;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    border: 1px solid #e5e7eb !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  /* Enhanced spacing and typography */
+  .service-page-card h3 {
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+
+  .service-page-card p {
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  /* Badge styling improvements */
+  .service-page-card .bg-orange-100 {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+}

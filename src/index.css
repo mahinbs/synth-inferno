@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -14,7 +15,11 @@
 @import url('./styles/glass-effects.css');
 @import url('./styles/glassmorphic-service-cards.css');
 @import url('./styles/reference-service-cards.css');
-@import url('./styles/service-page-cards.css');
+@import url('./styles/service-page-cards/base.css');
+@import url('./styles/service-page-cards/dimensions.css');
+@import url('./styles/service-page-cards/effects.css');
+@import url('./styles/service-page-cards/responsive.css');
+@import url('./styles/service-page-cards/accessibility.css');
 @import url('./styles/portfolio-components.css');
 @import url('./styles/service-accessibility.css');
 @import url('./styles/service-expansion-animations.css');

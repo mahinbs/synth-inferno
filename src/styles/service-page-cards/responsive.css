@@ -1,0 +1,64 @@
+
+@layer utilities {
+  /* Mobile responsive adjustments */
+  @media (max-width: 768px) {
+    .service-page-card {
+      min-height: auto;
+      padding: 20px;
+    }
+    
+    .service-page-card .flex.items-start {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 16px;
+      position: relative;
+    }
+    
+    .service-page-card .w-24 {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 8px;
+    }
+    
+    .service-page-card .flex-1 {
+      width: 100%;
+      padding-right: 0;
+      margin-bottom: 40px;
+    }
+    
+    .service-page-card .absolute {
+      position: static;
+      width: 100%;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    /* Stack pricing vertically on very small screens */
+    @media (max-width: 480px) {
+      .service-page-card .absolute {
+        flex-direction: column;
+        gap: 8px;
+      }
+    }
+  }
+
+  /* Tablet adjustments */
+  @media (max-width: 1024px) and (min-width: 769px) {
+    .service-page-card {
+      padding: 24px;
+    }
+    
+    .service-page-card .w-24 {
+      width: 88px;
+      height: 88px;
+    }
+    
+    .service-page-card .flex-1 {
+      padding-right: 120px;
+    }
+  }
+}

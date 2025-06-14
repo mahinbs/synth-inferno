@@ -1,0 +1,17 @@
+
+@layer utilities {
+  /* Fallback for reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .service-page-card {
+      transition: none !important;
+    }
+    
+    .service-page-card:hover {
+      transform: none !important;
+    }
+
+    .service-page-card .w-24 img {
+      transition: none !important;
+    }
+  }
+}
