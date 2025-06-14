@@ -33,39 +33,25 @@ const GlassmorphicServiceCard = memo(({
 
       {/* Content Section */}
       <div className="service-card-content">
-        {/* Service Info */}
+        {/* Service Info - Title and Description */}
         <div className="service-card-info">
-          <div className="flex items-center space-x-3 mb-3">
-            <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0">
-              <service.icon className="h-5 w-5 text-blue-600" />
-            </div>
-            <h3 className="glass-text-primary text-xl line-clamp-1">
-              {service.title}
-            </h3>
-          </div>
+          <h3 className="service-card-title">
+            {service.title}
+          </h3>
           
-          <p className="glass-text-secondary text-sm mb-4 line-clamp-2 leading-relaxed">
+          <p className="service-card-description">
             {service.description}
           </p>
-
-          <div className="flex items-center space-x-4">
-            <span className="service-tag">
-              {service.startingPrice}
-            </span>
-            <span className="service-tag">
-              {service.timeline}
-            </span>
-          </div>
         </div>
 
-        {/* Action Button */}
-        <div className="service-card-action">
-          <button className="glass-button flex items-center space-x-2">
-            <span>Learn More</span>
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
+        {/* Pricing Section */}
+        <div className="service-card-pricing">
+          <div className="service-price">
+            {service.startingPrice}
+          </div>
+          <div className="service-timeline">
+            {service.timeline}
+          </div>
         </div>
       </div>
     </div>

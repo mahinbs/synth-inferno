@@ -10,7 +10,7 @@
     will-change: transform, box-shadow;
     contain: layout style paint;
     transform: translate3d(0, 0, 0);
-    height: 192px; /* Fixed height: 12rem / 48 * 4 */
+    height: 192px; /* Fixed height: 12rem */
     overflow: hidden;
   }
 
@@ -34,7 +34,7 @@
     overflow: hidden;
   }
 
-  /* Content section */
+  /* Content section - updated layout */
   .service-card-content {
     flex: 1;
     padding: 1.5rem;
@@ -42,57 +42,77 @@
     align-items: center;
     justify-content: space-between;
     min-width: 0;
+    gap: 1.5rem;
   }
 
-  /* Service info section */
+  /* Service info section - title and description */
   .service-card-info {
     flex: 1;
     min-width: 0;
-    padding-right: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
-  /* Button section */
-  .service-card-action {
+  /* Service title styling */
+  .service-card-title {
+    color: #111827;
+    font-weight: 700;
+    font-size: 1.25rem; /* 20px */
+    line-height: 1.4;
+    margin-bottom: 0.75rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+  }
+
+  /* Service description styling */
+  .service-card-description {
+    color: #6b7280;
+    font-weight: 400;
+    font-size: 0.875rem; /* 14px */
+    line-height: 1.5;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+  }
+
+  /* Pricing section - right side */
+  .service-card-pricing {
     flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    gap: 0.5rem;
   }
 
-  /* Enhanced text readability */
-  .glass-text-primary {
-    color: #111827 !important;
-    font-weight: 700 !important;
-  }
-
-  .glass-text-secondary {
-    color: #6b7280 !important;
-    font-weight: 500 !important;
-  }
-
-  /* Clean button styling */
-  .glass-button {
-    background: #2563eb;
-    color: #ffffff;
-    font-weight: 600;
-    transition: all 0.2s ease-out;
-    will-change: transform, background-color;
-    border: none;
-    border-radius: 8px;
-    padding: 0.5rem 1.5rem;
-  }
-
-  .glass-button:hover {
-    background: #1d4ed8;
-    transform: translateY(-1px);
-  }
-
-  /* Tags styling */
-  .service-tag {
+  /* Price styling - prominent */
+  .service-price {
     background: #f3f4f6;
     border: 1px solid #e5e7eb;
-    color: #374151;
-    font-weight: 600;
+    color: #111827;
+    font-weight: 700;
+    font-size: 1rem; /* 16px */
     border-radius: 9999px;
-    padding: 0.25rem 0.75rem;
-    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+    white-space: nowrap;
+  }
+
+  /* Timeline styling - secondary */
+  .service-timeline {
+    background: #f9fafb;
+    border: 1px solid #f3f4f6;
+    color: #6b7280;
+    font-weight: 500;
+    font-size: 0.875rem; /* 14px */
+    border-radius: 9999px;
+    padding: 0.375rem 0.75rem;
+    white-space: nowrap;
   }
 
   /* Performance optimizations */
@@ -123,28 +143,32 @@
       align-items: flex-start;
       justify-content: flex-start;
       padding: 1rem;
+      gap: 1rem;
     }
     
     .service-card-info {
-      padding-right: 0;
-      margin-bottom: 1rem;
       width: 100%;
     }
     
-    .service-card-action {
+    .service-card-pricing {
       width: 100%;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      text-align: left;
     }
     
-    .glass-button {
-      width: 100%;
-      justify-content: center;
+    .service-price,
+    .service-timeline {
+      flex: 1;
+      text-align: center;
+      margin: 0 0.25rem;
     }
   }
 
   /* Fallback for reduced motion */
   @media (prefers-reduced-motion: reduce) {
-    .glassmorphic-card,
-    .glass-button {
+    .glassmorphic-card {
       transition: none !important;
     }
   }
