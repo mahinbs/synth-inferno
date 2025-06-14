@@ -36,7 +36,6 @@ const ServiceCardHeader = memo(({
         isTouchDevice ? 'cursor-pointer' : 'cursor-default'
       }`}
       onClick={handleHeaderClick}
-      style={{ pointerEvents: 'auto' }}
     >
       <div className="flex items-start justify-between">
         {/* Service Icon and Info */}
@@ -58,7 +57,7 @@ const ServiceCardHeader = memo(({
               {service.title}
             </h3>
             <p className="text-gray-600 text-sm mt-1 line-clamp-2">
-              {service.shortDescription}
+              {service.description}
             </p>
           </div>
         </div>
