@@ -4,6 +4,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { ExternalLink } from 'lucide-react';
 import { Project } from '@/data/projects';
+import OptimizedImage from '@/components/ui/OptimizedImage';
 
 interface ServicePortfolioPreviewsProps {
   serviceId: string;
@@ -65,19 +66,14 @@ const ServicePortfolioPreviews = memo(({ serviceId, projects }: ServicePortfolio
               </Badge>
             </div>
 
-            {/* Project Image */}
+            {/* Project Image - Now using OptimizedImage */}
             <div className="relative overflow-hidden rounded-xl mb-3">
-              <img
+              <OptimizedImage
                 src={project.image}
-                alt={project.title}
+                alt={`${project.title} - ${project.industry} project showcase`}
                 className="w-full h-32 object-cover transition-transform duration-300 group-hover:scale-105"
-                loading="lazy"
-                decoding="async"
-                style={{
-                  willChange: 'transform',
-                  transform: 'translate3d(0, 0, 0)',
-                  containIntrinsicSize: '1px 128px'
-                }}
+                priority={index === 0}
+                onLoad={() => console.log(`Service preview image loaded: ${project.title}`)}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
