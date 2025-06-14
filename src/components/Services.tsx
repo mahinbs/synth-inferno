@@ -1,6 +1,5 @@
 
 import { useState, useCallback, Suspense, lazy } from "react";
-import ServicesBackground from "./services/ServicesBackground";
 import ServicesHeader from "./services/ServicesHeader";
 import { servicesData } from "./services/ServicesData";
 
@@ -21,14 +20,8 @@ const Services = () => {
   return (
     <section
       id="services"
-      className="py-20 relative overflow-hidden"
-      style={{
-        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-        minHeight: '100vh'
-      }}
+      className="py-20 relative overflow-hidden bg-transparent"
     >
-      <ServicesBackground />
-
       <div className="container mx-auto px-6 relative z-20">
         <ServicesHeader />
 
