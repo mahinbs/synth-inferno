@@ -1,35 +1,49 @@
 
 @layer utilities {
-  /* Service Page Cards - Mobile Responsive */
+  /* Service Page Cards - Enhanced to Match Reference */
   .service-page-card {
     contain: layout style paint;
     transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
   }
 
+  /* Custom width classes for 120px images */
+  .w-30 {
+    width: 120px;
+  }
+  
+  .h-30 {
+    height: 120px;
+  }
+
+  /* Enhanced hover effects */
+  .service-page-card:hover {
+    transform: translate3d(0, -4px, 0);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  }
+
   /* Mobile responsive adjustments */
   @media (max-width: 768px) {
     .service-page-card {
       flex-direction: column;
-      align-items: flex-start;
-      gap: 16px;
+      align-items: center;
+      text-align: center;
+      gap: 20px;
       min-height: auto;
-      padding: 20px;
+      padding: 24px;
     }
     
-    .service-page-card .w-24 {
-      width: 80px;
-      height: 80px;
-      align-self: center;
-      margin-bottom: 8px;
+    .service-page-card .w-30 {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 12px;
     }
     
     .service-page-card .flex-1 {
       width: 100%;
-      text-align: center;
     }
     
-    .service-page-card .min-w-[140px] {
+    .service-page-card .min-w-[160px] {
       width: 100%;
       flex-direction: row;
       justify-content: space-between;
@@ -39,7 +53,30 @@
     
     .service-page-card .flex-col:last-child {
       flex-direction: row;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .service-page-card .flex-col:last-child > .flex.flex-col {
+      flex-direction: row;
       gap: 12px;
+    }
+  }
+
+  /* Tablet adjustments */
+  @media (max-width: 1024px) and (min-width: 769px) {
+    .service-page-card {
+      gap: 24px;
+      padding: 32px;
+    }
+    
+    .service-page-card .w-30 {
+      width: 100px;
+      height: 100px;
+    }
+    
+    .service-page-card .min-w-[160px] {
+      min-width: 140px;
     }
   }
 
@@ -47,6 +84,10 @@
   @media (prefers-reduced-motion: reduce) {
     .service-page-card {
       transition: none !important;
+    }
+    
+    .service-page-card:hover {
+      transform: none !important;
     }
   }
 }
