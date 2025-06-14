@@ -5,6 +5,8 @@
     contain: layout style paint;
     transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
+    border: 1px solid #e5e7eb !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
   }
 
   /* Custom width classes for 120px images */
@@ -16,10 +18,26 @@
     height: 120px;
   }
 
-  /* Enhanced hover effects */
+  /* Enhanced hover effects with stronger shadow */
   .service-page-card:hover {
     transform: translate3d(0, -4px, 0);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15) !important;
+    border-color: #d1d5db !important;
+  }
+
+  /* Clickable cursor styling */
+  .service-page-card {
+    cursor: pointer;
+    user-select: none;
+  }
+
+  /* Improve button styling within cards */
+  .service-page-card .flex.items-center.gap-2 {
+    transition: all 0.2s ease;
+  }
+
+  .service-page-card:hover .flex.items-center.gap-2 {
+    transform: translateX(2px);
   }
 
   /* Mobile responsive adjustments */
@@ -28,15 +46,16 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
-      gap: 20px;
+      gap: 24px;
       min-height: auto;
       padding: 24px;
+      cursor: pointer;
     }
     
     .service-page-card .w-30 {
       width: 100px;
       height: 100px;
-      margin-bottom: 12px;
+      margin-bottom: 8px;
     }
     
     .service-page-card .flex-1 {
@@ -49,17 +68,35 @@
       justify-content: space-between;
       align-items: center;
       min-width: auto;
+      gap: 16px;
     }
     
     .service-page-card .flex-col:last-child {
       flex-direction: row;
       gap: 16px;
       align-items: center;
+      justify-content: space-between;
+      width: 100%;
     }
 
     .service-page-card .flex-col:last-child > .flex.flex-col {
       flex-direction: row;
       gap: 12px;
+    }
+
+    /* Stack badges vertically on very small screens */
+    @media (max-width: 480px) {
+      .service-page-card .flex-col:last-child {
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+      }
+
+      .service-page-card .flex-col:last-child > .flex.flex-col {
+        flex-direction: column;
+        gap: 8px;
+        align-items: center;
+      }
     }
   }
 
@@ -80,6 +117,17 @@
     }
   }
 
+  /* Focus states for accessibility */
+  .service-page-card:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+  }
+
+  .service-page-card button:focus {
+    outline: 2px solid #f97316;
+    outline-offset: 2px;
+  }
+
   /* Fallback for reduced motion */
   @media (prefers-reduced-motion: reduce) {
     .service-page-card {
@@ -89,5 +137,29 @@
     .service-page-card:hover {
       transform: none !important;
     }
+
+    .service-page-card:hover .flex.items-center.gap-2 {
+      transform: none !important;
+    }
+  }
+
+  /* Enhanced spacing and typography */
+  .service-page-card h3 {
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+
+  .service-page-card p {
+    font-weight: 400;
+    line-height: 1.6;
+  }
+
+  /* Badge styling improvements */
+  .service-page-card .bg-orange-100 {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+
+  .service-page-card .bg-orange-50 {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
   }
 }

@@ -24,7 +24,7 @@ const ServicesPage = memo(() => {
       <section className="py-20 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
           {/* Services Grid - Single Column with Enhanced Spacing */}
-          <div className="space-y-8">
+          <div className="space-y-6">
             {servicesData.map((service, index) => (
               <ServicePageCard 
                 key={service.id}

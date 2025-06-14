@@ -5,6 +5,7 @@ import EnhancedOptimizedImage from '../ui/EnhancedOptimizedImage';
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
 import { useNavigate } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
 
 interface ServicePageCardProps {
   service: ServiceData;
@@ -17,7 +18,8 @@ const ServicePageCard = memo(({
 }: ServicePageCardProps) => {
   const navigate = useNavigate();
 
-  const handleLearnMore = () => {
+  const handleLearnMore = (e: React.MouseEvent) => {
+    e.stopPropagation();
     // Navigate to the specific service page based on service ID
     const serviceRoutes: Record<string, string> = {
       'web-applications': '/web-apps',
@@ -33,9 +35,27 @@ const ServicePageCard = memo(({
     }
   };
 
+  const handleCardClick = () => {
+    const serviceRoutes: Record<string, string> = {
+      'web-applications': '/web-apps',
+      'saas-solutions': '/saas',
+      'mobile-applications': '/mobile-apps',
+      'ai-calling-agency': '/ai-calling',
+      'ai-automation': '/ai-automation'
+    };
+    
+    const route = serviceRoutes[service.id];
+    if (route) {
+      navigate(route);
+    }
+  };
+
   return (
-    <div className="bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 p-8 flex items-center gap-8 min-h-[160px] service-page-card">
-      {/* Left Image Section - Larger 120x120px Image */}
+    <div 
+      className="bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-xl transition-all duration-300 p-8 flex items-center gap-8 min-h-[160px] service-page-card cursor-pointer"
+      onClick={handleCardClick}
+    >
+      {/* Left Image Section - 120x120px Image */}
       <div className="flex-shrink-0">
         <div className="w-30 h-30 rounded-xl overflow-hidden">
           <EnhancedOptimizedImage
@@ -62,10 +82,10 @@ const ServicePageCard = memo(({
       {/* Right Section - Enhanced Pricing and Action */}
       <div className="flex flex-col items-end gap-6 flex-shrink-0 min-w-[160px]">
         <div className="flex flex-col items-end gap-3">
-          <Badge variant="secondary" className="bg-gray-100 text-gray-900 font-bold px-4 py-2 text-base">
+          <Badge variant="secondary" className="bg-orange-100 text-orange-800 border-orange-200 font-bold px-4 py-2 text-base">
             {service.startingPrice}
           </Badge>
-          <Badge variant="outline" className="bg-orange-100 text-orange-800 border-orange-200 font-medium text-sm px-4 py-1">
+          <Badge variant="outline" className="bg-orange-50 text-orange-700 border-orange-200 font-medium text-sm px-4 py-1">
             {service.timeline}
           </Badge>
         </div>
@@ -73,10 +93,11 @@ const ServicePageCard = memo(({
         <Button 
           variant="outline" 
           size="sm"
-          className="border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 px-6 py-2 rounded-full font-medium"
+          className="border-orange-300 text-orange-700 hover:bg-orange-50 hover:border-orange-400 px-6 py-2 rounded-full font-medium flex items-center gap-2"
           onClick={handleLearnMore}
         >
           Learn More
+          <ArrowRight className="h-4 w-4" />
         </Button>
       </div>
     </div>
