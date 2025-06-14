@@ -14,17 +14,18 @@ interface ServiceCardExpandedContentProps {
   allProjects: Project[];
 }
 
-// Map service categories to their route paths
-const getServiceRoute = (category: string): string => {
+// Map service IDs to their route paths
+const getServiceRoute = (serviceId: string): string => {
   const routeMap: Record<string, string> = {
-    'web': '/services/web-applications',
+    'web-apps': '/services/web-applications',
     'saas': '/services/saas',
-    'mobile': '/services/mobile-apps',
-    'ai': '/services/ai-calling',
-    'automation': '/services/ai-automation'
+    'mobile-apps': '/services/mobile-apps',
+    'ai-calling': '/services/ai-calling',
+    'ai-automation': '/services/ai-automation',
+    'sales-force': '/services/sales-force'
   };
   
-  return routeMap[category] || '/services/web-applications';
+  return routeMap[serviceId] || '/services/web-applications';
 };
 
 const ServiceCardExpandedContent = memo(({
@@ -34,7 +35,7 @@ const ServiceCardExpandedContent = memo(({
   onContentMouseLeave,
   allProjects
 }: ServiceCardExpandedContentProps) => {
-  const serviceRoute = getServiceRoute(service.category);
+  const serviceRoute = getServiceRoute(service.id);
 
   return (
     <div 
