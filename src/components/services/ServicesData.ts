@@ -1,3 +1,4 @@
+
 import {
   Code,
   Smartphone,
@@ -18,7 +19,7 @@ export const servicesData = [
       "Full-stack web applications built with React, Node.js, and modern frameworks. We create scalable, secure, and high-performance solutions tailored to your business needs.",
     image:
       "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    backgroundImage: "/images/bg-web-ui.svg",
+    backgroundImage: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
     features: [
       "React & Next.js",
       "Real-time Features",
@@ -41,7 +42,7 @@ export const servicesData = [
       "Complete SAAS platforms with multi-tenancy, payment processing, analytics dashboards, and user management. Built for scale and optimized for recurring revenue.",
     image:
       "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    backgroundImage: "/images/bg-saas-metrics.svg",
+    backgroundImage: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
     features: [
       "Multi-tenant Architecture",
       "Payment Integration",
@@ -64,7 +65,7 @@ export const servicesData = [
       "iOS and Android applications built with React Native or native technologies. Focus on performance, user experience, and app store optimization.",
     image:
       "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    backgroundImage: "/images/bg-mobile-app.svg",
+    backgroundImage: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
     features: [
       "iOS & Android",
       "Cross-platform",
@@ -87,7 +88,7 @@ export const servicesData = [
       "Comprehensive Salesforce platform setup and customization with automated workflows, lead tracking, and performance analytics. Transform your sales process with enterprise-grade CRM solutions.",
     image:
       "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    backgroundImage: "/images/bg-saas-metrics.svg",
+    backgroundImage: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
     features: [
       "Salesforce Platform Setup",
       "Sales Pipeline Automation",
@@ -111,7 +112,7 @@ export const servicesData = [
       "Advanced AI-powered calling systems for lead generation, customer support, and sales automation. Featuring voice AI, sentiment analysis, and CRM integration.",
     image:
       "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    backgroundImage: "/images/bg-ai-call.svg",
+    backgroundImage: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
     features: [
       "Voice AI",
       "Call Analytics",
@@ -134,7 +135,7 @@ export const servicesData = [
       "Intelligent automation solutions using machine learning and AI to streamline operations, reduce costs, and improve efficiency across your organization.",
     image:
       "https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    backgroundImage: "/images/bg-ai-automation.svg",
+    backgroundImage: "https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
     features: [
       "Process Automation",
       "Machine Learning",

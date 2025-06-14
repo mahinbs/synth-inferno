@@ -54,7 +54,8 @@ const EnhancedServiceCard = memo(({
         willChange: isExpanded ? 'transform, opacity' : 'auto',
         contain: 'layout style paint',
         transform: 'translate3d(0, 0, 0)',
-        pointerEvents: 'auto'
+        pointerEvents: 'auto',
+        minHeight: isExpanded ? 'auto' : '140px' // Increased min height for better image display
       }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
