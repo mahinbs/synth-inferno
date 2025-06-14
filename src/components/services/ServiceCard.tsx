@@ -1,6 +1,10 @@
+
 import { memo } from 'react';
+import { Link } from 'react-router-dom';
 import { ChevronDown } from 'lucide-react';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
+import { useRoutePreloading } from '@/hooks/useRoutePreloading';
+
 interface Service {
   id: string;
   icon: any;
@@ -10,6 +14,7 @@ interface Service {
   technologies: string[];
   highlights: string[];
 }
+
 interface ServiceCardProps {
   service: Service;
   isExpanded: boolean;
@@ -17,6 +22,20 @@ interface ServiceCardProps {
   index: number;
   isVisible: boolean;
 }
+
+// Map service categories to their new route paths
+const getServiceRoute = (category: string): string => {
+  const routeMap: Record<string, string> = {
+    'web': '/services/web-applications',
+    'saas': '/services/saas', 
+    'mobile': '/services/mobile-apps',
+    'ai': '/services/ai-calling',
+    'automation': '/services/ai-automation'
+  };
+  
+  return routeMap[category] || '/services/web-applications';
+};
+
 const ServiceCard = memo(({
   service,
   isExpanded,
@@ -24,7 +43,19 @@ const ServiceCard = memo(({
   index,
   isVisible
 }: ServiceCardProps) => {
-  return <Collapsible open={isExpanded} onOpenChange={open => onToggle(open ? service.id : null)}>
+  const { preloadRoute, cancelPreload } = useRoutePreloading();
+  const serviceRoute = getServiceRoute(service.category);
+
+  const handleLearnMoreHover = () => {
+    preloadRoute(serviceRoute, 300);
+  };
+
+  const handleLearnMoreLeave = () => {
+    cancelPreload(serviceRoute);
+  };
+
+  return (
+    <Collapsible open={isExpanded} onOpenChange={open => onToggle(open ? service.id : null)}>
       <div className={`group bg-card rounded-2xl border border-border hover:border-primary/30 transition-all duration-300 overflow-hidden ${isVisible ? `animate-fade-in-up animate-stagger-${index + 3}` : 'opacity-0'}`}>
         <CollapsibleTrigger asChild>
           <div className="flex items-center p-8 cursor-pointer hover:bg-muted/50 transition-colors duration-300">
@@ -52,9 +83,11 @@ const ServiceCard = memo(({
               <div>
                 <h4 className="text-lg font-semibold text-card-foreground mb-4">Technologies & Tools</h4>
                 <div className="flex flex-wrap gap-2">
-                  {service.technologies.map((tech, idx) => <span key={idx} className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium border border-primary/20">
+                  {service.technologies.map((tech, idx) => (
+                    <span key={idx} className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium border border-primary/20">
                       {tech}
-                    </span>)}
+                    </span>
+                  ))}
                 </div>
               </div>
 
@@ -62,27 +95,36 @@ const ServiceCard = memo(({
               <div>
                 <h4 className="text-lg font-semibold text-card-foreground mb-4">Key Capabilities</h4>
                 <ul className="space-y-3">
-                  {service.highlights.map((highlight, idx) => <li key={idx} className="flex items-start">
+                  {service.highlights.map((highlight, idx) => (
+                    <li key={idx} className="flex items-start">
                       <div className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></div>
                       <span className="text-muted-foreground">{highlight}</span>
-                    </li>)}
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
 
-            {/* Action Buttons */}
+            {/* Enhanced Action Buttons with proper navigation */}
             <div className="flex flex-col sm:flex-row gap-4 mt-8 pt-6 border-t border-border/50">
-              <button className="flex-1 bg-primary text-primary-foreground px-6 py-3 rounded-xl font-medium hover:bg-primary/90 transition-colors duration-300">
-                Get Started
-              </button>
-              <button className="flex-1 border border-primary text-primary px-6 py-3 rounded-xl font-medium hover:bg-primary/5 transition-colors duration-300">
+              <Link
+                to={serviceRoute}
+                className="flex-1 bg-primary text-primary-foreground px-6 py-3 rounded-xl font-medium hover:bg-primary/90 transition-colors duration-300 text-center focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                onMouseEnter={handleLearnMoreHover}
+                onMouseLeave={handleLearnMoreLeave}
+              >
                 Learn More
+              </Link>
+              <button className="flex-1 border border-primary text-primary px-6 py-3 rounded-xl font-medium hover:bg-primary/5 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
+                Get Quote
               </button>
             </div>
           </div>
         </CollapsibleContent>
       </div>
-    </Collapsible>;
+    </Collapsible>
+  );
 });
+
 ServiceCard.displayName = 'ServiceCard';
 export default ServiceCard;

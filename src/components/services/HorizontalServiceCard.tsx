@@ -1,6 +1,8 @@
 
 import { memo, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
+import { useRoutePreloading } from '@/hooks/useRoutePreloading';
 
 interface Service {
   id: string;
@@ -38,12 +40,35 @@ const getCategoryAccent = (category: string) => {
   }
 };
 
+// Map service categories to their route paths
+const getServiceRoute = (category: string): string => {
+  const routeMap: Record<string, string> = {
+    'web': '/services/web-applications',
+    'saas': '/services/saas',
+    'mobile': '/services/mobile-apps', 
+    'ai': '/services/ai-calling',
+    'automation': '/services/ai-automation'
+  };
+  
+  return routeMap[category] || '/services/web-applications';
+};
+
 const HorizontalServiceCard = memo(({
   service,
   index,
   isVisible
 }: HorizontalServiceCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
+  const { preloadRoute, cancelPreload } = useRoutePreloading();
+  const serviceRoute = getServiceRoute(service.category);
+
+  const handleLearnMoreHover = () => {
+    preloadRoute(serviceRoute, 300);
+  };
+
+  const handleLearnMoreLeave = () => {
+    cancelPreload(serviceRoute);
+  };
 
   return (
     <div 
@@ -121,15 +146,20 @@ const HorizontalServiceCard = memo(({
               </span>
             </div>
 
-            {/* Action Button */}
-            <button className={`flex items-center justify-center gap-2 px-4 py-2 bg-gray-800/60 hover:bg-gray-700/80 text-gray-300 hover:text-white rounded-lg border border-gray-700/40 hover:border-gray-600/60 transition-all duration-200 transform text-sm font-medium ${
-              isHovered ? 'scale-105' : 'scale-100'
-            }`}>
+            {/* Enhanced Action Link */}
+            <Link
+              to={serviceRoute}
+              className={`flex items-center justify-center gap-2 px-4 py-2 bg-gray-800/60 hover:bg-gray-700/80 text-gray-300 hover:text-white rounded-lg border border-gray-700/40 hover:border-gray-600/60 transition-all duration-200 transform text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900 ${
+                isHovered ? 'scale-105' : 'scale-100'
+              }`}
+              onMouseEnter={handleLearnMoreHover}
+              onMouseLeave={handleLearnMoreLeave}
+            >
               <span>Learn More</span>
               <ArrowRight className={`h-3 w-3 transition-transform duration-200 ${
                 isHovered ? 'translate-x-0.5' : 'translate-x-0'
               }`} />
-            </button>
+            </Link>
           </div>
         </div>
       </div>

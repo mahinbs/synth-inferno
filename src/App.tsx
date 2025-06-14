@@ -44,7 +44,7 @@ const queryClient = new QueryClient({
   },
 });
 
-// Mobile-optimized loading fallback component
+// Enhanced page skeleton with service-specific optimization
 const PageSkeleton = () => (
   <div className="min-h-screen bg-black" style={{ contain: 'layout style paint' }}>
     <div className="container mx-auto mobile-container py-16 sm:py-20">
@@ -74,7 +74,6 @@ const App = () => {
       viewport.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
     }
 
-    // Add mobile-optimized meta tags
     const themeColor = document.querySelector('meta[name="theme-color"]');
     if (!themeColor) {
       const meta = document.createElement('meta');
@@ -83,7 +82,6 @@ const App = () => {
       document.head.appendChild(meta);
     }
 
-    // Optimize for mobile browsers
     const statusBar = document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]');
     if (!statusBar) {
       const meta = document.createElement('meta');
@@ -92,7 +90,7 @@ const App = () => {
       document.head.appendChild(meta);
     }
 
-    // Global performance optimizations for mobile
+    // Enhanced performance optimizations with service route preloading
     const styleSheet = document.createElement('style');
     styleSheet.textContent = `
       * {
@@ -111,20 +109,22 @@ const App = () => {
         content-visibility: auto;
       }
       
+      /* Service page transition optimizations */
+      .service-page-transition {
+        transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+      }
+      
       /* Mobile-specific optimizations */
       @media (max-width: 768px) {
-        /* Prevent zoom on input focus */
         input, select, textarea {
           font-size: 16px !important;
         }
         
-        /* Optimize touch events */
         * {
           -webkit-touch-callout: none;
           -webkit-tap-highlight-color: transparent;
         }
         
-        /* Improve scroll performance */
         html, body {
           -webkit-overflow-scrolling: touch;
         }
@@ -153,11 +153,18 @@ const App = () => {
                 <Route path="/reviews" element={<ReviewsPage />} />
                 <Route path="/blogs" element={<BlogsPage />} />
                 <Route path="/blog/:blogId" element={<BlogPostPage />} />
+                
+                {/* Service routes - both old and new paths for backward compatibility */}
                 <Route path="/web-apps" element={<WebAppsPage />} />
+                <Route path="/services/web-applications" element={<WebAppsPage />} />
                 <Route path="/saas" element={<SaasPage />} />
+                <Route path="/services/saas" element={<SaasPage />} />
                 <Route path="/mobile-apps" element={<MobileAppsPage />} />
+                <Route path="/services/mobile-apps" element={<MobileAppsPage />} />
                 <Route path="/ai-calling" element={<AiCallingPage />} />
+                <Route path="/services/ai-calling" element={<AiCallingPage />} />
                 <Route path="/ai-automation" element={<AiAutomationPage />} />
+                <Route path="/services/ai-automation" element={<AiAutomationPage />} />
                 
                 {/* Secure Admin routes */}
                 <Route path="/secure-management-portal-x7k9/login" element={<AdminLogin />} />
