@@ -68,6 +68,13 @@
     -webkit-line-clamp: 2;
   }
 
+  .line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+
   /* Remove any text effects that reduce readability */
   .text-glow-light {
     text-shadow: none;
@@ -93,15 +100,36 @@
     font-weight: 700 !important;
   }
 
-  /* Enhanced spacing for the new layout */
+  /* Enhanced spacing for the new layout with larger images */
   .service-card-interactive {
-    min-height: 200px;
+    min-height: 240px;
   }
 
-  /* Responsive adjustments for larger service images */
+  /* Responsive adjustments for larger service images and stacked tags */
   @media (max-width: 768px) {
     .service-card-interactive {
-      min-height: 180px;
+      min-height: 200px;
+    }
+    
+    /* Stack layout on mobile - image on top, content below, tags at bottom */
+    .service-card-interactive .flex {
+      flex-direction: column;
+      space-x: 0;
+      gap: 1rem;
+    }
+    
+    /* Make tags horizontal on mobile */
+    .service-card-interactive .flex-col {
+      flex-direction: row !important;
+      justify-content: space-between;
+      width: 100%;
+    }
+    
+    /* Adjust tag sizing on mobile */
+    .service-card-interactive .min-w-[100px] {
+      min-width: auto;
+      flex: 1;
+      margin: 0 0.25rem;
     }
   }
 }

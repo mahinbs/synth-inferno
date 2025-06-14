@@ -1,6 +1,5 @@
 
 import { memo } from 'react';
-import { Clock, DollarSign } from 'lucide-react';
 import { ServiceData } from './ServicesData';
 import OptimizedImage from '../ui/OptimizedImage';
 
@@ -41,7 +40,7 @@ const ServiceCardHeader = memo(({
       <div className="flex items-start space-x-6 relative z-10">
         {/* Left Side - Enlarged Service Image */}
         <div className="flex-shrink-0">
-          <div className="relative w-24 h-24 md:w-32 md:h-32 rounded-xl overflow-hidden bg-gray-100 shadow-md border border-gray-200">
+          <div className="relative w-28 h-28 md:w-36 md:h-36 rounded-xl overflow-hidden bg-gray-100 shadow-md border border-gray-200">
             <OptimizedImage
               src={service.image}
               alt={`${service.title} preview`}
@@ -61,8 +60,8 @@ const ServiceCardHeader = memo(({
           </div>
         </div>
         
-        {/* Right Side - Service Content */}
-        <div className="flex-1 min-w-0">
+        {/* Center - Service Content */}
+        <div className="flex-1 min-w-0 pr-4">
           {/* Service Title */}
           <h3 className={`text-xl md:text-2xl font-bold mb-3 transition-colors duration-200 ${
             isExpanded 
@@ -73,42 +72,29 @@ const ServiceCardHeader = memo(({
           </h3>
           
           {/* Service Description */}
-          <p className="text-gray-700 text-sm md:text-base line-clamp-2 font-medium leading-relaxed mb-4">
+          <p className="text-gray-700 text-sm md:text-base line-clamp-3 font-medium leading-relaxed">
             {service.description}
           </p>
-          
-          {/* Pricing and Timeline Row */}
-          <div className="flex items-center justify-between">
-            {/* Timeline Info */}
-            <div className="flex items-center text-sm text-gray-600">
-              <Clock className="h-4 w-4 mr-2" />
-              <span className="font-medium">{service.timeline}</span>
-            </div>
-            
-            {/* Price Tag */}
-            <div className={`px-4 py-2 rounded-lg text-sm font-bold transition-colors duration-200 ${
-              isExpanded 
-                ? 'bg-blue-600 text-white shadow-lg' 
-                : 'bg-gray-100 text-gray-900 shadow-md border border-gray-200 hover:bg-blue-50 hover:text-blue-700'
-            }`}>
-              {service.startingPrice}
-            </div>
-          </div>
         </div>
 
-        {/* Desktop Expand Indicator */}
-        <div className="hidden md:flex items-center justify-center flex-shrink-0">
-          <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200 border-2 ${
+        {/* Right Side - Stacked Price and Duration Tags */}
+        <div className="flex-shrink-0 flex flex-col space-y-3">
+          {/* Price Tag */}
+          <div className={`px-4 py-2.5 rounded-lg text-sm font-bold transition-colors duration-200 text-center min-w-[100px] ${
             isExpanded 
-              ? 'bg-blue-600 border-blue-600 text-white' 
-              : 'bg-gray-100 border-gray-300 text-gray-600 group-hover:bg-blue-100 group-hover:border-blue-300 group-hover:text-blue-600'
+              ? 'bg-blue-600 text-white shadow-lg' 
+              : 'bg-gray-100 text-gray-900 shadow-md border border-gray-200 hover:bg-blue-50 hover:text-blue-700'
           }`}>
-            <div className={`w-4 h-0.5 bg-current transition-transform duration-200 ${
-              isExpanded ? 'rotate-0' : 'rotate-0'
-            }`} />
-            <div className={`w-0.5 h-4 bg-current absolute transition-transform duration-200 ${
-              isExpanded ? 'rotate-90 opacity-0' : 'rotate-0 opacity-100'
-            }`} />
+            {service.startingPrice}
+          </div>
+          
+          {/* Timeline Tag */}
+          <div className={`px-4 py-2.5 rounded-lg text-sm font-medium transition-colors duration-200 text-center min-w-[100px] ${
+            isExpanded 
+              ? 'bg-green-100 text-green-800 border border-green-200' 
+              : 'bg-orange-100 text-orange-800 border border-orange-200 hover:bg-orange-50'
+          }`}>
+            {service.timeline}
           </div>
         </div>
       </div>
