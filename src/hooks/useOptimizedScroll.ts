@@ -5,17 +5,29 @@ export const useOptimizedScroll = () => {
   const isScrollingRef = useRef(false);
   const scrollTimeoutRef = useRef<NodeJS.Timeout>();
   const rafRef = useRef<number>();
+  const lastScrollY = useRef(0);
+  const scrollVelocity = useRef(0);
 
   const handleScrollStart = useCallback(() => {
-    isScrollingRef.current = true;
+    const currentScrollY = window.scrollY;
+    const deltaY = Math.abs(currentScrollY - lastScrollY.current);
+    
+    // Calculate scroll velocity (pixels per frame)
+    scrollVelocity.current = deltaY;
+    lastScrollY.current = currentScrollY;
+    
+    // Only consider it "scrolling" if velocity is above threshold
+    isScrollingRef.current = scrollVelocity.current > 5;
     
     if (scrollTimeoutRef.current) {
       clearTimeout(scrollTimeoutRef.current);
     }
     
+    // Reduced timeout for faster hover recovery
     scrollTimeoutRef.current = setTimeout(() => {
       isScrollingRef.current = false;
-    }, 150);
+      scrollVelocity.current = 0;
+    }, 50);
   }, []);
 
   const optimizedScrollHandler = useCallback((callback: () => void) => {
@@ -47,5 +59,6 @@ export const useOptimizedScroll = () => {
 
   return {
     isScrolling: () => isScrollingRef.current,
+    getScrollVelocity: () => scrollVelocity.current,
   };
 };

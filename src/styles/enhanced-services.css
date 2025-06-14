@@ -3,31 +3,36 @@
   /* Enhanced Service Cards - Performance Optimized */
   .enhanced-service-card {
     contain: layout style paint;
-    will-change: auto;
     transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
   }
 
-  /* Optimized hover transitions - reduced heavy effects during scroll */
+  /* Optimized hover transitions - improved responsiveness */
   .enhanced-service-card .group {
-    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-                box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1),
-                border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.15s cubic-bezier(0.4, 0, 0.2, 1),
+                border-color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  /* Reduced backdrop-blur for better performance */
+  /* Improved hover state with better pointer events */
   .enhanced-service-card:hover {
     transform: translate3d(0, -1px, 0);
     will-change: transform;
+    pointer-events: auto;
+  }
+
+  /* Ensure hover areas are properly interactive */
+  .enhanced-service-card > div {
+    pointer-events: auto;
   }
 
   /* Smooth expansion with hardware acceleration */
   .service-expand-enter {
-    animation: slideDownFadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation: slideDownFadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   }
 
   .service-expand-exit {
-    animation: slideUpFadeOut 0.25s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation: slideUpFadeOut 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   }
 
   @keyframes slideDownFadeIn {
@@ -56,11 +61,12 @@
     }
   }
 
-  /* Lighter glassmorphic effects */
+  /* Improved glassmorphic effects with better hover */
   .glassmorphic-portfolio-card {
-    @apply relative p-4 rounded-xl bg-white/85 border border-gray-200/50 hover:border-blue-300/50 shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer;
+    @apply relative p-4 rounded-xl bg-white/85 border border-gray-200/50 hover:border-blue-300/50 shadow-sm hover:shadow-md transition-all duration-150 cursor-pointer;
     contain: layout style paint;
     transform: translate3d(0, 0, 0);
+    pointer-events: auto;
   }
 
   .glassmorphic-portfolio-card:hover {
@@ -98,22 +104,25 @@
     animation: float 4s ease-in-out infinite;
   }
 
-  /* Lighter backdrop effects */
+  /* Improved backdrop effects */
   .glass-enhanced-light {
     background: rgba(255, 255, 255, 0.85);
     border: 1px solid rgba(59, 130, 246, 0.15);
+    pointer-events: auto;
   }
 
-  /* Performance optimizations */
+  /* Performance optimizations with better interaction */
   .optimized-card {
     contain: layout style paint;
     content-visibility: auto;
     contain-intrinsic-size: 1px 180px;
+    pointer-events: auto;
   }
 
-  /* Hardware accelerated hover effects */
+  /* Hardware accelerated hover effects - improved */
   .card-hover-lift-light {
-    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: auto;
   }
 
   .card-hover-lift-light:hover {
@@ -121,7 +130,7 @@
     will-change: transform;
   }
 
-  /* Reduced text glow effects */
+  /* Improved text glow effects */
   .text-glow-light {
     text-shadow: 0 0 8px rgba(59, 130, 246, 0.2);
   }
@@ -157,23 +166,34 @@
     -webkit-line-clamp: 2;
   }
 
-  /* Optimized hover states */
+  /* Improved hover states with proper pointer events */
   .service-button-hover {
     @apply transition-all duration-150 ease-out;
-    will-change: transform;
+    pointer-events: auto;
   }
 
   .service-button-hover:hover {
     @apply transform scale-102 shadow-md;
+    will-change: transform;
   }
 
-  /* Remove will-change after animation completes */
+  /* Clean up will-change after animation completes */
   .enhanced-service-card:not(:hover) {
     will-change: auto;
   }
 
   .glassmorphic-portfolio-card:not(:hover) {
     will-change: auto;
+  }
+
+  /* Ensure service cards are interactive */
+  .service-card-interactive {
+    pointer-events: auto !important;
+    cursor: pointer;
+  }
+
+  .service-card-interactive:hover {
+    pointer-events: auto !important;
   }
 }
 
@@ -183,23 +203,19 @@
     contain-intrinsic-size: 1px 120px;
   }
 
-  /* Disable heavy hover effects on mobile */
-  .card-hover-lift-light:hover {
-    transform: none;
+  /* Enable hover effects on devices with hover capability */
+  @media (hover: hover) and (pointer: fine) {
+    .card-hover-lift-light:hover {
+      transform: translate3d(0, -2px, 0) scale(1.005);
+    }
+
+    .service-button-hover:hover {
+      transform: scale(1.02);
+    }
   }
 
-  /* Faster animations on mobile */
-  .animate-shimmer-light,
-  .animate-float {
-    animation-duration: 2s;
-  }
-
-  .glassmorphic-portfolio-card {
-    @apply p-3;
-  }
-
-  /* Disable hover effects on touch devices */
-  @media (hover: none) {
+  /* Disable hover effects only on pure touch devices */
+  @media (hover: none) and (pointer: coarse) {
     .enhanced-service-card:hover {
       transform: none;
     }
@@ -211,6 +227,16 @@
     .service-button-hover:hover {
       transform: none;
     }
+  }
+
+  /* Faster animations on mobile */
+  .animate-shimmer-light,
+  .animate-float {
+    animation-duration: 2s;
+  }
+
+  .glassmorphic-portfolio-card {
+    @apply p-3;
   }
 }
 

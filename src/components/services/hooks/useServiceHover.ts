@@ -18,16 +18,17 @@ export const useServiceHover = ({
   const [isTouchDevice, setIsTouchDevice] = useState(false);
   const collapseTimeoutRef = useRef<NodeJS.Timeout>();
   const expandTimeoutRef = useRef<NodeJS.Timeout>();
-  const { isScrolling } = useOptimizedScroll();
+  const { isScrolling, getScrollVelocity } = useOptimizedScroll();
 
-  // Detect touch device on mount
+  // Improved touch device detection
   useEffect(() => {
     const checkTouchDevice = () => {
-      setIsTouchDevice(
-        'ontouchstart' in window || 
-        navigator.maxTouchPoints > 0 ||
-        window.matchMedia('(hover: none)').matches
-      );
+      const hasTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+      const hasHover = window.matchMedia('(hover: hover)').matches;
+      const hasPointer = window.matchMedia('(pointer: fine)').matches;
+      
+      // Consider it a touch device if it has touch AND lacks precise hover/pointer
+      setIsTouchDevice(hasTouch && (!hasHover || !hasPointer));
     };
     
     checkTouchDevice();
@@ -49,71 +50,78 @@ export const useServiceHover = ({
     };
   }, []);
 
-  // Auto-expand on mouse enter (desktop only)
-  const handleMouseEnter = useCallback(() => {
-    if (isTouchDevice || isScrolling()) return;
-    
-    // Clear any pending timeouts
+  // Clear all timeouts helper
+  const clearAllTimeouts = useCallback(() => {
     if (collapseTimeoutRef.current) {
       clearTimeout(collapseTimeoutRef.current);
+      collapseTimeoutRef.current = undefined;
     }
     if (expandTimeoutRef.current) {
       clearTimeout(expandTimeoutRef.current);
+      expandTimeoutRef.current = undefined;
     }
+  }, []);
+
+  // Improved mouse enter with better scroll detection
+  const handleMouseEnter = useCallback(() => {
+    if (isTouchDevice) return;
     
-    // Small delay to prevent rapid firing during scroll
+    // Only block hover if actively scrolling fast
+    const scrollVelocity = getScrollVelocity();
+    if (isScrolling() && scrollVelocity > 10) return;
+    
+    clearAllTimeouts();
+    
+    // Reduced delay for more responsive hover
     expandTimeoutRef.current = setTimeout(() => {
-      if (!isScrolling()) {
+      // Double-check scroll state before expanding
+      if (!isScrolling() || getScrollVelocity() < 5) {
         onExpand(serviceId);
       }
-    }, 50);
-  }, [isTouchDevice, onExpand, serviceId, isScrolling]);
+    }, 100);
+  }, [isTouchDevice, onExpand, serviceId, isScrolling, getScrollVelocity, clearAllTimeouts]);
 
-  // Delayed collapse on mouse leave (desktop only)
+  // Improved mouse leave with shorter delay
   const handleMouseLeave = useCallback(() => {
     if (isTouchDevice) return;
     
-    // Clear expand timeout
-    if (expandTimeoutRef.current) {
-      clearTimeout(expandTimeoutRef.current);
-    }
+    clearAllTimeouts();
     
-    // Set a 300ms delay before collapsing
+    // Reduced collapse delay for more responsive interaction
     collapseTimeoutRef.current = setTimeout(() => {
       onCollapse();
-    }, 300);
-  }, [isTouchDevice, onCollapse]);
+    }, 150);
+  }, [isTouchDevice, onCollapse, clearAllTimeouts]);
 
   // Prevent collapse when hovering over expanded content
   const handleContentMouseEnter = useCallback(() => {
     if (isTouchDevice) return;
     
-    // Cancel any pending collapse
-    if (collapseTimeoutRef.current) {
-      clearTimeout(collapseTimeoutRef.current);
-    }
-  }, [isTouchDevice]);
+    clearAllTimeouts();
+  }, [isTouchDevice, clearAllTimeouts]);
 
   // Resume collapse timing when leaving expanded content
   const handleContentMouseLeave = useCallback(() => {
     if (isTouchDevice) return;
     
-    // Set a 300ms delay before collapsing
+    clearAllTimeouts();
+    
     collapseTimeoutRef.current = setTimeout(() => {
       onCollapse();
-    }, 300);
-  }, [isTouchDevice, onCollapse]);
+    }, 150);
+  }, [isTouchDevice, onCollapse, clearAllTimeouts]);
 
-  // Click handler for mobile/touch devices
+  // Improved click handler for touch devices
   const handleClick = useCallback(() => {
     if (isTouchDevice) {
+      clearAllTimeouts();
       if (isExpanded) {
         onCollapse();
       } else {
         onExpand(serviceId);
       }
     }
-  }, [isTouchDevice, isExpanded, onExpand, onCollapse, serviceId]);
+  }, [isTouchDevice, isExpanded, onExpand, onCollapse, serviceId, clearAllTimeouts]);
 
   return {
     isTouchDevice,

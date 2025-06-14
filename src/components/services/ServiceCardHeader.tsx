@@ -1,8 +1,7 @@
 
 import { memo } from 'react';
-import { ChevronDown, Clock, DollarSign } from 'lucide-react';
+import { Clock, DollarSign } from 'lucide-react';
 import { ServiceData } from './ServicesData';
-import OptimizedImage from '../ui/OptimizedImage';
 
 interface ServiceCardHeaderProps {
   service: ServiceData;
@@ -23,59 +22,88 @@ const ServiceCardHeader = memo(({
   onClick,
   index
 }: ServiceCardHeaderProps) => {
+  const Icon = service.icon;
+
+  const handleHeaderClick = () => {
+    if (isTouchDevice) {
+      onClick();
+    }
+  };
+
   return (
     <div 
-      className={`flex items-center ${isTouchDevice ? 'cursor-pointer' : 'cursor-default'}`}
-      onClick={onClick}
+      className={`p-6 transition-all duration-200 ease-out ${
+        isTouchDevice ? 'cursor-pointer' : 'cursor-default'
+      }`}
+      onClick={handleHeaderClick}
+      style={{ pointerEvents: 'auto' }}
     >
-      {/* Left Image Section */}
-      <div className="relative w-48 h-32 flex-shrink-0 overflow-hidden rounded-l-xl">
-        <OptimizedImage 
-          src={service.image} 
-          alt={service.title}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-          onLoad={onImageLoad}
-          priority={index < 2}
-        />
-        
-        {/* Light Glassmorphic Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/15 to-blue-600/20 backdrop-blur-sm" />
-        
-        {/* Icon Container */}
-        <div className="absolute top-4 left-4 w-12 h-12 rounded-xl bg-white/90 backdrop-blur-md border border-blue-200/50 flex items-center justify-center shadow-lg">
-          <service.icon className="h-6 w-6 text-blue-600" />
+      <div className="flex items-start justify-between">
+        {/* Service Icon and Info */}
+        <div className="flex items-start space-x-4 flex-1">
+          <div className={`p-3 rounded-xl transition-all duration-200 ${
+            isExpanded 
+              ? 'bg-gradient-to-br from-blue-500 to-purple-600 text-white shadow-lg' 
+              : 'bg-gray-100/80 text-gray-600 group-hover:bg-blue-100 group-hover:text-blue-600'
+          }`}>
+            <Icon className="h-6 w-6" />
+          </div>
+          
+          <div className="flex-1 min-w-0">
+            <h3 className={`text-xl font-bold transition-colors duration-200 ${
+              isExpanded 
+                ? 'text-transparent bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text' 
+                : 'text-gray-900 group-hover:text-blue-700'
+            }`}>
+              {service.title}
+            </h3>
+            <p className="text-gray-600 text-sm mt-1 line-clamp-2">
+              {service.shortDescription}
+            </p>
+          </div>
+        </div>
+
+        {/* Desktop Price/Timeline */}
+        <div className="hidden md:flex items-center space-x-6 ml-6">
+          <div className="text-right">
+            <div className={`text-lg font-bold transition-colors duration-200 ${
+              isExpanded ? 'text-blue-600' : 'text-gray-900'
+            }`}>
+              {service.startingPrice}
+            </div>
+            <div className="text-sm text-gray-500 flex items-center">
+              <Clock className="h-3 w-3 mr-1" />
+              {service.timeline}
+            </div>
+          </div>
+          
+          <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200 ${
+            isExpanded 
+              ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white' 
+              : 'bg-gray-200 text-gray-500 group-hover:bg-blue-100 group-hover:text-blue-600'
+          }`}>
+            <div className={`w-4 h-0.5 bg-current transition-transform duration-200 ${
+              isExpanded ? 'rotate-0' : 'rotate-0'
+            }`} />
+            <div className={`w-0.5 h-4 bg-current absolute transition-transform duration-200 ${
+              isExpanded ? 'rotate-90 opacity-0' : 'rotate-0 opacity-100'
+            }`} />
+          </div>
         </div>
       </div>
 
-      {/* Content Section */}
-      <div className="flex-1 p-6">
-        <div className="flex items-center justify-between">
-          <div className="flex-1">
-            <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-blue-700 transition-colors duration-300">
-              {service.title}
-            </h3>
-            <p className="text-gray-700 group-hover:text-gray-800 transition-colors duration-300 leading-relaxed">
-              {service.description}
-            </p>
-          </div>
-
-          {/* Price and Timeline Badges */}
-          <div className="hidden md:flex flex-col space-y-2 mr-6">
-            <div className="px-4 py-2 rounded-lg bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200/60 text-sm font-medium flex items-center space-x-2 text-gray-800">
-              <DollarSign className="h-4 w-4 text-blue-600" />
-              <span>{service.startingPrice}</span>
-            </div>
-            <div className="px-4 py-2 rounded-lg bg-gradient-to-r from-purple-50 to-blue-50 border border-purple-200/60 text-sm font-medium flex items-center space-x-2 text-gray-800">
-              <Clock className="h-4 w-4 text-purple-600" />
-              <span>{service.timeline}</span>
-            </div>
-          </div>
-
-          {/* Expand Icon */}
-          <ChevronDown className={`h-6 w-6 text-blue-600 transform transition-transform duration-300 ${
-            isExpanded ? "rotate-180" : ""
-          }`} />
-        </div>
+      {/* Background Image */}
+      <div className="absolute inset-0 overflow-hidden rounded-xl">
+        <img
+          src={service.backgroundImage}
+          alt={`${service.title} background`}
+          className={`w-full h-full object-cover transition-all duration-300 ${
+            imageLoaded ? 'opacity-5' : 'opacity-0'
+          } ${isExpanded ? 'opacity-10 scale-105' : 'group-hover:opacity-8 group-hover:scale-102'}`}
+          onLoad={onImageLoad}
+          loading="lazy"
+          style={{ pointerEvents: 'none' }}
+        />
       </div>
     </div>
   );
