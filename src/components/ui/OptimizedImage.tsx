@@ -37,29 +37,46 @@ const OptimizedImage = ({
 
   // Get multiple fallback images based on context
   const getFallbackImages = () => {
-    if (alt.toLowerCase().includes('healthcare') || alt.toLowerCase().includes('medical') || alt.toLowerCase().includes('medcare')) {
+    const altLower = alt.toLowerCase();
+    
+    if (altLower.includes('healthcare') || altLower.includes('medical') || altLower.includes('medcare') || altLower.includes('doctor') || altLower.includes('patient')) {
       return [
-        'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80', // Medical dashboard
-        'https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80', // Doctor with tablet
-        'https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'  // Healthcare technology
+        'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1551601651-2a8555f1a136?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
       ];
     }
-    if (alt.toLowerCase().includes('retail') || alt.toLowerCase().includes('ecommerce')) {
+    
+    if (altLower.includes('retail') || altLower.includes('ecommerce') || altLower.includes('shopping')) {
       return [
         'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-        'https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
+        'https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1472851294608-062f824d29cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
       ];
     }
-    if (alt.toLowerCase().includes('project') || alt.toLowerCase().includes('management')) {
+    
+    if (altLower.includes('project') || altLower.includes('management') || altLower.includes('projectflow')) {
       return [
         'https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-        'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
+        'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
       ];
     }
+    
+    if (altLower.includes('ai') || altLower.includes('calling') || altLower.includes('lead') || altLower.includes('sales')) {
+      return [
+        'https://images.unsplash.com/photo-1553775282-20af80779df7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
+      ];
+    }
+    
     // Default tech fallbacks
     return [
       'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
     ];
   };
 
@@ -109,8 +126,10 @@ const OptimizedImage = ({
       console.log(`🔄 Trying fallback ${fallbackAttempt + 1} for ${alt}`);
       setImageSrc(fallbacks[fallbackAttempt]);
       setFallbackAttempt(prev => prev + 1);
+      setHasError(false); // Reset error state to try again
     } else {
       console.error(`💥 All fallbacks failed for ${alt}`);
+      setIsLoaded(true); // Show placeholder
     }
   };
 
@@ -133,8 +152,18 @@ const OptimizedImage = ({
         </div>
       )}
       
+      {/* Error placeholder */}
+      {hasError && fallbackAttempt >= getFallbackImages().length && (
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
+          <div className="text-gray-600 text-sm font-medium text-center p-4">
+            <div className="mb-2">📷</div>
+            <div>Image unavailable</div>
+          </div>
+        </div>
+      )}
+      
       {/* Main image with WebP support and fallback handling */}
-      {isInView && imageSrc && (
+      {isInView && imageSrc && !hasError && (
         <picture>
           <source srcSet={getWebPSrc(imageSrc)} type="image/webp" />
           <img
