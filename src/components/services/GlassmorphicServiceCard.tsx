@@ -19,9 +19,9 @@ const GlassmorphicServiceCard = memo(({
   const [imageLoaded, setImageLoaded] = useState(false);
 
   return (
-    <div className="reference-service-card">
-      {/* Small Image Section */}
-      <div className="service-card-image-small">
+    <div className="reference-service-card-enhanced">
+      {/* Enhanced Image Section */}
+      <div className="service-card-image-enhanced">
         <EnhancedOptimizedImage
           src={service.image}
           alt={`${service.title} service`}
@@ -33,23 +33,23 @@ const GlassmorphicServiceCard = memo(({
       </div>
 
       {/* Content Section - Title and Description */}
-      <div className="service-card-content-center">
-        <h3 className="service-card-title-compact">
+      <div className="service-card-content-enhanced">
+        <h3 className="service-card-title-enhanced">
           {service.title}
         </h3>
         
-        <p className="service-card-description-compact">
+        <p className="service-card-description-enhanced">
           {service.description}
         </p>
       </div>
 
-      {/* Right Section - Pricing and Action */}
-      <div className="service-card-actions-right">
-        <div className="service-pricing-compact">
-          <div className="service-price-text">
+      {/* Right Section - Enhanced Pricing and Action */}
+      <div className="service-card-actions-enhanced">
+        <div className="service-pricing-enhanced">
+          <div className="service-price-enhanced">
             {service.startingPrice}
           </div>
-          <div className="service-timeline-text">
+          <div className="service-timeline-badge">
             {service.timeline}
           </div>
         </div>
@@ -57,7 +57,7 @@ const GlassmorphicServiceCard = memo(({
         <Button 
           variant="outline" 
           size="sm"
-          className="learn-more-button"
+          className="learn-more-button-enhanced"
         >
           Learn More
         </Button>

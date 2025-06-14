@@ -1,7 +1,7 @@
 
 @layer utilities {
-  /* Reference Design Service Cards - Compact Layout */
-  .reference-service-card {
+  /* Enhanced Reference Design Service Cards - Matching Screenshot */
+  .reference-service-card-enhanced {
     background: #ffffff;
     border: 1px solid #e5e7eb;
     border-radius: 12px;
@@ -9,43 +9,44 @@
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     align-items: center;
-    padding: 20px;
+    padding: 24px;
     margin-bottom: 20px;
-    height: 120px;
-    gap: 20px;
+    height: 140px;
+    gap: 24px;
     contain: layout style paint;
     transform: translate3d(0, 0, 0);
   }
 
-  .reference-service-card:hover {
+  .reference-service-card-enhanced:hover {
     box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.08);
     transform: translate3d(0, -1px, 0);
   }
 
-  /* Small image section - fixed size on left */
-  .service-card-image-small {
-    width: 60px;
-    height: 60px;
+  /* Enhanced image section - larger size for prominence */
+  .service-card-image-enhanced {
+    width: 80px;
+    height: 80px;
     flex-shrink: 0;
     overflow: hidden;
-    border-radius: 8px;
+    border-radius: 10px;
   }
 
-  /* Content section - title and description in center */
-  .service-card-content-center {
+  /* Content section - optimized for enhanced layout */
+  .service-card-content-enhanced {
     flex: 1;
     min-width: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding-right: 16px;
   }
 
-  /* Compact title styling */
-  .service-card-title-compact {
+  /* Enhanced title styling - more prominent */
+  .service-card-title-enhanced {
     color: #111827;
     font-weight: 700;
-    font-size: 1.125rem; /* 18px */
-    line-height: 1.4;
+    font-size: 1.25rem; /* 20px - larger for prominence */
+    line-height: 1.3;
     margin-bottom: 8px;
     overflow: hidden;
     display: -webkit-box;
@@ -54,8 +55,8 @@
     line-clamp: 1;
   }
 
-  /* Compact description styling */
-  .service-card-description-compact {
+  /* Enhanced description styling */
+  .service-card-description-enhanced {
     color: #555555;
     font-weight: 400;
     font-size: 0.875rem; /* 14px */
@@ -67,94 +68,119 @@
     line-clamp: 2;
   }
 
-  /* Right section - pricing and actions */
-  .service-card-actions-right {
+  /* Enhanced right section - pricing and actions */
+  .service-card-actions-enhanced {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 12px;
+    gap: 16px;
     flex-shrink: 0;
+    min-width: 140px;
   }
 
-  /* Compact pricing section */
-  .service-pricing-compact {
+  /* Enhanced pricing section */
+  .service-pricing-enhanced {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 4px;
+    gap: 8px;
   }
 
-  /* Price text styling - clean without background */
-  .service-price-text {
+  /* Enhanced price text - more prominent */
+  .service-price-enhanced {
     color: #111827;
     font-weight: 700;
-    font-size: 1rem; /* 16px */
+    font-size: 1.125rem; /* 18px - larger for prominence */
     white-space: nowrap;
   }
 
-  /* Timeline text styling - clean without background */
-  .service-timeline-text {
-    color: #6b7280;
-    font-weight: 500;
-    font-size: 0.875rem; /* 14px */
+  /* Timeline badge styling - matching reference design */
+  .service-timeline-badge {
+    background: #f59e0b;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.75rem; /* 12px */
+    padding: 4px 8px;
+    border-radius: 12px;
     white-space: nowrap;
+    text-align: center;
+    min-width: 80px;
   }
 
-  /* Learn More button styling */
-  .learn-more-button {
+  /* Enhanced Learn More button */
+  .learn-more-button-enhanced {
     font-size: 0.875rem;
-    padding: 8px 16px;
+    padding: 10px 20px;
     height: auto;
     border-color: #d1d5db;
     color: #374151;
     background: #ffffff;
+    font-weight: 500;
   }
 
-  .learn-more-button:hover {
+  .learn-more-button-enhanced:hover {
     background: #f9fafb;
     border-color: #9ca3af;
   }
 
   /* Mobile responsive adjustments */
   @media (max-width: 768px) {
-    .reference-service-card {
+    .reference-service-card-enhanced {
       flex-direction: column;
       height: auto;
-      min-height: 180px;
+      min-height: 200px;
       align-items: flex-start;
       gap: 16px;
+      padding: 20px;
     }
     
-    .service-card-image-small {
-      width: 50px;
-      height: 50px;
+    .service-card-image-enhanced {
+      width: 60px;
+      height: 60px;
       align-self: flex-start;
     }
     
-    .service-card-content-center {
+    .service-card-content-enhanced {
       width: 100%;
       text-align: left;
+      padding-right: 0;
     }
     
-    .service-card-actions-right {
+    .service-card-title-enhanced {
+      font-size: 1.125rem; /* 18px on mobile */
+    }
+    
+    .service-card-actions-enhanced {
       width: 100%;
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
+      min-width: auto;
     }
     
-    .service-pricing-compact {
+    .service-pricing-enhanced {
       align-items: flex-start;
     }
     
-    .learn-more-button {
+    .service-price-enhanced {
+      font-size: 1rem; /* 16px on mobile */
+    }
+    
+    .service-timeline-badge {
+      font-size: 0.75rem; /* 12px */
+      padding: 3px 6px;
+      min-width: 70px;
+    }
+    
+    .learn-more-button-enhanced {
       flex-shrink: 0;
+      padding: 8px 16px;
     }
   }
 
   /* Fallback for reduced motion */
   @media (prefers-reduced-motion: reduce) {
-    .reference-service-card {
+    .reference-service-card-enhanced {
       transition: none !important;
     }
   }
