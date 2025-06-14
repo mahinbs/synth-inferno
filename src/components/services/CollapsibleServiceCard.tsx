@@ -2,7 +2,6 @@
 import { memo, useState } from 'react';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import { getCategoryAccent } from './utils/categoryAccents';
-import ServiceCardHeader from './ServiceCardHeader';
 import ServiceCardContent from './ServiceCardContent';
 import ServiceCardWrapper from './ServiceCardWrapper';
 import { useServiceCardInteractions } from './hooks/useServiceCardInteractions';
@@ -29,6 +28,74 @@ interface CollapsibleServiceCardProps {
   isVisible: boolean;
   isLastCard?: boolean;
 }
+
+// Local ServiceCardHeader component for CollapsibleServiceCard
+const CollapsibleServiceCardHeader = memo(({ 
+  service, 
+  accent, 
+  isHovered, 
+  isOpen 
+}: { 
+  service: Service; 
+  accent: any; 
+  isHovered: boolean; 
+  isOpen: boolean; 
+}) => {
+  const Icon = service.icon;
+  
+  return (
+    <div className="flex items-center justify-between">
+      <div className="flex items-center space-x-4 flex-1">
+        <div className={`p-3 rounded-xl transition-all duration-300 ${
+          isHovered 
+            ? `${accent.iconBg} ${accent.iconText} shadow-lg` 
+            : 'bg-gray-100/80 text-gray-600'
+        }`}>
+          <Icon className="h-6 w-6" />
+        </div>
+        
+        <div className="flex-1 min-w-0">
+          <h3 className={`text-xl font-bold transition-colors duration-300 ${
+            isHovered ? accent.text : 'text-gray-900'
+          }`}>
+            {service.title}
+          </h3>
+          <p className="text-gray-600 text-sm mt-1 line-clamp-2">
+            {service.intro}
+          </p>
+        </div>
+      </div>
+      
+      <div className="flex items-center space-x-4 ml-4">
+        <div className="text-right">
+          <div className={`text-lg font-bold transition-colors duration-300 ${
+            isHovered ? accent.text : 'text-gray-900'
+          }`}>
+            {service.price}
+          </div>
+          <div className="text-sm text-gray-500">
+            {service.duration}
+          </div>
+        </div>
+        
+        <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${
+          isOpen 
+            ? `${accent.bg} ${accent.text}` 
+            : 'bg-gray-200 text-gray-500'
+        }`}>
+          <div className={`w-4 h-0.5 bg-current transition-transform duration-300 ${
+            isOpen ? 'rotate-0' : 'rotate-0'
+          }`} />
+          <div className={`w-0.5 h-4 bg-current absolute transition-transform duration-300 ${
+            isOpen ? 'rotate-90 opacity-0' : 'rotate-0 opacity-100'
+          }`} />
+        </div>
+      </div>
+    </div>
+  );
+});
+
+CollapsibleServiceCardHeader.displayName = 'CollapsibleServiceCardHeader';
 
 const CollapsibleServiceCard = memo(({
   service,
@@ -86,7 +153,7 @@ const CollapsibleServiceCard = memo(({
               } ${isOpen ? 'bg-transparent' : ''}`}
               onClick={handleClick}
             >
-              <ServiceCardHeader 
+              <CollapsibleServiceCardHeader 
                 service={service} 
                 accent={accent} 
                 isHovered={isOpen} 
