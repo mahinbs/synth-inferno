@@ -4,21 +4,37 @@ import { Link } from 'react-router-dom';
 import { Project } from '@/data/projects';
 import OptimizedImage from '@/components/ui/OptimizedImage';
 import LiveViewButton from '@/components/ui/LiveViewButton';
+import { useState } from 'react';
 
 interface CaseStudyHeroProps {
   project: Project;
 }
 
 const CaseStudyHero = ({ project }: CaseStudyHeroProps) => {
+  const [imageError, setImageError] = useState(false);
+  
+  // Get the best available image with fallbacks
+  const getHeroImage = () => {
+    if (project.gallery && project.gallery.length > 0 && !imageError) {
+      return project.gallery[0];
+    }
+    return project.image;
+  };
+
+  const handleImageError = () => {
+    setImageError(true);
+  };
+
   return (
     <section className="relative min-h-screen flex items-center bg-gradient-to-b from-gray-900 to-black overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <OptimizedImage
-          src={project.image}
+          src={getHeroImage()}
           alt={project.title}
-          className="w-full h-full"
+          className="w-full h-full object-cover"
           priority={true}
+          onLoad={() => console.log('Hero background image loaded successfully')}
         />
         <div className="absolute inset-0 bg-black/70"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
@@ -51,7 +67,7 @@ const CaseStudyHero = ({ project }: CaseStudyHeroProps) => {
               <OptimizedImage
                 src={project.clientLogo}
                 alt={project.client}
-                className="w-12 h-12 rounded-full border-2 border-cyan-400"
+                className="w-12 h-12 rounded-full border-2 border-cyan-400 object-cover"
               />
               <div>
                 <h3 className="text-cyan-400 font-semibold">{project.client}</h3>
@@ -99,14 +115,15 @@ const CaseStudyHero = ({ project }: CaseStudyHeroProps) => {
 
           {/* Project Image */}
           <div className="relative animate-fade-in" style={{ animationDelay: '200ms' }}>
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-gray-800 min-h-[400px] flex items-center justify-center">
               <OptimizedImage
-                src={project.gallery[0] || project.image}
-                alt={project.title}
-                className="w-full h-96"
+                src={getHeroImage()}
+                alt={`${project.title} showcase`}
+                className="w-full h-96 object-cover"
                 priority={true}
+                onLoad={() => console.log('Hero showcase image loaded successfully')}
               />
-              <div className="absolute inset-0 ring-1 ring-cyan-400/20 rounded-2xl"></div>
+              <div className="absolute inset-0 ring-1 ring-cyan-400/20 rounded-2xl pointer-events-none"></div>
             </div>
           </div>
         </div>

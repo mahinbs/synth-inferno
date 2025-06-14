@@ -34,6 +34,21 @@ const OptimizedImage = ({
     return originalSrc;
   };
 
+  // Get high-quality fallback image based on context
+  const getFallbackImage = () => {
+    if (alt.toLowerCase().includes('healthcare') || alt.toLowerCase().includes('medical')) {
+      return 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80';
+    }
+    if (alt.toLowerCase().includes('retail') || alt.toLowerCase().includes('ecommerce')) {
+      return 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80';
+    }
+    if (alt.toLowerCase().includes('project') || alt.toLowerCase().includes('management')) {
+      return 'https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80';
+    }
+    // Default high-quality tech image
+    return 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80';
+  };
+
   useEffect(() => {
     if (priority) {
       // Preload critical images immediately
@@ -70,8 +85,10 @@ const OptimizedImage = ({
   };
 
   const handleError = () => {
+    console.warn(`Failed to load image: ${src}, using fallback`);
     setHasError(true);
-    console.warn(`Failed to load image: ${src}`);
+    // Try fallback image
+    setImageSrc(getFallbackImage());
   };
 
   return (
@@ -83,30 +100,26 @@ const OptimizedImage = ({
         contentVisibility: priority ? 'visible' : 'auto'
       }}
     >
-      {/* Light theme loading skeleton */}
+      {/* Loading skeleton with better styling */}
       {!isLoaded && !hasError && (
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 animate-pulse">
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shimmer" />
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300 animate-pulse">
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent animate-shimmer" />
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="text-gray-500 text-sm font-medium">Loading...</div>
+          </div>
         </div>
       )}
       
-      {/* Error fallback */}
-      {hasError && (
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-          <div className="text-gray-500 text-sm">Image unavailable</div>
-        </div>
-      )}
-      
-      {/* Main image with WebP support */}
-      {isInView && imageSrc && !hasError && (
+      {/* Main image with WebP support and fallback handling */}
+      {isInView && imageSrc && (
         <picture>
           <source srcSet={getWebPSrc(imageSrc)} type="image/webp" />
           <img
             src={imageSrc}
             alt={alt}
             sizes={sizes}
-            className={`w-full h-full object-cover transition-opacity duration-300 ${
-              isLoaded ? 'opacity-100' : 'opacity-0'
+            className={`w-full h-full object-cover transition-all duration-500 ${
+              isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
             }`}
             onLoad={handleLoad}
             onError={handleError}
@@ -114,7 +127,7 @@ const OptimizedImage = ({
             decoding="async"
             fetchPriority={priority ? 'high' : 'low'}
             style={{
-              willChange: isLoaded ? 'auto' : 'opacity',
+              willChange: isLoaded ? 'auto' : 'opacity, transform',
               transform: 'translate3d(0, 0, 0)'
             }}
           />
