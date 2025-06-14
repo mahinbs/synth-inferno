@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -11,6 +10,7 @@ import ProtectedRoute from "@/components/admin/ProtectedRoute";
 // Lazy load all page components for code splitting
 const Index = lazy(() => import("./pages/Index"));
 const NotFound = lazy(() => import("./pages/NotFound"));
+const ServicesPage = lazy(() => import("./pages/ServicesPage"));
 const WebAppsPage = lazy(() => import("./pages/WebAppsPage"));
 const SaasPage = lazy(() => import("./pages/SaasPage"));
 const MobileAppsPage = lazy(() => import("./pages/MobileAppsPage"));
@@ -148,6 +148,7 @@ const App = () => {
               <Routes>
                 {/* Public routes */}
                 <Route path="/" element={<Index />} />
+                <Route path="/services" element={<ServicesPage />} />
                 <Route path="/portfolio" element={<Portfolio />} />
                 <Route path="/case-study/:projectId" element={<CaseStudy />} />
                 <Route path="/reviews" element={<ReviewsPage />} />

@@ -60,7 +60,7 @@ const Header = memo(() => {
     section: "about"
   }, {
     name: "Services",
-    href: "/#services",
+    href: "/services",
     section: "services"
   }, {
     name: "Portfolio",
@@ -135,6 +135,11 @@ const Header = memo(() => {
                       {item.name}
                       <span className={`absolute bottom-0 left-0 h-0.5 bg-primary transition-all duration-300 ${active ? "w-full" : "w-0 group-hover:w-full"}`}></span>
                     </Link>;
+              } else if (item.name === "Services") {
+                return <Link key={item.name} to={item.href} className={`transition-all duration-300 font-medium relative group ${active ? "text-primary" : "text-foreground hover:text-primary"}`}>
+                      {item.name}
+                      <span className={`absolute bottom-0 left-0 h-0.5 bg-primary transition-all duration-300 ${active ? "w-full" : "w-0 group-hover:w-full"}`}></span>
+                    </Link>;
               } else if (isHomePage && item.href.startsWith("/#")) {
                 return <button key={item.name} onClick={() => handleSmoothScroll(item.href, item.section)} className={`transition-all duration-300 font-medium relative group ${active ? "text-primary" : "text-foreground hover:text-primary"}`}>
                       {item.name}
@@ -190,6 +195,10 @@ const Header = memo(() => {
                   {menuItems.map(item => {
                 const active = isActive(item);
                 if (item.name === "Home") {
+                  return <Link key={item.name} to={item.href} className={`block text-lg font-medium py-3 px-4 rounded-lg transition-all duration-300 ${active ? "text-primary bg-primary/10" : "text-foreground hover:text-primary hover:bg-white/10"}`} onClick={closeMenu}>
+                          {item.name}
+                        </Link>;
+                } else if (item.name === "Services") {
                   return <Link key={item.name} to={item.href} className={`block text-lg font-medium py-3 px-4 rounded-lg transition-all duration-300 ${active ? "text-primary bg-primary/10" : "text-foreground hover:text-primary hover:bg-white/10"}`} onClick={closeMenu}>
                           {item.name}
                         </Link>;

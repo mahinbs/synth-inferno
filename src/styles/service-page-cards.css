@@ -1,0 +1,52 @@
+
+@layer utilities {
+  /* Service Page Cards - Mobile Responsive */
+  .service-page-card {
+    contain: layout style paint;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+  }
+
+  /* Mobile responsive adjustments */
+  @media (max-width: 768px) {
+    .service-page-card {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+      min-height: auto;
+      padding: 20px;
+    }
+    
+    .service-page-card .w-24 {
+      width: 80px;
+      height: 80px;
+      align-self: center;
+      margin-bottom: 8px;
+    }
+    
+    .service-page-card .flex-1 {
+      width: 100%;
+      text-align: center;
+    }
+    
+    .service-page-card .min-w-[140px] {
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      min-width: auto;
+    }
+    
+    .service-page-card .flex-col:last-child {
+      flex-direction: row;
+      gap: 12px;
+    }
+  }
+
+  /* Fallback for reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .service-page-card {
+      transition: none !important;
+    }
+  }
+}
