@@ -61,7 +61,8 @@ const Services = () => {
       <div className="container mx-auto px-6 relative z-20">
         <ServicesHeader />
 
-        <div className="max-w-6xl mx-auto space-y-6">
+        {/* Fixed Grid Layout with Consistent Spacing */}
+        <div className="max-w-6xl mx-auto services-grid">
           {servicesData.map((service, index) => {
             const isExpanded = expandedService === service.id;
 
@@ -69,7 +70,7 @@ const Services = () => {
               <Suspense 
                 key={service.id} 
                 fallback={
-                  <div className="glassmorphic-card glass-shimmer h-64 rounded-2xl flex items-center justify-center">
+                  <div className="glassmorphic-card glass-shimmer rounded-2xl flex items-center justify-center">
                     <span className="glass-text-secondary">Loading service...</span>
                   </div>
                 }

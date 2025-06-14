@@ -1,32 +1,62 @@
 
-@tailwind components;
-@tailwind utilities;
-
 @layer utilities {
-  /* Layout utilities */
-  .smooth-scroll {
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    overscroll-behavior: contain;
+  /* Text clamping utilities for consistent card layouts */
+  .line-clamp-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
   }
 
-  .optimized-image {
-    will-change: auto;
-    contain: layout style paint;
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+  }
+
+  .line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+  }
+
+  /* Grid layout utilities */
+  .services-grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 768px) {
+    .services-grid {
+      gap: 2rem;
+    }
+  }
+
+  /* Performance optimizations */
+  .gpu-accelerated {
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+  }
+
+  .content-auto {
     content-visibility: auto;
+    contain-intrinsic-size: 1px 280px;
   }
 
-  .prevent-overflow {
-    overflow-x: hidden;
-    max-width: 100vw;
-    width: 100%;
-  }
-}
-
-/* Mobile specific adjustments */
-@media (max-width: 768px) {
-  body {
-    -webkit-overflow-scrolling: touch;
-    overscroll-behavior-y: contain;
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
