@@ -1,6 +1,4 @@
-
 import { useState, useRef, useEffect } from 'react';
-
 interface EnhancedOptimizedImageProps {
   src: string;
   alt: string;
@@ -10,11 +8,10 @@ interface EnhancedOptimizedImageProps {
   sizes?: string;
   quality?: number;
 }
-
-const EnhancedOptimizedImage = ({ 
-  src, 
-  alt, 
-  className = '', 
+const EnhancedOptimizedImage = ({
+  src,
+  alt,
+  className = '',
   priority = false,
   onLoad,
   sizes = "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw",
@@ -40,34 +37,26 @@ const EnhancedOptimizedImage = ({
       setImageSrc(getOptimizedSrc(src));
       return;
     }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsInView(true);
-          setImageSrc(getOptimizedSrc(src));
-          observer.disconnect();
-        }
-      },
-      { 
-        threshold: 0.1, 
-        rootMargin: '100px' // Preload images 100px before they come into view
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setIsInView(true);
+        setImageSrc(getOptimizedSrc(src));
+        observer.disconnect();
       }
-    );
-
+    }, {
+      threshold: 0.1,
+      rootMargin: '100px' // Preload images 100px before they come into view
+    });
     if (imgRef.current) {
       observer.observe(imgRef.current);
     }
-
     return () => observer.disconnect();
   }, [priority, src, quality]);
-
   const handleLoad = () => {
     setIsLoaded(true);
     setHasError(false);
     onLoad?.();
   };
-
   const handleError = () => {
     setHasError(true);
     // Fallback to original source if WebP fails
@@ -76,59 +65,30 @@ const EnhancedOptimizedImage = ({
       setHasError(false);
     }
   };
-
-  return (
-    <div 
-      ref={imgRef} 
-      className={`relative overflow-hidden ${className}`}
-      style={{
-        contain: 'layout style paint',
-        contentVisibility: priority ? 'visible' : 'auto'
-      }}
-    >
+  return <div ref={imgRef} className={`relative overflow-hidden ${className}`} style={{
+    contain: 'layout style paint',
+    contentVisibility: priority ? 'visible' : 'auto'
+  }}>
       {/* Glassmorphic loading skeleton */}
-      {!isLoaded && !hasError && (
-        <div className="absolute inset-0 glassmorphic-card glass-shimmer">
+      {!isLoaded && !hasError && <div className="absolute inset-0 glassmorphic-card glass-shimmer">
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="glass-text-secondary text-sm font-medium">Loading...</div>
           </div>
-        </div>
-      )}
+        </div>}
       
       {/* Error state */}
-      {hasError && (
-        <div className="absolute inset-0 glassmorphic-card flex items-center justify-center">
+      {hasError && <div className="absolute inset-0 glassmorphic-card flex items-center justify-center">
           <div className="glass-text-secondary text-sm font-medium text-center p-4">
             <div className="mb-2">📷</div>
             <div>Image unavailable</div>
           </div>
-        </div>
-      )}
+        </div>}
       
       {/* Optimized image with WebP support */}
-      {isInView && imageSrc && !hasError && (
-        <picture>
+      {isInView && imageSrc && !hasError && <picture>
           <source srcSet={imageSrc} type="image/webp" />
-          <img
-            src={imageSrc}
-            alt={alt}
-            sizes={sizes}
-            className={`glass-bg-image transition-all duration-500 ${
-              isLoaded ? 'opacity-100' : 'opacity-0'
-            }`}
-            onLoad={handleLoad}
-            onError={handleError}
-            loading={priority ? 'eager' : 'lazy'}
-            decoding="async"
-            fetchPriority={priority ? 'high' : 'low'}
-            style={{
-              willChange: isLoaded ? 'auto' : 'opacity, transform'
-            }}
-          />
-        </picture>
-      )}
-    </div>
-  );
+          
+        </picture>}
+    </div>;
 };
-
 export default EnhancedOptimizedImage;
