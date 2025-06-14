@@ -3,7 +3,6 @@ import { useState, useEffect, memo, useCallback } from 'react';
 import { usePerformance } from '@/hooks/usePerformance';
 import EnhancedServiceCard from './EnhancedServiceCard';
 import { servicesData } from './ServicesData';
-import { projectsData } from '@/data/projects';
 
 const EnhancedServicesSection = memo(() => {
   const [isVisible, setIsVisible] = useState(false);
@@ -91,7 +90,6 @@ const EnhancedServicesSection = memo(() => {
                 onExpand={handleExpand}
                 onCollapse={handleCollapse}
                 index={index}
-                projects={projectsData}
               />
             </div>
           ))}

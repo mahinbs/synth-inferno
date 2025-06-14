@@ -2,7 +2,7 @@
 import { memo } from 'react';
 import { Clock, DollarSign, ArrowRight } from 'lucide-react';
 import { ServiceData } from './ServicesData';
-import { Service } from '@/data/projects';
+import { Project } from '@/data/projects';
 import ServicePortfolioPreviews from './ServicePortfolioPreviews';
 import ServiceCardActionButtons from './ServiceCardActionButtons';
 
@@ -11,7 +11,7 @@ interface ServiceCardExpandedContentProps {
   isExpanded: boolean;
   onContentMouseEnter: () => void;
   onContentMouseLeave: () => void;
-  allProjects: Service[];
+  allProjects: Project[];
 }
 
 const ServiceCardExpandedContent = memo(({

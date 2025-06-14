@@ -1,7 +1,7 @@
 
 import { memo, useState, useRef } from 'react';
 import { ServiceData } from './ServicesData';
-import { Service } from '@/data/projects';
+import { projectsData } from '@/data/projects';
 import ServiceCardHeader from './ServiceCardHeader';
 import ServiceCardExpandedContent from './ServiceCardExpandedContent';
 import { useServiceHover } from './hooks/useServiceHover';
@@ -12,7 +12,6 @@ interface EnhancedServiceCardProps {
   onExpand: (serviceId: string) => void;
   onCollapse: () => void;
   index: number;
-  projects: Service[];
 }
 
 const EnhancedServiceCard = memo(({
@@ -20,8 +19,7 @@ const EnhancedServiceCard = memo(({
   isExpanded,
   onExpand,
   onCollapse,
-  index,
-  projects
+  index
 }: EnhancedServiceCardProps) => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
@@ -40,8 +38,8 @@ const EnhancedServiceCard = memo(({
     isExpanded
   });
 
-  // Get all projects from all services and flatten them
-  const allProjects = projects.flatMap(serviceData => serviceData.projects);
+  // Get all projects from projectsData and flatten them
+  const allProjects = projectsData.flatMap(serviceData => serviceData.projects);
 
   return (
     <div 
