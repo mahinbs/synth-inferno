@@ -6,15 +6,11 @@ import { MenuItemProps } from "./types";
 const DesktopMenuItem = ({ item, isActive, isHomePage, onSmoothScroll }: MenuItemProps) => {
   const location = useLocation();
   
-  const baseClasses = "transition-all duration-300 font-medium relative group text-sm xl:text-base";
-  const activeClasses = isActive || location.pathname === item.href || (item.name === "Blogs" && location.pathname.startsWith("/blog"))
-    ? "text-cyan-400"
-    : "text-gray-300 hover:text-cyan-400";
+  const baseClasses = "transition-all duration-300 font-medium relative group";
+  const activeClasses = isActive ? "text-primary" : "text-foreground hover:text-primary";
   
-  const underlineClasses = `absolute bottom-0 left-0 h-0.5 bg-cyan-400 transition-all duration-300 ${
-    isActive || location.pathname === item.href || (item.name === "Blogs" && location.pathname.startsWith("/blog"))
-      ? "w-full"
-      : "w-0 group-hover:w-full"
+  const underlineClasses = `absolute bottom-0 left-0 h-0.5 bg-primary transition-all duration-300 ${
+    isActive ? "w-full" : "w-0 group-hover:w-full"
   }`;
 
   // For Home navigation
@@ -30,8 +26,8 @@ const DesktopMenuItem = ({ item, isActive, isHomePage, onSmoothScroll }: MenuIte
     );
   }
 
-  // For external pages (Blogs, Reviews)
-  if (item.name === "Reviews" || item.name === "Blogs" || (!isHomePage && !item.href.startsWith("/#"))) {
+  // For Services page
+  if (item.name === "Services") {
     return (
       <Link
         to={item.href}
