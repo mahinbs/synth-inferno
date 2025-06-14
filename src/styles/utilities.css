@@ -25,11 +25,13 @@
     line-clamp: 3;
   }
 
-  /* Grid layout utilities */
+  /* Clean single-column grid layout */
   .services-grid {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: 1.5rem;
-    grid-template-columns: 1fr;
+    max-width: 4rem; /* 64rem = 1024px */
+    margin: 0 auto;
   }
 
   @media (min-width: 768px) {
@@ -46,7 +48,7 @@
 
   .content-auto {
     content-visibility: auto;
-    contain-intrinsic-size: 1px 280px;
+    contain-intrinsic-size: 1px 200px;
   }
 
   /* Reduced motion support */

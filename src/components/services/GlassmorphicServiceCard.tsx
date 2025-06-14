@@ -1,11 +1,7 @@
 
-import { memo, useState, useRef, Suspense, lazy } from 'react';
+import { memo, useState } from 'react';
 import { ServiceData } from './ServicesData';
-import { useServiceHover } from './hooks/useServiceHover';
 import EnhancedOptimizedImage from '../ui/EnhancedOptimizedImage';
-
-// Lazy load expanded content for better performance
-const ServiceCardExpandedContent = lazy(() => import('./ServiceCardExpandedContent'));
 
 interface GlassmorphicServiceCardProps {
   service: ServiceData;
@@ -17,132 +13,71 @@ interface GlassmorphicServiceCardProps {
 
 const GlassmorphicServiceCard = memo(({
   service,
-  isExpanded,
-  onExpand,
-  onCollapse,
   index
 }: GlassmorphicServiceCardProps) => {
   const [imageLoaded, setImageLoaded] = useState(false);
-  const cardRef = useRef<HTMLDivElement>(null);
-  
-  const {
-    isTouchDevice,
-    handleMouseEnter,
-    handleMouseLeave,
-    handleContentMouseEnter,
-    handleContentMouseLeave,
-    handleClick
-  } = useServiceHover({
-    onExpand,
-    onCollapse,
-    serviceId: service.id,
-    isExpanded
-  });
 
   return (
     <div 
-      ref={cardRef}
-      className={`group relative overflow-hidden transition-all duration-300 ease-out glassmorphic-card glass-optimized ${
-        isExpanded ? 'expanded scale-[1.02]' : 'scale-100'
-      }`}
+      className="group relative overflow-hidden transition-all duration-300 ease-out bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-md"
       style={{
         animationDelay: `${index * 100}ms`,
-        willChange: isExpanded ? 'transform, opacity' : 'auto'
       }}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
     >
-      {/* Fixed Background Image Container */}
-      <div className="glass-bg-container">
-        <EnhancedOptimizedImage
-          src={service.image}
-          alt={`${service.title} background`}
-          className="w-full h-full"
-          priority={index < 2}
-          onLoad={() => setImageLoaded(true)}
-          quality={85}
-        />
-      </div>
-
-      {/* Main Card Content with Fixed Layout */}
-      <div className="relative z-10 h-full">
-        {/* Header Section - Fixed Height */}
-        <div 
-          className="glassmorphic-content cursor-pointer"
-          onClick={handleClick}
-        >
-          <div className="flex items-center justify-between h-full">
-            {/* Service Info */}
-            <div className="flex items-center space-x-4 flex-1 min-w-0">
-              <div className="w-16 h-16 glassmorphic-card flex items-center justify-center transition-transform duration-300 group-hover:scale-110 flex-shrink-0">
-                <service.icon className="h-8 w-8 text-blue-600" />
-              </div>
-              
-              <div className="flex-1 min-w-0">
-                <h3 className="text-xl font-bold glass-text-primary mb-2 transition-colors duration-300 line-clamp-2">
-                  {service.title}
-                </h3>
-                <p className="glass-text-secondary leading-relaxed text-sm line-clamp-3">
-                  {service.description}
-                </p>
-              </div>
-            </div>
-
-            {/* Pricing and Timeline - Fixed Width */}
-            <div className="hidden md:flex flex-col space-y-2 ml-6 flex-shrink-0">
-              <div className="glass-tag px-3 py-1 rounded-lg text-xs font-medium">
-                <span className="glass-text-accent">{service.startingPrice}</span>
-              </div>
-              <div className="glass-tag px-3 py-1 rounded-lg text-xs font-medium">
-                <span className="glass-text-accent">{service.timeline}</span>
-              </div>
-            </div>
-
-            {/* Expand/Collapse Indicator */}
-            <div className={`ml-4 w-8 h-8 glassmorphic-card flex items-center justify-center transition-all duration-300 flex-shrink-0 ${
-              isExpanded ? 'rotate-180' : 'rotate-0'
-            }`}>
-              <div className="w-4 h-0.5 glass-text-accent bg-current" />
-              <div className={`w-0.5 h-4 glass-text-accent bg-current absolute transition-opacity duration-300 ${
-                isExpanded ? 'opacity-0' : 'opacity-100'
-              }`} />
-            </div>
-          </div>
-
-          {/* Mobile Pricing - Fixed Height */}
-          <div className="md:hidden flex space-x-4 mt-3 pt-3 border-t border-white/20">
-            <div className="glass-tag px-3 py-1 rounded-lg text-xs font-medium">
-              <span className="glass-text-accent">{service.startingPrice}</span>
-            </div>
-            <div className="glass-tag px-3 py-1 rounded-lg text-xs font-medium">
-              <span className="glass-text-accent">{service.timeline}</span>
-            </div>
+      {/* Clean Card Content Layout */}
+      <div className="flex flex-col md:flex-row h-auto">
+        {/* Left: Image Section */}
+        <div className="w-full md:w-48 h-48 md:h-auto flex-shrink-0">
+          <div className="w-full h-full overflow-hidden rounded-t-2xl md:rounded-l-2xl md:rounded-tr-none">
+            <EnhancedOptimizedImage
+              src={service.image}
+              alt={`${service.title} service`}
+              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+              priority={index < 2}
+              onLoad={() => setImageLoaded(true)}
+              quality={85}
+            />
           </div>
         </div>
 
-        {/* Expanded Content - Controlled Height */}
-        {isExpanded && (
-          <div className="absolute top-full left-0 right-0 z-20 bg-white/95 backdrop-blur-lg border-t border-white/20 rounded-b-2xl shadow-lg max-h-80 overflow-y-auto">
-            <Suspense fallback={
-              <div className="glassmorphic-content glass-shimmer h-32 flex items-center justify-center">
-                <span className="glass-text-secondary">Loading details...</span>
+        {/* Right: Content Section */}
+        <div className="flex-1 p-6 flex flex-col justify-between">
+          {/* Service Info */}
+          <div className="flex-1">
+            <div className="flex items-start justify-between mb-4">
+              <div className="flex items-center space-x-3">
+                <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <service.icon className="h-6 w-6 text-blue-600" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2 line-clamp-1">
+                    {service.title}
+                  </h3>
+                </div>
               </div>
-            }>
-              <ServiceCardExpandedContent
-                service={service}
-                isExpanded={isExpanded}
-                onContentMouseEnter={handleContentMouseEnter}
-                onContentMouseLeave={handleContentMouseLeave}
-                allProjects={[]} // Pass actual projects if needed
-              />
-            </Suspense>
+            </div>
+            
+            <p className="text-gray-600 leading-relaxed text-sm mb-4 line-clamp-3">
+              {service.description}
+            </p>
           </div>
-        )}
-      </div>
 
-      {/* Hover shimmer effect */}
-      <div className="absolute inset-0 opacity-0 group-hover:opacity-30 transition-opacity duration-300 pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 translate-x-[-100%] group-hover:translate-x-[200%] transition-transform duration-700" />
+          {/* Pricing and Timeline - Bottom Section */}
+          <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+            <div className="flex space-x-4">
+              <div className="bg-gray-50 px-3 py-1.5 rounded-lg">
+                <span className="text-sm font-semibold text-gray-800">{service.startingPrice}</span>
+              </div>
+              <div className="bg-gray-50 px-3 py-1.5 rounded-lg">
+                <span className="text-sm font-semibold text-gray-800">{service.timeline}</span>
+              </div>
+            </div>
+            
+            <button className="text-blue-600 hover:text-blue-700 text-sm font-medium transition-colors duration-200">
+              Learn More →
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );
