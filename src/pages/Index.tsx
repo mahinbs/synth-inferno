@@ -2,7 +2,7 @@
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
-import EnhancedServicesSection from '@/components/services/EnhancedServicesSection';
+import ReferenceServicesSection from '@/components/services/ReferenceServicesSection';
 import PortfolioSection from '@/components/PortfolioSection';
 import WhyUsSection from '@/components/WhyUsSection';
 import FAQSection from '@/components/FAQSection';
@@ -34,7 +34,7 @@ const Index = () => {
       <main className="w-full">
         <Hero />
         <About />
-        <EnhancedServicesSection />
+        <ReferenceServicesSection />
         <PortfolioSection />
         <WhyUsSection />
         <FAQSection />
