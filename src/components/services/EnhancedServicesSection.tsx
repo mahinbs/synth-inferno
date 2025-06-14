@@ -1,3 +1,4 @@
+
 import { useState, useEffect, memo, Suspense, lazy } from 'react';
 import { servicesData } from './ServicesData';
 import { useRoutePreloading } from '@/hooks/useRoutePreloading';
@@ -5,6 +6,7 @@ import GlassmorphicServiceCard from './GlassmorphicServiceCard';
 
 // Lazy load components for better performance
 const ServiceFilter = lazy(() => import('./ServiceFilter'));
+
 const EnhancedServicesSection = memo(() => {
   const [isVisible, setIsVisible] = useState(false);
   const [expandedService, setExpandedService] = useState<string | null>(null);
@@ -20,6 +22,7 @@ const EnhancedServicesSection = memo(() => {
       criticalRoutes.forEach(route => preloadRoute(route, 100));
     }, 1000);
   }, [preloadRoute]);
+
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
@@ -39,44 +42,41 @@ const EnhancedServicesSection = memo(() => {
       }
     };
   }, []);
+
   const handleExpand = (serviceId: string) => {
     setExpandedService(expandedService === serviceId ? null : serviceId);
   };
+
   const handleCollapse = () => {
     setExpandedService(null);
   };
-  const filteredServices = activeFilter === 'all' ? servicesData : servicesData.filter(service => service.id === activeFilter);
-  return <section id="enhanced-services" className="py-16 md:py-20 relative min-h-screen" style={{
-    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-    overflow: 'hidden'
-  }}>
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-blue-400/20 to-white-600/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gradient-to-tl from-purple-400/20 to-pink-600/20 rounded-full blur-3xl animate-pulse" style={{
-        animationDelay: '1s'
-      }} />
-      </div>
 
+  const filteredServices = activeFilter === 'all' ? servicesData : servicesData.filter(service => service.id === activeFilter);
+
+  return (
+    <section 
+      id="enhanced-services" 
+      className="py-16 md:py-20 relative min-h-screen bg-[#f9f9fb]"
+    >
       <div className="container mx-auto px-4 sm:px-6 max-w-6xl relative z-10">
         {/* Header */}
         <div className="text-center mb-12 md:mb-16">
-          <h2 className={`font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight tracking-tight text-white ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+          <h2 className={`font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight tracking-tight text-gray-900 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
             Our Services
           </h2>
-          <p className={`text-base sm:text-lg md:text-xl text-white/90 max-w-3xl mx-auto leading-relaxed tracking-wide px-4 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{
-          animationDelay: '0.2s'
-        }}>
-            Comprehensive digital solutions with glassmorphic design excellence and enhanced performance.
+          <p className={`text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed tracking-wide px-4 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{
+            animationDelay: '0.2s'
+          }}>
+            Comprehensive digital solutions with professional design excellence and enhanced performance.
           </p>
         </div>
 
         {/* Service Filter */}
         <div className={`mb-8 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{
-        animationDelay: '0.4s'
-      }}>
+          animationDelay: '0.4s'
+        }}>
           <Suspense fallback={<div className="flex justify-center">
-              <div className="glassmorphic-card glass-shimmer h-12 w-64 rounded-full" />
+              <div className="bg-white rounded-full h-12 w-64 animate-pulse" />
             </div>}>
             <ServiceFilter activeFilter={activeFilter} onFilterChange={setActiveFilter} isVisible={isVisible} />
           </Suspense>
@@ -84,20 +84,31 @@ const EnhancedServicesSection = memo(() => {
 
         {/* Services Grid */}
         <div className="space-y-6 md:space-y-8">
-          {filteredServices.map((service, index) => <div key={service.id} className={`transform transition-all duration-500 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{
-          animationDelay: `${0.6 + index * 0.1}s`,
-          willChange: isVisible ? 'auto' : 'transform, opacity'
-        }}>
-              <GlassmorphicServiceCard service={service} isExpanded={expandedService === service.id} onExpand={handleExpand} onCollapse={handleCollapse} index={index} />
-            </div>)}
+          {filteredServices.map((service, index) => (
+            <div 
+              key={service.id} 
+              className={`transform transition-all duration-500 ease-out ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`} 
+              style={{
+                animationDelay: `${0.6 + index * 0.1}s`,
+                willChange: isVisible ? 'auto' : 'transform, opacity'
+              }}
+            >
+              <GlassmorphicServiceCard 
+                service={service} 
+                isExpanded={expandedService === service.id} 
+                onExpand={handleExpand} 
+                onCollapse={handleCollapse} 
+                index={index} 
+              />
+            </div>
+          ))}
         </div>
       </div>
-
-      {/* Performance monitoring */}
-      <div className="sr-only" aria-hidden="true">
-        Enhanced Services Section - Glassmorphic Design with Performance Optimization
-      </div>
-    </section>;
+    </section>
+  );
 });
+
 EnhancedServicesSection.displayName = 'EnhancedServicesSection';
 export default EnhancedServicesSection;
