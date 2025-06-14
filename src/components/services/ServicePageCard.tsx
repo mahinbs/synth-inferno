@@ -55,9 +55,9 @@ const ServicePageCard = memo(({
       className="bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-xl transition-all duration-300 p-8 flex items-center gap-8 min-h-[160px] service-page-card cursor-pointer"
       onClick={handleCardClick}
     >
-      {/* Left Image Section - 140x80px Rectangular Image */}
+      {/* Left Image Section - 140x80px Rectangular Image with More Rounded Corners */}
       <div className="flex-shrink-0">
-        <div className="w-35 h-20 rounded-xl overflow-hidden">
+        <div className="w-35 h-20 rounded-3xl overflow-hidden">
           <EnhancedOptimizedImage
             src={service.image}
             alt={`${service.title} service`}
