@@ -30,7 +30,7 @@
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    max-width: 4rem; /* 64rem = 1024px */
+    max-width: 64rem; /* 1024px - Fixed the typo */
     margin: 0 auto;
   }
 
@@ -38,6 +38,16 @@
     .services-grid {
       gap: 2rem;
     }
+  }
+
+  /* Service card specific utilities */
+  .service-card-fixed-height {
+    height: 12rem; /* 192px */
+  }
+
+  .service-card-mobile-height {
+    min-height: 17.5rem; /* 280px */
+    height: auto;
   }
 
   /* Performance optimizations */

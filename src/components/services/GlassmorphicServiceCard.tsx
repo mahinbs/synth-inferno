@@ -18,67 +18,83 @@ const GlassmorphicServiceCard = memo(({
   const [imageLoaded, setImageLoaded] = useState(false);
 
   return (
-    <div 
-      className="group relative overflow-hidden transition-all duration-300 ease-out bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-md"
-      style={{
-        animationDelay: `${index * 100}ms`,
-      }}
-    >
-      {/* Clean Card Content Layout */}
-      <div className="flex flex-col md:flex-row h-auto">
-        {/* Left: Image Section */}
-        <div className="w-full md:w-48 h-48 md:h-auto flex-shrink-0">
-          <div className="w-full h-full overflow-hidden rounded-t-2xl md:rounded-l-2xl md:rounded-tr-none">
-            <EnhancedOptimizedImage
-              src={service.image}
-              alt={`${service.title} service`}
-              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-              priority={index < 2}
-              onLoad={() => setImageLoaded(true)}
-              quality={85}
-            />
-          </div>
+    <div className="bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden h-48 group">
+      <div className="flex h-full">
+        {/* Left: Image Section - Fixed Width */}
+        <div className="w-48 h-full flex-shrink-0">
+          <EnhancedOptimizedImage
+            src={service.image}
+            alt={`${service.title} service`}
+            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+            priority={index < 2}
+            onLoad={() => setImageLoaded(true)}
+            quality={85}
+          />
         </div>
 
         {/* Right: Content Section */}
-        <div className="flex-1 p-6 flex flex-col justify-between">
-          {/* Service Info */}
-          <div className="flex-1">
-            <div className="flex items-start justify-between mb-4">
-              <div className="flex items-center space-x-3">
-                <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <service.icon className="h-6 w-6 text-blue-600" />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2 line-clamp-1">
-                    {service.title}
-                  </h3>
-                </div>
+        <div className="flex-1 p-6 flex items-center justify-between">
+          {/* Left Content: Service Info */}
+          <div className="flex-1 min-w-0 pr-6">
+            <div className="flex items-center space-x-3 mb-3">
+              <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                <service.icon className="h-5 w-5 text-blue-600" />
               </div>
+              <h3 className="text-xl font-bold text-gray-900 line-clamp-1">
+                {service.title}
+              </h3>
             </div>
             
-            <p className="text-gray-600 leading-relaxed text-sm mb-4 line-clamp-3">
+            <p className="text-gray-600 text-sm mb-4 line-clamp-2 leading-relaxed">
               {service.description}
             </p>
+
+            <div className="flex items-center space-x-4">
+              <span className="bg-gray-100 px-3 py-1 rounded-full text-sm font-semibold text-gray-800">
+                {service.startingPrice}
+              </span>
+              <span className="bg-gray-100 px-3 py-1 rounded-full text-sm font-semibold text-gray-800">
+                {service.timeline}
+              </span>
+            </div>
           </div>
 
-          {/* Pricing and Timeline - Bottom Section */}
-          <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-            <div className="flex space-x-4">
-              <div className="bg-gray-50 px-3 py-1.5 rounded-lg">
-                <span className="text-sm font-semibold text-gray-800">{service.startingPrice}</span>
-              </div>
-              <div className="bg-gray-50 px-3 py-1.5 rounded-lg">
-                <span className="text-sm font-semibold text-gray-800">{service.timeline}</span>
-              </div>
-            </div>
-            
-            <button className="text-blue-600 hover:text-blue-700 text-sm font-medium transition-colors duration-200">
-              Learn More →
+          {/* Right: Learn More Button */}
+          <div className="flex-shrink-0">
+            <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg text-sm font-medium transition-colors duration-200 flex items-center space-x-2">
+              <span>Learn More</span>
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
             </button>
           </div>
         </div>
       </div>
+
+      {/* Mobile Layout - Stack Vertically */}
+      <style jsx>{`
+        @media (max-width: 768px) {
+          .flex {
+            flex-direction: column;
+          }
+          .w-48 {
+            width: 100%;
+            height: 50%;
+          }
+          .flex-1 {
+            padding: 1rem;
+            flex-direction: column;
+            align-items: flex-start;
+          }
+          .justify-between {
+            justify-content: flex-start;
+          }
+          .pr-6 {
+            padding-right: 0;
+            margin-bottom: 1rem;
+          }
+        }
+      `}</style>
     </div>
   );
 });
