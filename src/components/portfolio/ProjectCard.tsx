@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { preloadProject, preloadMultipleProjects } from '@/services/projectService';
 import { useEffect } from 'react';
+import OptimizedImage from '@/components/ui/OptimizedImage';
 
 interface Project {
   id: string;
@@ -83,14 +84,14 @@ const ProjectCard = ({
         contentVisibility: 'auto'
       }}
     >
-      {/* Project Image - Optimized */}
+      {/* Project Image - Now using OptimizedImage */}
       <div className="relative h-48 overflow-hidden rounded-t-2xl">
-        <img 
-          src={project.image} 
-          alt={project.title}
+        <OptimizedImage
+          src={project.image}
+          alt={`${project.title} - ${project.industry} project showcase`}
           className="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105"
-          loading={isVisible ? "eager" : "lazy"}
-          decoding="async"
+          priority={isVisible}
+          onLoad={() => console.log(`Project image loaded: ${project.title}`)}
         />
         <div className={`absolute inset-0 bg-gradient-to-t ${colors.gradient} opacity-60`}></div>
         <div className={`absolute top-4 left-4 w-10 h-10 rounded-lg ${colors.icon} border flex items-center justify-center`}>
