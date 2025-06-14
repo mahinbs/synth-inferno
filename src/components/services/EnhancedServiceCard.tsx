@@ -46,7 +46,7 @@ const EnhancedServiceCard = memo(({
       ref={cardRef}
       className={`group relative overflow-hidden transition-all duration-200 ease-out service-card-interactive ${
         isExpanded 
-          ? 'bg-white border-2 border-blue-300 rounded-2xl shadow-xl' 
+          ? 'bg-white border-2 border-blue-400 rounded-2xl shadow-2xl' 
           : 'bg-white border-2 border-gray-300 rounded-xl hover:border-blue-400 shadow-lg hover:shadow-xl'
       }`}
       style={{
@@ -55,13 +55,13 @@ const EnhancedServiceCard = memo(({
         contain: 'layout style paint',
         transform: 'translate3d(0, 0, 0)',
         pointerEvents: 'auto',
-        minHeight: isExpanded ? 'auto' : '160px'
+        minHeight: isExpanded ? 'auto' : '180px'
       }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
       {/* Main Card Content */}
-      <div className="relative z-10" style={{ pointerEvents: 'auto' }}>
+      <div className="relative z-10 bg-white rounded-xl" style={{ pointerEvents: 'auto' }}>
         <ServiceCardHeader
           service={service}
           imageLoaded={imageLoaded}
@@ -81,9 +81,9 @@ const EnhancedServiceCard = memo(({
         />
       </div>
 
-      {/* Subtle Shimmer Effect on Hover */}
-      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-50/30 to-transparent transform -skew-x-12 translate-x-[-100%] group-hover:translate-x-[200%] transition-transform duration-800" />
+      {/* Subtle Hover Shimmer Effect */}
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-xl">
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-50/20 to-transparent transform -skew-x-12 translate-x-[-100%] group-hover:translate-x-[200%] transition-transform duration-800" />
       </div>
     </div>
   );

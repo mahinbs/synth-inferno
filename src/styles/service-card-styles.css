@@ -5,34 +5,41 @@
     contain: layout style paint;
     transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
+    background: #ffffff !important;
   }
 
   /* Service card interactive states */
   .service-card-interactive {
     pointer-events: auto !important;
     cursor: pointer;
+    background: #ffffff !important;
+    border: 2px solid #d1d5db !important;
   }
 
   .service-card-interactive:hover {
     pointer-events: auto !important;
+    border-color: #3b82f6 !important;
+    transform: translateY(-2px);
   }
 
-  /* Glass morphic effects - High contrast version */
+  /* High contrast card styling */
   .glassmorphic-portfolio-card {
-    @apply relative p-4 rounded-xl bg-white border-2 border-gray-300 hover:border-blue-400 shadow-lg hover:shadow-xl transition-all duration-150 cursor-pointer;
+    @apply relative p-4 rounded-xl border-2 border-gray-300 hover:border-blue-400 shadow-lg hover:shadow-xl transition-all duration-150 cursor-pointer;
+    background: #ffffff !important;
     contain: layout style paint;
     transform: translate3d(0, 0, 0);
     pointer-events: auto;
   }
 
   .glassmorphic-portfolio-card:hover {
-    @apply transform translate-y-[-1px] bg-white;
+    @apply transform translate-y-[-2px];
+    background: #ffffff !important;
     will-change: transform;
   }
 
-  /* Glass enhanced light effect - Solid background */
+  /* Solid background for maximum readability */
   .glass-enhanced-light {
-    background: rgba(255, 255, 255, 1);
+    background: #ffffff !important;
     border: 2px solid rgba(59, 130, 246, 0.3);
     pointer-events: auto;
   }
@@ -43,9 +50,10 @@
     content-visibility: auto;
     contain-intrinsic-size: 1px 180px;
     pointer-events: auto;
+    background: #ffffff !important;
   }
 
-  /* Text utilities */
+  /* Text utilities with enhanced contrast */
   .line-clamp-1 {
     overflow: hidden;
     display: -webkit-box;
@@ -60,8 +68,28 @@
     -webkit-line-clamp: 2;
   }
 
-  /* Text glow effects - Removed for better readability */
+  /* Remove any text effects that reduce readability */
   .text-glow-light {
     text-shadow: none;
+  }
+
+  /* Ensure all service card text is highly visible */
+  .service-card-interactive h3,
+  .service-card-interactive .service-title {
+    color: #111827 !important;
+    font-weight: 700 !important;
+  }
+
+  .service-card-interactive p,
+  .service-card-interactive .service-description {
+    color: #374151 !important;
+    font-weight: 500 !important;
+  }
+
+  .service-card-interactive .price-tag {
+    background: #ffffff !important;
+    color: #111827 !important;
+    border: 1px solid #d1d5db !important;
+    font-weight: 700 !important;
   }
 }
