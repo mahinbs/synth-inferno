@@ -10,7 +10,7 @@
     align-items: center;
     gap: 16px;
     margin-bottom: 24px;
-    height: 120px;
+    height: 100px;
     transition: all 0.2s ease;
     contain: layout style paint;
     transform: translate3d(0, 0, 0);
@@ -21,10 +21,10 @@
     transform: translate3d(0, -2px, 0);
   }
 
-  /* Left image section - updated to 48x48px */
+  /* Left image section - updated to 30x30px */
   .service-card-image {
-    width: 48px;
-    height: 48px;
+    width: 30px;
+    height: 30px;
     flex-shrink: 0;
     overflow: hidden;
     border-radius: 8px;
