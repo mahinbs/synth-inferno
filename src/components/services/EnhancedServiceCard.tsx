@@ -1,3 +1,4 @@
+
 import { memo, useState } from 'react';
 import { ChevronDown, Clock, DollarSign, ArrowRight } from 'lucide-react';
 import { ServiceData } from './ServicesData';
@@ -5,6 +6,7 @@ import { Service } from '@/data/projects';
 import OptimizedImage from '../ui/OptimizedImage';
 import ServicePortfolioPreviews from './ServicePortfolioPreviews';
 import { useServiceHover } from './hooks/useServiceHover';
+
 interface EnhancedServiceCardProps {
   service: ServiceData;
   isExpanded: boolean;
@@ -13,6 +15,7 @@ interface EnhancedServiceCardProps {
   index: number;
   projects: Service[];
 }
+
 const EnhancedServiceCard = memo(({
   service,
   isExpanded,
@@ -22,9 +25,9 @@ const EnhancedServiceCard = memo(({
   projects
 }: EnhancedServiceCardProps) => {
   const [imageLoaded, setImageLoaded] = useState(false);
+  
   const {
     isTouchDevice,
-    cardRef,
     handleMouseEnter,
     handleMouseLeave,
     handleContentMouseEnter,
@@ -39,21 +42,41 @@ const EnhancedServiceCard = memo(({
 
   // Get all projects from all services and flatten them
   const allProjects = projects.flatMap(serviceData => serviceData.projects);
-  return <div ref={cardRef} className={`group relative overflow-hidden transition-all duration-300 ease-out ${isExpanded ? 'bg-white/95 backdrop-blur-xl border border-blue-200/40 rounded-2xl shadow-2xl shadow-blue-500/10' : 'bg-white/80 backdrop-blur-sm border border-gray-200/60 rounded-xl hover:border-blue-300/50 shadow-lg hover:shadow-xl hover:bg-white/90'}`} style={{
-    animationDelay: `${index * 150}ms`,
-    willChange: isExpanded ? 'transform, opacity' : 'auto',
-    contain: 'layout style paint'
-  }} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+
+  return (
+    <div 
+      className={`group relative overflow-hidden transition-all duration-300 ease-out ${
+        isExpanded 
+          ? 'bg-white/95 backdrop-blur-xl border border-blue-200/40 rounded-2xl shadow-2xl shadow-blue-500/10' 
+          : 'bg-white/80 backdrop-blur-sm border border-gray-200/60 rounded-xl hover:border-blue-300/50 shadow-lg hover:shadow-xl hover:bg-white/90'
+      }`}
+      style={{
+        animationDelay: `${index * 150}ms`,
+        willChange: isExpanded ? 'transform, opacity' : 'auto',
+        contain: 'layout style paint'
+      }}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       {/* Subtle Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-r from-blue-50/30 via-purple-50/20 to-blue-50/30 opacity-50" />
       
       {/* Main Card Content */}
       <div className="relative z-10">
         {/* Header Section with Image */}
-        <div className={`flex items-center ${isTouchDevice ? 'cursor-pointer' : 'cursor-default'}`} onClick={handleClick}>
+        <div 
+          className={`flex items-center ${isTouchDevice ? 'cursor-pointer' : 'cursor-default'}`}
+          onClick={handleClick}
+        >
           {/* Left Image Section */}
           <div className="relative w-48 h-32 flex-shrink-0 overflow-hidden rounded-l-xl">
-            <OptimizedImage src={service.image} alt={service.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onLoad={() => setImageLoaded(true)} priority={index < 2} />
+            <OptimizedImage 
+              src={service.image} 
+              alt={service.title}
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              onLoad={() => setImageLoaded(true)}
+              priority={index < 2}
+            />
             
             {/* Light Glassmorphic Overlay */}
             <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/15 to-blue-600/20 backdrop-blur-sm" />
@@ -96,15 +119,26 @@ const EnhancedServiceCard = memo(({
               </div>
 
               {/* Expand Icon */}
-              <ChevronDown className={`h-6 w-6 text-blue-600 transform transition-transform duration-300 ${isExpanded ? "rotate-180" : ""}`} />
+              <ChevronDown className={`h-6 w-6 text-blue-600 transform transition-transform duration-300 ${
+                isExpanded ? "rotate-180" : ""
+              }`} />
             </div>
           </div>
         </div>
 
         {/* Expanded Content */}
-        <div className={`overflow-hidden transition-all duration-500 ease-out ${isExpanded ? "max-h-[1000px] opacity-100 transform translate-y-0" : "max-h-0 opacity-0 transform -translate-y-2"}`} style={{
-        contentVisibility: isExpanded ? 'visible' : 'hidden'
-      }} onMouseEnter={handleContentMouseEnter} onMouseLeave={handleContentMouseLeave}>
+        <div 
+          className={`overflow-hidden transition-all duration-500 ease-out ${
+            isExpanded 
+              ? "max-h-[1000px] opacity-100 transform translate-y-0" 
+              : "max-h-0 opacity-0 transform -translate-y-2"
+          }`}
+          style={{
+            contentVisibility: isExpanded ? 'visible' : 'hidden'
+          }}
+          onMouseEnter={handleContentMouseEnter}
+          onMouseLeave={handleContentMouseLeave}
+        >
           <div className="px-6 pb-6 border-t border-gray-200/50 mt-4 pt-6">
             <div className="grid md:grid-cols-2 gap-8">
               {/* Left Column */}
@@ -139,10 +173,12 @@ const EnhancedServiceCard = memo(({
                     Key Features
                   </h4>
                   <ul className="space-y-3">
-                    {service.features.map((feature, idx) => <li key={idx} className="text-gray-700 flex items-center">
+                    {service.features.map((feature, idx) => (
+                      <li key={idx} className="text-gray-700 flex items-center">
                         <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 mr-3" />
                         {feature}
-                      </li>)}
+                      </li>
+                    ))}
                   </ul>
                 </div>
 
@@ -152,9 +188,14 @@ const EnhancedServiceCard = memo(({
                     Technologies Used
                   </h4>
                   <div className="flex flex-wrap gap-2">
-                    {service.technologies.map((tech, idx) => <span key={idx} className="px-3 py-1 rounded-full text-sm bg-gray-100/80 border border-gray-200/80 text-gray-700 hover:bg-gray-200/60 transition-colors duration-200">
+                    {service.technologies.map((tech, idx) => (
+                      <span 
+                        key={idx} 
+                        className="px-3 py-1 rounded-full text-sm bg-gray-100/80 border border-gray-200/80 text-gray-700 hover:bg-gray-200/60 transition-colors duration-200"
+                      >
                         {tech}
-                      </span>)}
+                      </span>
+                    ))}
                   </div>
                 </div>
 
@@ -172,15 +213,25 @@ const EnhancedServiceCard = memo(({
             </div>
 
             {/* Project Previews Section */}
-            {isExpanded && <ServicePortfolioPreviews serviceId={service.id} projects={allProjects} />}
+            {isExpanded && (
+              <ServicePortfolioPreviews 
+                serviceId={service.id} 
+                projects={allProjects} 
+              />
+            )}
 
             {/* See All Projects Link */}
-            {isExpanded && <div className="mt-6 pt-4 border-t border-gray-200/30 text-center">
-                <a href={`/portfolio?service=${service.id}`} className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium transition-colors duration-200">
+            {isExpanded && (
+              <div className="mt-6 pt-4 border-t border-gray-200/30 text-center">
+                <a 
+                  href={`/portfolio?service=${service.id}`} 
+                  className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium transition-colors duration-200"
+                >
                   See All {service.title} Projects
                   <ArrowRight className="ml-1 h-4 w-4" />
                 </a>
-              </div>}
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -189,7 +240,9 @@ const EnhancedServiceCard = memo(({
       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-100/30 to-transparent transform -skew-x-12 translate-x-[-100%] group-hover:translate-x-[200%] transition-transform duration-1000" />
       </div>
-    </div>;
+    </div>
+  );
 });
+
 EnhancedServiceCard.displayName = 'EnhancedServiceCard';
 export default EnhancedServiceCard;
