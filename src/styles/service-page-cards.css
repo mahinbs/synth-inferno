@@ -9,7 +9,16 @@
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
   }
 
-  /* Custom width classes for 120px images */
+  /* Custom width classes for 140x80px rectangular images */
+  .w-35 {
+    width: 140px;
+  }
+  
+  .h-20 {
+    height: 80px;
+  }
+
+  /* Remove old square dimensions */
   .w-30 {
     width: 120px;
   }
@@ -52,9 +61,9 @@
       cursor: pointer;
     }
     
-    .service-page-card .w-30 {
-      width: 100px;
-      height: 100px;
+    .service-page-card .w-35 {
+      width: 120px;
+      height: 70px;
       margin-bottom: 8px;
     }
     
@@ -107,9 +116,9 @@
       padding: 32px;
     }
     
-    .service-page-card .w-30 {
-      width: 100px;
-      height: 100px;
+    .service-page-card .w-35 {
+      width: 120px;
+      height: 70px;
     }
     
     .service-page-card .min-w-[160px] {
