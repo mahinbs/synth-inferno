@@ -14,6 +14,19 @@ interface ServiceCardExpandedContentProps {
   allProjects: Project[];
 }
 
+// Map service categories to their route paths
+const getServiceRoute = (category: string): string => {
+  const routeMap: Record<string, string> = {
+    'web': '/services/web-applications',
+    'saas': '/services/saas',
+    'mobile': '/services/mobile-apps',
+    'ai': '/services/ai-calling',
+    'automation': '/services/ai-automation'
+  };
+  
+  return routeMap[category] || '/services/web-applications';
+};
+
 const ServiceCardExpandedContent = memo(({
   service,
   isExpanded,
@@ -21,6 +34,8 @@ const ServiceCardExpandedContent = memo(({
   onContentMouseLeave,
   allProjects
 }: ServiceCardExpandedContentProps) => {
+  const serviceRoute = getServiceRoute(service.category);
+
   return (
     <div 
       className={`overflow-hidden transition-all duration-500 ease-out ${
@@ -95,7 +110,10 @@ const ServiceCardExpandedContent = memo(({
             </div>
 
             {/* Action Buttons */}
-            <ServiceCardActionButtons />
+            <ServiceCardActionButtons 
+              learnMorePath={serviceRoute}
+              serviceTitle={service.title}
+            />
           </div>
         </div>
 
