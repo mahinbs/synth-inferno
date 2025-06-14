@@ -10,7 +10,7 @@
     align-items: center;
     gap: 16px;
     margin-bottom: 24px;
-    height: 120px;
+    height: 140px;
     transition: all 0.2s ease;
     contain: layout style paint;
     transform: translate3d(0, 0, 0);
@@ -21,10 +21,10 @@
     transform: translate3d(0, -2px, 0);
   }
 
-  /* Left image section - exact 56x56px */
+  /* Left image section - updated to 80x80px */
   .service-card-image {
-    width: 56px;
-    height: 56px;
+    width: 80px;
+    height: 80px;
     flex-shrink: 0;
     overflow: hidden;
     border-radius: 8px;
@@ -127,7 +127,7 @@
     .reference-service-card {
       flex-direction: column;
       height: auto;
-      min-height: 160px;
+      min-height: 180px;
       align-items: flex-start;
       gap: 12px;
       padding: 16px;
