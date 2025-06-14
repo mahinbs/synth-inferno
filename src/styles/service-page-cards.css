@@ -1,6 +1,6 @@
 
 @layer utilities {
-  /* Service Page Cards - Enhanced to Match Reference */
+  /* Service Page Cards - Restructured Layout */
   .service-page-card {
     contain: layout style paint;
     transform: translate3d(0, 0, 0);
@@ -9,38 +9,29 @@
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
   }
 
-  /* Custom width classes for 140x80px rectangular images */
-  .w-35 {
-    width: 140px;
+  /* Square thumbnail dimensions - 96x96px */
+  .w-24 {
+    width: 96px;
   }
   
-  .h-20 {
-    height: 80px;
-  }
-
-  /* Remove old square dimensions */
-  .w-30 {
-    width: 120px;
-  }
-  
-  .h-30 {
-    height: 120px;
+  .h-24 {
+    height: 96px;
   }
 
   /* Dark overlay for code images */
-  .service-page-card .w-35 img {
+  .service-page-card .w-24 img {
     filter: brightness(0.8) contrast(1.1);
     transition: filter 0.3s ease;
   }
 
-  .service-page-card:hover .w-35 img {
+  .service-page-card:hover .w-24 img {
     filter: brightness(0.9) contrast(1.2);
   }
 
-  /* Enhanced hover effects with stronger shadow */
+  /* Enhanced hover effects */
   .service-page-card:hover {
-    transform: translate3d(0, -4px, 0);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15) !important;
+    transform: translate3d(0, -3px, 0);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12) !important;
     border-color: #d1d5db !important;
   }
 
@@ -50,71 +41,48 @@
     user-select: none;
   }
 
-  /* Improve button styling within cards */
-  .service-page-card .flex.items-center.gap-2 {
-    transition: all 0.2s ease;
-  }
-
-  .service-page-card:hover .flex.items-center.gap-2 {
-    transform: translateX(2px);
-  }
-
   /* Mobile responsive adjustments */
   @media (max-width: 768px) {
     .service-page-card {
+      min-height: auto;
+      padding: 20px;
+    }
+    
+    .service-page-card .flex.items-start {
       flex-direction: column;
       align-items: center;
       text-align: center;
-      gap: 24px;
-      min-height: auto;
-      padding: 24px;
-      cursor: pointer;
+      gap: 16px;
+      position: relative;
     }
     
-    .service-page-card .w-35 {
-      width: 120px;
-      height: 70px;
+    .service-page-card .w-24 {
+      width: 80px;
+      height: 80px;
       margin-bottom: 8px;
     }
     
     .service-page-card .flex-1 {
       width: 100%;
+      padding-right: 0;
+      margin-bottom: 40px;
     }
     
-    .service-page-card .min-w-[160px] {
+    .service-page-card .absolute {
+      position: static;
       width: 100%;
       flex-direction: row;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
-      min-width: auto;
-      gap: 16px;
-    }
-    
-    .service-page-card .flex-col:last-child {
-      flex-direction: row;
-      gap: 16px;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
-    }
-
-    .service-page-card .flex-col:last-child > .flex.flex-col {
-      flex-direction: row;
       gap: 12px;
+      margin-top: 16px;
     }
 
-    /* Stack badges vertically on very small screens */
+    /* Stack pricing vertically on very small screens */
     @media (max-width: 480px) {
-      .service-page-card .flex-col:last-child {
-        flex-direction: column;
-        gap: 12px;
-        align-items: center;
-      }
-
-      .service-page-card .flex-col:last-child > .flex.flex-col {
+      .service-page-card .absolute {
         flex-direction: column;
         gap: 8px;
-        align-items: center;
       }
     }
   }
@@ -122,28 +90,22 @@
   /* Tablet adjustments */
   @media (max-width: 1024px) and (min-width: 769px) {
     .service-page-card {
-      gap: 24px;
-      padding: 32px;
+      padding: 24px;
     }
     
-    .service-page-card .w-35 {
-      width: 120px;
-      height: 70px;
+    .service-page-card .w-24 {
+      width: 88px;
+      height: 88px;
     }
     
-    .service-page-card .min-w-[160px] {
-      min-width: 140px;
+    .service-page-card .flex-1 {
+      padding-right: 120px;
     }
   }
 
   /* Focus states for accessibility */
   .service-page-card:focus {
     outline: 2px solid #3b82f6;
-    outline-offset: 2px;
-  }
-
-  .service-page-card button:focus {
-    outline: 2px solid #f97316;
     outline-offset: 2px;
   }
 
@@ -157,11 +119,7 @@
       transform: none !important;
     }
 
-    .service-page-card:hover .flex.items-center.gap-2 {
-      transform: none !important;
-    }
-
-    .service-page-card .w-35 img {
+    .service-page-card .w-24 img {
       transition: none !important;
     }
   }
@@ -174,7 +132,7 @@
 
   .service-page-card p {
     font-weight: 400;
-    line-height: 1.6;
+    line-height: 1.5;
   }
 
   /* Badge styling improvements */
@@ -182,19 +140,15 @@
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
   }
 
-  .service-page-card .bg-orange-50 {
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-  }
-
-  /* Image container enhancements for better display with increased rounded corners */
-  .service-page-card .w-35 {
+  /* Image container enhancements - 96x96px square with 12px border-radius */
+  .service-page-card .w-24 {
     position: relative;
     overflow: hidden;
-    border-radius: 24px; /* Increased from 12px to 24px for more rounded appearance */
+    border-radius: 12px;
     background: #1a1a1a;
   }
 
-  .service-page-card .w-35::before {
+  .service-page-card .w-24::before {
     content: '';
     position: absolute;
     top: 0;
@@ -206,7 +160,7 @@
     pointer-events: none;
   }
 
-  .service-page-card .w-35 img {
+  .service-page-card .w-24 img {
     object-fit: cover;
     width: 100%;
     height: 100%;
