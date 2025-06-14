@@ -1,4 +1,3 @@
-
 import { useState, memo, useCallback, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useScrollSpy } from "@/hooks/useScrollSpy";
@@ -125,7 +124,7 @@ const Header = memo(() => {
           <div className="flex justify-between items-center">
             {/* Logo */}
             <Link to="/" className="flex items-center z-50 relative">
-              <div className="font-heading text-2xl font-bold text-foreground">
+              <div className="font-heading text-2xl font-bold bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 bg-clip-text text-transparent">
                 Dee&Cee Labs
               </div>
             </Link>
