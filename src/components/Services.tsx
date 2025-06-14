@@ -1,9 +1,11 @@
 
-import { useState, useCallback } from "react";
-import ExpandableServiceCard from "./services/ExpandableServiceCard";
+import { useState, useCallback, Suspense, lazy } from "react";
 import ServicesBackground from "./services/ServicesBackground";
 import ServicesHeader from "./services/ServicesHeader";
 import { servicesData } from "./services/ServicesData";
+
+// Lazy load the glassmorphic service card for better performance
+const GlassmorphicServiceCard = lazy(() => import("./services/GlassmorphicServiceCard"));
 
 const Services = () => {
   const [expandedService, setExpandedService] = useState<string | null>(null);
@@ -37,10 +39,22 @@ const Services = () => {
     setHoverTimeout(timeout);
   }, [hoverTimeout]);
 
+  const handleExpand = useCallback((serviceId: string) => {
+    setExpandedService(prev => prev === serviceId ? null : serviceId);
+  }, []);
+
+  const handleCollapse = useCallback(() => {
+    setExpandedService(null);
+  }, []);
+
   return (
     <section
       id="services"
-      className="py-20 bg-gradient-to-b from-gray-900 to-black relative overflow-hidden"
+      className="py-20 relative overflow-hidden"
+      style={{
+        background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+        minHeight: '100vh'
+      }}
     >
       <ServicesBackground />
 
@@ -48,17 +62,26 @@ const Services = () => {
         <ServicesHeader />
 
         <div className="max-w-6xl mx-auto space-y-6">
-          {servicesData.map((service) => {
+          {servicesData.map((service, index) => {
             const isExpanded = expandedService === service.id;
 
             return (
-              <ExpandableServiceCard
-                key={service.id}
-                service={service}
-                isExpanded={isExpanded}
-                onMouseEnter={() => handleMouseEnter(service.id)}
-                onMouseLeave={handleMouseLeave}
-              />
+              <Suspense 
+                key={service.id} 
+                fallback={
+                  <div className="glassmorphic-card glass-shimmer h-64 rounded-2xl flex items-center justify-center">
+                    <span className="glass-text-secondary">Loading service...</span>
+                  </div>
+                }
+              >
+                <GlassmorphicServiceCard
+                  service={service}
+                  isExpanded={isExpanded}
+                  onExpand={handleExpand}
+                  onCollapse={handleCollapse}
+                  index={index}
+                />
+              </Suspense>
             );
           })}
         </div>
