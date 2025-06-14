@@ -8,11 +8,13 @@ import { Badge } from '../ui/badge';
 interface ReferenceServiceCardProps {
   service: ServiceData;
   index: number;
+  isVisible: boolean;
 }
 
 const ReferenceServiceCard = memo(({
   service,
-  index
+  index,
+  isVisible
 }: ReferenceServiceCardProps) => {
   return (
     <div className="reference-service-card">
