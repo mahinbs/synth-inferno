@@ -1,7 +1,11 @@
+
 import { useState, useEffect, memo } from 'react';
 import { CheckCircle, Users, Lightbulb, Cpu, Globe } from 'lucide-react';
+import ServicesOverview from './about/ServicesOverview';
+
 const About = memo(() => {
   const [isVisible, setIsVisible] = useState(false);
+
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
@@ -11,36 +15,44 @@ const About = memo(() => {
       threshold: 0.1,
       rootMargin: '100px'
     });
+
     const section = document.getElementById('about');
     if (section) {
       observer.observe(section);
     }
+
     return () => {
       if (section) {
         observer.unobserve(section);
       }
     };
   }, []);
-  const whatSetsUsApart = [{
-    icon: Users,
-    title: "Human-first Design Thinking",
-    description: "We put user experience at the center of everything we create, ensuring intuitive and meaningful interactions."
-  }, {
-    icon: Cpu,
-    title: "AI-Driven Automation",
-    description: "Leveraging cutting-edge artificial intelligence to automate processes and enhance decision-making capabilities."
-  }, {
-    icon: Lightbulb,
-    title: "End-to-End Development Expertise",
-    description: "From initial concept through deployment and scaling, we handle every aspect of your digital transformation."
-  }, {
-    icon: Globe,
-    title: "Immersive Experiences (VR/AR/Gaming)",
-    description: "Creating next-generation interactive experiences that blur the lines between digital and physical worlds."
-  }];
-  return <section id="about" className="py-20 bg-background relative overflow-hidden" style={{
-    backgroundColor: '#F9FAFB'
-  }}>
+
+  const whatSetsUsApart = [
+    {
+      icon: Users,
+      title: "Human-first Design Thinking",
+      description: "We put user experience at the center of everything we create, ensuring intuitive and meaningful interactions."
+    },
+    {
+      icon: Cpu,
+      title: "AI-Driven Automation",
+      description: "Leveraging cutting-edge artificial intelligence to automate processes and enhance decision-making capabilities."
+    },
+    {
+      icon: Lightbulb,
+      title: "End-to-End Development Expertise",
+      description: "From initial concept through deployment and scaling, we handle every aspect of your digital transformation."
+    },
+    {
+      icon: Globe,
+      title: "Immersive Experiences (VR/AR/Gaming)",
+      description: "Creating next-generation interactive experiences that blur the lines between digital and physical worlds."
+    }
+  ];
+
+  return (
+    <section id="about" className="py-20 bg-background relative overflow-hidden" style={{ backgroundColor: '#F9FAFB' }}>
       <div className="container mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
@@ -76,14 +88,18 @@ const About = memo(() => {
             </p>
           </div>
 
+          {/* Services Overview Section */}
+          <ServicesOverview isVisible={isVisible} />
+
           {/* What Sets Us Apart */}
           <div className="mb-16">
-            <h3 className={`font-heading text-3xl md:text-4xl font-bold text-center mb-12 ${isVisible ? 'animate-fade-in-up animate-stagger-2' : 'opacity-0'}`}>
+            <h3 className={`font-heading text-3xl md:text-4xl font-bold text-center mb-12 ${isVisible ? 'animate-fade-in-up animate-stagger-3' : 'opacity-0'}`}>
               What Sets Us Apart
             </h3>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {whatSetsUsApart.map((item, index) => <div key={index} className={`bg-card rounded-2xl p-8 border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-lg ${isVisible ? `animate-fade-in-up animate-stagger-${index + 3}` : 'opacity-0'}`}>
+              {whatSetsUsApart.map((item, index) => (
+                <div key={index} className={`bg-card rounded-2xl p-8 border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-lg ${isVisible ? `animate-fade-in-up animate-stagger-${index + 4}` : 'opacity-0'}`}>
                   <div className="flex items-start space-x-4">
                     <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
                       <item.icon className="h-6 w-6 text-primary" />
@@ -93,12 +109,13 @@ const About = memo(() => {
                       <p className="text-black-foreground leading-relaxed">{item.description}</p>
                     </div>
                   </div>
-                </div>)}
+                </div>
+              ))}
             </div>
           </div>
 
           {/* Mission Statement */}
-          <div className={`text-center bg-gradient-to-r from-primary/5 to-secondary/5 rounded-3xl p-12 ${isVisible ? 'animate-fade-in-up animate-stagger-4' : 'opacity-0'}`}>
+          <div className={`text-center bg-gradient-to-r from-primary/5 to-secondary/5 rounded-3xl p-12 ${isVisible ? 'animate-fade-in-up animate-stagger-8' : 'opacity-0'}`}>
             <h3 className="font-heading text-3xl md:text-4xl font-bold mb-6">Our Mission</h3>
             <p className="text-xl text-black-foreground leading-relaxed max-w-4xl mx-auto mb-8">
               We believe technology should amplify human potential, not replace it. Our mission is to create 
@@ -123,7 +140,9 @@ const About = memo(() => {
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 });
+
 About.displayName = 'About';
 export default About;
