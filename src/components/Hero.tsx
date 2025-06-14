@@ -1,5 +1,5 @@
 
-import { ArrowRight, Play, CheckCircle } from 'lucide-react';
+import { ArrowRight, Play, Check } from 'lucide-react';
 import { useState, useEffect, memo } from 'react';
 
 const Hero = memo(() => {
@@ -90,24 +90,30 @@ const Hero = memo(() => {
           {/* Key Highlights */}
           <div className={`grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto ${isVisible ? 'animate-fade-in-up animate-stagger-3' : 'opacity-0'}`}>
             <div className="text-center group">
-              <div className="w-16 h-16 bg-blue-500/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                <CheckCircle className="h-8 w-8 text-blue-400" />
+              <div className="w-16 h-16 bg-blue-500/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 border border-blue-500/30">
+                <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+                  <Check className="h-4 w-4 text-white" />
+                </div>
               </div>
               <h3 className="text-xl font-semibold mb-2 text-white">AI-Powered Solutions</h3>
               <p className="text-gray-300">Cutting-edge artificial intelligence and machine learning implementations</p>
             </div>
             
             <div className="text-center group">
-              <div className="w-16 h-16 bg-emerald-500/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                <CheckCircle className="h-8 w-8 text-emerald-400" />
+              <div className="w-16 h-16 bg-emerald-500/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 border border-emerald-500/30">
+                <div className="w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center">
+                  <Check className="h-4 w-4 text-white" />
+                </div>
               </div>
               <h3 className="text-xl font-semibold mb-2 text-white">Full-Stack Expertise</h3>
               <p className="text-gray-300">End-to-end development from conception to deployment and scaling</p>
             </div>
             
             <div className="text-center group">
-              <div className="w-16 h-16 bg-violet-500/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                <CheckCircle className="h-8 w-8 text-violet-400" />
+              <div className="w-16 h-16 bg-violet-500/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 border border-violet-500/30">
+                <div className="w-8 h-8 bg-violet-500 rounded-full flex items-center justify-center">
+                  <Check className="h-4 w-4 text-white" />
+                </div>
               </div>
               <h3 className="text-xl font-semibold mb-2 text-white">Immersive Experiences</h3>
               <p className="text-gray-300">VR/AR applications and interactive gaming solutions</p>
