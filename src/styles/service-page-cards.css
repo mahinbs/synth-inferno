@@ -27,6 +27,16 @@
     height: 120px;
   }
 
+  /* Dark overlay for code images */
+  .service-page-card .w-35 img {
+    filter: brightness(0.8) contrast(1.1);
+    transition: filter 0.3s ease;
+  }
+
+  .service-page-card:hover .w-35 img {
+    filter: brightness(0.9) contrast(1.2);
+  }
+
   /* Enhanced hover effects with stronger shadow */
   .service-page-card:hover {
     transform: translate3d(0, -4px, 0);
@@ -150,6 +160,10 @@
     .service-page-card:hover .flex.items-center.gap-2 {
       transform: none !important;
     }
+
+    .service-page-card .w-35 img {
+      transition: none !important;
+    }
   }
 
   /* Enhanced spacing and typography */
@@ -170,5 +184,33 @@
 
   .service-page-card .bg-orange-50 {
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+
+  /* Image container enhancements for better display */
+  .service-page-card .w-35 {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #1a1a1a;
+  }
+
+  .service-page-card .w-35::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.3) 100%);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .service-page-card .w-35 img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 0;
   }
 }
