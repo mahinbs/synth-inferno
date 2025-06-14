@@ -58,7 +58,7 @@ const About = memo(() => {
         <div className="text-center mb-16">
           <h2 className={`font-heading text-5xl md:text-6xl font-bold mb-6 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
             Pioneering Digital Frontiers.
-            <span className="block bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent mt-2">
+            <span className="block bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 bg-clip-text text-transparent mt-2">
               One Idea at a Time.
             </span>
           </h2>

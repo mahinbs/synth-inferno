@@ -68,7 +68,7 @@ const FAQSection = memo(() => {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className={`font-heading text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-[#1c1c1e] leading-tight tracking-tight ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
-            Frequently Asked <span className="bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent">Questions</span>
+            Frequently Asked <span className="bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 bg-clip-text text-transparent">Questions</span>
           </h2>
           <p className={`text-lg md:text-xl text-[#1c1c1e]/80 max-w-3xl mx-auto leading-relaxed tracking-wide ${isVisible ? 'animate-fade-in-up animate-stagger-1' : 'opacity-0'}`}>
             Get answers to common questions about our services, process, and expertise.
