@@ -1,0 +1,68 @@
+
+@layer utilities {
+  /* Hover and Interaction Effects */
+  .enhanced-service-card .group {
+    transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.15s cubic-bezier(0.4, 0, 0.2, 1),
+                border-color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Improved hover state with better pointer events */
+  .enhanced-service-card:hover {
+    transform: translate3d(0, -1px, 0);
+    will-change: transform;
+    pointer-events: auto;
+  }
+
+  /* Ensure hover areas are properly interactive */
+  .enhanced-service-card > div {
+    pointer-events: auto;
+  }
+
+  /* Hardware accelerated hover effects */
+  .card-hover-lift-light {
+    transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: auto;
+  }
+
+  .card-hover-lift-light:hover {
+    transform: translate3d(0, -2px, 0) scale(1.005);
+    will-change: transform;
+  }
+
+  /* Service button hover effects */
+  .service-button-hover {
+    @apply transition-all duration-150 ease-out;
+    pointer-events: auto;
+  }
+
+  .service-button-hover:hover {
+    @apply transform scale-102 shadow-md;
+    will-change: transform;
+  }
+
+  /* Clean up will-change after animation completes */
+  .enhanced-service-card:not(:hover) {
+    will-change: auto;
+  }
+
+  .glassmorphic-portfolio-card:not(:hover) {
+    will-change: auto;
+  }
+
+  /* Border pulse animation */
+  @keyframes border-pulse-light {
+    0%, 100% {
+      border-color: rgba(59, 130, 246, 0.2);
+      box-shadow: 0 0 15px rgba(59, 130, 246, 0.08);
+    }
+    50% {
+      border-color: rgba(59, 130, 246, 0.4);
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.12);
+    }
+  }
+
+  .animate-border-pulse-light {
+    animation: border-pulse-light 3s ease-in-out infinite;
+  }
+}

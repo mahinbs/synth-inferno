@@ -1,0 +1,67 @@
+
+@layer utilities {
+  /* Enhanced Service Cards - Core Styling */
+  .enhanced-service-card {
+    contain: layout style paint;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+  }
+
+  /* Service card interactive states */
+  .service-card-interactive {
+    pointer-events: auto !important;
+    cursor: pointer;
+  }
+
+  .service-card-interactive:hover {
+    pointer-events: auto !important;
+  }
+
+  /* Glass morphic effects */
+  .glassmorphic-portfolio-card {
+    @apply relative p-4 rounded-xl bg-white/85 border border-gray-200/50 hover:border-blue-300/50 shadow-sm hover:shadow-md transition-all duration-150 cursor-pointer;
+    contain: layout style paint;
+    transform: translate3d(0, 0, 0);
+    pointer-events: auto;
+  }
+
+  .glassmorphic-portfolio-card:hover {
+    @apply transform translate-y-[-1px] bg-white/90;
+    will-change: transform;
+  }
+
+  /* Glass enhanced light effect */
+  .glass-enhanced-light {
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(59, 130, 246, 0.15);
+    pointer-events: auto;
+  }
+
+  /* Performance optimizations */
+  .optimized-card {
+    contain: layout style paint;
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 180px;
+    pointer-events: auto;
+  }
+
+  /* Text utilities */
+  .line-clamp-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  /* Text glow effects */
+  .text-glow-light {
+    text-shadow: 0 0 8px rgba(59, 130, 246, 0.2);
+  }
+}

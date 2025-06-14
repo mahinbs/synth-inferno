@@ -1,0 +1,27 @@
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .enhanced-service-card,
+  .card-hover-lift-light,
+  .animate-shimmer-light,
+  .animate-float,
+  .animate-border-pulse-light,
+  .service-expand-enter,
+  .service-expand-exit,
+  .service-button-hover {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .glass-enhanced-light {
+    background: rgba(255, 255, 255, 0.95);
+    border: 2px solid #3b82f6;
+  }
+
+  .glassmorphic-portfolio-card {
+    @apply border-2 border-gray-800;
+  }
+}

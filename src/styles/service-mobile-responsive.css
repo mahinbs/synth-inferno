@@ -1,0 +1,43 @@
+
+/* Mobile optimizations for service components */
+@media (max-width: 768px) {
+  .enhanced-service-card {
+    contain-intrinsic-size: 1px 120px;
+  }
+
+  /* Faster animations on mobile */
+  .animate-shimmer-light,
+  .animate-float {
+    animation-duration: 2s;
+  }
+
+  .glassmorphic-portfolio-card {
+    @apply p-3;
+  }
+
+  /* Enable hover effects on devices with hover capability */
+  @media (hover: hover) and (pointer: fine) {
+    .card-hover-lift-light:hover {
+      transform: translate3d(0, -2px, 0) scale(1.005);
+    }
+
+    .service-button-hover:hover {
+      transform: scale(1.02);
+    }
+  }
+
+  /* Disable hover effects only on pure touch devices */
+  @media (hover: none) and (pointer: coarse) {
+    .enhanced-service-card:hover {
+      transform: none;
+    }
+    
+    .card-hover-lift-light:hover {
+      transform: none;
+    }
+
+    .service-button-hover:hover {
+      transform: none;
+    }
+  }
+}

@@ -1,41 +1,6 @@
 
 @layer utilities {
-  /* Subtle floating animation for background images */
-  @keyframes subtle-float {
-    0%, 100% {
-      transform: translate3d(0, 0, 0) scale(1);
-    }
-    25% {
-      transform: translate3d(2px, -2px, 0) scale(1.01);
-    }
-    50% {
-      transform: translate3d(0, -4px, 0) scale(1.02);
-    }
-    75% {
-      transform: translate3d(-2px, -2px, 0) scale(1.01);
-    }
-  }
-
-  /* Shimmer effect for premium feel */
-  @keyframes shimmer {
-    0% {
-      background-position: -200% 0;
-    }
-    100% {
-      background-position: 200% 0;
-    }
-  }
-
-  /* Apply animations to service background elements */
-  .service-card-bg::before {
-    animation: subtle-float 8s ease-in-out infinite;
-  }
-
-  .service-card-bg:hover::before {
-    animation: subtle-float 8s ease-in-out infinite, shimmer 3s ease-in-out infinite;
-  }
-
-  /* Service Card Expansion Animations - moved from enhanced-services.css */
+  /* Service Card Expansion Animations */
   .service-expand-enter {
     animation: slideDownFadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   }
@@ -70,7 +35,7 @@
     }
   }
 
-  /* Shimmer animation - enhanced version */
+  /* Shimmer animation */
   @keyframes shimmer-light {
     0% {
       transform: translateX(-100%) skewX(-12deg);
