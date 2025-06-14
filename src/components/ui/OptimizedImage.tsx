@@ -24,6 +24,7 @@ const OptimizedImage = ({
   const [isInView, setIsInView] = useState(priority);
   const [imageSrc, setImageSrc] = useState(priority ? src : '');
   const [hasError, setHasError] = useState(false);
+  const [fallbackAttempt, setFallbackAttempt] = useState(0);
   const imgRef = useRef<HTMLImageElement>(null);
 
   // Generate WebP source with fallback
@@ -34,19 +35,32 @@ const OptimizedImage = ({
     return originalSrc;
   };
 
-  // Get high-quality fallback image based on context
-  const getFallbackImage = () => {
-    if (alt.toLowerCase().includes('healthcare') || alt.toLowerCase().includes('medical')) {
-      return 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80';
+  // Get multiple fallback images based on context
+  const getFallbackImages = () => {
+    if (alt.toLowerCase().includes('healthcare') || alt.toLowerCase().includes('medical') || alt.toLowerCase().includes('medcare')) {
+      return [
+        'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80', // Medical dashboard
+        'https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80', // Doctor with tablet
+        'https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'  // Healthcare technology
+      ];
     }
     if (alt.toLowerCase().includes('retail') || alt.toLowerCase().includes('ecommerce')) {
-      return 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80';
+      return [
+        'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
+      ];
     }
     if (alt.toLowerCase().includes('project') || alt.toLowerCase().includes('management')) {
-      return 'https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80';
+      return [
+        'https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+        'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
+      ];
     }
-    // Default high-quality tech image
-    return 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80';
+    // Default tech fallbacks
+    return [
+      'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
+    ];
   };
 
   useEffect(() => {
@@ -82,13 +96,22 @@ const OptimizedImage = ({
     setIsLoaded(true);
     setHasError(false);
     onLoad?.();
+    console.log(`✅ Image loaded successfully: ${alt}`);
   };
 
   const handleError = () => {
-    console.warn(`Failed to load image: ${src}, using fallback`);
+    console.warn(`❌ Image failed to load: ${imageSrc} for ${alt}`);
     setHasError(true);
-    // Try fallback image
-    setImageSrc(getFallbackImage());
+    
+    // Try fallback images
+    const fallbacks = getFallbackImages();
+    if (fallbackAttempt < fallbacks.length) {
+      console.log(`🔄 Trying fallback ${fallbackAttempt + 1} for ${alt}`);
+      setImageSrc(fallbacks[fallbackAttempt]);
+      setFallbackAttempt(prev => prev + 1);
+    } else {
+      console.error(`💥 All fallbacks failed for ${alt}`);
+    }
   };
 
   return (

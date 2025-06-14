@@ -124,7 +124,7 @@ export const projectsData: Service[] = [
         industry: 'Healthcare',
         testimonial: 'Revolutionary improvement in patient care delivery and administrative efficiency.',
         clientLogo: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=100&h=100&fit=crop',
-        image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+        image: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
         serviceId: 'web-apps',
         liveUrl: 'https://medcare-portal-demo.vercel.app',
         challenge: 'MedCare Systems needed a comprehensive digital solution to manage patient records, enable telemedicine consultations, and streamline administrative processes while ensuring HIPAA compliance and data security.',
@@ -138,9 +138,9 @@ export const projectsData: Service[] = [
           'Integrated with existing hospital management systems'
         ],
         gallery: [
-          'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
           'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-          'https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
+          'https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+          'https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
         ],
         detailedMetrics: [
           { label: 'Administrative Efficiency', value: '+60%', description: 'Reduced administrative overhead and processing time' },
