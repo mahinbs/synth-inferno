@@ -47,7 +47,7 @@ const EnhancedServiceCard = memo(({
       className={`group relative overflow-hidden transition-all duration-200 ease-out service-card-interactive ${
         isExpanded 
           ? 'bg-white/95 backdrop-blur-xl border border-blue-200/40 rounded-2xl shadow-2xl shadow-blue-500/10' 
-          : 'bg-white/80 backdrop-blur-sm border border-gray-200/60 rounded-xl hover:border-blue-300/50 shadow-lg hover:shadow-xl hover:bg-white/90'
+          : 'bg-white/85 backdrop-blur-sm border border-gray-200/60 rounded-xl hover:border-blue-300/50 shadow-lg hover:shadow-xl hover:bg-white/90'
       }`}
       style={{
         animationDelay: `${index * 150}ms`,
@@ -55,13 +55,13 @@ const EnhancedServiceCard = memo(({
         contain: 'layout style paint',
         transform: 'translate3d(0, 0, 0)',
         pointerEvents: 'auto',
-        minHeight: isExpanded ? 'auto' : '140px' // Increased min height for better image display
+        minHeight: isExpanded ? 'auto' : '160px' // Increased min height for larger images
       }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
       {/* Subtle Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-50/30 via-purple-50/20 to-blue-50/30 opacity-50" />
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-50/20 via-purple-50/10 to-blue-50/20 opacity-40" />
       
       {/* Main Card Content */}
       <div className="relative z-10" style={{ pointerEvents: 'auto' }}>
@@ -86,7 +86,7 @@ const EnhancedServiceCard = memo(({
 
       {/* Improved Shimmer Effect on Hover */}
       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-100/30 to-transparent transform -skew-x-12 translate-x-[-100%] group-hover:translate-x-[200%] transition-transform duration-800" />
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-100/20 to-transparent transform -skew-x-12 translate-x-[-100%] group-hover:translate-x-[200%] transition-transform duration-800" />
       </div>
     </div>
   );
