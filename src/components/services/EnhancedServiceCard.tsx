@@ -46,8 +46,8 @@ const EnhancedServiceCard = memo(({
       ref={cardRef}
       className={`group relative overflow-hidden transition-all duration-200 ease-out service-card-interactive ${
         isExpanded 
-          ? 'bg-white/95 backdrop-blur-xl border border-blue-200/40 rounded-2xl shadow-2xl shadow-blue-500/10' 
-          : 'bg-white/85 backdrop-blur-sm border border-gray-200/60 rounded-xl hover:border-blue-300/50 shadow-lg hover:shadow-xl hover:bg-white/90'
+          ? 'bg-white border border-blue-200/40 rounded-2xl shadow-2xl shadow-blue-500/10' 
+          : 'bg-white/95 backdrop-blur-sm border border-gray-200/60 rounded-xl hover:border-blue-300/50 shadow-lg hover:shadow-xl hover:bg-white/98'
       }`}
       style={{
         animationDelay: `${index * 150}ms`,
@@ -55,14 +55,11 @@ const EnhancedServiceCard = memo(({
         contain: 'layout style paint',
         transform: 'translate3d(0, 0, 0)',
         pointerEvents: 'auto',
-        minHeight: isExpanded ? 'auto' : '160px' // Increased min height for larger images
+        minHeight: isExpanded ? 'auto' : '160px'
       }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {/* Subtle Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-50/20 via-purple-50/10 to-blue-50/20 opacity-40" />
-      
       {/* Main Card Content */}
       <div className="relative z-10" style={{ pointerEvents: 'auto' }}>
         <ServiceCardHeader

@@ -50,8 +50,8 @@ const ServiceCardHeader = memo(({
               onLoad={onImageLoad}
               priority={index < 2}
             />
-            {/* Lighter gradient overlay for better icon visibility */}
-            <div className="absolute inset-0 bg-gradient-to-br from-black/10 to-transparent" />
+            {/* Much lighter gradient overlay for better icon visibility */}
+            <div className="absolute inset-0 bg-gradient-to-br from-black/5 to-transparent" />
             
             {/* Service Icon Overlay - Simplified */}
             <div className={`absolute bottom-2 right-2 p-2 rounded-lg transition-all duration-200 ${
@@ -63,27 +63,27 @@ const ServiceCardHeader = memo(({
             </div>
           </div>
           
-          {/* Service Info with Better Text Contrast */}
+          {/* Service Info with Enhanced Text Contrast */}
           <div className="flex-1 min-w-0">
             <h3 className={`text-xl font-bold transition-colors duration-200 ${
               isExpanded 
                 ? 'text-transparent bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text' 
-                : 'text-gray-900 group-hover:text-blue-700'
+                : 'text-gray-950 group-hover:text-blue-700'
             }`}>
               {service.title}
             </h3>
-            <p className="text-gray-700 text-sm mt-1 line-clamp-2 font-medium">
+            <p className="text-gray-800 text-sm mt-1 line-clamp-2 font-medium">
               {service.description}
             </p>
             
-            {/* Mobile Price/Timeline */}
+            {/* Mobile Price/Timeline with Enhanced Contrast */}
             <div className="flex md:hidden items-center space-x-4 mt-3">
               <div className={`text-lg font-bold transition-colors duration-200 ${
-                isExpanded ? 'text-blue-600' : 'text-gray-900'
+                isExpanded ? 'text-blue-600' : 'text-gray-950'
               }`}>
                 {service.startingPrice}
               </div>
-              <div className="text-sm text-gray-600 flex items-center font-medium">
+              <div className="text-sm text-gray-700 flex items-center font-medium">
                 <Clock className="h-3 w-3 mr-1" />
                 {service.timeline}
               </div>
@@ -91,15 +91,15 @@ const ServiceCardHeader = memo(({
           </div>
         </div>
 
-        {/* Desktop Price/Timeline */}
+        {/* Desktop Price/Timeline with Enhanced Contrast */}
         <div className="hidden md:flex items-center space-x-6 ml-6">
           <div className="text-right">
             <div className={`text-lg font-bold transition-colors duration-200 ${
-              isExpanded ? 'text-blue-600' : 'text-gray-900'
+              isExpanded ? 'text-blue-600' : 'text-gray-950'
             }`}>
               {service.startingPrice}
             </div>
-            <div className="text-sm text-gray-600 flex items-center font-medium">
+            <div className="text-sm text-gray-700 flex items-center font-medium">
               <Clock className="h-3 w-3 mr-1" />
               {service.timeline}
             </div>
@@ -120,21 +120,21 @@ const ServiceCardHeader = memo(({
         </div>
       </div>
 
-      {/* Reduced Background Image Opacity for Better Text Readability */}
+      {/* Significantly Reduced Background Image Opacity for Better Text Readability */}
       <div className="absolute inset-0 overflow-hidden rounded-xl">
         <img
           src={service.backgroundImage}
           alt={`${service.title} background`}
           className={`w-full h-full object-cover transition-all duration-300 ${
-            imageLoaded ? 'opacity-10' : 'opacity-0'
-          } ${isExpanded ? 'opacity-12 scale-105' : 'group-hover:opacity-10 group-hover:scale-102'}`}
+            imageLoaded ? 'opacity-5' : 'opacity-0'
+          } ${isExpanded ? 'opacity-8 scale-105' : 'group-hover:opacity-6 group-hover:scale-102'}`}
           onLoad={onImageLoad}
           loading="lazy"
           style={{ pointerEvents: 'none' }}
         />
         
-        {/* Much lighter gradient overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-white/80 via-white/70 to-white/80" />
+        {/* Strengthened gradient overlay for maximum text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/85 to-white/90" />
       </div>
     </div>
   );
