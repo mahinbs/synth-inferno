@@ -1,64 +1,81 @@
 
 import { memo } from 'react';
-import { ChevronDown } from 'lucide-react';
-
-interface Service {
-  icon: any;
-  title: string;
-  intro: string;
-  price: string;
-  duration: string;
-}
-
-interface CategoryAccent {
-  gradient: string;
-}
+import { ChevronDown, Clock, DollarSign } from 'lucide-react';
+import { ServiceData } from './ServicesData';
+import OptimizedImage from '../ui/OptimizedImage';
 
 interface ServiceCardHeaderProps {
-  service: Service;
-  accent: CategoryAccent;
-  isHovered: boolean;
-  isOpen: boolean;
+  service: ServiceData;
+  imageLoaded: boolean;
+  onImageLoad: () => void;
+  isExpanded: boolean;
+  isTouchDevice: boolean;
+  onClick: () => void;
+  index: number;
 }
 
-const ServiceCardHeader = memo(({ service, accent, isHovered, isOpen }: ServiceCardHeaderProps) => {
+const ServiceCardHeader = memo(({
+  service,
+  imageLoaded,
+  onImageLoad,
+  isExpanded,
+  isTouchDevice,
+  onClick,
+  index
+}: ServiceCardHeaderProps) => {
   return (
-    <div className="flex items-center gap-6">
-      {/* Icon */}
-      <div className={`flex-shrink-0 w-14 h-14 rounded-lg bg-gradient-to-br ${accent.gradient} flex items-center justify-center transition-all duration-300 transform ${
-        isHovered ? 'scale-105 rotate-3' : 'scale-100 rotate-0'
-      }`}>
-        <service.icon className="h-7 w-7 text-white" />
-      </div>
-
-      {/* Content */}
-      <div className="flex-grow min-w-0">
-        <h3 className="text-xl font-bold text-[#1c1c1e] mb-2 group-hover:text-blue-600 transition-colors duration-200">
-          {service.title}
-        </h3>
-        <p className="text-[#1c1c1e]/80 text-sm leading-relaxed group-hover:text-[#1c1c1e] transition-colors duration-200">
-          {service.intro}
-        </p>
-      </div>
-
-      {/* Price & Duration */}
-      <div className="flex-shrink-0 flex flex-col items-end gap-3">
-        <div className={`px-4 py-2 bg-gradient-to-r ${accent.gradient} rounded-lg shadow-lg`}>
-          <span className="text-white font-bold text-lg">
-            {service.price}
-          </span>
-        </div>
+    <div 
+      className={`flex items-center ${isTouchDevice ? 'cursor-pointer' : 'cursor-default'}`}
+      onClick={onClick}
+    >
+      {/* Left Image Section */}
+      <div className="relative w-48 h-32 flex-shrink-0 overflow-hidden rounded-l-xl">
+        <OptimizedImage 
+          src={service.image} 
+          alt={service.title}
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          onLoad={onImageLoad}
+          priority={index < 2}
+        />
         
-        <div className="px-3 py-1.5 bg-gray-100/80 backdrop-blur-sm text-[#1c1c1e]/80 rounded-lg border border-gray-200/50">
-          <span className="text-sm font-medium">
-            {service.duration}
-          </span>
+        {/* Light Glassmorphic Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/15 to-blue-600/20 backdrop-blur-sm" />
+        
+        {/* Icon Container */}
+        <div className="absolute top-4 left-4 w-12 h-12 rounded-xl bg-white/90 backdrop-blur-md border border-blue-200/50 flex items-center justify-center shadow-lg">
+          <service.icon className="h-6 w-6 text-blue-600" />
         </div>
+      </div>
 
-        {/* Chevron */}
-        <ChevronDown className={`h-5 w-5 text-[#1c1c1e]/60 transition-transform duration-200 ${
-          isOpen ? 'rotate-180' : 'rotate-0'
-        }`} />
+      {/* Content Section */}
+      <div className="flex-1 p-6">
+        <div className="flex items-center justify-between">
+          <div className="flex-1">
+            <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-blue-700 transition-colors duration-300">
+              {service.title}
+            </h3>
+            <p className="text-gray-700 group-hover:text-gray-800 transition-colors duration-300 leading-relaxed">
+              {service.description}
+            </p>
+          </div>
+
+          {/* Price and Timeline Badges */}
+          <div className="hidden md:flex flex-col space-y-2 mr-6">
+            <div className="px-4 py-2 rounded-lg bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200/60 text-sm font-medium flex items-center space-x-2 text-gray-800">
+              <DollarSign className="h-4 w-4 text-blue-600" />
+              <span>{service.startingPrice}</span>
+            </div>
+            <div className="px-4 py-2 rounded-lg bg-gradient-to-r from-purple-50 to-blue-50 border border-purple-200/60 text-sm font-medium flex items-center space-x-2 text-gray-800">
+              <Clock className="h-4 w-4 text-purple-600" />
+              <span>{service.timeline}</span>
+            </div>
+          </div>
+
+          {/* Expand Icon */}
+          <ChevronDown className={`h-6 w-6 text-blue-600 transform transition-transform duration-300 ${
+            isExpanded ? "rotate-180" : ""
+          }`} />
+        </div>
       </div>
     </div>
   );
