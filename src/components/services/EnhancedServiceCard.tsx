@@ -1,5 +1,5 @@
 
-import { memo, useState } from 'react';
+import { memo, useState, useRef } from 'react';
 import { ChevronDown, Clock, DollarSign, ArrowRight } from 'lucide-react';
 import { ServiceData } from './ServicesData';
 import { Service } from '@/data/projects';
@@ -25,6 +25,7 @@ const EnhancedServiceCard = memo(({
   projects
 }: EnhancedServiceCardProps) => {
   const [imageLoaded, setImageLoaded] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
   
   const {
     isTouchDevice,
@@ -45,6 +46,7 @@ const EnhancedServiceCard = memo(({
 
   return (
     <div 
+      ref={cardRef}
       className={`group relative overflow-hidden transition-all duration-300 ease-out ${
         isExpanded 
           ? 'bg-white/95 backdrop-blur-xl border border-blue-200/40 rounded-2xl shadow-2xl shadow-blue-500/10' 
@@ -53,7 +55,8 @@ const EnhancedServiceCard = memo(({
       style={{
         animationDelay: `${index * 150}ms`,
         willChange: isExpanded ? 'transform, opacity' : 'auto',
-        contain: 'layout style paint'
+        contain: 'layout style paint',
+        transform: 'translate3d(0, 0, 0)'
       }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -80,13 +83,6 @@ const EnhancedServiceCard = memo(({
             
             {/* Light Glassmorphic Overlay */}
             <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/15 to-blue-600/20 backdrop-blur-sm" />
-            
-            {/* Floating Particles Effect */}
-            <div className="absolute inset-70 opacity-0">
-              <div className="absolute top-4 left-4 w-1 h-1 bg-blue-500 rounded-full animate-ping" />
-              <div className="absolute bottom-6 right-6 w-1.5 h-1.5 bg-purple-500 rounded-full animate-pulse" />
-              <div className="absolute top-1/2 left-1/2 w-0.5 h-0.5 bg-blue-400 rounded-full animate-bounce" />
-            </div>
             
             {/* Icon Container */}
             <div className="absolute top-4 left-4 w-12 h-12 rounded-xl bg-white/90 backdrop-blur-md border border-blue-200/50 flex items-center justify-center shadow-lg">

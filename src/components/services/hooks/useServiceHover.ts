@@ -1,5 +1,6 @@
 
 import { useState, useCallback, useRef, useEffect } from 'react';
+import { useOptimizedScroll } from '@/hooks/useOptimizedScroll';
 
 interface UseServiceHoverProps {
   onExpand: (serviceId: string) => void;
@@ -16,6 +17,8 @@ export const useServiceHover = ({
 }: UseServiceHoverProps) => {
   const [isTouchDevice, setIsTouchDevice] = useState(false);
   const collapseTimeoutRef = useRef<NodeJS.Timeout>();
+  const expandTimeoutRef = useRef<NodeJS.Timeout>();
+  const { isScrolling } = useOptimizedScroll();
 
   // Detect touch device on mount
   useEffect(() => {
@@ -40,30 +43,45 @@ export const useServiceHover = ({
       if (collapseTimeoutRef.current) {
         clearTimeout(collapseTimeoutRef.current);
       }
+      if (expandTimeoutRef.current) {
+        clearTimeout(expandTimeoutRef.current);
+      }
     };
   }, []);
 
   // Auto-expand on mouse enter (desktop only)
   const handleMouseEnter = useCallback(() => {
-    if (isTouchDevice) return;
+    if (isTouchDevice || isScrolling()) return;
     
-    // Clear any pending collapse timeout
+    // Clear any pending timeouts
     if (collapseTimeoutRef.current) {
       clearTimeout(collapseTimeoutRef.current);
     }
+    if (expandTimeoutRef.current) {
+      clearTimeout(expandTimeoutRef.current);
+    }
     
-    // Immediately expand
-    onExpand(serviceId);
-  }, [isTouchDevice, onExpand, serviceId]);
+    // Small delay to prevent rapid firing during scroll
+    expandTimeoutRef.current = setTimeout(() => {
+      if (!isScrolling()) {
+        onExpand(serviceId);
+      }
+    }, 50);
+  }, [isTouchDevice, onExpand, serviceId, isScrolling]);
 
   // Delayed collapse on mouse leave (desktop only)
   const handleMouseLeave = useCallback(() => {
     if (isTouchDevice) return;
     
-    // Set a 200ms delay before collapsing
+    // Clear expand timeout
+    if (expandTimeoutRef.current) {
+      clearTimeout(expandTimeoutRef.current);
+    }
+    
+    // Set a 300ms delay before collapsing
     collapseTimeoutRef.current = setTimeout(() => {
       onCollapse();
-    }, 200);
+    }, 300);
   }, [isTouchDevice, onCollapse]);
 
   // Prevent collapse when hovering over expanded content
@@ -80,10 +98,10 @@ export const useServiceHover = ({
   const handleContentMouseLeave = useCallback(() => {
     if (isTouchDevice) return;
     
-    // Set a 200ms delay before collapsing
+    // Set a 300ms delay before collapsing
     collapseTimeoutRef.current = setTimeout(() => {
       onCollapse();
-    }, 200);
+    }, 300);
   }, [isTouchDevice, onCollapse]);
 
   // Click handler for mobile/touch devices

@@ -1,10 +1,10 @@
-
 import {
   Code,
   Smartphone,
   Cloud,
   Brain,
   Zap,
+  Users,
 } from "lucide-react";
 
 export const servicesData = [
@@ -76,6 +76,30 @@ export const servicesData = [
     timeline: "6-14 weeks",
     color: "gray" as const,
     route: "/mobile-apps",
+  },
+  {
+    id: "sales-force",
+    icon: Users,
+    title: "Sales Force",
+    description:
+      "End-to-end CRM and sales pipeline automation solutions tailored to boost lead conversions and manage enterprise relationships.",
+    detailedDescription:
+      "Comprehensive Salesforce platform setup and customization with automated workflows, lead tracking, and performance analytics. Transform your sales process with enterprise-grade CRM solutions.",
+    image:
+      "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    backgroundImage: "/images/bg-saas-metrics.svg",
+    features: [
+      "Salesforce Platform Setup",
+      "Sales Pipeline Automation",
+      "Lead Capture & Tracking",
+      "Real-time Reporting",
+      "CRM Data Migration",
+    ],
+    technologies: ["Salesforce", "Apex", "Lightning", "Pardot"],
+    startingPrice: "$9,000",
+    timeline: "6-12 weeks",
+    color: "blue" as const,
+    route: "/sales-force",
   },
   {
     id: "ai-calling",
