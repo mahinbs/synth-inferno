@@ -1,15 +1,15 @@
 
 @layer utilities {
-  /* Hover and Interaction Effects */
+  /* Hover and Interaction Effects - High Contrast */
   .enhanced-service-card .group {
     transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1),
                 box-shadow 0.15s cubic-bezier(0.4, 0, 0.2, 1),
                 border-color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  /* Improved hover state with better pointer events */
+  /* Improved hover state with stronger contrast */
   .enhanced-service-card:hover {
-    transform: translate3d(0, -1px, 0);
+    transform: translate3d(0, -2px, 0);
     will-change: transform;
     pointer-events: auto;
   }
@@ -26,7 +26,7 @@
   }
 
   .card-hover-lift-light:hover {
-    transform: translate3d(0, -2px, 0) scale(1.005);
+    transform: translate3d(0, -3px, 0) scale(1.01);
     will-change: transform;
   }
 
@@ -37,7 +37,7 @@
   }
 
   .service-button-hover:hover {
-    @apply transform scale-102 shadow-md;
+    @apply transform scale-105 shadow-lg;
     will-change: transform;
   }
 
@@ -50,15 +50,15 @@
     will-change: auto;
   }
 
-  /* Border pulse animation */
+  /* Border pulse animation - Stronger contrast */
   @keyframes border-pulse-light {
     0%, 100% {
-      border-color: rgba(59, 130, 246, 0.2);
-      box-shadow: 0 0 15px rgba(59, 130, 246, 0.08);
+      border-color: rgba(59, 130, 246, 0.4);
+      box-shadow: 0 0 15px rgba(59, 130, 246, 0.15);
     }
     50% {
-      border-color: rgba(59, 130, 246, 0.4);
-      box-shadow: 0 0 20px rgba(59, 130, 246, 0.12);
+      border-color: rgba(59, 130, 246, 0.6);
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.25);
     }
   }
 

@@ -41,8 +41,8 @@ const ServiceCardHeader = memo(({
       <div className="flex items-start justify-between">
         {/* Left Side - Enhanced Service Image Thumbnail */}
         <div className="flex items-start space-x-4 flex-1">
-          {/* Enlarged Prominent Service Image */}
-          <div className="relative w-28 h-28 md:w-32 md:h-32 rounded-2xl overflow-hidden bg-gray-100 flex-shrink-0 shadow-md">
+          {/* Prominent Service Image */}
+          <div className="relative w-28 h-28 md:w-32 md:h-32 rounded-2xl overflow-hidden bg-gray-100 flex-shrink-0 shadow-lg border border-gray-200">
             <OptimizedImage
               src={service.image}
               alt={`${service.title} preview`}
@@ -50,40 +50,38 @@ const ServiceCardHeader = memo(({
               onLoad={onImageLoad}
               priority={index < 2}
             />
-            {/* Much lighter gradient overlay for better icon visibility */}
-            <div className="absolute inset-0 bg-gradient-to-br from-black/5 to-transparent" />
             
-            {/* Service Icon Overlay - Simplified */}
+            {/* Service Icon Overlay - Clean and Prominent */}
             <div className={`absolute bottom-2 right-2 p-2 rounded-lg transition-all duration-200 ${
               isExpanded 
-                ? 'bg-gradient-to-br from-blue-500 to-purple-600 text-white shadow-lg' 
-                : 'bg-white/95 text-gray-700 shadow-md'
+                ? 'bg-blue-600 text-white shadow-lg' 
+                : 'bg-white text-gray-800 shadow-md border border-gray-200'
             }`}>
               <Icon className="h-4 w-4" />
             </div>
           </div>
           
-          {/* Service Info with Enhanced Text Contrast */}
+          {/* Service Info with Maximum Text Contrast */}
           <div className="flex-1 min-w-0">
             <h3 className={`text-xl font-bold transition-colors duration-200 ${
               isExpanded 
-                ? 'text-transparent bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text' 
-                : 'text-gray-950 group-hover:text-blue-700'
+                ? 'text-blue-700' 
+                : 'text-gray-900 group-hover:text-blue-700'
             }`}>
               {service.title}
             </h3>
-            <p className="text-gray-800 text-sm mt-1 line-clamp-2 font-medium">
+            <p className="text-gray-800 text-sm mt-1 line-clamp-2 font-semibold">
               {service.description}
             </p>
             
-            {/* Mobile Price/Timeline with Enhanced Contrast */}
+            {/* Mobile Price/Timeline with High Contrast */}
             <div className="flex md:hidden items-center space-x-4 mt-3">
               <div className={`text-lg font-bold transition-colors duration-200 ${
-                isExpanded ? 'text-blue-600' : 'text-gray-950'
+                isExpanded ? 'text-blue-700' : 'text-gray-900'
               }`}>
                 {service.startingPrice}
               </div>
-              <div className="text-sm text-gray-700 flex items-center font-medium">
+              <div className="text-sm text-gray-800 flex items-center font-semibold">
                 <Clock className="h-3 w-3 mr-1" />
                 {service.timeline}
               </div>
@@ -91,24 +89,24 @@ const ServiceCardHeader = memo(({
           </div>
         </div>
 
-        {/* Desktop Price/Timeline with Enhanced Contrast */}
+        {/* Desktop Price/Timeline with High Contrast */}
         <div className="hidden md:flex items-center space-x-6 ml-6">
           <div className="text-right">
             <div className={`text-lg font-bold transition-colors duration-200 ${
-              isExpanded ? 'text-blue-600' : 'text-gray-950'
+              isExpanded ? 'text-blue-700' : 'text-gray-900'
             }`}>
               {service.startingPrice}
             </div>
-            <div className="text-sm text-gray-700 flex items-center font-medium">
+            <div className="text-sm text-gray-800 flex items-center font-semibold">
               <Clock className="h-3 w-3 mr-1" />
               {service.timeline}
             </div>
           </div>
           
-          <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200 ${
+          <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200 border-2 ${
             isExpanded 
-              ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white' 
-              : 'bg-gray-200 text-gray-500 group-hover:bg-blue-100 group-hover:text-blue-600'
+              ? 'bg-blue-600 border-blue-600 text-white' 
+              : 'bg-gray-100 border-gray-300 text-gray-600 group-hover:bg-blue-100 group-hover:border-blue-300 group-hover:text-blue-600'
           }`}>
             <div className={`w-4 h-0.5 bg-current transition-transform duration-200 ${
               isExpanded ? 'rotate-0' : 'rotate-0'
@@ -120,21 +118,21 @@ const ServiceCardHeader = memo(({
         </div>
       </div>
 
-      {/* Significantly Reduced Background Image Opacity for Better Text Readability */}
+      {/* Minimal Background Image for Context Only */}
       <div className="absolute inset-0 overflow-hidden rounded-xl">
         <img
           src={service.backgroundImage}
           alt={`${service.title} background`}
           className={`w-full h-full object-cover transition-all duration-300 ${
-            imageLoaded ? 'opacity-5' : 'opacity-0'
-          } ${isExpanded ? 'opacity-8 scale-105' : 'group-hover:opacity-6 group-hover:scale-102'}`}
+            imageLoaded ? 'opacity-2' : 'opacity-0'
+          } ${isExpanded ? 'opacity-3 scale-105' : 'group-hover:opacity-3 group-hover:scale-102'}`}
           onLoad={onImageLoad}
           loading="lazy"
           style={{ pointerEvents: 'none' }}
         />
         
-        {/* Strengthened gradient overlay for maximum text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/85 to-white/90" />
+        {/* Clean white overlay for maximum readability */}
+        <div className="absolute inset-0 bg-white/95" />
       </div>
     </div>
   );

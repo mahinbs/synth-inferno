@@ -46,8 +46,8 @@ const EnhancedServiceCard = memo(({
       ref={cardRef}
       className={`group relative overflow-hidden transition-all duration-200 ease-out service-card-interactive ${
         isExpanded 
-          ? 'bg-white border border-blue-200/40 rounded-2xl shadow-2xl shadow-blue-500/10' 
-          : 'bg-white/95 backdrop-blur-sm border border-gray-200/60 rounded-xl hover:border-blue-300/50 shadow-lg hover:shadow-xl hover:bg-white/98'
+          ? 'bg-white border-2 border-blue-300 rounded-2xl shadow-xl' 
+          : 'bg-white border-2 border-gray-300 rounded-xl hover:border-blue-400 shadow-lg hover:shadow-xl'
       }`}
       style={{
         animationDelay: `${index * 150}ms`,
@@ -81,9 +81,9 @@ const EnhancedServiceCard = memo(({
         />
       </div>
 
-      {/* Improved Shimmer Effect on Hover */}
+      {/* Subtle Shimmer Effect on Hover */}
       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-100/20 to-transparent transform -skew-x-12 translate-x-[-100%] group-hover:translate-x-[200%] transition-transform duration-800" />
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-50/30 to-transparent transform -skew-x-12 translate-x-[-100%] group-hover:translate-x-[200%] transition-transform duration-800" />
       </div>
     </div>
   );
