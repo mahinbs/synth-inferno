@@ -1,0 +1,71 @@
+
+@layer utilities {
+  /* Inline Service Card Expansion Animations */
+  .service-card-container {
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+  }
+
+  /* GPU-accelerated transitions */
+  .service-card-expansion {
+    transition: max-height 300ms cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+                transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: max-height, opacity, transform;
+  }
+
+  /* Smooth expansion states */
+  .service-card-expanded {
+    max-height: 800px;
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+
+  .service-card-collapsed {
+    max-height: 0;
+    opacity: 0;
+    transform: translate3d(0, -8px, 0);
+  }
+
+  /* Prevent layout shift during expansion */
+  .service-card-container .reference-service-card-enhanced {
+    contain: layout style paint;
+  }
+
+  /* Mobile touch optimizations */
+  @media (max-width: 768px) {
+    .service-card-expansion {
+      transition-duration: 250ms;
+    }
+    
+    .service-card-container {
+      -webkit-tap-highlight-color: transparent;
+    }
+  }
+
+  /* Hover effects with hardware acceleration */
+  .service-card-container:hover .reference-service-card-enhanced {
+    transform: translate3d(0, -2px, 0);
+    will-change: transform;
+  }
+
+  .service-card-container:not(:hover) .reference-service-card-enhanced {
+    will-change: auto;
+  }
+
+  /* Content fade-in animation */
+  @keyframes contentFadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .service-card-content-animate {
+    animation: contentFadeIn 200ms ease-out;
+  }
+}

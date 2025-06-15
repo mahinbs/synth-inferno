@@ -26,6 +26,7 @@
 @import url('./styles/service-hover-effects.css');
 @import url('./styles/service-mobile-responsive.css');
 @import url('./styles/service-responsive.css');
+@import url('./styles/service-inline-expansion.css');
 
 /* Global font and theme variables */
 :root {
