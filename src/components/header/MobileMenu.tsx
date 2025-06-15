@@ -64,7 +64,7 @@ const MobileMenu = ({
                       onSmoothScroll('/#contact', 'contact');
                       onClose();
                     }} 
-                    className="w-full bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors duration-300"
+                    className="w-full bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 text-white px-6 py-3 rounded-lg font-medium hover:from-blue-600 hover:via-blue-700 hover:to-blue-800 transition-all duration-300 shadow-lg"
                   >
                     Get Started
                   </button>
