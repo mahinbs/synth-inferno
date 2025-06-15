@@ -1,4 +1,4 @@
-import { Smartphone, Code, Cloud, Phone, Brain } from 'lucide-react';
+
 import { webAppsProjects } from './projects/webAppsProjects';
 import { saasProjects } from './projects/saasProjects';
 import { aiCallingProjects } from './projects/aiCallingProjects';
