@@ -1,8 +1,15 @@
+
 import { Menu, X } from "lucide-react";
 import { useState, memo, useCallback, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { useScrollSpy } from "@/hooks/useScrollSpy";
 import { useIsMobile } from "@/hooks/use-mobile";
+import Logo from "./header/Logo";
+import DesktopNavigation from "./header/DesktopNavigation";
+import DesktopCTA from "./header/DesktopCTA";
+import MobileMenuButton from "./header/MobileMenuButton";
+import MobileNavigation from "./header/MobileNavigation";
+import MobileCTA from "./header/MobileCTA";
 
 const Header = memo(() => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -110,7 +117,8 @@ const Header = memo(() => {
     return location.pathname === item.href;
   }, [isHomePage, activeSection, location.pathname]);
 
-  return <>
+  return (
+    <>
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
           ? 'bg-white/20 backdrop-blur-[12px] border-b border-white/30 shadow-lg' 
@@ -118,55 +126,22 @@ const Header = memo(() => {
       }`}>
         <nav className="container mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
-            {/* Logo */}
-            <Link to="/" className="flex items-center z-50 relative">
-              <div className="font-heading text-2xl font-bold text-foreground">
-                Dee&Cee Labs
-              </div>
-            </Link>
-
-            {/* Desktop Menu */}
-            <div className="hidden lg:flex items-center space-x-8 flex-1 justify-center">
-              {menuItems.map(item => {
-              const active = isActive(item);
-              if (item.name === "Home") {
-                return <Link key={item.name} to={item.href} className={`transition-all duration-300 font-medium relative group ${active ? "text-primary" : "text-foreground hover:text-primary"}`}>
-                      {item.name}
-                      <span className={`absolute bottom-0 left-0 h-0.5 bg-primary transition-all duration-300 ${active ? "w-full" : "w-0 group-hover:w-full"}`}></span>
-                    </Link>;
-              } else if (isHomePage && item.href.startsWith("/#")) {
-                return <button key={item.name} onClick={() => handleSmoothScroll(item.href, item.section)} className={`transition-all duration-300 font-medium relative group ${active ? "text-primary" : "text-foreground hover:text-primary"}`}>
-                      {item.name}
-                      <span className={`absolute bottom-0 left-0 h-0.5 bg-primary transition-all duration-300 ${active ? "w-full" : "w-0 group-hover:w-full"}`}></span>
-                    </button>;
-              } else {
-                return <a key={item.name} href={item.href} className={`transition-all duration-300 font-medium relative group ${active ? "text-primary" : "text-foreground hover:text-primary"}`}>
-                      {item.name}
-                      <span className={`absolute bottom-0 left-0 h-0.5 bg-primary transition-all duration-300 ${active ? "w-full" : "w-0 group-hover:w-full"}`}></span>
-                    </a>;
-              }
-            })}
-            </div>
-
-            {/* Desktop CTA - Updated with teal/cyan gradient */}
-            <div className="hidden lg:flex items-center">
-              <button onClick={() => handleSmoothScroll('/#contact', 'contact')} className="bg-gradient-to-r from-teal-400 via-cyan-400 to-teal-500 text-white px-6 py-2 rounded-lg font-medium hover:from-teal-300 hover:via-cyan-300 hover:to-teal-400 transition-all duration-300 shadow-lg hover:shadow-teal-500/25 transform hover:scale-105">
-                Get Started
-              </button>
-            </div>
-
-            {/* Mobile Menu Button */}
-            <div className="lg:hidden">
-              <button className="p-2 z-50 relative" onClick={toggleMenu} aria-label="Toggle menu" aria-expanded={isMenuOpen}>
-                {isMenuOpen ? <X className="h-6 w-6 text-foreground" /> : <Menu className="h-6 w-6 text-foreground" />}
-              </button>
-            </div>
+            <Logo />
+            <DesktopNavigation 
+              menuItems={menuItems}
+              isActive={isActive}
+              isHomePage={isHomePage}
+              onSmoothScroll={handleSmoothScroll}
+            />
+            <DesktopCTA onSmoothScroll={handleSmoothScroll} />
+            <MobileMenuButton isOpen={isMenuOpen} onToggle={toggleMenu} />
           </div>
         </nav>
       </header>
 
       {/* Mobile Menu Overlay */}
-      {isMenuOpen && <>
+      {isMenuOpen && (
+        <>
           {/* Backdrop */}
           <div className="lg:hidden fixed z-40 inset-0 bg-black/50 backdrop-blur-sm" onClick={closeMenu} aria-hidden="true" />
 
@@ -185,39 +160,21 @@ const Header = memo(() => {
 
               {/* Menu Items */}
               <div className="flex-1 overflow-y-auto p-6">
-                <div className="space-y-4">
-                  {menuItems.map(item => {
-                const active = isActive(item);
-                if (item.name === "Home") {
-                  return <Link key={item.name} to={item.href} className={`block text-lg font-medium py-3 px-4 rounded-lg transition-all duration-300 ${active ? "text-primary bg-primary/10" : "text-foreground hover:text-primary hover:bg-white/10"}`} onClick={closeMenu}>
-                          {item.name}
-                        </Link>;
-                } else if (isHomePage && item.href.startsWith("/#")) {
-                  return <button key={item.name} onClick={() => handleSmoothScroll(item.href, item.section)} className={`block w-full text-left text-lg font-medium py-3 px-4 rounded-lg transition-all duration-300 ${active ? "text-primary bg-primary/10" : "text-foreground hover:text-primary hover:bg-white/10"}`}>
-                          {item.name}
-                        </button>;
-                } else {
-                  return <a key={item.name} href={item.href} className={`block text-lg font-medium py-3 px-4 rounded-lg transition-all duration-300 ${active ? "text-primary bg-primary/10" : "text-foreground hover:text-primary hover:bg-white/10"}`} onClick={closeMenu}>
-                          {item.name}
-                        </a>;
-                }
-              })}
-                </div>
-
-                {/* Mobile CTA - Updated with teal/cyan gradient */}
-                <div className="mt-8 pt-8 border-t border-white/20">
-                  <button onClick={() => {
-                handleSmoothScroll('/#contact', 'contact');
-                closeMenu();
-              }} className="w-full bg-gradient-to-r from-teal-400 via-cyan-400 to-teal-500 text-white px-6 py-3 rounded-lg font-medium hover:from-teal-300 hover:via-cyan-300 hover:to-teal-400 transition-all duration-300 shadow-lg hover:shadow-teal-500/25 transform hover:scale-105">
-                    Get Started
-                  </button>
-                </div>
+                <MobileNavigation 
+                  menuItems={menuItems}
+                  isActive={isActive}
+                  isHomePage={isHomePage}
+                  onSmoothScroll={handleSmoothScroll}
+                  onClose={closeMenu}
+                />
+                <MobileCTA onSmoothScroll={handleSmoothScroll} onClose={closeMenu} />
               </div>
             </div>
           </div>
-        </>}
-    </>;
+        </>
+      )}
+    </>
+  );
 });
 
 Header.displayName = "Header";
