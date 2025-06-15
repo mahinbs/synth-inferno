@@ -20,45 +20,36 @@ const GlassmorphicServiceCard = memo(({
 }: GlassmorphicServiceCardProps) => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
-  const [isTouchDevice, setIsTouchDevice] = useState(false);
 
   // Get portfolio projects for this service
   const serviceProjects = projectsData
     .find(projectService => projectService.id === service.id)
     ?.projects || [];
 
-  // Detect touch device
-  const handleTouchStart = () => {
-    setIsTouchDevice(true);
-  };
+  console.log(`Service ${service.id} found ${serviceProjects.length} projects`);
 
   const handleMouseEnter = () => {
-    if (!isTouchDevice) {
-      setIsHovered(true);
-    }
+    console.log(`Mouse enter on service: ${service.id}`);
+    setIsHovered(true);
   };
 
   const handleMouseLeave = () => {
-    if (!isTouchDevice) {
-      setIsHovered(false);
-    }
+    console.log(`Mouse leave on service: ${service.id}`);
+    setIsHovered(false);
   };
 
   const handleClick = () => {
-    if (isTouchDevice) {
-      setIsHovered(!isHovered);
-    }
+    // Toggle on mobile/touch devices
+    setIsHovered(!isHovered);
   };
 
   return (
     <div 
-      className="relative"
+      className="service-card-container relative"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      onTouchStart={handleTouchStart}
-      onClick={handleClick}
     >
-      <div className="reference-service-card-enhanced">
+      <div className="reference-service-card-enhanced" onClick={handleClick}>
         {/* Enhanced Image Section */}
         <div className="service-card-image-enhanced">
           <EnhancedOptimizedImage

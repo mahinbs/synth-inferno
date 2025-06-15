@@ -1,8 +1,9 @@
-
 import { Smartphone, Code, Cloud, Phone, Brain } from 'lucide-react';
 import { webAppsProjects } from './projects/webAppsProjects';
 import { saasProjects } from './projects/saasProjects';
 import { aiCallingProjects } from './projects/aiCallingProjects';
+import { mobileAppsProjects } from './projects/mobileAppsProjects';
+import { aiAutomationProjects } from './projects/aiAutomationProjects';
 
 export interface Project {
   id: string;
@@ -66,10 +67,24 @@ export const projectsData: Service[] = [
     projects: saasProjects
   },
   {
+    id: 'mobile-apps',
+    icon: null,
+    title: 'Mobile Applications',
+    color: 'purple',
+    projects: mobileAppsProjects
+  },
+  {
     id: 'ai-calling',
     icon: null,
     title: 'AI Calling Agency',
     color: 'pink',
     projects: aiCallingProjects
+  },
+  {
+    id: 'ai-automation',
+    icon: null,
+    title: 'AI Automation',
+    color: 'green',
+    projects: aiAutomationProjects
   }
 ];

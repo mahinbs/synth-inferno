@@ -5,6 +5,7 @@
     contain: layout style paint;
     will-change: transform, opacity;
     transform: translate3d(0, 0, 0);
+    z-index: 1000;
   }
 
   /* Smooth dropdown animations */
@@ -42,6 +43,11 @@
   .service-card-container {
     position: relative;
     margin-bottom: 8px;
+    z-index: 1;
+  }
+
+  .service-card-container:hover {
+    z-index: 1001;
   }
 
   /* Glassmorphic dropdown styling */
@@ -109,5 +115,11 @@
 
   .dropdown-project-title:hover {
     color: #2563eb;
+  }
+
+  /* Fix reference service card positioning */
+  .reference-service-card-enhanced {
+    position: relative;
+    z-index: 1;
   }
 }

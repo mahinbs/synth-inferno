@@ -13,6 +13,8 @@ interface ServiceCardDropdownProps {
 }
 
 const ServiceCardDropdown = memo(({ service, portfolioProjects, isVisible }: ServiceCardDropdownProps) => {
+  console.log(`Dropdown for ${service.id}: visible=${isVisible}, projects=${portfolioProjects.length}`);
+
   // Get key features/bullet points for the service
   const getServiceFeatures = (serviceId: string) => {
     switch (serviceId) {
@@ -51,6 +53,13 @@ const ServiceCardDropdown = memo(({ service, portfolioProjects, isVisible }: Ser
           'Real-time speech processing',
           'Call analytics and insights'
         ];
+      case 'sales-force':
+        return [
+          'Salesforce platform setup',
+          'Sales pipeline automation',
+          'Lead capture and tracking',
+          'CRM data migration'
+        ];
       default:
         return [
           'Custom solution development',
@@ -66,13 +75,13 @@ const ServiceCardDropdown = memo(({ service, portfolioProjects, isVisible }: Ser
 
   return (
     <div 
-      className={`absolute top-full left-0 right-0 z-50 mt-2 transition-all duration-300 ease-out ${
+      className={`service-dropdown absolute top-full left-0 right-0 z-50 mt-2 transition-all duration-300 ease-out ${
         isVisible 
-          ? 'opacity-100 translate-y-0 pointer-events-auto' 
-          : 'opacity-0 translate-y-[-10px] pointer-events-none'
+          ? 'opacity-100 translate-y-0 pointer-events-auto dropdown-enter' 
+          : 'opacity-0 translate-y-[-10px] pointer-events-none dropdown-exit'
       }`}
     >
-      <div className="bg-white/95 backdrop-blur-md border border-gray-200/60 rounded-xl shadow-lg p-6">
+      <div className="service-dropdown-content bg-white/95 backdrop-blur-md border border-gray-200/60 rounded-xl shadow-lg p-6">
         {/* Service Overview */}
         <div className="mb-5">
           <h4 className="text-lg font-semibold text-gray-900 mb-3">Service Overview</h4>
@@ -87,7 +96,7 @@ const ServiceCardDropdown = memo(({ service, portfolioProjects, isVisible }: Ser
         </div>
 
         {/* Related Work Section */}
-        {relatedProjects.length > 0 && (
+        {relatedProjects.length > 0 ? (
           <div className="border-t border-gray-200/50 pt-5">
             <h4 className="text-lg font-semibold text-gray-900 mb-3">Portfolio Highlights</h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
@@ -129,6 +138,21 @@ const ServiceCardDropdown = memo(({ service, portfolioProjects, isVisible }: Ser
               <span>View All {service.title} Projects</span>
               <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
+          </div>
+        ) : (
+          <div className="border-t border-gray-200/50 pt-5">
+            <div className="text-center py-4">
+              <p className="text-sm text-gray-600 mb-3">Portfolio projects coming soon for this service.</p>
+              <Button
+                variant="outline"
+                size="sm"
+                className="text-blue-600 border-blue-200 hover:bg-blue-50"
+                onClick={() => window.location.href = '/portfolio'}
+              >
+                <span>View All Projects</span>
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+            </div>
           </div>
         )}
       </div>
