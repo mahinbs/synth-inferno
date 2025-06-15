@@ -1,4 +1,3 @@
-
 import { Menu, X } from "lucide-react";
 import { useState, memo, useCallback, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
@@ -149,9 +148,9 @@ const Header = memo(() => {
             })}
             </div>
 
-            {/* Desktop CTA */}
+            {/* Desktop CTA - Updated with teal/cyan gradient */}
             <div className="hidden lg:flex items-center">
-              <button onClick={() => handleSmoothScroll('/#contact', 'contact')} className="bg-primary text-primary-foreground px-6 py-2 rounded-lg font-medium hover:bg-primary/90 transition-colors duration-300">
+              <button onClick={() => handleSmoothScroll('/#contact', 'contact')} className="bg-gradient-to-r from-teal-400 via-cyan-400 to-teal-500 text-white px-6 py-2 rounded-lg font-medium hover:from-teal-300 hover:via-cyan-300 hover:to-teal-400 transition-all duration-300 shadow-lg hover:shadow-teal-500/25 transform hover:scale-105">
                 Get Started
               </button>
             </div>
@@ -205,12 +204,12 @@ const Header = memo(() => {
               })}
                 </div>
 
-                {/* Mobile CTA */}
+                {/* Mobile CTA - Updated with teal/cyan gradient */}
                 <div className="mt-8 pt-8 border-t border-white/20">
                   <button onClick={() => {
                 handleSmoothScroll('/#contact', 'contact');
                 closeMenu();
-              }} className="w-full bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors duration-300">
+              }} className="w-full bg-gradient-to-r from-teal-400 via-cyan-400 to-teal-500 text-white px-6 py-3 rounded-lg font-medium hover:from-teal-300 hover:via-cyan-300 hover:to-teal-400 transition-all duration-300 shadow-lg hover:shadow-teal-500/25 transform hover:scale-105">
                     Get Started
                   </button>
                 </div>

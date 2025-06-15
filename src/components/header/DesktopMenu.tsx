@@ -21,7 +21,7 @@ const DesktopMenu = ({ menuItems, isActive, isHomePage, onSmoothScroll }: Deskto
           onSmoothScroll={onSmoothScroll}
         />
       ))}
-      <button className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-4 py-2 rounded-lg hover:from-cyan-400 hover:to-blue-500 transition-all duration-300 font-medium shadow-lg hover:shadow-cyan-500/25 transform hover:scale-105 text-sm xl:text-base">
+      <button className="bg-gradient-to-r from-teal-400 via-cyan-400 to-teal-500 text-white px-4 py-2 rounded-lg hover:from-teal-300 hover:via-cyan-300 hover:to-teal-400 transition-all duration-300 font-medium shadow-lg hover:shadow-teal-500/25 transform hover:scale-105 text-sm xl:text-base">
         Neural Access
       </button>
     </div>
