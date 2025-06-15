@@ -26,33 +26,15 @@ const GlassmorphicServiceCard = memo(({
     .find(projectService => projectService.id === service.id)
     ?.projects || [];
 
-  console.log(`Service ${service.id} found ${serviceProjects.length} projects`, serviceProjects);
-
-  const handleMouseEnter = () => {
-    console.log(`Mouse enter on service: ${service.id}`);
-    setIsHovered(true);
-  };
-
-  const handleMouseLeave = () => {
-    console.log(`Mouse leave on service: ${service.id}`);
-    setIsHovered(false);
-  };
-
-  const handleClick = () => {
-    // Toggle on mobile/touch devices
-    console.log(`Click on service: ${service.id}, current hover: ${isHovered}`);
-    setIsHovered(!isHovered);
-  };
-
   return (
     <div 
-      className="service-card-container relative"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      className="service-card-container relative group"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="reference-service-card-enhanced" onClick={handleClick}>
+      <div className="reference-service-card-enhanced bg-white rounded-xl border-2 border-gray-200 hover:border-blue-400 shadow-lg hover:shadow-xl transition-all duration-200 p-6 flex items-center gap-6">
         {/* Enhanced Image Section */}
-        <div className="service-card-image-enhanced">
+        <div className="w-20 h-20 flex-shrink-0">
           <EnhancedOptimizedImage
             src={service.image}
             alt={`${service.title} service`}
@@ -64,23 +46,32 @@ const GlassmorphicServiceCard = memo(({
         </div>
 
         {/* Content Section - Title and Description */}
-        <div className="service-card-content-enhanced">
-          <h3 className="service-card-title-enhanced">
+        <div className="flex-1">
+          <h3 className="text-xl font-bold text-gray-900 mb-2">
             {service.title}
           </h3>
           
-          <p className="service-card-description-enhanced">
+          <p className="text-gray-600 text-sm mb-3">
             {service.description}
           </p>
+
+          {/* Features list */}
+          <div className="flex flex-wrap gap-2">
+            {service.features.slice(0, 3).map((feature, idx) => (
+              <span key={idx} className="text-xs px-2 py-1 bg-blue-50 text-blue-700 rounded-full">
+                {feature}
+              </span>
+            ))}
+          </div>
         </div>
 
         {/* Right Section - Enhanced Pricing and Action */}
-        <div className="service-card-actions-enhanced">
-          <div className="service-pricing-enhanced">
-            <div className="service-price-enhanced">
+        <div className="flex flex-col items-end gap-3">
+          <div className="text-right">
+            <div className="text-lg font-bold text-blue-600">
               {service.startingPrice}
             </div>
-            <div className="service-timeline-badge">
+            <div className="text-sm text-gray-500">
               {service.timeline}
             </div>
           </div>
@@ -88,19 +79,23 @@ const GlassmorphicServiceCard = memo(({
           <Button 
             variant="outline" 
             size="sm"
-            className="learn-more-button-enhanced"
+            className="text-blue-600 border-blue-200 hover:bg-blue-50"
           >
             Learn More
           </Button>
         </div>
       </div>
 
-      {/* Hover Dropdown - This will now show properly */}
-      <ServiceCardDropdown
-        service={service}
-        portfolioProjects={serviceProjects}
-        isVisible={isHovered}
-      />
+      {/* Hover Dropdown */}
+      {isHovered && (
+        <div className="absolute top-full left-0 right-0 z-50 mt-2">
+          <ServiceCardDropdown
+            service={service}
+            portfolioProjects={serviceProjects}
+            isVisible={true}
+          />
+        </div>
+      )}
     </div>
   );
 });
