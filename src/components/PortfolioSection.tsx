@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { getPortfolioData } from '@/services/portfolioDataService';
 import PortfolioHeader from './portfolio/PortfolioHeader';
@@ -11,6 +12,7 @@ const PortfolioSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [services, setServices] = useState<Service[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   // Load data when component mounts
   useEffect(() => {
@@ -18,27 +20,21 @@ const PortfolioSection = () => {
       try {
         console.log('PortfolioSection - Starting to load portfolio data...');
         setLoading(true);
+        setError(null);
+        
         const data = await getPortfolioData();
-        console.log('PortfolioSection - Portfolio data loaded:', data);
+        console.log('PortfolioSection - Portfolio data loaded successfully:', data.length, 'services');
         
-        // Log the total number of projects
-        const totalProjects = data.reduce((total, service) => total + service.projects.length, 0);
-        console.log(`PortfolioSection - Total projects loaded: ${totalProjects}`);
-        
-        // Check specifically for Crave Kitchen
-        const allProjects = data.flatMap(service => service.projects);
-        const craveKitchenProject = allProjects.find(p => p.title.toLowerCase().includes('crave kitchen'));
-        if (craveKitchenProject) {
-          console.log('PortfolioSection - ✅ Crave Kitchen found in loaded data');
+        if (data && data.length > 0) {
+          setServices(data);
         } else {
-          console.log('PortfolioSection - ❌ Crave Kitchen NOT found in loaded data');
+          console.warn('PortfolioSection - No data received, setting empty array');
+          setServices([]);
         }
-        
-        setServices(data);
       } catch (error) {
         console.error('PortfolioSection - Error loading portfolio data:', error);
-        // Keep existing static data as fallback
-        setServices([]);
+        setError('Failed to load portfolio data');
+        setServices([]); // Set empty array as fallback
       } finally {
         setLoading(false);
         console.log('PortfolioSection - Loading completed');
@@ -53,14 +49,6 @@ const PortfolioSection = () => {
     window.location.href = `/case-study/${projectId}`;
   };
 
-  // Log whenever services state changes
-  useEffect(() => {
-    console.log('PortfolioSection - Services state updated:', services.length, 'services');
-    services.forEach((service, index) => {
-      console.log(`  Service ${index + 1}: ${service.title} (${service.projects.length} projects)`);
-    });
-  }, [services]);
-
   return (
     <section 
       id="portfolio"
@@ -73,8 +61,24 @@ const PortfolioSection = () => {
         <PortfolioHeader isVisible={isVisible} setIsVisible={setIsVisible} />
         
         {loading ? (
-          <div className="flex items-center justify-center py-12">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
+          <div className="flex flex-col items-center justify-center py-16">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mb-4"></div>
+            <p className="text-gray-600">Loading our amazing projects...</p>
+          </div>
+        ) : error ? (
+          <div className="flex flex-col items-center justify-center py-16">
+            <div className="text-red-500 mb-4">⚠️ {error}</div>
+            <button 
+              onClick={() => window.location.reload()} 
+              className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+            >
+              Retry
+            </button>
+          </div>
+        ) : services.length === 0 ? (
+          <div className="flex flex-col items-center justify-center py-16">
+            <p className="text-gray-600 mb-4">No projects available at the moment.</p>
+            <p className="text-sm text-gray-500">Please check back later.</p>
           </div>
         ) : (
           <>

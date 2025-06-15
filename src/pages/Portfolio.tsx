@@ -15,6 +15,7 @@ const Portfolio = () => {
   const [selectedService, setSelectedService] = useState<string | null>(null);
   const [services, setServices] = useState<Service[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   // Initialize performance optimizations
   usePerformanceOptimization();
@@ -25,16 +26,20 @@ const Portfolio = () => {
       try {
         console.log('Portfolio Page - Starting to load portfolio data...');
         setLoading(true);
+        setError(null);
+        
         const data = await getPortfolioData();
-        console.log('Portfolio Page - Portfolio data loaded:', data);
+        console.log('Portfolio Page - Portfolio data loaded successfully:', data.length, 'services');
         
-        // Log the total number of projects
-        const totalProjects = data.reduce((total, service) => total + service.projects.length, 0);
-        console.log(`Portfolio Page - Total projects loaded: ${totalProjects}`);
-        
-        setServices(data);
+        if (data && data.length > 0) {
+          setServices(data);
+        } else {
+          console.warn('Portfolio Page - No data received');
+          setServices([]);
+        }
       } catch (error) {
         console.error('Portfolio Page - Error loading portfolio data:', error);
+        setError('Failed to load portfolio data');
         setServices([]);
       } finally {
         setLoading(false);
@@ -88,8 +93,34 @@ const Portfolio = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-white flex items-center justify-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+      <div className="min-h-screen bg-white">
+        <Header />
+        <div className="flex flex-col items-center justify-center min-h-[60vh]">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mb-4"></div>
+          <p className="text-gray-600">Loading our amazing portfolio...</p>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-white">
+        <Header />
+        <div className="flex flex-col items-center justify-center min-h-[60vh]">
+          <div className="text-red-500 mb-4 text-center">
+            <div className="text-2xl mb-2">⚠️</div>
+            <p>{error}</p>
+          </div>
+          <button 
+            onClick={() => window.location.reload()} 
+            className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+          >
+            Try Again
+          </button>
+        </div>
+        <Footer />
       </div>
     );
   }
@@ -106,18 +137,27 @@ const Portfolio = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50/20 via-transparent to-purple-50/20 pointer-events-none"></div>
 
         <div className="container mx-auto px-6 relative z-10">
-          <PortfolioServiceFilter 
-            services={services}
-            selectedService={selectedService}
-            setSelectedService={setSelectedService}
-            totalProjects={totalProjects}
-          />
-          
-          <PortfolioProjectsGrid 
-            services={services}
-            selectedService={selectedService}
-            handleProjectClick={handleProjectClick}
-          />
+          {services.length > 0 ? (
+            <>
+              <PortfolioServiceFilter 
+                services={services}
+                selectedService={selectedService}
+                setSelectedService={setSelectedService}
+                totalProjects={totalProjects}
+              />
+              
+              <PortfolioProjectsGrid 
+                services={services}
+                selectedService={selectedService}
+                handleProjectClick={handleProjectClick}
+              />
+            </>
+          ) : (
+            <div className="text-center py-16">
+              <p className="text-gray-600 mb-4">No projects available at the moment.</p>
+              <p className="text-sm text-gray-500">Please check back later for exciting updates!</p>
+            </div>
+          )}
           
           <div className="portfolio-cta">
             <PortfolioCTASection />
