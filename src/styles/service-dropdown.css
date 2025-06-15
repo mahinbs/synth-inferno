@@ -1,0 +1,113 @@
+
+@layer utilities {
+  /* Service Card Dropdown Styling */
+  .service-dropdown {
+    contain: layout style paint;
+    will-change: transform, opacity;
+    transform: translate3d(0, 0, 0);
+  }
+
+  /* Smooth dropdown animations */
+  .dropdown-enter {
+    animation: slideDownFadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  .dropdown-exit {
+    animation: slideUpFadeOut 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  @keyframes slideDownFadeIn {
+    0% {
+      opacity: 0;
+      transform: translate3d(0, -10px, 0);
+    }
+    100% {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  @keyframes slideUpFadeOut {
+    0% {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      opacity: 0;
+      transform: translate3d(0, -10px, 0);
+    }
+  }
+
+  /* Prevent layout shift */
+  .service-card-container {
+    position: relative;
+    margin-bottom: 8px;
+  }
+
+  /* Glassmorphic dropdown styling */
+  .service-dropdown-content {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.12),
+      0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    .service-dropdown-content {
+      left: -12px;
+      right: -12px;
+      margin-top: 12px;
+    }
+    
+    .service-dropdown-content .grid-cols-2 {
+      grid-template-columns: 1fr;
+    }
+    
+    .service-dropdown-content .sm\:grid-cols-2 {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Touch device enhancements */
+  @media (hover: none) {
+    .service-dropdown-content {
+      position: fixed;
+      left: 16px;
+      right: 16px;
+      top: auto;
+      bottom: 16px;
+      max-height: 60vh;
+      overflow-y: auto;
+      z-index: 9999;
+    }
+  }
+
+  /* Ensure dropdown doesn't interfere with existing hover states */
+  .service-card-actions-enhanced .learn-more-button-enhanced:hover,
+  .service-timeline-badge:hover,
+  .service-price-enhanced:hover {
+    z-index: 10;
+    position: relative;
+  }
+
+  /* Portfolio thumbnail hover effects */
+  .portfolio-thumbnail {
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .portfolio-thumbnail:hover {
+    transform: scale(1.05);
+  }
+
+  /* Smooth text color transitions */
+  .dropdown-project-title {
+    transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dropdown-project-title:hover {
+    color: #2563eb;
+  }
+}

@@ -1,7 +1,7 @@
-
 import { useState, useCallback, Suspense, lazy } from "react";
 import ServicesHeader from "./services/ServicesHeader";
 import { servicesData } from "./services/ServicesData";
+import "../styles/service-dropdown.css";
 
 // Lazy load the service card for better performance
 const GlassmorphicServiceCard = lazy(() => import("./services/GlassmorphicServiceCard"));
