@@ -26,7 +26,7 @@ const GlassmorphicServiceCard = memo(({
     .find(projectService => projectService.id === service.id)
     ?.projects || [];
 
-  console.log(`Service ${service.id} found ${serviceProjects.length} projects`);
+  console.log(`Service ${service.id} found ${serviceProjects.length} projects`, serviceProjects);
 
   const handleMouseEnter = () => {
     console.log(`Mouse enter on service: ${service.id}`);
@@ -40,6 +40,7 @@ const GlassmorphicServiceCard = memo(({
 
   const handleClick = () => {
     // Toggle on mobile/touch devices
+    console.log(`Click on service: ${service.id}, current hover: ${isHovered}`);
     setIsHovered(!isHovered);
   };
 
@@ -94,7 +95,7 @@ const GlassmorphicServiceCard = memo(({
         </div>
       </div>
 
-      {/* Hover Dropdown */}
+      {/* Hover Dropdown - This will now show properly */}
       <ServiceCardDropdown
         service={service}
         portfolioProjects={serviceProjects}

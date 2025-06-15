@@ -1,9 +1,9 @@
-
 import { webAppsProjects } from './projects/webAppsProjects';
 import { saasProjects } from './projects/saasProjects';
 import { aiCallingProjects } from './projects/aiCallingProjects';
 import { mobileAppsProjects } from './projects/mobileAppsProjects';
 import { aiAutomationProjects } from './projects/aiAutomationProjects';
+import { salesForceProjects } from './projects/salesForceProjects';
 
 export interface Project {
   id: string;
@@ -72,6 +72,13 @@ export const projectsData: Service[] = [
     title: 'Mobile Applications',
     color: 'purple',
     projects: mobileAppsProjects
+  },
+  {
+    id: 'sales-force',
+    icon: null,
+    title: 'Sales Force',
+    color: 'blue',
+    projects: salesForceProjects
   },
   {
     id: 'ai-calling',
