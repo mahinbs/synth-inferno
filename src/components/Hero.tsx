@@ -1,6 +1,7 @@
 
 import { ArrowRight, Play, Check } from 'lucide-react';
 import { useState, useEffect, memo } from 'react';
+import VideoBackground from './ui/VideoBackground';
 
 const Hero = memo(() => {
   const [isVisible, setIsVisible] = useState(false);
@@ -21,34 +22,15 @@ const Hero = memo(() => {
       id="home" 
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Dark Tech Background */}
-      <div className="absolute inset-0 z-0">
-        {/* Base dark gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-gray-900 to-black" />
-        
-        {/* Tech circuit overlay pattern */}
-        <div 
-          className="absolute inset-0 opacity-20"
-          style={{
-            backgroundImage: `
-              radial-gradient(circle at 25% 25%, #1cc7ff 0%, transparent 50%),
-              radial-gradient(circle at 75% 75%, #65f7bc 0%, transparent 50%),
-              linear-gradient(45deg, transparent 30%, rgba(28, 199, 255, 0.1) 50%, transparent 70%),
-              linear-gradient(-45deg, transparent 30%, rgba(101, 247, 188, 0.1) 50%, transparent 70%)
-            `,
-            backgroundSize: '600px 600px, 800px 800px, 200px 200px, 200px 200px'
-          }}
-        />
-        
-        {/* Subtle lighting effects */}
-        <div className="absolute inset-0">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '4s' }}></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '6s', animationDelay: '2s' }}></div>
-        </div>
-        
-        {/* Dark overlay for text contrast */}
-        <div className="absolute inset-0 bg-black/30" />
-      </div>
+      {/* Video Background */}
+      <VideoBackground 
+        src="https://res.cloudinary.com/dknafpppp/video/upload/v1748772016/0_Ai_Artificial_Intelligence_1280x720-2_wbcpcy.mp4"
+        posterSrc="https://res.cloudinary.com/dknafpppp/image/upload/v1748772016/0_Ai_Artificial_Intelligence_1280x720-2_wbcpcy.jpg"
+        className="absolute inset-0 z-0"
+      />
+      
+      {/* Dark overlay for text contrast */}
+      <div className="absolute inset-0 bg-black/50 z-10" />
 
       {/* Content */}
       <div className="relative z-20 container mx-auto px-6 py-20">
