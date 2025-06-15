@@ -1,79 +1,17 @@
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* Import all service-related styles */
-@import url('./styles/animations.css');
-@import url('./styles/base.css');
-@import url('./styles/utilities.css');
-@import url('./styles/performance.css');
-@import url('./styles/service-cards.css');
-@import url('./styles/service-backgrounds.css');
-@import url('./styles/service-card-styles.css');
-@import url('./styles/service-animations.css');
-@import url('./styles/glass-effects.css');
-@import url('./styles/glassmorphic-service-cards.css');
-@import url('./styles/reference-service-cards.css');
-@import url('./styles/service-page-cards/base.css');
-@import url('./styles/service-page-cards/dimensions.css');
-@import url('./styles/service-page-cards/effects.css');
-@import url('./styles/service-page-cards/responsive.css');
-@import url('./styles/service-page-cards/accessibility.css');
-@import url('./styles/portfolio-components.css');
-@import url('./styles/service-accessibility.css');
-@import url('./styles/service-expansion-animations.css');
-@import url('./styles/service-hover-effects.css');
-@import url('./styles/service-mobile-responsive.css');
-@import url('./styles/service-responsive.css');
-@import url('./styles/service-inline-expansion.css');
-
-/* Global font and theme variables */
-:root {
-  --font-sans: 'Inter', system-ui, sans-serif;
-  --font-heading: 'Inter', system-ui, sans-serif;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: var(--font-sans);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* Enhanced performance optimizations */
-* {
-  box-sizing: border-box;
-}
-
-img, video {
-  max-width: 100%;
-  height: auto;
-}
-
-/* GPU acceleration for animations */
-.gpu-accelerated {
-  will-change: transform;
-  transform: translate3d(0, 0, 0);
-}
-
-/* Content visibility optimization */
-.content-auto {
-  content-visibility: auto;
-  contain-intrinsic-size: 1px 300px;
-}
-
-/* Reduced motion support */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-}
+/* Import all CSS modules */
+@import './styles/base.css';
+@import './styles/service-cards.css';
+@import './styles/service-backgrounds.css';
+@import './styles/service-animations.css';
+@import './styles/service-responsive.css';
+@import './styles/service-card-styles.css';
+@import './styles/service-hover-effects.css';
+@import './styles/service-expansion-animations.css';
+@import './styles/service-mobile-responsive.css';
+@import './styles/service-accessibility.css';
+@import './styles/portfolio-components.css';
+@import './styles/glass-effects.css';
+@import './styles/performance.css';
+@import './styles/animations.css';
+@import './styles/utilities.css';

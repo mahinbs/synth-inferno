@@ -1,52 +1,64 @@
-import { useState, useCallback, Suspense, lazy } from "react";
+
+import { useState, useCallback } from "react";
+import ExpandableServiceCard from "./services/ExpandableServiceCard";
+import ServicesBackground from "./services/ServicesBackground";
 import ServicesHeader from "./services/ServicesHeader";
 import { servicesData } from "./services/ServicesData";
-import "../styles/service-dropdown.css";
-
-// Lazy load the service card for better performance
-const GlassmorphicServiceCard = lazy(() => import("./services/GlassmorphicServiceCard"));
 
 const Services = () => {
   const [expandedService, setExpandedService] = useState<string | null>(null);
+  const [hoverTimeout, setHoverTimeout] = useState<NodeJS.Timeout | null>(null);
 
-  const handleExpand = useCallback((serviceId: string) => {
-    setExpandedService(prev => prev === serviceId ? null : serviceId);
-  }, []);
+  const handleMouseEnter = useCallback(
+    (serviceId: string) => {
+      if (hoverTimeout) {
+        clearTimeout(hoverTimeout);
+      }
 
-  const handleCollapse = useCallback(() => {
-    setExpandedService(null);
-  }, []);
+      const timeout = setTimeout(() => {
+        setExpandedService(serviceId);
+      }, 300);
+
+      setHoverTimeout(timeout);
+    },
+    [hoverTimeout]
+  );
+
+  const handleMouseLeave = useCallback(() => {
+    if (hoverTimeout) {
+      clearTimeout(hoverTimeout);
+      setHoverTimeout(null);
+    }
+
+    const timeout = setTimeout(() => {
+      setExpandedService(null);
+    }, 200);
+
+    setHoverTimeout(timeout);
+  }, [hoverTimeout]);
 
   return (
     <section
       id="services"
-      className="py-20 relative overflow-hidden bg-transparent"
+      className="py-20 bg-gradient-to-b from-gray-900 to-black relative overflow-hidden"
     >
+      <ServicesBackground />
+
       <div className="container mx-auto px-6 relative z-20">
         <ServicesHeader />
 
-        {/* Single Column Layout with Consistent Spacing */}
-        <div className="max-w-4xl mx-auto space-y-6">
-          {servicesData.map((service, index) => {
+        <div className="max-w-6xl mx-auto space-y-6">
+          {servicesData.map((service) => {
             const isExpanded = expandedService === service.id;
 
             return (
-              <Suspense 
-                key={service.id} 
-                fallback={
-                  <div className="bg-white rounded-2xl border border-gray-200 shadow-sm h-48 flex items-center justify-center">
-                    <span className="text-gray-500">Loading service...</span>
-                  </div>
-                }
-              >
-                <GlassmorphicServiceCard
-                  service={service}
-                  isExpanded={isExpanded}
-                  onExpand={handleExpand}
-                  onCollapse={handleCollapse}
-                  index={index}
-                />
-              </Suspense>
+              <ExpandableServiceCard
+                key={service.id}
+                service={service}
+                isExpanded={isExpanded}
+                onMouseEnter={() => handleMouseEnter(service.id)}
+                onMouseLeave={handleMouseLeave}
+              />
             );
           })}
         </div>

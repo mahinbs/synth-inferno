@@ -1,4 +1,5 @@
 
+import { X } from "lucide-react";
 import { MenuItem } from "./types";
 import MobileMenuItem from "./MobileMenuItem";
 
@@ -21,59 +22,60 @@ const MobileMenu = ({
   onSmoothScroll,
   isMobile 
 }: MobileMenuProps) => {
+  console.log('MobileMenu render:', { isOpen, isMobile, menuItems: menuItems.length, shouldShow: isOpen });
+
   return (
     <>
-      {isOpen && (
-        <>
-          {/* Backdrop */}
-          <div 
-            className="lg:hidden fixed z-40 inset-0 bg-black/50 backdrop-blur-sm" 
-            onClick={onClose} 
-            aria-hidden="true" 
-          />
-
-          {/* Mobile Menu with glassmorphism */}
-          <div className="lg:hidden fixed top-0 right-0 h-full w-full max-w-sm bg-white/20 backdrop-blur-[12px] border-l border-white/30 shadow-xl transform transition-transform duration-300 z-[999]">
-            <div className="flex flex-col h-full">
-              {/* Header */}
-              <div className="flex justify-between items-center p-6 border-b border-white/20">
-                <div className="font-heading text-xl font-bold text-foreground">
-                  Dee&Cee Labs
-                </div>
-              </div>
-
-              {/* Menu Items */}
-              <div className="flex-1 overflow-y-auto p-6">
-                <div className="space-y-4">
-                  {menuItems.map((item) => (
-                    <MobileMenuItem
-                      key={item.name}
-                      item={item}
-                      isActive={isActive(item)}
-                      isHomePage={isHomePage}
-                      onSmoothScroll={onSmoothScroll}
-                      onClose={onClose}
-                    />
-                  ))}
-                </div>
-
-                {/* Mobile CTA */}
-                <div className="mt-8 pt-8 border-t border-white/20">
-                  <button 
-                    onClick={() => {
-                      onSmoothScroll('/#contact', 'contact');
-                      onClose();
-                    }} 
-                    className="w-full bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 text-white px-6 py-3 rounded-lg font-medium hover:from-blue-600 hover:via-blue-700 hover:to-blue-800 transition-all duration-300 shadow-lg"
-                  >
-                    Get Started
-                  </button>
-                </div>
-              </div>
-            </div>
+      {/* Backdrop */}
+      <div 
+        className={`lg:hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-[100] transition-opacity duration-300 ${
+          isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        }`}
+        onClick={onClose}
+        aria-hidden="true"
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+        }}
+      />
+      
+      {/* Mobile Menu */}
+      <div 
+        className={`lg:hidden fixed top-0 right-0 h-full w-full max-w-sm bg-black/95 backdrop-blur-md border-l border-cyan-500/20 shadow-xl z-[101] transition-transform duration-300 ease-in-out ${
+          isOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+        style={{
+          position: 'fixed',
+          top: 0,
+          right: 0,
+          height: '100vh',
+          width: '100%',
+          maxWidth: '24rem',
+          willChange: 'transform'
+        }}
+      >
+        <div className="pt-20 px-6 py-8 space-y-6 h-full overflow-y-auto">
+          {menuItems.map((item) => (
+            <MobileMenuItem
+              key={item.name}
+              item={item}
+              isActive={isActive(item)}
+              isHomePage={isHomePage}
+              onSmoothScroll={onSmoothScroll}
+              onClose={onClose}
+            />
+          ))}
+          
+          <div className="pt-4">
+            <button className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-6 py-3 rounded-lg hover:from-cyan-400 hover:to-blue-500 transition-all duration-300 font-medium text-lg touch-manipulation min-h-[44px]">
+              Neural Access
+            </button>
           </div>
-        </>
-      )}
+        </div>
+      </div>
     </>
   );
 };
