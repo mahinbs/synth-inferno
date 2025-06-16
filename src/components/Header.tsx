@@ -150,11 +150,11 @@ const Header = memo(() => {
             <div className="flex flex-col h-full">
               {/* Header */}
               <div className="flex justify-between items-center p-6 border-b border-white/20">
-                <div className="font-heading text-xl font-bold text-foreground">
+                <div className="font-heading text-xl font-bold text-cyan-500">
                   Dee&Cee Labs
                 </div>
                 <button onClick={closeMenu} aria-label="Close menu">
-                  <X className="h-6 w-6 text-foreground" />
+                  <X className="h-6 w-6 text-cyan-500" />
                 </button>
               </div>
 

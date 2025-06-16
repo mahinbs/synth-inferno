@@ -25,7 +25,7 @@ const MobileNavigation = ({ menuItems, isActive, isHomePage, onSmoothScroll, onC
             <Link 
               key={item.name} 
               to={item.href} 
-              className={`block text-lg font-medium py-3 px-4 rounded-lg transition-all duration-300 ${active ? "text-primary bg-primary/10" : "text-foreground hover:text-primary hover:bg-white/10"}`} 
+              className={`block text-lg font-medium py-3 px-4 rounded-lg transition-all duration-300 ${active ? "text-cyan-500 bg-cyan-500/10" : "text-cyan-500 hover:text-cyan-400 hover:bg-cyan-500/5"}`} 
               onClick={onClose}
             >
               {item.name}
@@ -36,7 +36,7 @@ const MobileNavigation = ({ menuItems, isActive, isHomePage, onSmoothScroll, onC
             <button 
               key={item.name} 
               onClick={() => onSmoothScroll(item.href, item.section)} 
-              className={`block w-full text-left text-lg font-medium py-3 px-4 rounded-lg transition-all duration-300 ${active ? "text-primary bg-primary/10" : "text-foreground hover:text-primary hover:bg-white/10"}`}
+              className={`block w-full text-left text-lg font-medium py-3 px-4 rounded-lg transition-all duration-300 ${active ? "text-cyan-500 bg-cyan-500/10" : "text-cyan-500 hover:text-cyan-400 hover:bg-cyan-500/5"}`}
             >
               {item.name}
             </button>
@@ -46,7 +46,7 @@ const MobileNavigation = ({ menuItems, isActive, isHomePage, onSmoothScroll, onC
             <a 
               key={item.name} 
               href={item.href} 
-              className={`block text-lg font-medium py-3 px-4 rounded-lg transition-all duration-300 ${active ? "text-primary bg-primary/10" : "text-foreground hover:text-primary hover:bg-white/10"}`} 
+              className={`block text-lg font-medium py-3 px-4 rounded-lg transition-all duration-300 ${active ? "text-cyan-500 bg-cyan-500/10" : "text-cyan-500 hover:text-cyan-400 hover:bg-cyan-500/5"}`} 
               onClick={onClose}
             >
               {item.name}
