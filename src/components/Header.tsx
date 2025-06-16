@@ -1,5 +1,5 @@
 
-import { Menu, X } from "lucide-react";
+import { X } from "lucide-react";
 import { useState, memo, useCallback, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useScrollSpy } from "@/hooks/useScrollSpy";
