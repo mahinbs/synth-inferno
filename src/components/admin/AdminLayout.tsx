@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { Link, useLocation, Outlet } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { adminAuth } from '@/services/adminAuth';
 import { 
   LayoutDashboard, 
@@ -13,20 +13,24 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
-const AdminLayout = () => {
+interface AdminLayoutProps {
+  children: React.ReactNode;
+}
+
+const AdminLayout = ({ children }: AdminLayoutProps) => {
   const location = useLocation();
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const handleLogout = () => {
     adminAuth.logout();
-    window.location.href = '/secure-management-portal-x7k9/login';
+    window.location.href = '/admin/login';
   };
 
   const navigation = [
-    { name: 'Dashboard', href: '/secure-management-portal-x7k9', icon: LayoutDashboard },
-    { name: 'Portfolios', href: '/secure-management-portal-x7k9/portfolios', icon: FolderOpen },
-    { name: 'Case Studies', href: '/secure-management-portal-x7k9/case-studies', icon: FileText },
-    { name: 'Blogs', href: '/secure-management-portal-x7k9/blogs', icon: BookOpen },
+    { name: 'Dashboard', href: '/admin', icon: LayoutDashboard },
+    { name: 'Portfolios', href: '/admin/portfolio', icon: FolderOpen },
+    { name: 'Case Studies', href: '/admin/case-studies', icon: FileText },
+    { name: 'Blogs', href: '/admin/blogs', icon: BookOpen },
   ];
 
   return (
@@ -117,7 +121,7 @@ const AdminLayout = () => {
 
         {/* Page content */}
         <main className="flex-1 p-4 sm:p-6 lg:p-8">
-          <Outlet />
+          {children}
         </main>
       </div>
     </div>
