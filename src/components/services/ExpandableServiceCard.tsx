@@ -1,3 +1,4 @@
+
 import { memo } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown, Clock, DollarSign } from "lucide-react";
@@ -12,19 +13,6 @@ interface ExpandableServiceCardProps {
   onMouseLeave: () => void;
 }
 
-// Map service routes to new standardized paths
-const getServiceRoute = (route: string): string => {
-  const routeMap: Record<string, string> = {
-    '/web-apps': '/services/web-applications',
-    '/saas': '/services/saas',
-    '/mobile-apps': '/services/mobile-apps',
-    '/ai-calling': '/services/ai-calling',
-    '/ai-automation': '/services/ai-automation'
-  };
-  
-  return routeMap[route] || route;
-};
-
 const ExpandableServiceCard = memo(({
   service,
   isExpanded,
@@ -33,14 +21,13 @@ const ExpandableServiceCard = memo(({
 }: ExpandableServiceCardProps) => {
   const colors = colorClasses[service.color as ColorType];
   const { preloadRoute, cancelPreload } = useRoutePreloading();
-  const serviceRoute = getServiceRoute(service.route);
 
   const handleLearnMoreHover = () => {
-    preloadRoute(serviceRoute, 300);
+    preloadRoute(service.route, 300);
   };
 
   const handleLearnMoreLeave = () => {
-    cancelPreload(serviceRoute);
+    cancelPreload(service.route);
   };
 
   return (
@@ -199,7 +186,7 @@ const ExpandableServiceCard = memo(({
               {/* Enhanced Action Buttons with proper navigation and preloading */}
               <div className="flex space-x-4 pt-4">
                 <Link
-                  to={serviceRoute}
+                  to={service.route}
                   className={`flex-1 inline-flex items-center justify-center px-6 py-3 rounded-xl ${colors.button} border font-medium transition-all duration-300 backdrop-blur-sm bg-white/10 hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900`}
                   onMouseEnter={handleLearnMoreHover}
                   onMouseLeave={handleLearnMoreLeave}
