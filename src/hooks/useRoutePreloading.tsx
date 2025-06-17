@@ -27,27 +27,25 @@ export const useRoutePreloading = () => {
       try {
         let componentPromise: Promise<any>;
 
-        // Map paths to their lazy-loaded components
+        // Map paths to their lazy-loaded components - using actual existing routes
         switch (path) {
-          case '/services/web-applications':
           case '/web-apps':
             componentPromise = import('../pages/WebAppsPage');
             break;
-          case '/services/saas':
           case '/saas':
             componentPromise = import('../pages/SaasPage');
             break;
-          case '/services/mobile-apps':
           case '/mobile-apps':
             componentPromise = import('../pages/MobileAppsPage');
             break;
-          case '/services/ai-calling':
           case '/ai-calling':
             componentPromise = import('../pages/AiCallingPage');
             break;
-          case '/services/ai-automation':
           case '/ai-automation':
             componentPromise = import('../pages/AiAutomationPage');
+            break;
+          case '/sales-force':
+            componentPromise = import('../pages/SalesForcePage');
             break;
           default:
             return;

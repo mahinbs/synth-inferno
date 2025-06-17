@@ -40,17 +40,17 @@ const getCategoryAccent = (category: string) => {
   }
 };
 
-// Map service categories to their route paths
+// Map service categories to their existing route paths
 const getServiceRoute = (category: string): string => {
   const routeMap: Record<string, string> = {
-    'web': '/services/web-applications',
-    'saas': '/services/saas',
-    'mobile': '/services/mobile-apps', 
-    'ai': '/services/ai-calling',
-    'automation': '/services/ai-automation'
+    'web': '/web-apps',
+    'saas': '/saas',
+    'mobile': '/mobile-apps', 
+    'ai': '/ai-calling',
+    'automation': '/ai-automation'
   };
   
-  return routeMap[category] || '/services/web-applications';
+  return routeMap[category] || '/web-apps';
 };
 
 const HorizontalServiceCard = memo(({

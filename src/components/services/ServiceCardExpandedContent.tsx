@@ -14,18 +14,18 @@ interface ServiceCardExpandedContentProps {
   allProjects: Project[];
 }
 
-// Map service IDs to their route paths
+// Map service IDs to their existing route paths
 const getServiceRoute = (serviceId: string): string => {
   const routeMap: Record<string, string> = {
-    'web-apps': '/services/web-applications',
-    'saas': '/services/saas',
-    'mobile-apps': '/services/mobile-apps',
-    'ai-calling': '/services/ai-calling',
-    'ai-automation': '/services/ai-automation',
-    'sales-force': '/services/sales-force'
+    'web-apps': '/web-apps',
+    'saas': '/saas',
+    'mobile-apps': '/mobile-apps',
+    'ai-calling': '/ai-calling',
+    'ai-automation': '/ai-automation',
+    'sales-force': '/sales-force'
   };
   
-  return routeMap[serviceId] || '/services/web-applications';
+  return routeMap[serviceId] || '/web-apps';
 };
 
 const ServiceCardExpandedContent = memo(({
