@@ -14,7 +14,7 @@ export const webAppsProjects: Project[] = [
     industry: 'E-commerce',
     testimonial: 'Exceeded expectations. Sales increased by 250% within the first quarter.',
     clientLogo: 'https://images.unsplash.com/photo-1549923746-c502d488b3ea?w=100&h=100&fit=crop',
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&auto=format&fit=crop',
     serviceId: 'web-apps',
     liveUrl: 'https://retailtech-demo.vercel.app',
     challenge: 'RetailTech Solutions needed a modern e-commerce platform that could handle high traffic, provide real-time inventory updates, and offer personalized shopping experiences.',
@@ -28,9 +28,9 @@ export const webAppsProjects: Project[] = [
       'Created comprehensive admin dashboard with analytics'
     ],
     gallery: [
-      'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1472851294608-062f824d29cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=1200&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=1200&auto=format&fit=crop'
     ],
     detailedMetrics: [
       { label: 'Sales Increase', value: '+250%', description: 'Year-over-year sales growth after platform launch' },
@@ -73,7 +73,7 @@ export const webAppsProjects: Project[] = [
     industry: 'Education',
     testimonial: 'Revolutionary learning platform. Student engagement and completion rates have never been higher.',
     clientLogo: 'https://images.unsplash.com/photo-1549923746-c502d488b3ea?w=100&h=100&fit=crop',
-    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&auto=format&fit=crop',
     serviceId: 'web-apps',
     liveUrl: 'https://edutech-lms.herokuapp.com',
     challenge: 'EduTech Academy needed a modern LMS that could support interactive learning, video streaming, real-time collaboration, and detailed progress tracking for thousands of students.',
@@ -87,9 +87,9 @@ export const webAppsProjects: Project[] = [
       'Integrated with popular educational tools and platforms'
     ],
     gallery: [
-      'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=1200&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1200&auto=format&fit=crop'
     ],
     detailedMetrics: [
       { label: 'Active Students', value: '25K+', description: 'Students actively using the platform monthly' },
@@ -132,7 +132,7 @@ export const webAppsProjects: Project[] = [
     industry: 'Healthcare',
     testimonial: 'Streamlined our entire healthcare workflow. Patient satisfaction and operational efficiency improved dramatically.',
     clientLogo: 'https://images.unsplash.com/photo-1549923746-c502d488b3ea?w=100&h=100&fit=crop',
-    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&auto=format&fit=crop',
     serviceId: 'web-apps',
     liveUrl: 'https://medcare-portal.herokuapp.com',
     challenge: 'MedCare Solutions needed a comprehensive healthcare management system that could handle patient records, appointment scheduling, telemedicine consultations, and billing while maintaining HIPAA compliance.',
@@ -146,9 +146,9 @@ export const webAppsProjects: Project[] = [
       'Integrated with existing billing and insurance systems'
     ],
     gallery: [
-      'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=1200&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=1200&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=1200&auto=format&fit=crop'
     ],
     detailedMetrics: [
       { label: 'Patient Records', value: '15K+', description: 'Patient records managed in the system' },

@@ -14,7 +14,7 @@ export const aiAutomationProjects: Project[] = [
     industry: 'Financial Services',
     testimonial: 'Revolutionized our accounts payable process. Processing time went from hours to minutes.',
     clientLogo: 'https://images.unsplash.com/photo-1549923746-c502d488b3ea?w=100&h=100&fit=crop',
-    image: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&auto=format&fit=crop',
     serviceId: 'ai-automation',
     liveUrl: 'https://financeflow-ai.herokuapp.com',
     challenge: 'FinanceFlow Solutions was manually processing thousands of invoices daily, leading to errors, delays, and high operational costs. They needed an intelligent system to automate the entire invoice lifecycle.',
@@ -28,9 +28,9 @@ export const aiAutomationProjects: Project[] = [
       'Implemented real-time monitoring and exception handling'
     ],
     gallery: [
-      'https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1586953208448-b95a79798f07?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=1200&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=1200&auto=format&fit=crop'
     ],
     detailedMetrics: [
       { label: 'Extraction Accuracy', value: '98%', description: 'Accuracy rate for automated data extraction from invoices' },
@@ -73,7 +73,7 @@ export const aiAutomationProjects: Project[] = [
     industry: 'Technology',
     testimonial: 'Customer satisfaction improved dramatically while reducing our support costs by half.',
     clientLogo: 'https://images.unsplash.com/photo-1549923746-c502d488b3ea?w=100&h=100&fit=crop',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&auto=format&fit=crop',
     serviceId: 'ai-automation',
     liveUrl: 'https://techsupport-ai.vercel.app',
     challenge: 'TechSupport Plus was overwhelmed with repetitive customer inquiries, long response times, and inconsistent support quality. They needed an intelligent system to handle routine queries while escalating complex issues to human agents.',
@@ -87,9 +87,9 @@ export const aiAutomationProjects: Project[] = [
       'Integrated with existing CRM and helpdesk systems'
     ],
     gallery: [
-      'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      'https://images.unsplash.com/photo-1423666639041-f56000c27a9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1200&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1200&auto=format&fit=crop'
     ],
     detailedMetrics: [
       { label: 'Auto Resolution', value: '75%', description: 'Percentage of tickets resolved automatically without human intervention' },
