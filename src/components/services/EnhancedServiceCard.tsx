@@ -44,7 +44,7 @@ const EnhancedServiceCard = memo(({
   return (
     <div 
       ref={cardRef}
-      className={`group relative overflow-hidden transition-all duration-500 ease-in-out service-card-interactive ${
+      className={`group relative overflow-hidden transition-all duration-600 ease-out service-card-interactive ${
         isExpanded 
           ? 'bg-white border-2 border-blue-400 rounded-2xl shadow-2xl transform scale-102' 
           : 'bg-white border-2 border-gray-300 rounded-xl hover:border-blue-400 shadow-lg hover:shadow-xl hover:transform hover:scale-101 hover:-translate-y-1'
@@ -61,7 +61,7 @@ const EnhancedServiceCard = memo(({
       onMouseLeave={handleMouseLeave}
     >
       {/* Main Card Content */}
-      <div className="relative z-10 bg-white rounded-xl transition-all duration-500 ease-in-out" style={{ pointerEvents: 'auto' }}>
+      <div className="relative z-10 bg-white rounded-xl transition-all duration-600 ease-out" style={{ pointerEvents: 'auto' }}>
         <ServiceCardHeader
           service={service}
           imageLoaded={imageLoaded}
@@ -82,8 +82,8 @@ const EnhancedServiceCard = memo(({
       </div>
 
       {/* Enhanced Hover Shimmer Effect */}
-      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out pointer-events-none rounded-xl">
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-50/30 to-transparent transform -skew-x-12 translate-x-[-100%] group-hover:translate-x-[200%] transition-transform duration-1000 ease-in-out" />
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-600 ease-out pointer-events-none rounded-xl">
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-50/30 to-transparent transform -skew-x-12 translate-x-[-100%] group-hover:translate-x-[200%] transition-transform duration-1200 ease-out" />
       </div>
     </div>
   );

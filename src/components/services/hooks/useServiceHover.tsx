@@ -61,10 +61,10 @@ export const useServiceHover = ({
   const handleMouseLeave = useCallback(() => {
     if (isTouchDevice) return;
     
-    // Set a 200ms delay before collapsing
+    // Set a 100ms delay before collapsing (reduced from 200ms)
     collapseTimeoutRef.current = setTimeout(() => {
       onCollapse();
-    }, 200);
+    }, 100);
   }, [isTouchDevice, onCollapse]);
 
   // Prevent collapse when hovering over expanded content
@@ -81,10 +81,10 @@ export const useServiceHover = ({
   const handleContentMouseLeave = useCallback(() => {
     if (isTouchDevice) return;
     
-    // Set a 200ms delay before collapsing
+    // Set a 100ms delay before collapsing (reduced from 200ms)
     collapseTimeoutRef.current = setTimeout(() => {
       onCollapse();
-    }, 200);
+    }, 100);
   }, [isTouchDevice, onCollapse]);
 
   // Click handler for mobile/touch devices

@@ -17,7 +17,7 @@ const Services = () => {
 
       const timeout = setTimeout(() => {
         setExpandedService(serviceId);
-      }, 300);
+      }, 150);
 
       setHoverTimeout(timeout);
     },
@@ -32,7 +32,7 @@ const Services = () => {
 
     const timeout = setTimeout(() => {
       setExpandedService(null);
-    }, 200);
+    }, 100);
 
     setHoverTimeout(timeout);
   }, [hoverTimeout]);
