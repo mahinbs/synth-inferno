@@ -1,17 +1,18 @@
 
 @layer utilities {
-  /* Hover and Interaction Effects - High Contrast */
+  /* Enhanced Hover and Interaction Effects */
   .enhanced-service-card .group {
-    transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1),
-                box-shadow 0.15s cubic-bezier(0.4, 0, 0.2, 1),
-                border-color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  /* Improved hover state with stronger contrast */
+  /* Improved hover state with stronger contrast and smooth transitions */
   .enhanced-service-card:hover {
-    transform: translate3d(0, -2px, 0);
+    transform: translate3d(0, -4px, 0) scale(1.01);
     will-change: transform;
     pointer-events: auto;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   /* Ensure hover areas are properly interactive */
@@ -19,50 +20,67 @@
     pointer-events: auto;
   }
 
-  /* Hardware accelerated hover effects */
+  /* Hardware accelerated hover effects with smooth easing */
   .card-hover-lift-light {
-    transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     pointer-events: auto;
   }
 
   .card-hover-lift-light:hover {
-    transform: translate3d(0, -3px, 0) scale(1.01);
+    transform: translate3d(0, -5px, 0) scale(1.02);
     will-change: transform;
   }
 
-  /* Service button hover effects */
+  /* Service button hover effects with smooth animations */
   .service-button-hover {
-    @apply transition-all duration-150 ease-out;
+    @apply transition-all duration-300 ease-out;
     pointer-events: auto;
   }
 
   .service-button-hover:hover {
     @apply transform scale-105 shadow-lg;
     will-change: transform;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   /* Clean up will-change after animation completes */
   .enhanced-service-card:not(:hover) {
     will-change: auto;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .glassmorphic-portfolio-card:not(:hover) {
     will-change: auto;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  /* Border pulse animation - Stronger contrast */
+  /* Enhanced border pulse animation */
   @keyframes border-pulse-light {
     0%, 100% {
       border-color: rgba(59, 130, 246, 0.4);
-      box-shadow: 0 0 15px rgba(59, 130, 246, 0.15);
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
     }
     50% {
-      border-color: rgba(59, 130, 246, 0.6);
-      box-shadow: 0 0 20px rgba(59, 130, 246, 0.25);
+      border-color: rgba(59, 130, 246, 0.7);
+      box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
     }
   }
 
   .animate-border-pulse-light {
     animation: border-pulse-light 3s ease-in-out infinite;
+  }
+
+  /* Smooth hover glow effect */
+  @keyframes hover-glow {
+    0% {
+      box-shadow: 0 0 5px rgba(59, 130, 246, 0.3);
+    }
+    100% {
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.6);
+    }
+  }
+
+  .animate-hover-glow {
+    animation: hover-glow 0.4s ease-in-out forwards;
   }
 }
