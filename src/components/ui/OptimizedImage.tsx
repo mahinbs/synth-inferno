@@ -124,7 +124,7 @@ const OptimizedImage = ({
       {!isLoaded && !hasError && (
         <div className="absolute inset-0 bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300">
           {/* Subtle animated placeholder */}
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-pulse" />
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-pulse" />
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="w-16 h-16 rounded-lg bg-gray-300/50 flex items-center justify-center">
               <div className="w-8 h-8 border-2 border-gray-400/50 border-t-transparent rounded-full animate-spin" />

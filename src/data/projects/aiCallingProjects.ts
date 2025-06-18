@@ -1,4 +1,3 @@
-
 import { Project } from '../projects';
 
 export const aiCallingProjects: Project[] = [
@@ -14,7 +13,7 @@ export const aiCallingProjects: Project[] = [
     industry: 'Sales & Marketing',
     testimonial: 'Game-changer for our sales team. The AI calls are indistinguishable from human agents.',
     clientLogo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
-    image: 'https://images.unsplash.com/photo-1553775282-20af80779df7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&auto=format&fit=crop',
     serviceId: 'ai-calling',
     liveUrl: 'https://leadgen-ai-demo.vercel.app',
     challenge: 'SalesForce Pro needed to scale their lead generation efforts but faced high costs and inconsistent quality with human agents. They required a solution that could make thousands of calls daily while maintaining natural, engaging conversations.',

@@ -1,4 +1,3 @@
-
 import { Project } from '../projects';
 
 export const aiAutomationProjects: Project[] = [
@@ -14,7 +13,7 @@ export const aiAutomationProjects: Project[] = [
     industry: 'Financial Services',
     testimonial: 'Revolutionized our accounts payable process. Processing time went from hours to minutes.',
     clientLogo: 'https://images.unsplash.com/photo-1549923746-c502d488b3ea?w=100&h=100&fit=crop',
-    image: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=800&auto=format&fit=crop',
     serviceId: 'ai-automation',
     liveUrl: 'https://financeflow-ai.herokuapp.com',
     challenge: 'FinanceFlow Solutions was manually processing thousands of invoices daily, leading to errors, delays, and high operational costs. They needed an intelligent system to automate the entire invoice lifecycle.',
@@ -73,7 +72,7 @@ export const aiAutomationProjects: Project[] = [
     industry: 'Technology',
     testimonial: 'Customer satisfaction improved dramatically while reducing our support costs by half.',
     clientLogo: 'https://images.unsplash.com/photo-1549923746-c502d488b3ea?w=100&h=100&fit=crop',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&auto=format&fit=crop',
     serviceId: 'ai-automation',
     liveUrl: 'https://techsupport-ai.vercel.app',
     challenge: 'TechSupport Plus was overwhelmed with repetitive customer inquiries, long response times, and inconsistent support quality. They needed an intelligent system to handle routine queries while escalating complex issues to human agents.',

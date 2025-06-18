@@ -1,4 +1,3 @@
-
 import { Project } from '../projects';
 
 export const saasProjects: Project[] = [
@@ -14,7 +13,7 @@ export const saasProjects: Project[] = [
     industry: 'Technology',
     testimonial: 'Transformed how our teams collaborate. Best investment we\'ve made in years.',
     clientLogo: 'https://images.unsplash.com/photo-1549923746-c502d488b3ea?w=100&h=100&fit=crop',
-    image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop',
     serviceId: 'saas',
     liveUrl: 'https://projectflow-demo.vercel.app',
     challenge: 'TechCorp Solutions was struggling with project visibility, team coordination, and resource allocation across multiple departments. Their existing tools were fragmented, leading to miscommunication and missed deadlines.',

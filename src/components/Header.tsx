@@ -1,7 +1,7 @@
 
 import { X } from "lucide-react";
 import { useState, memo, useCallback, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useScrollSpy } from "@/hooks/useScrollSpy";
 import { useIsMobile } from "@/hooks/use-mobile";
 import Logo from "./header/Logo";
@@ -15,6 +15,7 @@ const Header = memo(() => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const isHomePage = location.pathname === "/";
   const isMobile = useIsMobile();
   
@@ -91,13 +92,34 @@ const Header = memo(() => {
       const element = document.getElementById(sectionId);
       if (element) {
         element.scrollIntoView({
-          behavior: "smooth"
+          behavior: "smooth",
+          block: "start"
         });
         setIsMenuOpen(false);
         return;
       }
+    } else if (href.startsWith("/#")) {
+      // Navigate to home page first, then scroll to section
+      navigate("/");
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+        }
+      }, 100);
+      setIsMenuOpen(false);
+      return;
+    } else if (href === "/") {
+      // Navigate to home and scroll to top
+      navigate("/");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      setIsMenuOpen(false);
+      return;
     }
-  }, [isHomePage]);
+  }, [isHomePage, navigate]);
 
   const closeMenu = useCallback(() => {
     setIsMenuOpen(false);

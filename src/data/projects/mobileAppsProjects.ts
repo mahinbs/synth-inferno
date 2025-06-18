@@ -1,4 +1,3 @@
-
 import { Project } from '../projects';
 
 export const mobileAppsProjects: Project[] = [
@@ -14,7 +13,7 @@ export const mobileAppsProjects: Project[] = [
     industry: 'Health & Fitness',
     testimonial: 'Exceeded our expectations. The app has transformed how our users engage with fitness.',
     clientLogo: 'https://images.unsplash.com/photo-1549923746-c502d488b3ea?w=100&h=100&fit=crop',
-    image: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=800&auto=format&fit=crop',
     serviceId: 'mobile-apps',
     liveUrl: 'https://apps.apple.com/fittrack',
     challenge: 'HealthTech Solutions needed a comprehensive fitness app that could compete with established players while offering unique health monitoring features and seamless cross-platform experience.',
@@ -73,7 +72,7 @@ export const mobileAppsProjects: Project[] = [
     industry: 'E-commerce',
     testimonial: 'Revolutionary shopping experience. Our conversion rates increased by 300% within 6 months.',
     clientLogo: 'https://images.unsplash.com/photo-1549923746-c502d488b3ea?w=100&h=100&fit=crop',
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1483058712412-4245e9b90334?w=800&auto=format&fit=crop',
     serviceId: 'mobile-apps',
     liveUrl: 'https://play.google.com/store/apps/shopmate',
     challenge: 'RetailMax Group wanted to create a next-generation shopping experience that combines social media engagement with advanced AR technology to reduce return rates and increase customer satisfaction.',

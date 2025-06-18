@@ -19,18 +19,20 @@ const DesktopNavigation = ({ menuItems, isActive, isHomePage, onSmoothScroll }: 
     <div className="hidden lg:flex items-center space-x-8 flex-1 justify-center">
       {menuItems.map(item => {
         const active = isActive(item);
+        
         if (item.name === "Home") {
           return (
             <Link 
               key={item.name} 
               to={item.href} 
               className={`transition-all duration-300 font-medium relative group ${active ? "text-cyan-500" : "text-cyan-500 hover:text-cyan-400"}`}
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             >
               {item.name}
               <span className={`absolute bottom-0 left-0 h-0.5 bg-cyan-500 transition-all duration-300 ${active ? "w-full" : "w-0 group-hover:w-full"}`}></span>
             </Link>
           );
-        } else if (isHomePage && item.href.startsWith("/#")) {
+        } else if (item.href.startsWith("/#")) {
           return (
             <button 
               key={item.name} 
@@ -43,14 +45,15 @@ const DesktopNavigation = ({ menuItems, isActive, isHomePage, onSmoothScroll }: 
           );
         } else {
           return (
-            <a 
+            <Link 
               key={item.name} 
-              href={item.href} 
+              to={item.href} 
               className={`transition-all duration-300 font-medium relative group ${active ? "text-cyan-500" : "text-cyan-500 hover:text-cyan-400"}`}
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             >
               {item.name}
               <span className={`absolute bottom-0 left-0 h-0.5 bg-cyan-500 transition-all duration-300 ${active ? "w-full" : "w-0 group-hover:w-full"}`}></span>
-            </a>
+            </Link>
           );
         }
       })}
