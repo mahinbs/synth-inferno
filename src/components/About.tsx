@@ -100,7 +100,7 @@ const About = memo(() => {
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {whatSetsUsApart.map((item, index) => (
-                <div key={index} className={`bg-[#FFF8DC] rounded-2xl p-8 border border-gray-200 hover:border-blue-300 hover:shadow-lg transition-all duration-300 ${isVisible ? `animate-fade-in-up animate-stagger-${index + 3}` : 'opacity-0'}`}>
+                <div key={index} className={`bg-[#FAFAFA] rounded-2xl p-8 border border-gray-200 hover:border-blue-300 hover:shadow-lg transition-all duration-300 ${isVisible ? `animate-fade-in-up animate-stagger-${index + 3}` : 'opacity-0'}`}>
                   <div className="flex items-start space-x-4">
                     <div className={`w-12 h-12 ${item.iconBg} rounded-xl flex items-center justify-center flex-shrink-0`}>
                       <item.icon className={`h-6 w-6 ${item.iconColor}`} />
