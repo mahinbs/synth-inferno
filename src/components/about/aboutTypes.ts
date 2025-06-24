@@ -16,7 +16,7 @@ export interface ExpertiseItem {
   image: string;
 }
 
-export type ColorKey = 'cyan' | 'blue' | 'purple' | 'pink';
+export type ColorKey = 'gray' | 'slate' | 'zinc' | 'neutral';
 
 export interface ColorClasses {
   border: string;
