@@ -29,9 +29,9 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen w-full overflow-x-hidden">
+    <div className="min-h-screen w-full overflow-x-hidden bg-white">
       <Header />
-      <main className="w-full">
+      <main className="w-full bg-white">
         <Hero />
         <About />
         <EnhancedServicesSection />
