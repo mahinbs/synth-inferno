@@ -1,3 +1,4 @@
+
 import { useState, useEffect, memo } from 'react';
 import { Target, Zap, Shield, Rocket } from 'lucide-react';
 
@@ -49,7 +50,7 @@ const WhyUsSection = memo(() => {
   }];
 
   return (
-    <section id="why-us" className="py-16 md:py-20 relative overflow-hidden bg-gray-50/80 backdrop-blur-[10px]">
+    <section id="why-us" className="py-16 md:py-20 relative overflow-hidden bg-gradient-to-br from-gray-50 to-white">
       <div className="container mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
@@ -64,18 +65,18 @@ const WhyUsSection = memo(() => {
         {/* Differentiators Grid */}
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
           {differentiators.map((item, index) => (
-            <div key={index} className={`group relative bg-white/60 backdrop-blur-[10px] rounded-3xl p-8 border border-white/30 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 shadow-sm ${isVisible ? `animate-fade-in-up animate-stagger-${index + 2}` : 'opacity-0'}`}>
+            <div key={index} className={`group relative bg-white rounded-3xl p-8 border border-gray-200 hover:border-blue-300 transition-all duration-500 hover:shadow-xl shadow-sm ${isVisible ? `animate-fade-in-up animate-stagger-${index + 2}` : 'opacity-0'}`}>
               {/* Background Gradient */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-emerald-50 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               
               <div className="relative z-10">
                 {/* Icon */}
-                <div className="w-16 h-16 bg-blue-600/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                   <item.icon className="h-8 w-8 text-blue-600" />
                 </div>
 
                 {/* Content */}
-                <h3 className="text-2xl font-bold text-[#1c1c1e] mb-4 group-hover:text-primary transition-colors duration-300 leading-tight tracking-tight">
+                <h3 className="text-2xl font-bold text-[#1c1c1e] mb-4 group-hover:text-blue-700 transition-colors duration-300 leading-tight tracking-tight">
                   {item.title}
                 </h3>
                 <p className="text-[#1c1c1e]/80 leading-relaxed tracking-wide">
@@ -83,7 +84,7 @@ const WhyUsSection = memo(() => {
                 </p>
 
                 {/* Hover Effect Line */}
-                <div className="absolute bottom-0 left-8 right-8 h-0.5 bg-gradient-to-r from-primary to-secondary scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                <div className="absolute bottom-0 left-8 right-8 h-0.5 bg-gradient-to-r from-blue-600 to-emerald-600 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
               </div>
             </div>
           ))}
@@ -91,7 +92,7 @@ const WhyUsSection = memo(() => {
 
         {/* Call to Action */}
         <div className={`text-center mt-16 ${isVisible ? 'animate-fade-in-up animate-stagger-4' : 'opacity-0'}`}>
-          <div className="bg-white/60 backdrop-blur-[10px] rounded-3xl p-12 max-w-4xl mx-auto border border-white/30 shadow-sm">
+          <div className="bg-white rounded-3xl p-12 max-w-4xl mx-auto border border-gray-200 shadow-sm">
             <h3 className="font-heading text-3xl md:text-4xl font-bold mb-6 text-[#1c1c1e] leading-tight tracking-tight">
               Ready to Transform Your Vision into Reality?
             </h3>
@@ -99,10 +100,10 @@ const WhyUsSection = memo(() => {
               Let's discuss how our expertise can accelerate your digital transformation and drive meaningful results for your business.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-primary text-primary-foreground px-8 py-4 rounded-xl font-semibold text-lg hover:bg-primary/90 transition-colors duration-300 hover:scale-105 transform">
+              <button className="bg-blue-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-blue-700 transition-colors duration-300 hover:scale-105 transform">
                 Start Your Project
               </button>
-              <button className="border-2 border-primary text-primary px-8 py-4 rounded-xl font-semibold text-lg hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-105 transform">
+              <button className="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-blue-600 hover:text-white transition-all duration-300 hover:scale-105 transform">
                 Schedule Consultation
               </button>
             </div>
