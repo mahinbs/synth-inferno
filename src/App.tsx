@@ -12,6 +12,7 @@ import MobileAppsPage from "./pages/MobileAppsPage";
 import SalesForcePage from "./pages/SalesForcePage";
 import AiCallingPage from "./pages/AiCallingPage";
 import AiAutomationPage from "./pages/AiAutomationPage";
+import GamingArVrPage from "./pages/GamingArVrPage";
 import CaseStudy from "./pages/CaseStudy";
 import BlogsPage from "./pages/BlogsPage";
 import BlogPostPage from "./pages/BlogPostPage";
@@ -44,6 +45,7 @@ function App() {
             <Route path="/sales-force" element={<SalesForcePage />} />
             <Route path="/ai-calling" element={<AiCallingPage />} />
             <Route path="/ai-automation" element={<AiAutomationPage />} />
+            <Route path="/gaming-ar-vr" element={<GamingArVrPage />} />
             <Route path="/case-study/:id" element={<CaseStudy />} />
             <Route path="/blogs" element={<BlogsPage />} />
             <Route path="/blog/:slug" element={<BlogPostPage />} />
