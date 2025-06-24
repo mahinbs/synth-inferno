@@ -48,13 +48,13 @@ const Footer = () => {
               Building innovative AI-powered software solutions that transform businesses and drive digital success.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-cyan-400 transition-colors duration-200">
+              <a href="#" className="text-gray-400 hover:text-gray-300 transition-colors duration-200">
                 <Github className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-cyan-400 transition-colors duration-200">
+              <a href="#" className="text-gray-400 hover:text-gray-300 transition-colors duration-200">
                 <Linkedin className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-cyan-400 transition-colors duration-200">
+              <a href="#" className="text-gray-400 hover:text-gray-300 transition-colors duration-200">
                 <Twitter className="h-5 w-5" />
               </a>
             </div>
@@ -165,7 +165,7 @@ const Footer = () => {
               <div className="mt-4">
                 <button 
                   onClick={() => handleSectionLink('contact')} 
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
+                  className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
                 >
                   Get In Touch
                 </button>

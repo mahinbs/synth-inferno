@@ -31,26 +31,26 @@ const About = memo(() => {
     icon: Users,
     title: "Human-first Design Thinking",
     description: "We put user experience at the center of everything we create, ensuring intuitive and meaningful interactions.",
-    iconBg: "bg-blue-100",
-    iconColor: "text-blue-600"
+    iconBg: "bg-gray-100",
+    iconColor: "text-gray-600"
   }, {
     icon: Cpu,
     title: "AI-Driven Automation",
     description: "Leveraging cutting-edge artificial intelligence to automate processes and enhance decision-making capabilities.",
-    iconBg: "bg-emerald-100",
-    iconColor: "text-emerald-600"
+    iconBg: "bg-slate-100",
+    iconColor: "text-slate-600"
   }, {
     icon: Lightbulb,
     title: "End-to-End Development Expertise",
     description: "From initial concept through deployment and scaling, we handle every aspect of your digital transformation.",
-    iconBg: "bg-amber-100",
-    iconColor: "text-amber-600"
+    iconBg: "bg-zinc-100",
+    iconColor: "text-zinc-600"
   }, {
     icon: Globe,
     title: "Immersive Experiences (VR/AR/Gaming)",
     description: "Creating next-generation interactive experiences that blur the lines between digital and physical worlds.",
-    iconBg: "bg-purple-100",
-    iconColor: "text-purple-600"
+    iconBg: "bg-neutral-100",
+    iconColor: "text-neutral-600"
   }];
 
   return (
@@ -62,7 +62,7 @@ const About = memo(() => {
         <div className="text-center mb-16">
           <h2 className={`font-heading text-5xl md:text-6xl font-bold mb-6 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
             Pioneering Digital Frontiers.
-            <span className="block bg-gradient-to-r from-blue-600 to-emerald-600 bg-clip-text text-transparent mt-2">
+            <span className="block bg-gradient-to-r from-gray-600 to-slate-600 bg-clip-text text-transparent mt-2">
               One Idea at a Time.
             </span>
           </h2>
@@ -100,7 +100,7 @@ const About = memo(() => {
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {whatSetsUsApart.map((item, index) => (
-                <div key={index} className={`bg-[#FAFAFA] rounded-2xl p-8 border border-gray-200 hover:border-blue-300 hover:shadow-lg transition-all duration-300 ${isVisible ? `animate-fade-in-up animate-stagger-${index + 3}` : 'opacity-0'}`}>
+                <div key={index} className={`bg-white rounded-2xl p-8 border border-gray-200 hover:border-gray-300 hover:shadow-lg transition-all duration-300 ${isVisible ? `animate-fade-in-up animate-stagger-${index + 3}` : 'opacity-0'}`}>
                   <div className="flex items-start space-x-4">
                     <div className={`w-12 h-12 ${item.iconBg} rounded-xl flex items-center justify-center flex-shrink-0`}>
                       <item.icon className={`h-6 w-6 ${item.iconColor}`} />
@@ -116,7 +116,7 @@ const About = memo(() => {
           </div>
 
           {/* Mission Statement */}
-          <div className={`text-center bg-gradient-to-r from-blue-50 to-emerald-50 rounded-3xl p-12 ${isVisible ? 'animate-fade-in-up animate-stagger-4' : 'opacity-0'}`}>
+          <div className={`text-center bg-gradient-to-r from-gray-50 to-slate-50 rounded-3xl p-12 ${isVisible ? 'animate-fade-in-up animate-stagger-4' : 'opacity-0'}`}>
             <h3 className="font-heading text-3xl md:text-4xl font-bold mb-6 text-gray-800">Our Mission</h3>
             <p className="text-xl text-gray-700 leading-relaxed max-w-4xl mx-auto mb-8">
               We believe technology should amplify human potential, not replace it. Our mission is to create 
@@ -126,15 +126,15 @@ const About = memo(() => {
             
             <div className="flex flex-wrap justify-center gap-4">
               <div className="flex items-center space-x-2 bg-white/70 rounded-full px-4 py-2">
-                <CheckCircle className="h-5 w-5 text-blue-600" />
+                <CheckCircle className="h-5 w-5 text-gray-600" />
                 <span className="font-medium text-gray-800">Innovation-Driven</span>
               </div>
               <div className="flex items-center space-x-2 bg-white/70 rounded-full px-4 py-2">
-                <CheckCircle className="h-5 w-5 text-emerald-600" />
+                <CheckCircle className="h-5 w-5 text-slate-600" />
                 <span className="font-medium text-gray-800">Human-Centered</span>
               </div>
               <div className="flex items-center space-x-2 bg-white/70 rounded-full px-4 py-2">
-                <CheckCircle className="h-5 w-5 text-amber-600" />
+                <CheckCircle className="h-5 w-5 text-zinc-600" />
                 <span className="font-medium text-gray-800">Future-Ready</span>
               </div>
             </div>
