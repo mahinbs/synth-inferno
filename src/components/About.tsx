@@ -1,10 +1,7 @@
-
 import { useState, useEffect, memo } from 'react';
 import { CheckCircle, Users, Lightbulb, Cpu, Globe } from 'lucide-react';
-
 const About = memo(() => {
   const [isVisible, setIsVisible] = useState(false);
-
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
@@ -14,19 +11,16 @@ const About = memo(() => {
       threshold: 0.1,
       rootMargin: '100px'
     });
-
     const section = document.getElementById('about');
     if (section) {
       observer.observe(section);
     }
-
     return () => {
       if (section) {
         observer.unobserve(section);
       }
     };
   }, []);
-
   const whatSetsUsApart = [{
     icon: Users,
     title: "Human-first Design Thinking",
@@ -52,11 +46,9 @@ const About = memo(() => {
     iconBg: "bg-neutral-100",
     iconColor: "text-neutral-600"
   }];
-
-  return (
-    <section id="about" className="py-20 bg-background relative overflow-hidden" style={{
-      backgroundColor: '#F9FAFB'
-    }}>
+  return <section id="about" className="py-20 bg-background relative overflow-hidden" style={{
+    backgroundColor: '#F9FAFB'
+  }}>
       <div className="container mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
@@ -72,18 +64,9 @@ const About = memo(() => {
         <div className="max-w-6xl mx-auto">
           {/* Introduction */}
           <div className={`text-center mb-16 ${isVisible ? 'animate-fade-in-up animate-stagger-1' : 'opacity-0'}`}>
-            <p className="text-xl text-gray-700 leading-relaxed max-w-4xl mx-auto mb-8">
-              At Dee&Cee Labs, we don't just build software—we engineer experiences that redefine what's possible. 
-              Founded by a team of visionaries with deep expertise across AI, game development, mobile applications, 
-              and immersive technologies, we bridge the gap between cutting-edge innovation and real-world impact.
-            </p>
+            <p className="text-xl text-gray-700 leading-relaxed max-w-4xl mx-auto mb-8">At Dee&amp;Cee Labs, we don't just build software—we engineer experiences that redefine what's possible. Founded by a team of visionaries with deep expertise across AI, game development, mobile applications, and immersive technologies, we bridge the gap between cutting edge innovation and real world impact.</p>
             
-            <p className="text-xl text-gray-700 leading-relaxed max-w-4xl mx-auto mb-8">
-              From startups looking to disrupt entire industries to established enterprises seeking digital transformation, 
-              we partner with ambitious organizations to bring their boldest ideas to life. Our approach combines 
-              human-centered design with the latest technological advances, ensuring that every solution we create 
-              is not only technically superior but also intuitive and impactful.
-            </p>
+            <p className="text-xl text-gray-700 leading-relaxed max-w-4xl mx-auto mb-8">From startups looking to disrupt entire industries to established enterprises seeking digital transformation, we partner with ambitious organizations to bring their boldest ideas to life. Our approach combines human centered design with the latest technological advances, ensuring that every solution we create is not only technically superior but also intuitive and impactful.</p>
 
             <p className="text-xl text-gray-700 leading-relaxed max-w-4xl mx-auto">
               Whether you need an AI-powered chatbot that feels genuinely conversational, a mobile app that seamlessly 
@@ -99,8 +82,7 @@ const About = memo(() => {
             </h3>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {whatSetsUsApart.map((item, index) => (
-                <div key={index} className={`bg-white rounded-2xl p-8 border border-gray-200 hover:border-gray-300 hover:shadow-lg transition-all duration-300 ${isVisible ? `animate-fade-in-up animate-stagger-${index + 3}` : 'opacity-0'}`}>
+              {whatSetsUsApart.map((item, index) => <div key={index} className={`bg-white rounded-2xl p-8 border border-gray-200 hover:border-gray-300 hover:shadow-lg transition-all duration-300 ${isVisible ? `animate-fade-in-up animate-stagger-${index + 3}` : 'opacity-0'}`}>
                   <div className="flex items-start space-x-4">
                     <div className={`w-12 h-12 ${item.iconBg} rounded-xl flex items-center justify-center flex-shrink-0`}>
                       <item.icon className={`h-6 w-6 ${item.iconColor}`} />
@@ -110,19 +92,14 @@ const About = memo(() => {
                       <p className="text-gray-700 leading-relaxed">{item.description}</p>
                     </div>
                   </div>
-                </div>
-              ))}
+                </div>)}
             </div>
           </div>
 
           {/* Mission Statement */}
           <div className={`text-center bg-gradient-to-r from-gray-50 to-slate-50 rounded-3xl p-12 ${isVisible ? 'animate-fade-in-up animate-stagger-4' : 'opacity-0'}`}>
             <h3 className="font-heading text-3xl md:text-4xl font-bold mb-6 text-gray-800">Our Mission</h3>
-            <p className="text-xl text-gray-700 leading-relaxed max-w-4xl mx-auto mb-8">
-              We believe technology should amplify human potential, not replace it. Our mission is to create 
-              digital solutions that enhance creativity, productivity, and connection—building bridges between 
-              what exists today and what's possible tomorrow.
-            </p>
+            <p className="text-xl text-gray-700 leading-relaxed max-w-4xl mx-auto mb-8">We believe technology should amplify human potential, not replace it. Our mission is to create digital solutions that enhance creativity, productivity, and connection building bridges between what exists today and what's possible tomorrow.</p>
             
             <div className="flex flex-wrap justify-center gap-4">
               <div className="flex items-center space-x-2 bg-white/70 rounded-full px-4 py-2">
@@ -141,9 +118,7 @@ const About = memo(() => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 });
-
 About.displayName = 'About';
 export default About;
