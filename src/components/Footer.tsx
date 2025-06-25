@@ -1,17 +1,16 @@
-
 import { Mail, Phone, MapPin, Github, Linkedin, Twitter } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
-
 const Footer = () => {
   const navigate = useNavigate();
-
   const handleSectionLink = (sectionId: string) => {
     // Check if we're on the home page
     if (window.location.pathname === '/') {
       // If on home page, scroll to section
       const section = document.getElementById(sectionId);
       if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
+        section.scrollIntoView({
+          behavior: 'smooth'
+        });
       }
     } else {
       // If not on home page, navigate to home and then scroll
@@ -19,29 +18,26 @@ const Footer = () => {
       setTimeout(() => {
         const section = document.getElementById(sectionId);
         if (section) {
-          section.scrollIntoView({ behavior: 'smooth' });
+          section.scrollIntoView({
+            behavior: 'smooth'
+          });
         }
       }, 100);
     }
   };
-
   const handlePageLink = (path: string) => {
     navigate(path);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   };
-
-  return (
-    <footer className="bg-gray-900 text-white">
+  return <footer className="bg-gray-900 text-white">
       <div className="container mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center space-x-3 mb-4">
-              <img 
-                src="https://res.cloudinary.com/dknafpppp/image/upload/v1748806784/freepik_br_f976b57b-9b0c-47dc-8aa0-439758154a91_cpevk3.png" 
-                alt="Dee&Cee Labs Logo" 
-                className="h-8 w-8 object-contain" 
-                loading="lazy" 
-              />
+              <img src="https://res.cloudinary.com/dknafpppp/image/upload/v1748806784/freepik_br_f976b57b-9b0c-47dc-8aa0-439758154a91_cpevk3.png" alt="Dee&Cee Labs Logo" className="h-8 w-8 object-contain" loading="lazy" />
               <span className="text-xl font-bold">Dee&Cee Labs</span>
             </div>
             <p className="text-gray-400 mb-6 leading-relaxed">
@@ -64,44 +60,27 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Services</h3>
             <ul className="space-y-3 text-gray-400">
               <li>
-                <button 
-                  onClick={() => handlePageLink('/web-apps')} 
-                  className="hover:text-white transition-colors duration-200 text-left"
-                >
+                <button onClick={() => handlePageLink('/web-apps')} className="hover:text-white transition-colors duration-200 text-left">
                   Web Development
                 </button>
               </li>
               <li>
-                <button 
-                  onClick={() => handlePageLink('/mobile-apps')} 
-                  className="hover:text-white transition-colors duration-200 text-left"
-                >
+                <button onClick={() => handlePageLink('/mobile-apps')} className="hover:text-white transition-colors duration-200 text-left">
                   Mobile Apps
                 </button>
               </li>
               <li>
-                <button 
-                  onClick={() => handlePageLink('/ai-calling')} 
-                  className="hover:text-white transition-colors duration-200 text-left"
-                >
+                <button onClick={() => handlePageLink('/ai-calling')} className="hover:text-white transition-colors duration-200 text-left">
                   AI Solutions
                 </button>
               </li>
               <li>
-                <button 
-                  onClick={() => handlePageLink('/saas')} 
-                  className="hover:text-white transition-colors duration-200 text-left"
-                >
+                <button onClick={() => handlePageLink('/saas')} className="hover:text-white transition-colors duration-200 text-left">
                   SaaS Development
                 </button>
               </li>
               <li>
-                <button 
-                  onClick={() => handleSectionLink('services')} 
-                  className="hover:text-white transition-colors duration-200 text-left"
-                >
-                  Digital Marketing
-                </button>
+                <button onClick={() => handleSectionLink('services')} className="hover:text-white transition-colors duration-200 text-left">Game Development</button>
               </li>
             </ul>
           </div>
@@ -110,34 +89,22 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Company</h3>
             <ul className="space-y-3 text-gray-400">
               <li>
-                <button 
-                  onClick={() => handleSectionLink('about')} 
-                  className="hover:text-white transition-colors duration-200 text-left"
-                >
+                <button onClick={() => handleSectionLink('about')} className="hover:text-white transition-colors duration-200 text-left">
                   About Us
                 </button>
               </li>
               <li>
-                <button 
-                  onClick={() => handleSectionLink('team')} 
-                  className="hover:text-white transition-colors duration-200 text-left"
-                >
+                <button onClick={() => handleSectionLink('team')} className="hover:text-white transition-colors duration-200 text-left">
                   Our Team
                 </button>
               </li>
               <li>
-                <button 
-                  onClick={() => handlePageLink('/blogs')} 
-                  className="hover:text-white transition-colors duration-200 text-left"
-                >
+                <button onClick={() => handlePageLink('/blogs')} className="hover:text-white transition-colors duration-200 text-left">
                   Blog
                 </button>
               </li>
               <li>
-                <button 
-                  onClick={() => handlePageLink('/reviews')} 
-                  className="hover:text-white transition-colors duration-200 text-left"
-                >
+                <button onClick={() => handlePageLink('/reviews')} className="hover:text-white transition-colors duration-200 text-left">
                   Reviews
                 </button>
               </li>
@@ -163,10 +130,7 @@ const Footer = () => {
                 <span>San Francisco, CA</span>
               </div>
               <div className="mt-4">
-                <button 
-                  onClick={() => handleSectionLink('contact')} 
-                  className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors duration-200"
-                >
+                <button onClick={() => handleSectionLink('contact')} className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors duration-200">
                   Get In Touch
                 </button>
               </div>
@@ -178,8 +142,6 @@ const Footer = () => {
           <p>© 2025 Dee&Cee Labs. All rights reserved. Built with passion for innovation.</p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
