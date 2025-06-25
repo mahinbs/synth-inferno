@@ -48,7 +48,10 @@ const DesktopNavigation = ({ menuItems, isActive, isHomePage, onSmoothScroll }: 
           return (
             <button 
               key={item.name} 
-              onClick={() => handleItemClick(item)}
+              onClick={(e) => {
+                e.preventDefault();
+                handleItemClick(item);
+              }}
               className={`transition-all duration-300 font-medium relative group ${active ? "text-slate-600" : "text-slate-500 hover:text-slate-600"}`}
             >
               {item.name}
