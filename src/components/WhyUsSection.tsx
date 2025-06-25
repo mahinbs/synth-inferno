@@ -1,4 +1,3 @@
-
 import { useState, useEffect, memo } from 'react';
 import { Target, Zap, Shield, Rocket } from 'lucide-react';
 
@@ -51,15 +50,8 @@ const WhyUsSection = memo(() => {
 
   return (
     <section id="why-us" className="py-20 relative overflow-hidden">
-      {/* Enhanced animated background */}
-      <div className="absolute inset-0 gradient-bg-animated"></div>
-      
-      {/* Floating orbs for depth */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-400/20 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute top-3/4 right-1/4 w-80 h-80 bg-purple-400/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute top-1/2 left-3/4 w-64 h-64 bg-pink-400/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '4s' }}></div>
-      </div>
+      {/* Removed background colors - keeping only structural div */}
+      <div className="absolute inset-0"></div>
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Header */}
