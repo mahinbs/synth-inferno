@@ -24,7 +24,7 @@ const Header = memo(() => {
     rootMargin: "-20% 0px -80% 0px"
   });
 
-  // Handle scroll effect with glassmorphism
+  // Handle scroll effect with light background
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -143,8 +143,8 @@ const Header = memo(() => {
     <>
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-white/20 backdrop-blur-[12px] border-b border-white/30 shadow-lg' 
-          : 'bg-transparent'
+          ? 'bg-gray-50 border-b border-gray-200 shadow-sm' 
+          : 'bg-white'
       }`}>
         <nav className="container mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
@@ -167,11 +167,11 @@ const Header = memo(() => {
           {/* Backdrop */}
           <div className="lg:hidden fixed z-40 inset-0 bg-black/50 backdrop-blur-sm" onClick={closeMenu} aria-hidden="true" />
 
-          {/* Mobile Menu with glassmorphism */}
-          <div className="lg:hidden fixed top-0 right-0 h-full w-full max-w-sm bg-white/20 backdrop-blur-[12px] border-l border-white/30 shadow-xl transform transition-transform duration-300 z-[999]">
+          {/* Mobile Menu with light background */}
+          <div className="lg:hidden fixed top-0 right-0 h-full w-full max-w-sm bg-white border-l border-gray-200 shadow-xl transform transition-transform duration-300 z-[999]">
             <div className="flex flex-col h-full">
               {/* Header */}
-              <div className="flex justify-between items-center p-6 border-b border-white/20">
+              <div className="flex justify-between items-center p-6 border-b border-gray-200">
                 <div className="font-heading text-xl font-bold text-slate-600">
                   Dee&Cee Labs
                 </div>
