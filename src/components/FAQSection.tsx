@@ -1,9 +1,11 @@
 import { useState, useEffect, memo } from 'react';
 import { Plus, Minus } from 'lucide-react';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
+
 const FAQSection = memo(() => {
   const [isVisible, setIsVisible] = useState(false);
   const [openFAQ, setOpenFAQ] = useState<string | null>(null);
+
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
@@ -23,6 +25,7 @@ const FAQSection = memo(() => {
       }
     };
   }, []);
+
   const faqs = [{
     id: 'timeline',
     question: 'What is the typical timeline for a project?',
@@ -56,7 +59,9 @@ const FAQSection = memo(() => {
     question: 'What industries do you work with?',
     answer: 'We work across various industries including healthcare, fintech, e-commerce, education, gaming, IoT, and enterprise software. Our diverse experience allows us to bring cross-industry insights and best practices to every project, regardless of your specific sector.'
   }];
-  return <section id="faq" className="py-16 md:py-20 relative overflow-hidden bg-gray-50/80 backdrop-blur-[10px]">
+
+  return (
+    <section id="faq" className="py-16 md:py-20 relative overflow-hidden bg-gray-50/80 backdrop-blur-[10px]">
       <div className="container mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
@@ -70,16 +75,17 @@ const FAQSection = memo(() => {
 
         {/* FAQ List */}
         <div className="max-w-4xl mx-auto">
-          {faqs.map((faq, index) => <Collapsible key={faq.id} open={openFAQ === faq.id} onOpenChange={open => setOpenFAQ(open ? faq.id : null)}>
+          {faqs.map((faq, index) => (
+            <Collapsible key={faq.id} open={openFAQ === faq.id} onOpenChange={open => setOpenFAQ(open ? faq.id : null)}>
               <div className={`mb-4 ${isVisible ? `animate-fade-in-up animate-stagger-${index + 2}` : 'opacity-0'}`}>
                 <CollapsibleTrigger asChild>
-                  <button className="w-full bg-white/60 backdrop-blur-[10px] rounded-2xl p-6 border border-white/30 hover:border-primary/30 transition-all duration-300 text-left group shadow-sm">
+                  <button className="w-full bg-white/60 backdrop-blur-[10px] rounded-2xl p-6 border border-white/30 hover:border-gray-300 transition-all duration-300 text-left group shadow-sm">
                     <div className="flex items-center justify-between">
-                      <h3 className="text-lg md:text-xl font-semibold text-[#1c1c1e] group-hover:text-primary transition-colors duration-300 leading-relaxed tracking-wide">
+                      <h3 className="text-lg md:text-xl font-semibold text-[#1c1c1e] group-hover:text-gray-700 transition-colors duration-300 leading-relaxed tracking-wide">
                         {faq.question}
                       </h3>
-                      <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center ml-4 group-hover:bg-primary/20 transition-colors duration-300">
-                        {openFAQ === faq.id ? <Minus className="h-4 w-4 text-primary" /> : <Plus className="h-4 w-4 text-primary" />}
+                      <div className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center ml-4 group-hover:bg-gray-200 transition-colors duration-300">
+                        {openFAQ === faq.id ? <Minus className="h-4 w-4 text-gray-600" /> : <Plus className="h-4 w-4 text-gray-600" />}
                       </div>
                     </div>
                   </button>
@@ -97,7 +103,8 @@ const FAQSection = memo(() => {
                   </div>
                 </CollapsibleContent>
               </div>
-            </Collapsible>)}
+            </Collapsible>
+          ))}
         </div>
 
         {/* Contact CTA */}
@@ -109,13 +116,15 @@ const FAQSection = memo(() => {
             <p className="text-[#1c1c1e]/80 mb-6 leading-relaxed tracking-wide">
               We're here to help! Reach out to our team for personalized answers and project consultation.
             </p>
-            <button className="bg-primary text-Black px-8 py-3 rounded-xl font-semibold hover:bg-primary/90 transition-colors duration-300 hover:scale-105 transform">
+            <button className="bg-gray-800 text-white px-8 py-3 rounded-xl font-semibold hover:bg-gray-700 transition-colors duration-300 hover:scale-105 transform">
               Contact Us
             </button>
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 });
+
 FAQSection.displayName = 'FAQSection';
 export default FAQSection;
