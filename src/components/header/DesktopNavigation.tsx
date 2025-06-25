@@ -49,7 +49,6 @@ const DesktopNavigation = ({ menuItems, isActive, isHomePage, onSmoothScroll }: 
               key={item.name} 
               to={item.href} 
               className={`transition-all duration-300 font-medium relative group ${active ? "text-slate-600" : "text-slate-500 hover:text-slate-600"}`}
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             >
               {item.name}
               <span className={`absolute bottom-0 left-0 h-0.5 bg-slate-500 transition-all duration-300 ${active ? "w-full" : "w-0 group-hover:w-full"}`}></span>
