@@ -58,7 +58,7 @@ const WhyUsSection = memo(() => {
         <div className="text-center mb-16">
           <h2 className={`font-heading text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
             Why Choose{' '}
-            <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient">
+            <span className="bg-gradient-to-r from-blue-500 via-cyan-500 to-teal-500 bg-clip-text text-transparent animate-gradient">
               Dee&Cee Labs?
             </span>
           </h2>
@@ -98,7 +98,7 @@ const WhyUsSection = memo(() => {
           <div className="glass-cta-card glow-effect rounded-3xl p-12 md:p-16 max-w-5xl mx-auto">
             <h3 className="font-heading text-4xl md:text-5xl font-bold mb-6 leading-tight">
               Ready to Transform Your{' '}
-              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-500 via-cyan-500 to-teal-500 bg-clip-text text-transparent">
                 Vision into Reality?
               </span>
             </h3>
