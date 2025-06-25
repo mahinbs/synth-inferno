@@ -1,9 +1,7 @@
 import { useState, useEffect, memo } from 'react';
 import { Target, Zap, Shield, Rocket } from 'lucide-react';
-
 const WhyUsSection = memo(() => {
   const [isVisible, setIsVisible] = useState(false);
-
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
@@ -13,19 +11,16 @@ const WhyUsSection = memo(() => {
       threshold: 0.1,
       rootMargin: '100px'
     });
-
     const section = document.getElementById('why-us');
     if (section) {
       observer.observe(section);
     }
-
     return () => {
       if (section) {
         observer.unobserve(section);
       }
     };
   }, []);
-
   const differentiators = [{
     icon: Target,
     title: "Cross-functional teams with product-first mindset",
@@ -47,9 +42,7 @@ const WhyUsSection = memo(() => {
     description: "Our partnership doesn't end at launch. We provide ongoing support, optimization, and scaling solutions as your business grows and evolves.",
     color: "indigo-500"
   }];
-
-  return (
-    <section id="why-us" className="py-20 relative overflow-hidden">
+  return <section id="why-us" className="py-20 relative overflow-hidden">
       {/* Removed background colors - keeping only structural div */}
       <div className="absolute inset-0"></div>
 
@@ -69,11 +62,7 @@ const WhyUsSection = memo(() => {
 
         {/* Glassmorphism Differentiators Grid */}
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-          {differentiators.map((item, index) => (
-            <div 
-              key={index} 
-              className={`group glass-card glow-effect rounded-3xl p-8 ${isVisible ? `animate-fade-in-up animate-stagger-${index + 2}` : 'opacity-0'}`}
-            >
+          {differentiators.map((item, index) => <div key={index} className={`group glass-card glow-effect rounded-3xl p-8 ${isVisible ? `animate-fade-in-up animate-stagger-${index + 2}` : 'opacity-0'}`}>
               {/* Icon with glassmorphism */}
               <div className={`glass-icon-container w-20 h-20 rounded-2xl flex items-center justify-center mb-6 group-hover:animate-bounce`}>
                 <item.icon className={`h-10 w-10 text-${item.color} transition-all duration-300 group-hover:scale-110`} />
@@ -89,13 +78,12 @@ const WhyUsSection = memo(() => {
 
               {/* Hover accent line */}
               <div className={`mt-6 h-1 bg-gradient-to-r from-${item.color} to-transparent rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`}></div>
-            </div>
-          ))}
+            </div>)}
         </div>
 
         {/* Enhanced glassmorphism CTA */}
         <div className={`text-center ${isVisible ? 'animate-fade-in-up animate-stagger-4' : 'opacity-0'}`}>
-          <div className="glass-cta-card glow-effect rounded-3xl p-12 md:p-16 max-w-5xl mx-auto">
+          <div className="glass-cta-effect rounded-3xl p-12 md:p-16 max-w-5xl mx-auto">
             <h3 className="font-heading text-4xl md:text-5xl font-bold mb-6 leading-tight">
               Ready to Transform Your{' '}
               <span className="bg-gradient-to-r from-blue-500 via-cyan-500 to-teal-500 bg-clip-text text-transparent">
@@ -117,9 +105,7 @@ const WhyUsSection = memo(() => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 });
-
 WhyUsSection.displayName = 'WhyUsSection';
 export default WhyUsSection;
