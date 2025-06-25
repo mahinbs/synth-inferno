@@ -22,7 +22,11 @@ const getServiceRoute = (serviceId: string): string => {
     'mobile-apps': '/mobile-apps',
     'ai-calling': '/ai-calling',
     'ai-automation': '/ai-automation',
-    'sales-force': '/sales-force'
+    'sales-force': '/sales-force',
+    'game-development': '/game-development',
+    'gaming-ar-vr': '/gaming-ar-vr',
+    'ui-ux-design': '/ui-ux-design',
+    'iot': '/iot'
   };
   
   return routeMap[serviceId] || '/web-apps';

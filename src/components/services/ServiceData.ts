@@ -1,4 +1,5 @@
-import { Smartphone, Code, Cloud, Phone, Brain, Gamepad2 } from 'lucide-react';
+
+import { Smartphone, Code, Cloud, Phone, Brain, Gamepad2, Palette, Cpu } from 'lucide-react';
 
 export interface Service {
   id: string;
@@ -43,6 +44,14 @@ export const filterCategories = [
   {
     id: 'gaming',
     label: 'Gaming'
+  },
+  {
+    id: 'design',
+    label: 'Design'
+  },
+  {
+    id: 'iot',
+    label: 'IoT'
   }
 ];
 
@@ -105,6 +114,25 @@ export const services: Service[] = [
     duration: '6-14 weeks'
   },
   {
+    id: 'game-development',
+    icon: Gamepad2,
+    title: 'Game Development',
+    category: 'gaming',
+    intro: 'Where creativity meets code to build living, breathing virtual experiences.',
+    aboutService: 'We don\'t just develop games — we design emotional, immersive experiences. With deep expertise in game physics, animation rigs, and multiplayer architecture, our team brings together storyboarding, logic systems, and visual fidelity to create games that don\'t just entertain — they engage deeply.',
+    keyFeatures: [
+      'Multiplayer Game Engines with Real-time Sync',
+      'Gamified Learning Platforms', 
+      'AR/VR-Enabled Training Simulators',
+      'In-game Economies with Secure Transaction Layers'
+    ],
+    technologies: ['Unity', 'Unreal Engine', 'WebGL', 'C#', 'C++', 'Photon'],
+    highlights: ['Multiplayer Game Engines with Real-time Sync', 'Procedural Environments + AI NPC Behavior', 'AR/VR-Enabled Training Simulators'],
+    backgroundImage: 'https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+    price: '$20,000',
+    duration: '12-24 weeks'
+  },
+  {
     id: 'gaming-ar-vr',
     icon: Gamepad2,
     title: 'Gaming AR/VR',
@@ -122,6 +150,44 @@ export const services: Service[] = [
     backgroundImage: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
     price: '$18,000',
     duration: '10-20 weeks'
+  },
+  {
+    id: 'ui-ux-design',
+    icon: Palette,
+    title: 'UI/UX Design',
+    category: 'design',
+    intro: 'Design systems engineered from empathy, validated by data, and refined by interaction science.',
+    aboutService: 'We believe that great design is not what it looks like — but how it thinks. At Dee&Cee Labs, our design team fuses behavioral psychology with information architecture and digital ergonomics to craft unforgettable experiences. We\'re not pixel-pushers — we\'re product thinkers.',
+    keyFeatures: [
+      'UX Heatmaps & User Flow Optimization',
+      'Design Systems for Scalable Product Ecosystems',
+      'Microinteractions that Humanize Tech',
+      'Motion Design for Feedback + Delight'
+    ],
+    technologies: ['Figma', 'Adobe XD', 'Maze', 'Hotjar', 'Lottie', 'WCAG Compliance'],
+    highlights: ['UX Heatmaps & User Flow Optimization', 'Accessibility-First Interfaces (AA/AAA Standards)', 'Design Systems for Scalable Product Ecosystems'],
+    backgroundImage: 'https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+    price: '$7,000',
+    duration: '4-10 weeks'
+  },
+  {
+    id: 'iot',
+    icon: Cpu,
+    title: 'Internet of Things (IoT)',
+    category: 'iot',
+    intro: 'Secure, intelligent ecosystems that connect devices, data, and decisions.',
+    aboutService: 'From hardware control to live telemetry dashboards, we build full-cycle IoT solutions that gather, process, and act on data — in milliseconds.',
+    keyFeatures: [
+      'Industrial IoT Dashboards',
+      'Smart Home Systems',
+      'Real-time Alerts & Controls',
+      'Remote Monitoring'
+    ],
+    technologies: ['MQTT', 'CoAP', 'Arduino', 'ESP32', 'Node-RED', 'Raspberry Pi'],
+    highlights: ['Industrial IoT Dashboards', 'Low Power WAN Optimization', 'Real-time Alerts & Controls'],
+    backgroundImage: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+    price: '$12,000',
+    duration: '8-14 weeks'
   },
   {
     id: 'ai-calling-agency',
