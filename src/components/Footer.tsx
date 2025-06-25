@@ -1,5 +1,7 @@
+
 import { Mail, Phone, MapPin, Github, Linkedin, Twitter } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
+import { servicesData } from './services/ServicesData';
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -33,7 +35,8 @@ const Footer = () => {
       behavior: 'smooth'
     });
   };
-  return <footer className="bg-gray-900 text-white">
+  return (
+    <footer className="bg-gray-900 text-white">
       <div className="container mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
@@ -60,29 +63,16 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Services</h3>
             <ul className="space-y-3 text-gray-400">
-              <li>
-                <button onClick={() => handlePageLink('/web-apps')} className="hover:text-white transition-colors duration-200 text-left">
-                  Web Development
-                </button>
-              </li>
-              <li>
-                <button onClick={() => handlePageLink('/mobile-apps')} className="hover:text-white transition-colors duration-200 text-left">
-                  Mobile Apps
-                </button>
-              </li>
-              <li>
-                <button onClick={() => handlePageLink('/ai-calling')} className="hover:text-white transition-colors duration-200 text-left">
-                  AI Solutions
-                </button>
-              </li>
-              <li>
-                <button onClick={() => handlePageLink('/saas')} className="hover:text-white transition-colors duration-200 text-left">
-                  SaaS Development
-                </button>
-              </li>
-              <li>
-                <button onClick={() => handleSectionLink('services')} className="hover:text-white transition-colors duration-200 text-left">Game Development</button>
-              </li>
+              {servicesData.map((service) => (
+                <li key={service.id}>
+                  <button 
+                    onClick={() => handlePageLink(service.route)} 
+                    className="hover:text-white transition-colors duration-200 text-left"
+                  >
+                    {service.title}
+                  </button>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -143,7 +133,8 @@ const Footer = () => {
           <p>© 2025 Dee&Cee Labs. All rights reserved. Built with passion for innovation.</p>
         </div>
       </div>
-    </footer>;
+    </footer>
+  );
 };
 
 export default Footer;
