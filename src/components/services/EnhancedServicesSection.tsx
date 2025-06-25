@@ -19,7 +19,7 @@ const EnhancedServicesSection = memo(() => {
       rootMargin: '50px'
     });
 
-    const section = document.getElementById('enhanced-services');
+    const section = document.getElementById('services');
     if (section) {
       observer.observe(section);
     }
@@ -44,7 +44,7 @@ const EnhancedServicesSection = memo(() => {
 
   return (
     <section
-      id="enhanced-services"
+      id="services"
       className="py-20 relative bg-gradient-to-b from-white to-gray-50 overflow-hidden"
       style={{ contentVisibility: 'auto' }}
     >
