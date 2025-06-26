@@ -11,7 +11,7 @@ const CaseStudyOverview = ({ project }: CaseStudyOverviewProps) => {
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold text-white mb-12 text-center">
-            Project <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Overview</span>
+            Project <span className="bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent">Overview</span>
           </h2>
 
           <div className="grid lg:grid-cols-2 gap-12">
@@ -38,7 +38,7 @@ const CaseStudyOverview = ({ project }: CaseStudyOverviewProps) => {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {project.techStack.map((stack, index) => (
                 <div key={index} className="bg-gray-800/30 rounded-xl p-6 border border-gray-700/30">
-                  <h4 className="text-cyan-400 font-semibold mb-4">{stack.category}</h4>
+                  <h4 className="text-blue-500 font-semibold mb-4">{stack.category}</h4>
                   <div className="space-y-2">
                     {stack.technologies.map((tech, techIndex) => (
                       <div key={techIndex} className="text-gray-300 text-sm">
