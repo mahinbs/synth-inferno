@@ -1,20 +1,11 @@
-import {
-  Smartphone,
-  Code,
-  Cloud,
-  Phone,
-  Brain,
-  Users,
-  Zap,
-  Gamepad2,
-} from "lucide-react";
-// import { webAppsProjects } from './projects/webAppsProjects';
-// import { saasProjects } from './projects/saasProjects';
-// import { aiCallingProjects } from './projects/aiCallingProjects';
-// import { mobileAppsProjects } from './projects/mobileAppsProjects';
-// import { salesForceProjects } from './projects/salesForceProjects';
-// import { aiAutomationProjects } from './projects/aiAutomationProjects';
-// import { gamingArVrProjects } from './projects/gamingArVrProjects';
+import { Smartphone, Code, Cloud, Phone, Brain, Users, Zap, Gamepad2 } from 'lucide-react';
+import { webAppsProjects } from './projects/webAppsProjects';
+import { saasProjects } from './projects/saasProjects';
+import { aiCallingProjects } from './projects/aiCallingProjects';
+import { mobileAppsProjects } from './projects/mobileAppsProjects';
+import { salesForceProjects } from './projects/salesForceProjects';
+import { aiAutomationProjects } from './projects/aiAutomationProjects';
+import { gamingArVrProjects } from './projects/gamingArVrProjects';
 
 export interface Project {
   id: string;
@@ -58,65 +49,58 @@ export interface Service {
   id: string;
   icon: any;
   title: string;
-  color: "cyan" | "blue" | "purple" | "pink" | "green";
+  color: 'cyan' | 'blue' | 'purple' | 'pink' | 'green';
   projects: Project[];
 }
 
 export const projectsData: Service[] = [
   {
-    id: "web-apps",
+    id: 'web-apps',
     icon: Code,
-    title: "Web Applications",
-    color: "cyan",
-    projects: [],
-    //  webAppsProjects
+    title: 'Web Applications',
+    color: 'cyan',
+    projects: webAppsProjects
   },
   {
-    id: "saas",
+    id: 'saas',
     icon: Cloud,
-    title: "SAAS Solutions",
-    color: "blue",
-    projects: [],
-    //  saasProjects
+    title: 'SAAS Solutions',
+    color: 'blue',
+    projects: saasProjects
   },
   {
-    id: "mobile-apps",
+    id: 'mobile-apps',
     icon: Smartphone,
-    title: "Mobile Applications",
-    color: "purple",
-    projects: [],
-    //  mobileAppsProjects
+    title: 'Mobile Applications',
+    color: 'purple',
+    projects: mobileAppsProjects
   },
-  // {
-  //   id: "gaming-ar-vr",
-  //   icon: Gamepad2,
-  //   title: "Gaming AR/VR",
-  //   color: "green",
-  //   projects: [],
-  //   //  gamingArVrProjects
-  // },
-  // {
-  //   id: "sales-force",
-  //   icon: Users,
-  //   title: "Sales Force",
-  //   color: "green",
-  //   projects: [],
-  //   //  salesForceProjects
-  // },
   {
-    id: "ai-calling",
-    icon: Phone,
-    title: "AI Calling Agency",
-    color: "pink",
-    projects: [],
-    //  aiCallingProjects
+    id: 'gaming-ar-vr',
+    icon: Gamepad2,
+    title: 'Gaming AR/VR',
+    color: 'green',
+    projects: gamingArVrProjects
   },
-  // {
-  //   id: "ai-automation",
-  //   icon: Zap,
-  //   title: "AI Automation",
-  //   color: "green",
-  //   projects: [],
-  //   //  aiAutomationProjects
-  // },
+  {
+    id: 'sales-force',
+    icon: Users,
+    title: 'Sales Force',
+    color: 'green',
+    projects: salesForceProjects
+  },
+  {
+    id: 'ai-calling',
+    icon: Phone,
+    title: 'AI Calling Agency',
+    color: 'pink',
+    projects: aiCallingProjects
+  },
+  {
+    id: 'ai-automation',
+    icon: Zap,
+    title: 'AI Automation',
+    color: 'green',
+    projects: aiAutomationProjects
+  }
 ];

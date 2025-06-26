@@ -46,7 +46,7 @@ function App() {
             <Route path="/ai-calling" element={<AiCallingPage />} />
             <Route path="/ai-automation" element={<AiAutomationPage />} />
             <Route path="/gaming-ar-vr" element={<GamingArVrPage />} />
-            <Route path="/case-study/:projectId" element={<CaseStudy />} />
+            <Route path="/case-study/:id" element={<CaseStudy />} />
             <Route path="/blogs" element={<BlogsPage />} />
             <Route path="/blog/:slug" element={<BlogPostPage />} />
             <Route path="/reviews" element={<ReviewsPage />} />
