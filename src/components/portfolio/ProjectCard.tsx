@@ -1,7 +1,10 @@
-import { Link } from 'react-router-dom';
-import { preloadProject, preloadMultipleProjects } from '@/services/projectService';
-import { useEffect } from 'react';
-import OptimizedImage from '@/components/ui/OptimizedImage';
+import { Link } from "react-router-dom";
+import {
+  preloadProject,
+  preloadMultipleProjects,
+} from "@/services/projectService";
+import { useEffect } from "react";
+import OptimizedImage from "@/components/ui/OptimizedImage";
 
 interface Project {
   id: string;
@@ -38,14 +41,14 @@ interface ProjectCardProps {
   animationDelay: number;
 }
 
-const ProjectCard = ({ 
-  project, 
-  service, 
-  colors, 
-  ServiceIcon, 
-  isVisible, 
-  handleProjectClick, 
-  animationDelay 
+const ProjectCard = ({
+  project,
+  service,
+  colors,
+  ServiceIcon,
+  isVisible,
+  handleProjectClick,
+  animationDelay,
 }: ProjectCardProps) => {
   // Preload project data when card becomes visible
   useEffect(() => {
@@ -57,13 +60,13 @@ const ProjectCard = ({
   const handleMouseEnter = () => {
     // Aggressively preload project data on hover
     preloadProject(project.id);
-    
+
     // Also preload related projects from the same service
     const relatedProjects = service.projects
-      .filter(p => p.id !== project.id)
+      .filter((p) => p.id !== project.id)
       .slice(0, 2)
-      .map(p => p.id);
-    
+      .map((p) => p.id);
+
     if (relatedProjects.length > 0) {
       preloadMultipleProjects(relatedProjects);
     }
@@ -76,25 +79,43 @@ const ProjectCard = ({
 
   return (
     <div
-      className={`group relative rounded-2xl bg-gray-900/80 backdrop-blur-sm border ${colors.border} hover:bg-gray-800/90 transition-all duration-400 overflow-hidden cursor-pointer hover:transform hover:scale-102 hover:shadow-lg will-change-auto ${isVisible ? 'animate-fade-in opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+      className={`group relative rounded-2xl bg-gray-900/80 backdrop-blur-sm border ${
+        colors.border
+      } hover:bg-gray-800/90 transition-all duration-400 overflow-hidden cursor-pointer hover:transform hover:scale-102 hover:shadow-lg will-change-auto ${
+        isVisible
+          ? "animate-fade-in opacity-100 translate-y-0"
+          : "opacity-0 translate-y-10"
+      }`}
       onClick={handleClick}
       onMouseEnter={handleMouseEnter}
-      style={{ 
+      style={{
         animationDelay: `${animationDelay}ms`,
-        contentVisibility: 'auto'
+        contentVisibility: "auto",
       }}
     >
       {/* Project Image - Now using OptimizedImage */}
       <div className="relative h-48 overflow-hidden rounded-t-2xl">
-        <OptimizedImage
+        {/* <OptimizedImage
           src={project.image}
           alt={`${project.title} - ${project.industry} project showcase`}
           className="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105"
           priority={isVisible}
           onLoad={() => console.log(`Project image loaded: ${project.title}`)}
+        /> */}
+        <img
+          src={project.image}
+          alt={`${project.title} - ${project.industry} project showcase`}
+          sizes={"(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"}
+          className={`w-full h-full object-cover transition-all duration-500`}
+          loading={"lazy"}
+          decoding="async"
         />
-        <div className={`absolute inset-0 bg-gradient-to-t ${colors.gradient} opacity-60`}></div>
-        <div className={`absolute top-4 left-4 w-10 h-10 rounded-lg ${colors.icon} border flex items-center justify-center`}>
+        <div
+          className={`absolute inset-0 bg-gradient-to-t ${colors.gradient} opacity-60`}
+        ></div>
+        <div
+          className={`absolute top-4 left-4 w-10 h-10 rounded-lg ${colors.icon} border flex items-center justify-center`}
+        >
           <ServiceIcon className="h-5 w-5" />
         </div>
         <div className="absolute top-4 right-4">
@@ -108,14 +129,16 @@ const ProjectCard = ({
       <div className="p-6">
         <div className="flex items-start justify-between mb-4">
           <div className="flex-1">
-            <h4 className={`text-xl font-bold text-white mb-2 group-hover:${colors.text} transition-colors duration-300`}>
+            <h4
+              className={`text-xl font-bold text-white mb-2 group-hover:${colors.text} transition-colors duration-300`}
+            >
               {project.title}
             </h4>
             <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300 text-sm leading-relaxed">
               {project.description}
             </p>
           </div>
-          <Link 
+          <Link
             to={`/case-study/${project.id}`}
             className={`px-3 py-1 rounded-lg text-xs ${colors.tag} border font-medium hover:scale-105 transition-transform duration-200`}
             onClick={(e) => e.stopPropagation()}
@@ -126,11 +149,16 @@ const ProjectCard = ({
 
         {/* Quick Metrics */}
         <div className="flex flex-wrap gap-2 mb-4">
-          {Object.entries(project.metrics).slice(0, 2).map(([key, value]) => (
-            <span key={key} className={`px-3 py-1 rounded-full text-xs ${colors.tag} border`}>
-              {key}: {String(value)}
-            </span>
-          ))}
+          {Object.entries(project.metrics)
+            .slice(0, 2)
+            .map(([key, value]) => (
+              <span
+                key={key}
+                className={`px-3 py-1 rounded-full text-xs ${colors.tag} border`}
+              >
+                {key}: {String(value)}
+              </span>
+            ))}
         </div>
       </div>
     </div>
