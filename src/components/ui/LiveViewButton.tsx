@@ -9,7 +9,7 @@ interface LiveViewButtonProps {
   size?: 'default' | 'sm' | 'lg';
 }
 
-const LiveViewButton = ({ url, className, variant = 'default', size = 'default' }: LiveViewButtonProps) => {
+const LiveViewButton = ({ url, className = '', variant = 'default', size = 'default' }: LiveViewButtonProps) => {
   const handleClick = () => {
     window.open(url, '_blank', 'noopener,noreferrer');
   };
@@ -19,7 +19,7 @@ const LiveViewButton = ({ url, className, variant = 'default', size = 'default' 
       onClick={handleClick}
       variant={variant}
       size={size}
-      className={className}
+      className={`bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-400 hover:to-blue-500 text-white transition-all duration-300 ${className}`}
     >
       <ExternalLink className="h-4 w-4 mr-2" />
       View Live
