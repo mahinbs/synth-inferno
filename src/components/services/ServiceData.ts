@@ -133,25 +133,6 @@ export const services: Service[] = [
     duration: '12-24 weeks'
   },
   {
-    id: 'gaming-ar-vr',
-    icon: Gamepad2,
-    title: 'Gaming AR/VR',
-    category: 'gaming',
-    intro: 'Immersive gaming experiences with cutting-edge AR/VR technologies, 3D environments, and interactive gameplay mechanics.',
-    aboutService: 'We develop next-generation gaming applications featuring augmented reality, virtual reality, and mixed reality experiences. Our team creates immersive worlds with realistic physics, stunning visuals, and intuitive user interactions across multiple platforms.',
-    keyFeatures: [
-      'Unity and Unreal Engine game development',
-      'WebXR and browser-based VR experiences',
-      '3D modeling, animation, and environment design',
-      'Cross-platform VR/AR compatibility'
-    ],
-    technologies: ['Unity', 'Unreal Engine', 'WebXR', 'Three.js', 'Blender', 'C#'],
-    highlights: ['Immersive VR/AR experiences', 'Cross-platform game development', 'Advanced 3D graphics and physics'],
-    backgroundImage: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-    price: '$18,000',
-    duration: '10-20 weeks'
-  },
-  {
     id: 'ui-ux-design',
     icon: Palette,
     title: 'UI/UX Design',
