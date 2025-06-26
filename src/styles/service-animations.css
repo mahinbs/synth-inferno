@@ -1,102 +1,69 @@
-
-@layer utilities {
-  /* Subtle floating animation for background images */
-  @keyframes subtle-float {
-    0%, 100% {
-      transform: translate3d(0, 0, 0) scale(1);
-    }
-    25% {
-      transform: translate3d(2px, -2px, 0) scale(1.01);
-    }
-    50% {
-      transform: translate3d(0, -4px, 0) scale(1.02);
-    }
-    75% {
-      transform: translate3d(-2px, -2px, 0) scale(1.01);
-    }
+/* Enhanced shimmer animation for image loading */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
   }
-
-  /* Shimmer effect for premium feel */
-  @keyframes shimmer {
-    0% {
-      background-position: -200% 0;
-    }
-    100% {
-      background-position: 200% 0;
-    }
+  100% {
+    transform: translateX(100%);
   }
+}
 
-  /* Apply animations to service background elements */
-  .service-card-bg::before {
-    animation: subtle-float 8s ease-in-out infinite;
+/* Smooth dropdown animations */
+@keyframes dropdownSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.95);
   }
-
-  .service-card-bg:hover::before {
-    animation: subtle-float 8s ease-in-out infinite, shimmer 3s ease-in-out infinite;
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
+}
 
-  /* Service Card Expansion Animations - moved from enhanced-services.css */
-  .service-expand-enter {
-    animation: slideDownFadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+@keyframes dropdownSlideOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
-
-  .service-expand-exit {
-    animation: slideUpFadeOut 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  100% {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.95);
   }
+}
 
-  @keyframes slideDownFadeIn {
-    0% {
-      max-height: 0;
-      opacity: 0;
-      transform: translate3d(0, -8px, 0);
-    }
-    100% {
-      max-height: 1000px;
-      opacity: 1;
-      transform: translate3d(0, 0, 0);
-    }
+/* Item stagger animation */
+@keyframes itemFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-10px);
   }
-
-  @keyframes slideUpFadeOut {
-    0% {
-      max-height: 1000px;
-      opacity: 1;
-      transform: translate3d(0, 0, 0);
-    }
-    100% {
-      max-height: 0;
-      opacity: 0;
-      transform: translate3d(0, -4px, 0);
-    }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
   }
+}
 
-  /* Shimmer animation - enhanced version */
-  @keyframes shimmer-light {
-    0% {
-      transform: translateX(-100%) skewX(-12deg);
-    }
-    100% {
-      transform: translateX(200%) skewX(-12deg);
-    }
-  }
+/* Smooth focus states */
+.dropdown-item:focus-visible {
+  outline: 2px solid rgb(59, 130, 246);
+  outline-offset: -2px;
+  border-radius: 8px;
+}
 
-  .animate-shimmer-light {
-    animation: shimmer-light 1.5s ease-in-out infinite;
-  }
+/* GPU acceleration for smooth animations */
+.smooth-dropdown,
+.smooth-dropdown * {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
 
-  /* Floating animation */
-  @keyframes float {
-    0%, 100% {
-      transform: translate3d(0, 0, 0) scale(1);
-      opacity: 0.3;
-    }
-    50% {
-      transform: translate3d(3px, -3px, 0) scale(1.05);
-      opacity: 0.6;
-    }
-  }
-
-  .animate-float {
-    animation: float 4s ease-in-out infinite;
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .smooth-dropdown,
+  .shimmer-animation {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

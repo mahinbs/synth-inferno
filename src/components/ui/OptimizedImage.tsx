@@ -71,6 +71,14 @@ const OptimizedImage = ({
     ];
   };
 
+  // WebP format detection and conversion
+  const convertToWebP = (url: string) => {
+    if (url.includes('unsplash.com')) {
+      return url + '&fm=webp';
+    }
+    return url;
+  };
+
   useEffect(() => {
     if (priority) return;
 
@@ -78,11 +86,13 @@ const OptimizedImage = ({
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsInView(true);
-          setImageSrc(src);
+          // Try WebP first, fallback to original
+          const webpSrc = convertToWebP(src);
+          setImageSrc(webpSrc);
           observer.disconnect();
         }
       },
-      { threshold: 0.1, rootMargin: '50px' }
+      { threshold: 0.01, rootMargin: '100px' }
     );
 
     if (imgRef.current) {
@@ -120,14 +130,19 @@ const OptimizedImage = ({
       ref={imgRef} 
       className={`relative overflow-hidden ${className}`}
     >
-      {/* Enhanced blurred placeholder */}
+      {/* Enhanced shimmer loading effect */}
       {!isLoaded && !hasError && (
         <div className="absolute inset-0 bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300">
-          {/* Subtle animated placeholder */}
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-pulse" />
+          {/* Animated shimmer effect */}
+          <div 
+            className="absolute inset-0 -translate-x-full animate-[shimmer_2s_infinite] bg-gradient-to-r from-transparent via-white/60 to-transparent"
+            style={{
+              animation: 'shimmer 2s infinite',
+            }}
+          />
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-16 h-16 rounded-lg bg-gray-300/50 flex items-center justify-center">
-              <div className="w-8 h-8 border-2 border-gray-400/50 border-t-transparent rounded-full animate-spin" />
+            <div className="w-16 h-16 rounded-lg bg-gray-300/50 flex items-center justify-center animate-pulse">
+              <div className="w-8 h-8 border-2 border-blue-400/50 border-t-transparent rounded-full animate-spin" />
             </div>
           </div>
         </div>
@@ -143,19 +158,31 @@ const OptimizedImage = ({
         </div>
       )}
       
-      {/* Main image */}
+      {/* Main image with progressive loading */}
       {isInView && imageSrc && !hasError && (
         <img
           src={imageSrc}
           alt={alt}
           sizes={sizes}
-          className={`w-full h-full object-cover transition-all duration-500 ${
-            isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
+          className={`w-full h-full object-cover transition-all duration-700 ease-out ${
+            isLoaded 
+              ? 'opacity-100 scale-100 blur-0' 
+              : 'opacity-0 scale-105 blur-sm'
           }`}
           onLoad={handleLoad}
           onError={handleError}
           loading={priority ? 'eager' : 'lazy'}
           decoding="async"
+        />
+      )}
+      
+      {/* Blur data URL placeholder */}
+      {blurDataURL && !isLoaded && (
+        <img
+          src={blurDataURL}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover blur-md scale-110 opacity-50"
+          aria-hidden="true"
         />
       )}
     </div>
