@@ -57,12 +57,12 @@ const ReviewCard = memo(({ review, index, getServiceColor }: ReviewCardProps) =>
           {review.service}
         </div>
 
-        {/* Rating */}
+        {/* Rating - Updated to use blue instead of yellow */}
         <div className="flex mb-4 space-x-1">
           {[...Array(review.rating)].map((_, i) => (
             <Star 
               key={i} 
-              className="h-4 w-4 text-yellow-400 fill-current" 
+              className="h-4 w-4 text-blue-400 fill-current" 
             />
           ))}
         </div>

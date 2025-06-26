@@ -1,3 +1,4 @@
+
 import React, { useState, useMemo } from 'react';
 import { Star, Filter, Zap, Shield, Users, TrendingUp } from 'lucide-react';
 import Header from '@/components/Header';
@@ -233,13 +234,13 @@ const ReviewsPage = () => {
             authentic feedback from clients who've ventured into the future with Boostmysites
           </p>
 
-          {/* Stats Grid */}
+          {/* Stats Grid - Updated star icon color to blue */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
             {[{
               icon: Star,
               value: "4.9/5",
               label: "Rating",
-              color: "text-yellow-400"
+              color: "text-blue-400"
             }, {
               icon: Zap,
               value: "500+",

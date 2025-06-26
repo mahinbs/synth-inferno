@@ -1,4 +1,3 @@
-
 import { Code, Globe, Zap, Shield, Users, TrendingUp, CheckCircle, Star, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
@@ -260,7 +259,7 @@ const WebAppsPage = () => {
                       </div>
                       <div className="flex mt-3">
                         {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
+                          <Star key={i} className="h-4 w-4 text-blue-400 fill-current" />
                         ))}
                       </div>
                     </div>
