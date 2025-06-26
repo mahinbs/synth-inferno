@@ -15,6 +15,38 @@
     @apply p-3;
   }
 
+  /* Custom scrollbar for mobile service cards */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+  
+  .scrollbar-thumb-blue-400 {
+    scrollbar-color: rgb(96, 165, 250) transparent;
+  }
+  
+  .scrollbar-track-gray-200 {
+    scrollbar-color: rgb(96, 165, 250) rgb(229, 231, 235);
+  }
+
+  /* Webkit scrollbar styling for mobile */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: rgb(229, 231, 235);
+    border-radius: 2px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: rgb(96, 165, 250);
+    border-radius: 2px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: rgb(59, 130, 246);
+  }
+
   /* Enable hover effects on devices with hover capability */
   @media (hover: hover) and (pointer: fine) {
     .card-hover-lift-light:hover {

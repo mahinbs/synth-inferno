@@ -65,73 +65,144 @@ const ServiceCardContent = memo(({ service, accent }: ServiceCardContentProps) =
       
       {/* Content with relative positioning */}
       <div className="relative z-10">
-        {/* About Service */}
-        <div className="pt-6">
-          <h4 className="text-lg font-semibold text-gray-900 mb-3 flex items-center gap-2">
-            📋 About This Service
-          </h4>
-          <p className="text-gray-700 leading-relaxed">
-            {service.aboutService}
-          </p>
-        </div>
+        {/* Mobile Scrollable Container */}
+        <div className="md:space-y-6">
+          <div className="md:hidden max-h-[250px] overflow-y-auto space-y-6 pr-2 scrollbar-thin scrollbar-thumb-blue-400 scrollbar-track-gray-200">
+            {/* About Service */}
+            <div className="pt-6">
+              <h4 className="text-lg font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                📋 About This Service
+              </h4>
+              <p className="text-gray-700 leading-relaxed">
+                {service.aboutService}
+              </p>
+            </div>
 
-        {/* Key Features */}
-        <div>
-          <h4 className="text-lg font-semibold text-gray-900 mb-3 flex items-center gap-2">
-            ✨ Key Features
-          </h4>
-          <ul className="space-y-2">
-            {service.keyFeatures.map((feature, idx) => (
-              <li key={idx} className="text-gray-700 flex items-start gap-3">
-                <span className={`${accent.text} mt-1 flex-shrink-0 font-medium`}>•</span>
-                {feature}
-              </li>
-            ))}
-          </ul>
-        </div>
+            {/* Key Features */}
+            <div>
+              <h4 className="text-lg font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                ✨ Key Features
+              </h4>
+              <ul className="space-y-2">
+                {service.keyFeatures.map((feature, idx) => (
+                  <li key={idx} className="text-gray-700 flex items-start gap-3">
+                    <span className={`${accent.text} mt-1 flex-shrink-0 font-medium`}>•</span>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-        {/* Technologies */}
-        <div>
-          <h4 className="text-lg font-semibold text-gray-900 mb-3 flex items-center gap-2">
-            🛠️ Technologies Used
-          </h4>
-          <div className="flex flex-wrap gap-2">
-            {service.technologies.map((tech, idx) => (
-              <Badge 
-                key={idx} 
-                className="px-3 py-1.5 rounded-full bg-gray-100/80 text-gray-700 border border-gray-200/60 hover:bg-gray-200/60 transition-all duration-200 font-medium text-sm"
-              >
-                {tech}
-              </Badge>
-            ))}
+            {/* Technologies */}
+            <div>
+              <h4 className="text-lg font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                🛠️ Technologies Used
+              </h4>
+              <div className="flex flex-wrap gap-2">
+                {service.technologies.map((tech, idx) => (
+                  <Badge 
+                    key={idx} 
+                    className="px-3 py-1.5 rounded-full bg-gray-100/80 text-gray-700 border border-gray-200/60 hover:bg-gray-200/60 transition-all duration-200 font-medium text-sm"
+                  >
+                    {tech}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+
+            {/* Highlights */}
+            <div>
+              <h4 className="text-lg font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                🎯 Service Highlights
+              </h4>
+              <ul className="space-y-2">
+                {service.highlights.map((highlight, idx) => (
+                  <li key={idx} className="text-gray-700 flex items-start gap-3">
+                    <span className={`${accent.text} mt-1 flex-shrink-0 font-medium`}>→</span>
+                    {highlight}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Portfolio Previews */}
+            <ServicePortfolioPreviews 
+              serviceId={portfolioServiceId} 
+              projects={allProjects}
+            />
+          </div>
+
+          {/* Desktop Non-Scrollable Content */}
+          <div className="hidden md:block space-y-6">
+            {/* About Service */}
+            <div className="pt-6">
+              <h4 className="text-lg font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                📋 About This Service
+              </h4>
+              <p className="text-gray-700 leading-relaxed">
+                {service.aboutService}
+              </p>
+            </div>
+
+            {/* Key Features */}
+            <div>
+              <h4 className="text-lg font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                ✨ Key Features
+              </h4>
+              <ul className="space-y-2">
+                {service.keyFeatures.map((feature, idx) => (
+                  <li key={idx} className="text-gray-700 flex items-start gap-3">
+                    <span className={`${accent.text} mt-1 flex-shrink-0 font-medium`}>•</span>
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Technologies */}
+            <div>
+              <h4 className="text-lg font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                🛠️ Technologies Used
+              </h4>
+              <div className="flex flex-wrap gap-2">
+                {service.technologies.map((tech, idx) => (
+                  <Badge 
+                    key={idx} 
+                    className="px-3 py-1.5 rounded-full bg-gray-100/80 text-gray-700 border border-gray-200/60 hover:bg-gray-200/60 transition-all duration-200 font-medium text-sm"
+                  >
+                    {tech}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+
+            {/* Highlights */}
+            <div>
+              <h4 className="text-lg font-semibold text-gray-900 mb-3 flex items-center gap-2">
+                🎯 Service Highlights
+              </h4>
+              <ul className="space-y-2">
+                {service.highlights.map((highlight, idx) => (
+                  <li key={idx} className="text-gray-700 flex items-start gap-3">
+                    <span className={`${accent.text} mt-1 flex-shrink-0 font-medium`}>→</span>
+                    {highlight}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Portfolio Previews */}
+            <ServicePortfolioPreviews 
+              serviceId={portfolioServiceId} 
+              projects={allProjects}
+            />
           </div>
         </div>
 
-        {/* Highlights */}
-        <div>
-          <h4 className="text-lg font-semibold text-gray-900 mb-3 flex items-center gap-2">
-            🎯 Service Highlights
-          </h4>
-          <ul className="space-y-2">
-            {service.highlights.map((highlight, idx) => (
-              <li key={idx} className="text-gray-700 flex items-start gap-3">
-                <span className={`${accent.text} mt-1 flex-shrink-0 font-medium`}>→</span>
-                {highlight}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Portfolio Previews */}
-        <ServicePortfolioPreviews 
-          serviceId={portfolioServiceId} 
-          projects={allProjects}
-        />
-
-        {/* Single Action Button - Get Quote Only */}
-        <div className="pt-6 border-t border-gray-200/30">
+        {/* Single Action Button - Always Visible */}
+        <div className="pt-6 border-t border-gray-200/30 sticky bottom-0 bg-white/95 backdrop-blur-sm -mx-6 px-6 pb-6">
           <Button 
-            className="w-full bg-gray-100 text-gray-700 border border-gray-300 hover:bg-gray-200 hover:text-gray-800 transition-all duration-200 font-medium shadow-sm"
+            className="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white border-0 hover:from-blue-400 hover:to-blue-500 transition-all duration-200 font-medium shadow-sm"
           >
             💬 Get Quote
           </Button>
