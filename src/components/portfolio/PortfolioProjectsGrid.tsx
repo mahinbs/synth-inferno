@@ -90,14 +90,15 @@ const PortfolioProjectsGrid = ({
                       contain: 'layout style paint'
                     }}
                   >
-                    {/* Project Image */}
+                    {/* Enhanced Project Image */}
                     <div className="relative h-48 overflow-hidden rounded-t-2xl">
                       <OptimizedImage
                         src={project.image}
-                        alt={project.title}
+                        alt={`${project.title} - ${project.industry} project showcase`}
                         className="w-full h-full"
                         priority={serviceIndex === 0 && projectIndex < 3}
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        onLoad={() => console.log(`Portfolio image loaded: ${project.title}`)}
                       />
                       <div className={`absolute inset-0 bg-gradient-to-t ${colors.gradient} opacity-40`}></div>
                       <div className={`absolute top-4 left-4 w-10 h-10 rounded-lg ${colors.icon} border flex items-center justify-center shadow-sm`}>
