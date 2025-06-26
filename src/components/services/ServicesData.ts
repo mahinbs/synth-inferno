@@ -1,4 +1,3 @@
-
 import {
   Code,
   Smartphone,
@@ -104,29 +103,6 @@ export const servicesData = [
     timeline: "12-24 weeks",
     color: "indigo" as const,
     route: "/game-development",
-  },
-  {
-    id: "gaming-ar-vr",
-    icon: Gamepad2,
-    title: "Gaming AR/VR",
-    description:
-      "Immersive gaming experiences with cutting-edge AR/VR technologies and interactive 3D environments.",
-    detailedDescription:
-      "Next-generation gaming applications featuring augmented reality, virtual reality, and mixed reality experiences. We create immersive worlds with realistic physics, stunning visuals, and intuitive interactions.",
-    image:
-      "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    backgroundImage: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-    features: [
-      "Unity & Unreal Engine",
-      "WebXR Development",
-      "3D Modeling & Animation",
-      "Cross-Platform VR/AR",
-    ],
-    technologies: ["Unity", "Unreal Engine", "WebXR", "Three.js"],
-    startingPrice: "$18,000",
-    timeline: "10-20 weeks",
-    color: "zinc" as const,
-    route: "/gaming-ar-vr",
   },
   {
     id: "ui-ux-design",
