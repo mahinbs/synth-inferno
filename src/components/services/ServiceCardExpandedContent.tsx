@@ -45,7 +45,7 @@ const ServiceCardExpandedContent = memo(({
     <div 
       className={`overflow-hidden transition-all duration-500 ease-out ${
         isExpanded 
-          ? "max-h-[1000px] opacity-100 transform translate-y-0" 
+          ? "max-h-[1000px] overflow-y-auto opacity-100 transform translate-y-0" 
           : "max-h-0 opacity-0 transform -translate-y-2"
       }`}
       style={{

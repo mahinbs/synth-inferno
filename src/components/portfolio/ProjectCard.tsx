@@ -127,7 +127,7 @@ const ProjectCard = ({
 
       {/* Project Content */}
       <div className="p-6">
-        <div className="flex items-start justify-between mb-4">
+        <div className="flex sm:flex-row flex-col gap-2 items-start justify-between mb-4">
           <div className="flex-1">
             <h4
               className={`text-xl font-bold text-white mb-2 group-hover:${colors.text} transition-colors duration-300`}
