@@ -67,13 +67,13 @@ const ServiceCardContent = memo(({ service, accent }: ServiceCardContentProps) =
       <div className="relative z-10">
         {/* Mobile Scrollable Container */}
         <div className="md:space-y-6">
-          <div className="md:hidden max-h-[250px] overflow-y-auto space-y-6 pr-2 scrollbar-thin scrollbar-thumb-blue-400 scrollbar-track-gray-200">
+          <div className="md:hidden max-h-[220px] overflow-y-auto space-y-6 pr-2 scrollbar-none hover:scrollbar-thin hover:scrollbar-thumb-blue-400/60 hover:scrollbar-track-transparent scroll-smooth" style={{ WebkitOverflowScrolling: 'touch' }}>
             {/* About Service */}
             <div className="pt-6">
               <h4 className="text-lg font-semibold text-gray-900 mb-3 flex items-center gap-2">
                 📋 About This Service
               </h4>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-gray-700 leading-relaxed text-sm">
                 {service.aboutService}
               </p>
             </div>
@@ -85,7 +85,7 @@ const ServiceCardContent = memo(({ service, accent }: ServiceCardContentProps) =
               </h4>
               <ul className="space-y-2">
                 {service.keyFeatures.map((feature, idx) => (
-                  <li key={idx} className="text-gray-700 flex items-start gap-3">
+                  <li key={idx} className="text-gray-700 flex items-start gap-3 text-sm">
                     <span className={`${accent.text} mt-1 flex-shrink-0 font-medium`}>•</span>
                     {feature}
                   </li>
@@ -102,7 +102,7 @@ const ServiceCardContent = memo(({ service, accent }: ServiceCardContentProps) =
                 {service.technologies.map((tech, idx) => (
                   <Badge 
                     key={idx} 
-                    className="px-3 py-1.5 rounded-full bg-gray-100/80 text-gray-700 border border-gray-200/60 hover:bg-gray-200/60 transition-all duration-200 font-medium text-sm"
+                    className="px-2.5 py-1 rounded-full bg-gray-100/80 text-gray-700 border border-gray-200/60 hover:bg-gray-200/60 transition-all duration-200 font-medium text-xs"
                   >
                     {tech}
                   </Badge>
@@ -117,7 +117,7 @@ const ServiceCardContent = memo(({ service, accent }: ServiceCardContentProps) =
               </h4>
               <ul className="space-y-2">
                 {service.highlights.map((highlight, idx) => (
-                  <li key={idx} className="text-gray-700 flex items-start gap-3">
+                  <li key={idx} className="text-gray-700 flex items-start gap-3 text-sm">
                     <span className={`${accent.text} mt-1 flex-shrink-0 font-medium`}>→</span>
                     {highlight}
                   </li>
@@ -126,10 +126,12 @@ const ServiceCardContent = memo(({ service, accent }: ServiceCardContentProps) =
             </div>
 
             {/* Portfolio Previews */}
-            <ServicePortfolioPreviews 
-              serviceId={portfolioServiceId} 
-              projects={allProjects}
-            />
+            <div className="pb-4">
+              <ServicePortfolioPreviews 
+                serviceId={portfolioServiceId} 
+                projects={allProjects}
+              />
+            </div>
           </div>
 
           {/* Desktop Non-Scrollable Content */}
@@ -200,7 +202,7 @@ const ServiceCardContent = memo(({ service, accent }: ServiceCardContentProps) =
         </div>
 
         {/* Single Action Button - Always Visible */}
-        <div className="pt-6 border-t border-gray-200/30 sticky bottom-0 bg-white/95 backdrop-blur-sm -mx-6 px-6 pb-6">
+        <div className="pt-4 border-t border-gray-200/30 sticky bottom-0 bg-white/95 backdrop-blur-sm -mx-6 px-6 pb-6 mt-6">
           <Button 
             className="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white border-0 hover:from-blue-400 hover:to-blue-500 transition-all duration-200 font-medium shadow-sm"
           >
