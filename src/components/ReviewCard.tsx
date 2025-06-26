@@ -50,7 +50,7 @@ const ReviewCard = memo(({ review, index, getServiceColor }: ReviewCardProps) =>
         animationDelay: `${Math.min(index * 100, 500)}ms`,
       }}
     >
-      <div className="bg-black/40 backdrop-blur-sm rounded-2xl p-6 border border-blue-500/20 hover:border-blue-400/40 transition-all duration-300 hover:shadow-xl hover:shadow-blue-400/10">
+      <div className="bg-black/40 backdrop-blur-sm rounded-2xl p-6 border border-cyan-500/20 hover:border-cyan-400/40 transition-all duration-300 hover:shadow-xl hover:shadow-cyan-400/10">
         
         {/* Service Badge */}
         <div className={`inline-block px-3 py-1 rounded-full text-xs font-medium border mb-4 ${getServiceColor(review.service)}`}>
@@ -62,7 +62,7 @@ const ReviewCard = memo(({ review, index, getServiceColor }: ReviewCardProps) =>
           {[...Array(review.rating)].map((_, i) => (
             <Star 
               key={i} 
-              className="h-4 w-4 text-blue-500 fill-current" 
+              className="h-4 w-4 text-yellow-400 fill-current" 
             />
           ))}
         </div>
@@ -77,12 +77,12 @@ const ReviewCard = memo(({ review, index, getServiceColor }: ReviewCardProps) =>
           <img 
             src={review.image} 
             alt={review.name} 
-            className="w-12 h-12 rounded-full border border-blue-400/30 mr-3"
+            className="w-12 h-12 rounded-full border border-cyan-400/30 mr-3"
             loading="lazy"
           />
           <div>
             <div className="font-semibold text-white">{review.name}</div>
-            <div className="text-blue-300 text-sm">{review.role}</div>
+            <div className="text-cyan-300 text-sm">{review.role}</div>
             <div className="text-gray-400 text-xs">at {review.company}</div>
           </div>
         </div>

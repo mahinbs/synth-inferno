@@ -1,4 +1,3 @@
-
 import React, { useState, useMemo } from 'react';
 import { Star, Filter, Zap, Shield, Users, TrendingUp } from 'lucide-react';
 import Header from '@/components/Header';
@@ -168,8 +167,8 @@ const ReviewsPage = () => {
   const getServiceColor = useMemo(() => {
     return (service: string) => {
       const colors = {
-        "Web Applications": "bg-blue-500/10 text-blue-300 border-blue-400/30",
-        "SaaS Solutions": "bg-blue-600/10 text-blue-300 border-blue-400/30",
+        "Web Applications": "bg-cyan-500/10 text-cyan-300 border-cyan-400/30",
+        "SaaS Solutions": "bg-blue-500/10 text-blue-300 border-blue-400/30",
         "Mobile Applications": "bg-purple-500/10 text-purple-300 border-purple-400/30",
         "AI Calling Agency": "bg-pink-500/10 text-pink-300 border-pink-400/30",
         "AI Automation": "bg-green-500/10 text-green-300 border-green-400/30"
@@ -181,7 +180,7 @@ const ReviewsPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black">
       {/* Background Effects */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(29,78,216,0.02),transparent_50%)]"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,255,255,0.02),transparent_50%)]"></div>
       
       <Header />
       
@@ -225,7 +224,7 @@ const ReviewsPage = () => {
           </div>
 
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            <span className="bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent">Boostmysites</span>
+            <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Boostmysites</span>
             {' '}Reviews
           </h1>
 
@@ -240,12 +239,12 @@ const ReviewsPage = () => {
               icon: Star,
               value: "4.9/5",
               label: "Rating",
-              color: "text-blue-500"
+              color: "text-yellow-400"
             }, {
               icon: Zap,
               value: "500+",
               label: "Projects",
-              color: "text-blue-500"
+              color: "text-cyan-400"
             }, {
               icon: Shield,
               value: "98%",
@@ -257,7 +256,7 @@ const ReviewsPage = () => {
               label: "Stories",
               color: "text-purple-400"
             }].map((stat, index) => (
-              <div key={index} className="bg-black/30 rounded-xl p-4 border border-blue-500/20">
+              <div key={index} className="bg-black/30 rounded-xl p-4 border border-cyan-500/20">
                 <stat.icon className={`h-6 w-6 ${stat.color} mx-auto mb-2`} />
                 <div className="text-2xl font-bold text-white mb-1">{stat.value}</div>
                 <div className="text-gray-400 text-sm">{stat.label}</div>
@@ -271,9 +270,9 @@ const ReviewsPage = () => {
       <section className="px-6 mb-12">
         <div className="container mx-auto">
           <div className="flex flex-wrap justify-center gap-3 mb-8">
-            <div className="flex items-center gap-3 bg-black/20 rounded-full px-4 py-2 border border-blue-500/20">
-              <Filter className="h-4 w-4 text-blue-500" />
-              <span className="text-blue-300 text-sm">Filter:</span>
+            <div className="flex items-center gap-3 bg-black/20 rounded-full px-4 py-2 border border-cyan-500/20">
+              <Filter className="h-4 w-4 text-cyan-400" />
+              <span className="text-cyan-300 text-sm">Filter:</span>
             </div>
             {services.map(service => (
               <Button 
@@ -281,8 +280,8 @@ const ReviewsPage = () => {
                 onClick={() => setSelectedService(service)} 
                 className={`transition-all duration-200 ${
                   selectedService === service 
-                    ? "bg-gradient-to-r from-blue-500 to-blue-600 text-white" 
-                    : "bg-black/20 border-blue-500/20 text-gray-300 hover:bg-blue-500/10"
+                    ? "bg-gradient-to-r from-cyan-500 to-blue-600 text-white" 
+                    : "bg-black/20 border-cyan-500/20 text-gray-300 hover:bg-cyan-500/10"
                 } rounded-full px-4 py-2 text-sm border`}
               >
                 {service}
@@ -311,10 +310,10 @@ const ReviewsPage = () => {
       {/* CTA Section */}
       <section className="px-6 pb-20">
         <div className="container mx-auto text-center">
-          <div className="bg-black/30 rounded-2xl p-8 border border-blue-500/20">
+          <div className="bg-black/30 rounded-2xl p-8 border border-cyan-500/20">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Ready to Join Our{' '}
-              <span className="bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-cyan-400 to-blue-600 bg-clip-text text-transparent">
                 Success Stories
               </span>
               ?
@@ -322,7 +321,7 @@ const ReviewsPage = () => {
             <p className="text-lg text-gray-300 mb-6 max-w-2xl mx-auto">
               Enter the future of digital innovation. Let's architect your next breakthrough together.
             </p>
-            <Button className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-8 py-3 rounded-full hover:from-blue-400 hover:to-blue-500 transition-all duration-300 font-semibold">
+            <Button className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-8 py-3 rounded-full hover:from-cyan-400 hover:to-blue-500 transition-all duration-300 font-semibold">
               <Zap className="h-4 w-4 mr-2" />
               Start Your Project
             </Button>

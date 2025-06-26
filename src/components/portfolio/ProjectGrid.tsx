@@ -86,7 +86,7 @@ const ProjectGrid = ({ services, selectedService, isVisible, handleProjectClick 
                   <ServiceIcon className="h-6 w-6" />
                 </div>
                 <div>
-                  <h3 className="text-3xl font-bold text-white">{service.title}</h3>
+                  <h3 className="text-3xl font-bold text-black">{service.title}</h3>
                   <p className="text-gray-400 mt-1">{service.projects.length} featured projects</p>
                 </div>
               </div>

@@ -120,12 +120,12 @@ const WebAppsPage = () => {
       
       {/* Hero Section */}
       <section className="pt-32 pb-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-blue-600/10"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-blue-500/10"></div>
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
                 Web Applications
               </span>
             </h1>
@@ -133,10 +133,10 @@ const WebAppsPage = () => {
               Transform your business with custom web applications built using cutting-edge technologies and modern development practices.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl font-semibold hover:from-blue-400 hover:to-blue-500 transition-all duration-300 transform hover:scale-105">
+              <button className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl font-semibold hover:from-cyan-400 hover:to-blue-500 transition-all duration-300 transform hover:scale-105">
                 Start Your Project
               </button>
-              <button className="px-8 py-4 border border-blue-400/30 rounded-xl font-semibold hover:bg-blue-500/10 transition-all duration-300">
+              <button className="px-8 py-4 border border-cyan-400/30 rounded-xl font-semibold hover:bg-cyan-500/10 transition-all duration-300">
                 View Portfolio
               </button>
             </div>
@@ -155,7 +155,7 @@ const WebAppsPage = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {webAppProjects.map((project, index) => (
-              <div key={project.id} className="group bg-gray-800/50 rounded-2xl overflow-hidden border border-gray-700/50 hover:border-blue-400/50 transition-all duration-300">
+              <div key={project.id} className="group bg-gray-800/50 rounded-2xl overflow-hidden border border-gray-700/50 hover:border-cyan-400/50 transition-all duration-300">
                 <div className="relative h-48 overflow-hidden">
                   <OptimizedImage
                     src={project.image}
@@ -166,13 +166,13 @@ const WebAppsPage = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent"></div>
                   <div className="absolute bottom-4 left-4">
-                    <span className="px-3 py-1 bg-blue-500/20 border border-blue-400/30 rounded-full text-sm text-blue-300">
+                    <span className="px-3 py-1 bg-cyan-500/20 border border-cyan-400/30 rounded-full text-sm text-cyan-300">
                       {project.industry}
                     </span>
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold mb-3 group-hover:text-blue-300 transition-colors">
+                  <h3 className="text-xl font-bold mb-3 group-hover:text-cyan-300 transition-colors">
                     {project.title}
                   </h3>
                   <p className="text-gray-400 mb-4 text-sm leading-relaxed">
@@ -213,7 +213,7 @@ const WebAppsPage = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                   <div>
                     <div className="mb-6">
-                      <h3 className="text-2xl font-bold text-blue-500 mb-2">{study.client}</h3>
+                      <h3 className="text-2xl font-bold text-cyan-400 mb-2">{study.client}</h3>
                       <p className="text-gray-400">{study.industry} • {study.duration} • {study.teamSize}</p>
                     </div>
                     
@@ -260,7 +260,7 @@ const WebAppsPage = () => {
                       </div>
                       <div className="flex mt-3">
                         {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="h-4 w-4 text-blue-500 fill-current" />
+                          <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
                         ))}
                       </div>
                     </div>
@@ -322,7 +322,7 @@ const WebAppsPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
             {process.map((item, index) => (
               <div key={index} className="text-center">
-                <div className="w-16 h-16 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                   {item.step}
                 </div>
                 <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
@@ -334,7 +334,7 @@ const WebAppsPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-500/20 to-blue-600/20">
+      <section className="py-20 bg-gradient-to-r from-cyan-500/20 to-blue-500/20">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-4xl font-bold mb-4">Ready to Build Something Amazing?</h2>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
@@ -342,7 +342,7 @@ const WebAppsPage = () => {
           </p>
           <Link 
             to="/contact"
-            className="inline-block px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl font-semibold hover:from-blue-400 hover:to-blue-500 transition-all duration-300 transform hover:scale-105"
+            className="inline-block px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl font-semibold hover:from-cyan-400 hover:to-blue-500 transition-all duration-300 transform hover:scale-105"
           >
             Get Started Today
           </Link>

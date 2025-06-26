@@ -1,14 +1,17 @@
-
-import { useParams, Navigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import CaseStudyLoading from '@/components/case-study/CaseStudyLoading';
-import CaseStudyComponents from '@/components/case-study/CaseStudyComponents';
-import CaseStudyErrorBoundary from '@/components/case-study/CaseStudyErrorBoundary';
-import { getProjectSummary, loadFullProject, clearProjectCache } from '@/services/projectService';
-import { onProjectsChange } from '@/services/caseStudyDataService';
-import { Project } from '@/data/projects';
+import { useParams, Navigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import CaseStudyLoading from "@/components/case-study/CaseStudyLoading";
+import CaseStudyComponents from "@/components/case-study/CaseStudyComponents";
+import CaseStudyErrorBoundary from "@/components/case-study/CaseStudyErrorBoundary";
+import {
+  getProjectSummary,
+  loadFullProject,
+  clearProjectCache,
+} from "@/services/projectService";
+import { onProjectsChange } from "@/services/caseStudyDataService";
+import { Project } from "@/data/projects";
 
 const CaseStudy = () => {
   const { projectId } = useParams<{ projectId: string }>();
@@ -31,6 +34,7 @@ const CaseStudy = () => {
 
         // Try to get project summary for immediate render
         const summary = await getProjectSummary(projectId);
+        console.log("Project summary:", summary);
         if (!summary) {
           setNotFound(true);
           setIsLoading(false);
@@ -45,8 +49,8 @@ const CaseStudy = () => {
           setNotFound(true);
         }
       } catch (err) {
-        console.error('Error loading project:', err);
-        setError('Failed to load project data. Please try again.');
+        console.error("Error loading project:", err);
+        setError("Failed to load project data. Please try again.");
       } finally {
         setIsLoading(false);
       }
@@ -68,9 +72,11 @@ const CaseStudy = () => {
     return (
       <div className="min-h-screen bg-gray-900 flex items-center justify-center px-6">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-white mb-4">Error Loading Project</h1>
+          <h1 className="text-2xl font-bold text-white mb-4">
+            Error Loading Project
+          </h1>
           <p className="text-gray-400 mb-8">{error}</p>
-          <button 
+          <button
             onClick={() => window.location.reload()}
             className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
           >

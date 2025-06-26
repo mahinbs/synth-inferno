@@ -36,7 +36,7 @@ const CaseStudyGallery = ({ project }: CaseStudyGalleryProps) => {
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold text-white mb-12 text-center">
-            Project <span className="bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent">Gallery</span>
+            Project <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Gallery</span>
           </h2>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -63,21 +63,21 @@ const CaseStudyGallery = ({ project }: CaseStudyGalleryProps) => {
             <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4">
               <button 
                 onClick={closeLightbox}
-                className="absolute top-4 right-4 text-white hover:text-blue-400 transition-colors duration-300"
+                className="absolute top-4 right-4 text-white hover:text-cyan-400 transition-colors duration-300"
               >
                 <X className="h-8 w-8" />
               </button>
 
               <button 
                 onClick={prevImage}
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white hover:text-blue-400 transition-colors duration-300"
+                className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white hover:text-cyan-400 transition-colors duration-300"
               >
                 <ChevronLeft className="h-8 w-8" />
               </button>
 
               <button 
                 onClick={nextImage}
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white hover:text-blue-400 transition-colors duration-300"
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white hover:text-cyan-400 transition-colors duration-300"
               >
                 <ChevronRight className="h-8 w-8" />
               </button>
