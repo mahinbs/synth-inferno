@@ -77,9 +77,6 @@ const HeaderContent = memo(({
           <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-gray-800/10 via-gray-900/10 to-black/10 opacity-0 group-hover:opacity-50 transition-all duration-1000 ease-out blur-xl" />
         </div>
       </div>
-
-      {/* Advanced bottom border with animated gradient */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-300/60 to-transparent animate-glow-pulse" />
     </nav>
   );
 });
