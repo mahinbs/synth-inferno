@@ -31,22 +31,26 @@ const WhyUsSection = memo(() => {
     icon: Target,
     title: "Cross-functional teams with product-first mindset",
     description: "Our diverse teams combine technical expertise with business acumen, ensuring every solution drives real business value and user satisfaction.",
-    color: "blue-500"
+    color: "blue-500",
+    gradient: "from-blue-500 to-blue-300"
   }, {
     icon: Zap,
     title: "Deep expertise across AI, cloud, web, mobile, and immersive tech",
     description: "From artificial intelligence and cloud architecture to immersive VR experiences, our comprehensive skill set covers the entire technology spectrum.",
-    color: "purple-500"
+    color: "purple-500",
+    gradient: "from-purple-500 to-purple-300"
   }, {
     icon: Shield,
     title: "Proven track record with startups, agencies, and scale-ups",
     description: "We've successfully partnered with organizations at every stage, from early-stage startups to established enterprises seeking digital transformation.",
-    color: "pink-500"
+    color: "pink-500",
+    gradient: "from-pink-500 to-pink-300"
   }, {
     icon: Rocket,
     title: "Design, develop, deploy — and scale with you",
     description: "Our partnership doesn't end at launch. We provide ongoing support, optimization, and scaling solutions as your business grows and evolves.",
-    color: "indigo-500"
+    color: "indigo-500",
+    gradient: "from-indigo-500 to-indigo-300"
   }];
 
   return (
@@ -82,8 +86,8 @@ const WhyUsSection = memo(() => {
                 {item.description}
               </p>
 
-              {/* Hover accent line - ensure it's visible */}
-              <div className={`mt-6 h-1 bg-gradient-to-r from-${item.color} to-transparent rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`}></div>
+              {/* Hover accent line - now with proper gradient classes */}
+              <div className={`mt-6 h-1 bg-gradient-to-r ${item.gradient} rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`}></div>
             </div>
           ))}
         </div>
