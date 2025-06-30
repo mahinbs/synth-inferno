@@ -1,8 +1,32 @@
 
-import { Brain, Zap } from "lucide-react";
+import { Bot, Brain, Zap } from "lucide-react";
 import { ServiceData } from "../types";
 
 export const aiServices: ServiceData[] = [
+  {
+    id: "chatbot-development",
+    icon: Bot,
+    title: "Chatbot Development",
+    description:
+      "From linear bots to self‑evolving AI assistants — we engineer conversational agents capable of holding memory, inferring emotions, and performing multi‑step workflows across platforms.",
+    detailedDescription:
+      "These bots aren't scripts — they're miniature AI workers embedded into your business. We create intelligent conversational agents that can understand context, maintain memory across conversations, and execute complex workflows while adapting to user behavior and business needs.",
+    image:
+      "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    backgroundImage: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+    features: [
+      "Role-based multi‑agent chatbots (Seller, Scheduler, QA Agent)",
+      "Voice‑activated assistants for apps & IVRs",
+      "Code‑executing agents with workflow automation",
+      "Hybrid AI + rule‑based bots with CRM action sync",
+      "Multi-platform deployment (Slack, WhatsApp, Web, iOS)",
+    ],
+    technologies: ["LangGraph", "AutoGen", "OpenAI Assistants API", "Pinecone", "Weaviate", "OpenRouter", "LangServe", "OpenAI Whisper", "ElevenLabs", "Twilio Voice AI"],
+    startingPrice: "$15,000",
+    timeline: "8-16 weeks",
+    color: "indigo" as const,
+    route: "/chatbot-development",
+  },
   {
     id: "sales-force",
     icon: Brain,
