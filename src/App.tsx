@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -11,7 +12,6 @@ import MobileAppsPage from "./pages/MobileAppsPage";
 import SalesForcePage from "./pages/SalesForcePage";
 import AiCallingPage from "./pages/AiCallingPage";
 import AiAutomationPage from "./pages/AiAutomationPage";
-import SpeaksifyPage from "./pages/SpeaksifyPage";
 import CaseStudy from "./pages/CaseStudy";
 import BlogsPage from "./pages/BlogsPage";
 import BlogPostPage from "./pages/BlogPostPage";
@@ -44,7 +44,6 @@ function App() {
             <Route path="/sales-force" element={<SalesForcePage />} />
             <Route path="/ai-calling" element={<AiCallingPage />} />
             <Route path="/ai-automation" element={<AiAutomationPage />} />
-            <Route path="/products/speaksify" element={<SpeaksifyPage />} />
             <Route path="/case-study/:projectId" element={<CaseStudy />} />
             <Route path="/blogs" element={<BlogsPage />} />
             <Route path="/blog/:slug" element={<BlogPostPage />} />

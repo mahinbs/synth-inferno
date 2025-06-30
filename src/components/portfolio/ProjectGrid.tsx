@@ -1,7 +1,6 @@
 
 import { Code, Cloud, Brain, Smartphone, Zap } from 'lucide-react';
-import { Link } from "react-router-dom";
-import OptimizedImage from "@/components/ui/OptimizedImage";
+import ProjectCard from './ProjectCard';
 
 interface Service {
   id: string;
@@ -94,83 +93,16 @@ const ProjectGrid = ({ services, selectedService, isVisible, handleProjectClick 
 
               <div className="grid md:grid-cols-2 gap-8">
                 {service.projects.map((project, projectIndex) => (
-                  <div
+                  <ProjectCard
                     key={project.id}
-                    className={`group relative rounded-2xl bg-gray-900/80 backdrop-blur-sm border ${
-                      colors.border
-                    } hover:bg-gray-800/90 transition-all duration-400 overflow-hidden cursor-pointer hover:transform hover:scale-102 hover:shadow-lg will-change-auto ${
-                      isVisible
-                        ? "animate-fade-in opacity-100 translate-y-0"
-                        : "opacity-0 translate-y-10"
-                    }`}
-                    onClick={() => handleProjectClick(project.id)}
-                    style={{
-                      animationDelay: `${serviceIndex * 200 + projectIndex * 150 + 600}ms`,
-                      contentVisibility: "auto",
-                    }}
-                  >
-                    {/* Project Image */}
-                    <div className="relative h-48 overflow-hidden rounded-t-2xl">
-                      <img
-                        src={project.image}
-                        alt={`${project.title} - ${project.industry} project showcase`}
-                        sizes={"(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"}
-                        className={`w-full h-full object-cover transition-all duration-500`}
-                        loading={"lazy"}
-                        decoding="async"
-                      />
-                      <div
-                        className={`absolute inset-0 bg-gradient-to-t ${colors.gradient} opacity-60`}
-                      ></div>
-                      <div
-                        className={`absolute top-4 left-4 w-10 h-10 rounded-lg ${colors.icon} border flex items-center justify-center`}
-                      >
-                        <ServiceIcon className="h-5 w-5" />
-                      </div>
-                      <div className="absolute top-4 right-4">
-                        <span className={`px-2 py-1 rounded text-xs ${colors.tag} border`}>
-                          {project.industry}
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Project Content */}
-                    <div className="p-6">
-                      <div className="flex sm:flex-row flex-col gap-2 items-start justify-between mb-4">
-                        <div className="flex-1">
-                          <h4
-                            className={`text-xl font-bold text-white mb-2 group-hover:${colors.text} transition-colors duration-300`}
-                          >
-                            {project.title}
-                          </h4>
-                          <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300 text-sm leading-relaxed">
-                            {project.description}
-                          </p>
-                        </div>
-                        <Link
-                          to={`/case-study/${project.id}`}
-                          className={`px-3 py-1 rounded-lg text-xs ${colors.tag} border font-medium hover:scale-105 transition-transform duration-200`}
-                          onClick={(e) => e.stopPropagation()}
-                        >
-                          View Case Study
-                        </Link>
-                      </div>
-
-                      {/* Quick Metrics */}
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        {Object.entries(project.metrics)
-                          .slice(0, 2)
-                          .map(([key, value]) => (
-                            <span
-                              key={key}
-                              className={`px-3 py-1 rounded-full text-xs ${colors.tag} border`}
-                            >
-                              {key}: {String(value)}
-                            </span>
-                          ))}
-                      </div>
-                    </div>
-                  </div>
+                    project={project}
+                    service={service}
+                    colors={colors}
+                    ServiceIcon={ServiceIcon}
+                    isVisible={isVisible}
+                    handleProjectClick={handleProjectClick}
+                    animationDelay={serviceIndex * 200 + projectIndex * 150 + 600}
+                  />
                 ))}
               </div>
             </div>
