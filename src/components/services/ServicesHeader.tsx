@@ -5,7 +5,7 @@ const ServicesHeader = memo(() => {
   return (
     <div className="text-center mb-16">
       <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-        Boostmysites{" "}
+        Dee&Cee Labs{" "}
         <span className="bg-gradient-to-r from-blue-400 to-gray-500 bg-clip-text text-transparent">
           Services
         </span>

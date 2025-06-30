@@ -13,7 +13,7 @@ const CompanyStory = memo(({ isVisible }: CompanyStoryProps) => {
           Over the years, we've delivered <span className="text-cyan-400 font-semibold">1,500+ successful projects</span> across web applications, mobile apps, SaaS platforms, AI tools, and enterprise software systems.
         </p>
         <p className="text-lg text-gray-300 leading-relaxed">
-          With a strong team of <span className="text-blue-400 font-semibold">230+ developers, designers, and strategists</span>, Boostmysites has become the go-to technology partner for startups, SMEs, and global enterprises alike. We specialize in building future-ready products using the latest in AI, automation, and full-stack development.
+          With a strong team of <span className="text-blue-400 font-semibold">230+ developers, designers, and strategists</span>, Dee&Cee Labs has become the go-to technology partner for startups, SMEs, and global enterprises alike. We specialize in building future-ready products using the latest in AI, automation, and full-stack development.
         </p>
       </div>
     </div>

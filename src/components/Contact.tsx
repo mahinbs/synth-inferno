@@ -25,7 +25,7 @@ const Contact = () => {
     country: 'UAE',
     address: 'Office number 13 Empire heights Business bay, Dubai, UAE',
     phone: '+971 4 123 4567',
-    email: 'dubai@boostmysites.com',
+    email: 'dubai@deeceelabs.com',
     color: 'cyan',
     image: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80',
     timezone: 'GMT+4'
@@ -34,7 +34,7 @@ const Contact = () => {
     country: 'China',
     address: 'The Hong Kong Club Building Level 16, No. 3A Chater Road, Central, Hong Kong',
     phone: '+852 2123 4567',
-    email: 'hongkong@boostmysites.com',
+    email: 'hongkong@deeceelabs.com',
     color: 'blue',
     image: 'https://images.unsplash.com/photo-1536599018102-9f803c140fc1?auto=format&fit=crop&w=800&q=80',
     timezone: 'GMT+8'
@@ -43,7 +43,7 @@ const Contact = () => {
     country: 'India',
     address: 'Salarpuria Symbiosis, Ground floor Bannerghatta Road Arekere Village, Begur Hobli, Bengaluru, Karnataka 560076',
     phone: '+91 80 1234 5678',
-    email: 'bengaluru@boostmysites.com',
+    email: 'bengaluru@deeceelabs.com',
     color: 'purple',
     image: 'https://images.unsplash.com/photo-1596176530529-78163a4f7af2?auto=format&fit=crop&w=800&q=80',
     timezone: 'GMT+5:30'
@@ -52,7 +52,7 @@ const Contact = () => {
     country: 'Thailand',
     address: '15-17, 20, 25-27FI, T-One Building, 8 Soi Sukhumvit 40, Khwaeng Phra Khanong, Khlong Toei, Bangkok 10110, Thailand',
     phone: '+66 2 123 4567',
-    email: 'bangkok@boostmysites.com',
+    email: 'bangkok@deeceelabs.com',
     color: 'pink',
     image: 'https://images.unsplash.com/photo-1508009603885-50cf7c579365?auto=format&fit=crop&w=800&q=80',
     timezone: 'GMT+7'
@@ -61,7 +61,7 @@ const Contact = () => {
     country: 'India',
     address: 'Office number 309, Ambadeep building- 3rd floor, Kg marg Connaught Place, Delhi 110001, India',
     phone: '+91 11 1234 5678',
-    email: 'delhi@boostmysites.com',
+    email: 'delhi@deeceelabs.com',
     color: 'green',
     image: 'https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=800&q=80',
     timezone: 'GMT+5:30'
@@ -227,7 +227,7 @@ const Contact = () => {
                     <label htmlFor="lastName" className="block text-sm font-medium text-gray-300 mb-2">
                       Last Name
                     </label>
-                    <input type="text" id="lastName" className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600/50 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition-all duration-200 text-white placeholder-gray-400" placeholder="Doe" />
+                    <input type="text" id="lastName" className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600/50 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition-all duration-200 text-white placeholder="Doe" />
                   </div>
                 </div>
 
@@ -235,14 +235,14 @@ const Contact = () => {
                   <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
                     Email Address
                   </label>
-                  <input type="email" id="email" className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600/50 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition-all duration-200 text-white placeholder-gray-400" placeholder="john@example.com" />
+                  <input type="email" id="email" className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600/50 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition-all duration-200 text-white placeholder="john@example.com" />
                 </div>
 
                 <div>
                   <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
                     Subject
                   </label>
-                  <input type="text" id="subject" className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600/50 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition-all duration-200 text-white placeholder-gray-400" placeholder="Project Discussion" />
+                  <input type="text" id="subject" className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600/50 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition-all duration-200 text-white placeholder="Project Discussion" />
                 </div>
 
                 <div>

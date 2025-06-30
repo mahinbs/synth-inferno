@@ -1,4 +1,3 @@
-
 import { memo } from 'react';
 import { Globe, Award } from 'lucide-react';
 import { recognitions } from './aboutData';
@@ -22,7 +21,7 @@ const GlobalPresence = memo(({ isVisible }: GlobalPresenceProps) => {
           </div>
         </div>
         <p className="text-gray-300 leading-relaxed">
-          Today, Boostmysites operates across <span className="text-purple-400 font-semibold">56+ cities worldwide</span>, empowering clients with not just code, but complete business ecosystems — from product design and development to deployment, branding, and growth marketing.
+          Today, Dee&Cee Labs operates across <span className="text-purple-400 font-semibold">56+ cities worldwide</span>, empowering clients with not just code, but complete business ecosystems — from product design and development to deployment, branding, and growth marketing.
         </p>
       </div>
 
