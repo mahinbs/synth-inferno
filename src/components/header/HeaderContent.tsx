@@ -28,8 +28,8 @@ const HeaderContent = memo(({
       {/* Advanced backdrop with gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/90 to-white/95 backdrop-blur-xl border-b border-slate-200/50 shadow-lg shadow-slate-900/5" />
       
-      {/* Main container with advanced layout */}
-      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Main container with glassmorphism effects */}
+      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 glass-content border border-white/20 rounded-xl shadow-2xl shadow-slate-900/10 backdrop-blur-2xl bg-white/10">
         <div className="flex justify-between items-center h-20 lg:h-24">
           {/* Logo section with enhanced spacing */}
           <div className="flex items-center flex-shrink-0 z-10">
