@@ -82,7 +82,7 @@ const WhyUsSection = memo(() => {
                 {item.description}
               </p>
 
-              {/* Hover accent line */}
+              {/* Hover accent line - ensure it's visible */}
               <div className={`mt-6 h-1 bg-gradient-to-r from-${item.color} to-transparent rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`}></div>
             </div>
           ))}

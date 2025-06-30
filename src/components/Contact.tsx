@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Mail, Phone, MapPin, Send, MessageCircle, Instagram, Twitter, Youtube, Globe, Users, Target, ArrowRight } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, MessageCircle, Instagram, Twitter, Youtube, Globe, Users, Target, ArrowRight, Linkedin, Facebook } from 'lucide-react';
 const Contact = () => {
   const [isVisible, setIsVisible] = useState(false);
   useEffect(() => {
@@ -86,6 +86,16 @@ const Contact = () => {
     label: 'WhatsApp',
     url: 'https://wa.me/15551234567',
     color: 'green'
+  }, {
+    icon: Linkedin,
+    label: 'LinkedIn',
+    url: '#',
+    color: 'linkedin'
+  }, {
+    icon: Facebook,
+    label: 'Facebook',
+    url: '#',
+    color: 'facebook'
   }];
   const colorClasses = {
     cyan: {
@@ -129,6 +139,20 @@ const Contact = () => {
       icon: 'bg-red-500/10 text-red-400 border-red-400/30',
       text: 'text-red-400',
       hover: 'hover:bg-red-500/10 hover:border-red-400/50'
+    },
+    linkedin: {
+      border: 'border-blue-600/30',
+      gradient: 'from-blue-600/10 to-blue-700/10',
+      icon: 'bg-blue-600/10 text-blue-600 border-blue-600/30',
+      text: 'text-blue-600',
+      hover: 'hover:bg-blue-600/10 hover:border-blue-600/50'
+    },
+    facebook: {
+      border: 'border-blue-500/30',
+      gradient: 'from-blue-500/10 to-blue-600/10',
+      icon: 'bg-blue-500/10 text-blue-500 border-blue-500/30',
+      text: 'text-blue-500',
+      hover: 'hover:bg-blue-500/10 hover:border-blue-500/50'
     }
   };
   return <section id="contact" className="py-20 bg-gradient-to-b from-gray-900 to-black relative overflow-hidden" style={{
@@ -307,7 +331,30 @@ const Contact = () => {
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gray-900/40 to-gray-900/80" />
                   
                   {/* Content */}
-                  
+                  <div className="relative p-6">
+                    <h4 className="text-lg font-semibold text-white mb-2 group-hover:text-gray-100 transition-colors duration-300">
+                      {office.city}, {office.country}
+                    </h4>
+                    <p className="text-gray-400 text-sm leading-relaxed mb-4">
+                      {office.address}
+                    </p>
+                    <div className="flex items-center space-x-3 mb-2">
+                      <Mail className={`h-4 w-4 ${colors.text}`} />
+                      <a href={`mailto:${office.email}`} className={`text-sm ${colors.text} hover:underline`}>
+                        {office.email}
+                      </a>
+                    </div>
+                    <div className="flex items-center space-x-3 mb-2">
+                      <Phone className={`h-4 w-4 ${colors.text}`} />
+                      <a href={`tel:${office.phone}`} className={`text-sm ${colors.text} hover:underline`}>
+                        {office.phone}
+                      </a>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <MapPin className={`h-4 w-4 ${colors.text}`} />
+                      <span className="text-gray-500 text-xs">Timezone: {office.timezone}</span>
+                    </div>
+                  </div>
                 </div>;
           })}
           </div>
