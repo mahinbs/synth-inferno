@@ -64,7 +64,7 @@ const About = memo(() => {
         <div className="max-w-6xl mx-auto">
           {/* Introduction */}
           <div className={`text-center mb-16 ${isVisible ? 'animate-fade-in-up animate-stagger-1' : 'opacity-0'}`}>
-            <p className="text-xl text-gray-700 leading-relaxed max-w-4xl mx-auto mb-8">At Dee&amp;Cee Labs, we don't just build software—we engineer experiences that redefine what's possible. Founded by a team of visionaries with deep expertise across AI, game development, mobile applications, and immersive technologies, we bridge the gap between cutting edge innovation and real world impact.</p>
+            <p className="text-xl text-gray-700 leading-relaxed max-w-4xl mx-auto mb-8">At Dee&amp;Cee Labs, we don't just build software, we engineer experiences that redefine what's possible. Founded by a team of visionaries with deep expertise across AI, game development, mobile applications, and immersive technologies, we bridge the gap between cutting edge innovation and real world impact.</p>
             
             <p className="text-xl text-gray-700 leading-relaxed max-w-4xl mx-auto mb-8">From startups looking to disrupt entire industries to established enterprises seeking digital transformation, we partner with ambitious organizations to bring their boldest ideas to life. Our approach combines human centered design with the latest technological advances, ensuring that every solution we create is not only technically superior but also intuitive and impactful.</p>
 
