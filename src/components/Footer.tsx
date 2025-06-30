@@ -1,4 +1,3 @@
-
 import { Mail, Phone, MapPin, Github, Linkedin, Twitter } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { servicesData } from './services/ServicesData';
@@ -41,7 +40,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center space-x-3 mb-4">
-              <img src="https://res.cloudinary.com/dknafpppp/image/upload/v1750840312/logo_o1rg97.png" alt="Dee&Cee Labs Logo" className="h-8 w-8 object-contain" loading="lazy" />
+              <img src="https://res.cloudinary.com/dknafpppp/image/upload/v1751309533/logo_1_1_hh0yjm.png" alt="Dee&Cee Labs Logo" className="h-8 w-8 object-contain" loading="lazy" />
               <span className="text-xl font-bold">Dee&Cee Labs</span>
             </div>
             <p className="text-gray-400 mb-6 leading-relaxed">
