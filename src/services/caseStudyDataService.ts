@@ -7,11 +7,16 @@ export const getCombinedProjects = async (): Promise<Project[]> => {
     // Get admin projects from database
     const adminProjects = await adminDataService.getProjects();
     
+    // Filter out the Crave Kitchen portfolio item
+    const filteredAdminProjects = adminProjects.filter(
+      project => project.id !== "1fdcbf8a-8a59-4c64-8a39-3b38ab9671ef"
+    );
+    
     // Get all static projects from all services
     const staticProjects = projectsData.flatMap(service => service.projects);
     
     // Combine and return all projects
-    return [...staticProjects, ...adminProjects];
+    return [...staticProjects, ...filteredAdminProjects];
   } catch (error) {
     console.error('CaseStudyDataService - Error getting combined projects:', error);
     // Return static data as fallback

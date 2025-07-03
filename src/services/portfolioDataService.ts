@@ -28,8 +28,15 @@ export const getPortfolioData = async (): Promise<Service[]> => {
       console.log('PortfolioDataService - Admin projects retrieved:', adminProjects.length);
       
       if (adminProjects && adminProjects.length > 0) {
+        // Filter out the Crave Kitchen portfolio item
+        const filteredAdminProjects = adminProjects.filter(
+          project => project.id !== "1fdcbf8a-8a59-4c64-8a39-3b38ab9671ef"
+        );
+        
+        console.log('PortfolioDataService - Filtered admin projects:', filteredAdminProjects.length);
+        
         // Group admin projects by service
-        const adminProjectsByService = adminProjects.reduce((acc, project) => {
+        const adminProjectsByService = filteredAdminProjects.reduce((acc, project) => {
           if (!acc[project.serviceId]) {
             acc[project.serviceId] = [];
           }
@@ -71,7 +78,7 @@ export const getPortfolioData = async (): Promise<Service[]> => {
         
         // Add admin projects to existing services and create new services if needed
         const existingServiceIds = combinedData.map(s => s.id);
-        const uniqueAdminServiceIds = [...new Set(adminProjects.map(p => p.serviceId))];
+        const uniqueAdminServiceIds = [...new Set(filteredAdminProjects.map(p => p.serviceId))];
         
         // Create missing services
         uniqueAdminServiceIds.forEach(serviceId => {
