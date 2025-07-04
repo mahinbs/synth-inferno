@@ -89,7 +89,10 @@ const Portfolio = () => {
     }
   };
 
-  const totalProjects = services.reduce((total, service) => total + service.projects.length, 0);
+  // Calculate total projects only from services that have projects
+  const totalProjects = services
+    .filter(service => service.projects.length > 0)
+    .reduce((total, service) => total + service.projects.length, 0);
 
   if (loading) {
     return (

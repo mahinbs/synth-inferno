@@ -28,9 +28,10 @@ export const getPortfolioData = async (): Promise<Service[]> => {
       console.log('PortfolioDataService - Admin projects retrieved:', adminProjects.length);
       
       if (adminProjects && adminProjects.length > 0) {
-        // Filter out the Crave Kitchen portfolio item
+        // Filter out specific portfolio items
         const filteredAdminProjects = adminProjects.filter(
-          project => project.id !== "1fdcbf8a-8a59-4c64-8a39-3b38ab9671ef"
+          project => project.id !== "1fdcbf8a-8a59-4c64-8a39-3b38ab9671ef" && 
+                     project.id !== "5ba46296-94a4-442b-97ad-c174d5e42665"
         );
         
         console.log('PortfolioDataService - Filtered admin projects:', filteredAdminProjects.length);

@@ -35,20 +35,23 @@ const PortfolioServiceFilter = ({
         >
           All Projects ({totalProjects})
         </button>
-        {services.map((service) => (
-          <button
-            key={service.id}
-            onClick={() => setSelectedService(service.id)}
-            className={`px-6 py-3 rounded-xl border transition-all duration-300 font-medium flex items-center space-x-2 ${
-              selectedService === service.id
-                ? `${colorClasses[service.color]} shadow-md`
-                : 'border-gray-300 text-gray-600 bg-white hover:border-gray-400 hover:text-gray-700 hover:shadow-sm'
-            }`}
-          >
-            <service.icon className="h-4 w-4" />
-            <span>{service.title} ({service.projects.length})</span>
-          </button>
-        ))}
+        {services
+          .filter(service => service.projects.length > 0) // Only show services with projects
+          .map((service) => (
+            <button
+              key={service.id}
+              onClick={() => setSelectedService(service.id)}
+              className={`px-6 py-3 rounded-xl border transition-all duration-300 font-medium flex items-center space-x-2 ${
+                selectedService === service.id
+                  ? `${colorClasses[service.color]} shadow-md`
+                  : 'border-gray-300 text-gray-600 bg-white hover:border-gray-400 hover:text-gray-700 hover:shadow-sm'
+              }`}
+            >
+              <service.icon className="h-4 w-4" />
+              <span>{service.title} ({service.projects.length})</span>
+            </button>
+          ))
+        }
       </div>
     </div>
   );

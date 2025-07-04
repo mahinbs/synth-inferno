@@ -61,6 +61,7 @@ const PortfolioProjectsGrid = ({
   return (
     <div className="space-y-20">
       {services
+        .filter(service => service.projects.length > 0) // Only show services with projects
         .filter(service => !selectedService || service.id === selectedService)
         .map((service, serviceIndex) => {
           const colors = colorClasses[service.color];

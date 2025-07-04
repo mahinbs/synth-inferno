@@ -7,9 +7,10 @@ export const getCombinedProjects = async (): Promise<Project[]> => {
     // Get admin projects from database
     const adminProjects = await adminDataService.getProjects();
     
-    // Filter out the Crave Kitchen portfolio item
+    // Filter out specific portfolio items
     const filteredAdminProjects = adminProjects.filter(
-      project => project.id !== "1fdcbf8a-8a59-4c64-8a39-3b38ab9671ef"
+      project => project.id !== "1fdcbf8a-8a59-4c64-8a39-3b38ab9671ef" && 
+                 project.id !== "5ba46296-94a4-442b-97ad-c174d5e42665"
     );
     
     // Get all static projects from all services
