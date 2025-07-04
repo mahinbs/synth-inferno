@@ -11,7 +11,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
   const IconComponent = Brain; // For now, using Brain icon for AI products
 
   return (
-    <div className="group relative p-8 rounded-2xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/30 transition-all duration-300 hover:bg-card/70">
+    <div className="group relative p-8 rounded-2xl bg-gradient-to-br from-card/60 via-card/40 to-background/20 backdrop-blur-xl border border-border/30 hover:border-primary/50 transition-all duration-500 hover:bg-gradient-to-br hover:from-card/80 hover:via-card/60 hover:to-primary/10 hover:shadow-2xl hover:shadow-primary/20 hover:scale-[1.02] hover:-translate-y-2 transform-gpu before:absolute before:inset-0 before:rounded-2xl before:bg-gradient-to-br before:from-primary/5 before:to-transparent before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-500">
       {/* Tag */}
       <div className="absolute top-4 right-4">
         <Badge variant="secondary" className="bg-primary/20 text-primary border-primary/30">
