@@ -234,7 +234,7 @@ const SpeaksifyPage = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-500/10 to-cyan-500/10">
+      <section className="py-20 bg-gradient-to-br from-slate-900 via-gray-800 to-slate-800">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
             <div>
