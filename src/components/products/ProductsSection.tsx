@@ -49,7 +49,7 @@ const ProductsSection = () => {
             </span>
           </h2>
           
-          <p className={`text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '200ms' }}>
+          <p className={`text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '200ms' }}>
             Explore our intelligent tools designed to scale modern businesses with AI.
           </p>
         </div>
