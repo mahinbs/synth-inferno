@@ -4,114 +4,82 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-
 const SpeaksifyPage = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [videoLoaded, setVideoLoaded] = useState(false);
-
   useEffect(() => {
     setIsVisible(true);
   }, []);
-
-  const keyFeatures = [
-    {
-      icon: Clock,
-      title: 'AI calls every lead in 30 seconds',
-      description: 'Lightning-fast response time ensures no lead goes cold while maintaining perfect conversation quality.'
-    },
-    {
-      icon: BarChart3,
-      title: 'Real-time voice analytics',
-      description: 'Advanced voice AI analyzes tone, sentiment, and intent to optimize every conversation for maximum conversion.'
-    },
-    {
-      icon: CheckCircle,
-      title: 'Never miss a follow-up',
-      description: 'Intelligent scheduling and automated reminders ensure every lead gets the attention they deserve.'
-    }
-  ];
-
-  const integrations = [
-    {
-      name: 'HubSpot',
-      description: 'Seamlessly sync leads and conversation data',
-      category: 'CRM'
-    },
-    {
-      name: 'Zoho',
-      description: 'Complete CRM integration for lead management',
-      category: 'CRM'
-    },
-    {
-      name: 'Zapier',
-      description: 'Connect with 5000+ apps and workflows',
-      category: 'Automation'
-    },
-    {
-      name: 'WhatsApp',
-      description: 'Multi-channel communication support',
-      category: 'Messaging'
-    }
-  ];
-
-  const howItWorks = [
-    {
-      step: '01',
-      title: 'Lead Detection',
-      description: 'Speaksify automatically detects new leads from your integrated systems and CRM platforms.'
-    },
-    {
-      step: '02',
-      title: 'Instant Engagement',
-      description: 'AI calls the lead within 30 seconds using natural, conversational voice technology.'
-    },
-    {
-      step: '03',
-      title: 'Voice Analysis',
-      description: 'Real-time analysis of voice responses, sentiment, and engagement level to optimize the conversation.'
-    },
-    {
-      step: '04',
-      title: 'Smart Follow-up',
-      description: 'Automatically schedules and executes follow-ups based on conversation outcomes and lead behavior.'
-    }
-  ];
-
-  const testimonials = [
-    {
-      quote: "Speaksify increased our lead conversion rate by 340%. The AI calls are so natural, our leads can't tell the difference.",
-      author: "Sarah Chen",
-      position: "VP of Sales",
-      company: "TechFlow Solutions"
-    },
-    {
-      quote: "We went from calling 50 leads per day to 500. Speaksify handles the volume while we focus on closing deals.",
-      author: "Marcus Rodriguez",
-      position: "Sales Director",
-      company: "GrowthLab Inc"
-    }
-  ];
-
-  return (
-    <div className="min-h-screen text-white">
+  const keyFeatures = [{
+    icon: Clock,
+    title: 'AI calls every lead in 30 seconds',
+    description: 'Lightning-fast response time ensures no lead goes cold while maintaining perfect conversation quality.'
+  }, {
+    icon: BarChart3,
+    title: 'Real-time voice analytics',
+    description: 'Advanced voice AI analyzes tone, sentiment, and intent to optimize every conversation for maximum conversion.'
+  }, {
+    icon: CheckCircle,
+    title: 'Never miss a follow-up',
+    description: 'Intelligent scheduling and automated reminders ensure every lead gets the attention they deserve.'
+  }];
+  const integrations = [{
+    name: 'HubSpot',
+    description: 'Seamlessly sync leads and conversation data',
+    category: 'CRM'
+  }, {
+    name: 'Zoho',
+    description: 'Complete CRM integration for lead management',
+    category: 'CRM'
+  }, {
+    name: 'Zapier',
+    description: 'Connect with 5000+ apps and workflows',
+    category: 'Automation'
+  }, {
+    name: 'WhatsApp',
+    description: 'Multi-channel communication support',
+    category: 'Messaging'
+  }];
+  const howItWorks = [{
+    step: '01',
+    title: 'Lead Detection',
+    description: 'Speaksify automatically detects new leads from your integrated systems and CRM platforms.'
+  }, {
+    step: '02',
+    title: 'Instant Engagement',
+    description: 'AI calls the lead within 30 seconds using natural, conversational voice technology.'
+  }, {
+    step: '03',
+    title: 'Voice Analysis',
+    description: 'Real-time analysis of voice responses, sentiment, and engagement level to optimize the conversation.'
+  }, {
+    step: '04',
+    title: 'Smart Follow-up',
+    description: 'Automatically schedules and executes follow-ups based on conversation outcomes and lead behavior.'
+  }];
+  const testimonials = [{
+    quote: "Speaksify increased our lead conversion rate by 340%. The AI calls are so natural, our leads can't tell the difference.",
+    author: "Sarah Chen",
+    position: "VP of Sales",
+    company: "TechFlow Solutions"
+  }, {
+    quote: "We went from calling 50 leads per day to 500. Speaksify handles the volume while we focus on closing deals.",
+    author: "Marcus Rodriguez",
+    position: "Sales Director",
+    company: "GrowthLab Inc"
+  }];
+  return <div className="min-h-screen text-white">
       <Header />
       
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Video Background */}
         <div className="absolute inset-0 z-0">
-          <iframe 
-            src="https://player.cloudinary.com/embed/?cloud_name=dknafpppp&public_id=0_Ai_Artificial_Intelligence_1280x720-2_wbcpcy&profile=cld-default&autoplay=true&loop=true&muted=true&controls=false" 
-            className="w-full h-full object-cover" 
-            style={{
-              transform: 'scale(1.1)',
-              filter: 'brightness(0.3)',
-              pointerEvents: 'none'
-            }} 
-            loading="lazy" 
-            onLoad={() => setVideoLoaded(true)} 
-            title="AI Technology Background Video" 
-          />
+          <iframe src="https://player.cloudinary.com/embed/?cloud_name=dknafpppp&public_id=0_Ai_Artificial_Intelligence_1280x720-2_wbcpcy&profile=cld-default&autoplay=true&loop=true&muted=true&controls=false" className="w-full h-full object-cover" style={{
+          transform: 'scale(1.1)',
+          filter: 'brightness(0.3)',
+          pointerEvents: 'none'
+        }} loading="lazy" onLoad={() => setVideoLoaded(true)} title="AI Technology Background Video" />
           
           {/* Fallback gradient overlay when video is loading */}
           {!videoLoaded && <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-gray-800 to-slate-800" />}
@@ -124,11 +92,11 @@ const SpeaksifyPage = () => {
         <div className="absolute inset-0 z-10">
           <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-gray-400/10 rounded-full blur-3xl animate-float"></div>
           <div className="absolute top-3/4 right-1/4 w-96 h-96 bg-slate-400/10 rounded-full blur-3xl animate-float" style={{
-            animationDelay: '2s'
-          }}></div>
+          animationDelay: '2s'
+        }}></div>
           <div className="absolute top-1/2 left-3/4 w-48 h-48 bg-zinc-400/10 rounded-full blur-3xl animate-float" style={{
-            animationDelay: '4s'
-          }}></div>
+          animationDelay: '4s'
+        }}></div>
         </div>
 
         <div className="container mx-auto px-6 relative z-20">
@@ -182,15 +150,13 @@ const SpeaksifyPage = () => {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {keyFeatures.map((feature, index) => (
-              <div key={index} className="p-8 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 hover:border-white/30 transition-all duration-300 group hover:bg-white/15">
+            {keyFeatures.map((feature, index) => <div key={index} className="p-8 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 hover:border-white/30 transition-all duration-300 group hover:bg-white/15">
                 <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-gray-500/20 backdrop-blur-sm mb-6 group-hover:scale-110 transition-transform duration-300">
                   <feature.icon className="h-8 w-8 text-gray-300" />
                 </div>
                 <h3 className="text-xl font-semibold mb-4 text-white">{feature.title}</h3>
                 <p className="text-gray-300 leading-relaxed">{feature.description}</p>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -207,20 +173,16 @@ const SpeaksifyPage = () => {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {howItWorks.map((step, index) => (
-              <div key={index} className="text-center relative">
+            {howItWorks.map((step, index) => <div key={index} className="text-center relative">
                 <div className="flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 text-2xl font-bold mb-6 mx-auto text-white">
                   {step.step}
                 </div>
                 <h3 className="text-xl font-semibold mb-4 text-white">{step.title}</h3>
                 <p className="text-gray-300 leading-relaxed">{step.description}</p>
-                {index < howItWorks.length - 1 && (
-                  <div className="hidden lg:block absolute top-10 left-full w-full">
+                {index < howItWorks.length - 1 && <div className="hidden lg:block absolute top-10 left-full w-full">
                     <ArrowRight className="h-6 w-6 text-cyan-400 mx-auto" />
-                  </div>
-                )}
-              </div>
-            ))}
+                  </div>}
+              </div>)}
           </div>
         </div>
       </section>
@@ -237,15 +199,13 @@ const SpeaksifyPage = () => {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {integrations.map((integration, index) => (
-              <div key={index} className="p-6 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 hover:border-white/30 transition-all duration-300 text-center group hover:bg-white/15">
+            {integrations.map((integration, index) => <div key={index} className="p-6 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 hover:border-white/30 transition-all duration-300 text-center group hover:bg-white/15">
                 <Badge variant="secondary" className="mb-4 bg-white/20 text-gray-300 border-white/30">
                   {integration.category}
                 </Badge>
                 <h3 className="text-lg font-semibold mb-2 text-white">{integration.name}</h3>
                 <p className="text-gray-300 text-sm">{integration.description}</p>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -259,8 +219,7 @@ const SpeaksifyPage = () => {
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="p-8 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20">
+            {testimonials.map((testimonial, index) => <div key={index} className="p-8 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20">
                 <p className="text-lg text-gray-300 mb-6 italic">"{testimonial.quote}"</p>
                 <div className="flex items-center">
                   <div>
@@ -269,8 +228,7 @@ const SpeaksifyPage = () => {
                     <div className="text-cyan-400">{testimonial.company}</div>
                   </div>
                 </div>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -281,7 +239,7 @@ const SpeaksifyPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
             <div>
               <div className="text-4xl font-bold text-cyan-400 mb-2">30s</div>
-              <div className="text-gray-300">Average Response Time</div>
+              <div className="text-black-300">Average Response Time</div>
             </div>
             <div>
               <div className="text-4xl font-bold text-cyan-400 mb-2">340%</div>
@@ -324,8 +282,6 @@ const SpeaksifyPage = () => {
       </section>
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default SpeaksifyPage;
