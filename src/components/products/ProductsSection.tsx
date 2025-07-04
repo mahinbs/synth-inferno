@@ -72,7 +72,7 @@ const ProductsSection = () => {
           <div className={`text-center mt-12 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '800ms' }}>
             <a 
               href="/products"
-              className="inline-flex items-center space-x-2 bg-gradient-to-r from-cyan-600/20 via-blue-600/20 to-teal-600/20 backdrop-blur-sm border border-cyan-400/30 text-cyan-300 px-8 py-4 rounded-xl font-semibold hover:from-cyan-600/30 hover:via-blue-600/30 hover:to-teal-600/30 hover:border-cyan-400/50 hover:scale-105 transition-all duration-300 shadow-lg shadow-cyan-500/20 hover:shadow-cyan-400/30"
+              className="inline-flex items-center space-x-2 bg-primary text-primary-foreground px-8 py-4 rounded-xl font-semibold hover:bg-primary/90 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
             >
               <span>View All Products</span>
               <svg className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
