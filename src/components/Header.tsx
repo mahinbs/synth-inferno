@@ -28,6 +28,10 @@ const Header = memo(() => {
     href: "/#services",
     section: "services"
   }, {
+    name: "Products",
+    href: "/products/speaksify",
+    section: "products"
+  }, {
     name: "Portfolio",
     href: "/#portfolio",
     section: "portfolio"
