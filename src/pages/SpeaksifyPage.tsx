@@ -239,7 +239,7 @@ const SpeaksifyPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
             <div>
               <div className="text-4xl font-bold text-cyan-400 mb-2">30s</div>
-              <div className="text-black-300">Average Response Time</div>
+              <div className="text-grey-300">Average Response Time</div>
             </div>
             <div>
               <div className="text-4xl font-bold text-cyan-400 mb-2">340%</div>
