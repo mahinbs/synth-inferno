@@ -28,7 +28,7 @@ const ProductsPage = () => {
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <div className="flex justify-center mb-6">
-              <Badge variant="outline" className="px-4 py-2 border-border/30 bg-card/10 backdrop-blur-sm">
+              <Badge variant="outline" className="px-6 py-3 border-cyan-500/30 bg-gradient-to-r from-slate-900/80 via-gray-800/60 to-slate-900/80 backdrop-blur-xl text-cyan-300 shadow-lg shadow-cyan-500/20 hover:shadow-cyan-400/30 hover:border-cyan-400/50 transition-all duration-500 hover:scale-105 relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-cyan-400/10 before:to-transparent before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-700">
                 AI Products • Innovation • Technology Solutions
               </Badge>
             </div>
