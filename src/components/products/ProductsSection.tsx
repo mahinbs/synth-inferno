@@ -30,26 +30,26 @@ const ProductsSection = () => {
   return (
     <section 
       id="products-section" 
-      className="relative py-20 overflow-hidden bg-gradient-to-br from-slate-900 via-gray-800 to-slate-800"
+      className="relative py-20 overflow-hidden bg-white"
     >
       {/* Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '3s' }}></div>
-        <div className="absolute top-3/4 left-1/2 w-48 h-48 bg-teal-500/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '6s' }}></div>
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '3s' }}></div>
+        <div className="absolute top-3/4 left-1/2 w-48 h-48 bg-teal-500/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '6s' }}></div>
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className={`font-heading text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
-            <span className="text-white">Our </span>
+            <span className="text-foreground">Our </span>
             <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent">
               Products
             </span>
           </h2>
           
-          <p className={`text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '200ms' }}>
+          <p className={`text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '200ms' }}>
             Explore our intelligent tools designed to scale modern businesses with AI.
           </p>
         </div>
