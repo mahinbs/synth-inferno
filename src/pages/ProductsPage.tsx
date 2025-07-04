@@ -47,7 +47,7 @@ const ProductsPage = () => {
       </section>
 
       {/* Products Grid Section */}
-      <section className="py-20">
+      <section className="py-20 bg-gradient-to-br from-slate-900 via-gray-800 to-slate-800">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {products.map((product, index) => (
