@@ -1,6 +1,7 @@
 import { Mail, Phone, MapPin, Github, Linkedin, Twitter } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { servicesData } from './services/ServicesData';
+import { openZohoForm } from '@/utils/zohoForm';
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -126,7 +127,7 @@ const Footer = () => {
                 <span>San Francisco, CA</span>
               </div>
               <div className="mt-4">
-                <button onClick={() => handleSectionLink('contact')} className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors duration-200">
+                <button onClick={() => openZohoForm('footer')} className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors duration-200">
                   Get In Touch
                 </button>
               </div>

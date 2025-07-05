@@ -1,5 +1,6 @@
 
 import { ArrowRight, MessageCircle } from 'lucide-react';
+import { openZohoForm } from '@/utils/zohoForm';
 
 const PortfolioCTASection = () => {
   const scrollToContact = () => {
@@ -23,7 +24,7 @@ const PortfolioCTASection = () => {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <button 
-            onClick={scrollToContact}
+            onClick={() => openZohoForm('portfolio')}
             className="group bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl flex items-center space-x-3"
           >
             <MessageCircle className="h-5 w-5" />

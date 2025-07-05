@@ -1,6 +1,7 @@
 
 import { Link } from 'react-router-dom';
 import { ArrowRight, ExternalLink } from 'lucide-react';
+import { openZohoForm } from '@/utils/zohoForm';
 
 interface PortfolioCTAProps {
   isVisible: boolean;
@@ -24,13 +25,13 @@ const PortfolioCTA = ({ isVisible }: PortfolioCTAProps) => {
             <span>View Full Portfolio</span>
             <ArrowRight className="h-4 w-4" />
           </Link>
-          <Link 
-            to="/#contact"
+          <button 
+            onClick={() => openZohoForm('portfolio-cta')}
             className="inline-flex items-center space-x-2 bg-gray-800/50 border border-gray-600 text-gray-300 px-6 py-3 rounded-xl hover:bg-gray-700/50 hover:border-gray-500 transition-all duration-300 font-medium"
           >
             <span>Start Your Project</span>
             <ExternalLink className="h-4 w-4" />
-          </Link>
+          </button>
         </div>
       </div>
     </div>
