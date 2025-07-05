@@ -7,6 +7,7 @@ import { Plus, FileText, Briefcase, MessageSquare, Database, TrendingUp } from '
 import { Link } from 'react-router-dom';
 import DataRecoveryPanel from '@/components/admin/DataRecoveryPanel';
 import DataMigrationPanel from '@/components/admin/DataMigrationPanel';
+import PortfolioImportPanel from '@/components/admin/PortfolioImportPanel';
 
 const AdminDashboard = () => {
   const [projects, setProjects] = useState([]);
@@ -191,6 +192,9 @@ const AdminDashboard = () => {
           </CardContent>
         </Card>
       </div>
+
+      {/* Portfolio Import Panel */}
+      <PortfolioImportPanel />
 
       {/* Data Recovery Panel */}
       <DataRecoveryPanel onDataRestored={handleDataRestored} />
