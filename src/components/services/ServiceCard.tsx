@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { ChevronDown } from 'lucide-react';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import { useRoutePreloading } from '@/hooks/useRoutePreloading';
+import { openZohoForm } from '@/utils/zohoForm';
 
 interface Service {
   id: string;
@@ -115,7 +116,11 @@ const ServiceCard = memo(({
               >
                 Learn More
               </Link>
-              <button className="flex-1 border border-primary text-primary px-6 py-3 rounded-xl font-medium hover:bg-primary/5 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
+              <button 
+                onClick={() => openZohoForm(`services-${service.category}`)}
+                className="flex-1 border border-primary text-primary px-6 py-3 rounded-xl font-medium hover:bg-primary/5 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                aria-label={`Get quote for ${service.title}`}
+              >
                 Get Quote
               </button>
             </div>

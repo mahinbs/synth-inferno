@@ -3,13 +3,15 @@ import { memo } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { useRoutePreloading } from '@/hooks/useRoutePreloading';
+import { openZohoForm } from '@/utils/zohoForm';
 
 interface ServiceCardActionButtonsProps {
   learnMorePath: string;
   serviceTitle: string;
+  serviceId?: string;
 }
 
-const ServiceCardActionButtons = memo(({ learnMorePath, serviceTitle }: ServiceCardActionButtonsProps) => {
+const ServiceCardActionButtons = memo(({ learnMorePath, serviceTitle, serviceId }: ServiceCardActionButtonsProps) => {
   const { preloadRoute, cancelPreload } = useRoutePreloading();
 
   const handleMouseEnter = () => {
@@ -38,7 +40,11 @@ const ServiceCardActionButtons = memo(({ learnMorePath, serviceTitle }: ServiceC
         <span>Learn More</span>
         <ArrowRight className="ml-2 h-4 w-4" />
       </Link>
-      <button className="px-6 py-3 rounded-xl border border-blue-300/60 text-blue-700 hover:bg-blue-50/80 transition-all duration-400 font-medium backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+      <button 
+        onClick={() => openZohoForm(`services-${serviceId || 'unknown'}`)}
+        className="px-6 py-3 rounded-xl border border-blue-300/60 text-blue-700 hover:bg-blue-50/80 transition-all duration-400 font-medium backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+        aria-label={`Get quote for ${serviceTitle}`}
+      >
         Get Quote
       </button>
     </div>

@@ -4,6 +4,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import ServicePortfolioPreviews from './ServicePortfolioPreviews';
 import { projectsData } from '@/data/projects';
+import { openZohoForm } from '@/utils/zohoForm';
 
 interface Service {
   aboutService: string;
@@ -204,7 +205,9 @@ const ServiceCardContent = memo(({ service, accent }: ServiceCardContentProps) =
         {/* Single Action Button - Always Visible */}
         <div className="pt-4 border-t border-gray-200/30 sticky bottom-0 bg-white/95 backdrop-blur-sm -mx-6 px-6 pb-6 mt-6">
           <Button 
+            onClick={() => openZohoForm(`services-${service.id}`)}
             className="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white border-0 hover:from-blue-400 hover:to-blue-500 transition-all duration-200 font-medium shadow-sm"
+            aria-label={`Get quote for service`}
           >
             💬 Get Quote
           </Button>
