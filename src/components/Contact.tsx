@@ -81,6 +81,12 @@ const Contact = () => {
 
   const socialLinks = [
     {
+      icon: Instagram,
+      label: 'Follow us on Instagram',
+      url: 'https://www.instagram.com/deeceelabs?utm_source=qr&igsh=MTBybzE5dnd6NXAzaQ==',
+      color: 'pink'
+    },
+    {
       icon: MessageCircle,
       label: 'WhatsApp',
       url: 'https://wa.me/919289225663',
