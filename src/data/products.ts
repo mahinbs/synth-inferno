@@ -14,11 +14,11 @@ export const products: Product[] = [
   {
     id: 'speaksify',
     title: 'Speaksify',
-    tagline: 'AI-Powered Voice Engagement Engine',
-    description: 'AI calls every lead in 30 seconds, engages in real time, and never misses a follow-up.',
-    ctaText: 'View Product →',
+    tagline: 'AI-Powered Public Speaking Coach',
+    description: 'AI-powered platform that helps users practice, improve, and gain confidence in their communication skills with real-time feedback and personalized coaching.',
+    ctaText: 'View Case Study →',
     ctaLink: '/products/speaksify',
-    tag: 'Voice AI',
+    tag: 'AI Coach',
     icon: 'Brain',
     featured: true
   }
