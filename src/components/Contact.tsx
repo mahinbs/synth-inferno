@@ -83,7 +83,7 @@ const Contact = () => {
     {
       icon: Instagram,
       label: 'Instagram',
-      url: '#',
+      url: 'https://www.instagram.com/deeceelabs?utm_source=qr&igsh=MTBybzE5dnd6NXAZaQ==',
       color: 'pink'
     },
     {
@@ -101,19 +101,19 @@ const Contact = () => {
     {
       icon: MessageCircle,
       label: 'WhatsApp',
-      url: 'https://wa.me/15551234567',
+      url: 'https://wa.me/919289225663',
       color: 'green'
     },
     {
       icon: Linkedin,
       label: 'LinkedIn',
-      url: '#',
+      url: 'https://www.linkedin.com/company/dee-cee-labs/posts/?feedView=all',
       color: 'linkedin'
     },
     {
       icon: Facebook,
       label: 'Facebook',
-      url: '#',
+      url: 'https://www.facebook.com/profile.php?id=100084347787790',
       color: 'facebook'
     }
   ];
@@ -225,7 +225,7 @@ const Contact = () => {
               <MessageCircle className="h-6 w-6" />
             </div>
             <h3 className="text-lg font-semibold text-white mb-2">WhatsApp</h3>
-            <a href="https://wa.me/15551234567" className="text-green-400 font-medium hover:text-green-300 transition-colors">
+            <a href="https://wa.me/919289225663" className="text-green-400 font-medium hover:text-green-300 transition-colors">
               Quick Chat
             </a>
             <p className="text-gray-400 text-sm mt-1">Instant responses</p>
@@ -438,7 +438,7 @@ const Contact = () => {
                 <span>Start Your Project</span>
                 <ArrowRight className="h-5 w-5" />
               </button>
-              <a href="https://wa.me/15551234567" className="inline-flex items-center space-x-2 border-2 border-green-400/50 text-green-300 px-8 py-4 rounded-xl hover:bg-green-400/10 hover:border-green-300 transition-all duration-300 font-medium backdrop-blur-sm">
+              <a href="https://wa.me/919289225663" className="inline-flex items-center space-x-2 border-2 border-green-400/50 text-green-300 px-8 py-4 rounded-xl hover:bg-green-400/10 hover:border-green-300 transition-all duration-300 font-medium backdrop-blur-sm">
                 <MessageCircle className="h-5 w-5" />
                 <span>WhatsApp Chat</span>
               </a>
