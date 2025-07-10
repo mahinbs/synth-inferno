@@ -54,7 +54,7 @@ const Hero = memo(() => {
           </h1>
 
           {/* Subheadline */}
-          <p className={`text-xl md:text-2xl text-gray-200 mb-12 max-w-4xl mx-auto leading-relaxed ${isVisible ? 'animate-fade-in-up animate-stagger-1' : 'opacity-0'}`}>At Dee&amp;Cee Labs, we build transformative digital solutions from immersive games and intelligent chatbots to full scale AI ecosystems.</p>
+          <p className={`text-xl md:text-2xl text-gray-200 mb-12 max-w-4xl mx-auto leading-relaxed ${isVisible ? 'animate-fade-in-up animate-stagger-1' : 'opacity-0'}`}>At Dee&amp;Cee Labs, we build transformative digital solutions from immersive games and intelligent  AI agents to full scale AI ecosystems.</p>
 
           {/* CTA Buttons */}
           <div className={`flex flex-col sm:flex-row gap-6 justify-center items-center mb-16 ${isVisible ? 'animate-fade-in-up animate-stagger-2' : 'opacity-0'}`}>
