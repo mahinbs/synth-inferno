@@ -21,48 +21,21 @@ const Contact = () => {
     };
   }, []);
   const offices = [{
-    city: 'Dubai',
-    country: 'UAE',
-    address: 'Office number 13 Empire heights Business bay, Dubai, UAE',
-    phone: '+971 4 123 4567',
-    email: 'dubai@deeceelabs.com',
-    color: 'cyan',
-    image: 'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80',
-    timezone: 'GMT+4'
-  }, {
-    city: 'Hong Kong',
-    country: 'China',
-    address: 'The Hong Kong Club Building Level 16, No. 3A Chater Road, Central, Hong Kong',
-    phone: '+852 2123 4567',
-    email: 'hongkong@deeceelabs.com',
-    color: 'blue',
-    image: 'https://images.unsplash.com/photo-1536599018102-9f803c140fc1?auto=format&fit=crop&w=800&q=80',
-    timezone: 'GMT+8'
-  }, {
-    city: 'Bengaluru',
+    city: 'Ghaziabad',
     country: 'India',
-    address: 'Salarpuria Symbiosis, Ground floor Bannerghatta Road Arekere Village, Begur Hobli, Bengaluru, Karnataka 560076',
-    phone: '+91 80 1234 5678',
-    email: 'bengaluru@deeceelabs.com',
-    color: 'purple',
-    image: 'https://images.unsplash.com/photo-1596176530529-78163a4f7af2?auto=format&fit=crop&w=800&q=80',
+    address: 'A-143, 7-C Shalimar Garden Extension 2, Sahibabad, Ghaziabad 201005',
+    phone: '+91 9289225663',
+    email: 'connect@deenceelabs.com',
+    color: 'green',
+    image: 'https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=800&q=80',
     timezone: 'GMT+5:30'
   }, {
-    city: 'Bangkok',
-    country: 'Thailand',
-    address: '15-17, 20, 25-27FI, T-One Building, 8 Soi Sukhumvit 40, Khwaeng Phra Khanong, Khlong Toei, Bangkok 10110, Thailand',
-    phone: '+66 2 123 4567',
-    email: 'bangkok@deeceelabs.com',
-    color: 'pink',
-    image: 'https://images.unsplash.com/photo-1508009603885-50cf7c579365?auto=format&fit=crop&w=800&q=80',
-    timezone: 'GMT+7'
-  }, {
-    city: 'Delhi',
+    city: 'Uttarakhand',
     country: 'India',
-    address: 'Office number 309, Ambadeep building- 3rd floor, Kg marg Connaught Place, Delhi 110001, India',
-    phone: '+91 11 1234 5678',
-    email: 'delhi@deeceelabs.com',
-    color: 'green',
+    address: 'House No. 12, Deoria, Udham Singh Nagar, Uttarakhand 263148',
+    phone: '+91 9289225663',
+    email: 'connect@deenceelabs.com',
+    color: 'blue',
     image: 'https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=800&q=80',
     timezone: 'GMT+5:30'
   }];
@@ -299,7 +272,7 @@ const Contact = () => {
 
         {/* Global Offices */}
         <div className={`transition-all duration-1000 delay-800 ${isVisible ? 'animate-fade-in opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {offices.map((office, index) => {
             const colors = colorClasses[office.color];
             return <div key={office.city} className={`group relative rounded-2xl overflow-hidden bg-gray-900/80 backdrop-blur-sm border ${colors.border} hover:bg-gray-800/90 transition-all duration-500 hover:transform hover:scale-105`} style={{
