@@ -2,7 +2,6 @@ import { Mail, Phone, MapPin, Github, Linkedin, Instagram, Facebook } from 'luci
 import { Link, useNavigate } from 'react-router-dom';
 import { servicesData } from './services/ServicesData';
 import { openZohoForm } from '@/utils/zohoForm';
-
 const Footer = () => {
   const navigate = useNavigate();
   const handleSectionLink = (sectionId: string) => {
@@ -35,19 +34,12 @@ const Footer = () => {
       behavior: 'smooth'
     });
   };
-
-  return (
-    <footer className="bg-gray-900 text-white">
+  return <footer className="bg-gray-900 text-white">
       <div className="container mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center space-x-3 mb-4">
-              <img 
-                src="https://res.cloudinary.com/dknafpppp/image/upload/v1751309533/logo_1_1_hh0yjm.png" 
-                alt="Dee&Cee Labs Logo" 
-                className="h-8 w-8 object-contain" 
-                loading="lazy" 
-              />
+              <img src="https://res.cloudinary.com/dknafpppp/image/upload/v1751309533/logo_1_1_hh0yjm.png" alt="Dee&Cee Labs Logo" className="h-8 w-8 object-contain" loading="lazy" />
               <span className="text-xl font-bold">Dee&Cee Labs</span>
             </div>
             <p className="text-gray-400 mb-6 leading-relaxed">
@@ -72,16 +64,11 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Services</h3>
             <ul className="space-y-3 text-gray-400">
-              {servicesData.map((service) => (
-                <li key={service.id}>
-                  <button 
-                    onClick={() => handlePageLink(service.route)} 
-                    className="hover:text-white transition-colors duration-200 text-left"
-                  >
+              {servicesData.map(service => <li key={service.id}>
+                  <button onClick={() => handlePageLink(service.route)} className="hover:text-white transition-colors duration-200 text-left">
                     {service.title}
                   </button>
-                </li>
-              ))}
+                </li>)}
             </ul>
           </div>
 
@@ -119,7 +106,7 @@ const Footer = () => {
             <div className="space-y-3 text-gray-400">
               <div className="flex items-center space-x-3">
                 <Mail className="h-4 w-4 flex-shrink-0" />
-                <span>hello@deeceelabs.com</span>
+                <span>connect@deeceelabs.com</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="h-4 w-4 flex-shrink-0" />
@@ -127,7 +114,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <MapPin className="h-4 w-4 flex-shrink-0" />
-                <span>San Francisco, CA</span>
+                <span>Ghaziabad, India</span>
               </div>
               <div className="mt-4">
                 <button onClick={() => openZohoForm('footer')} className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors duration-200">
@@ -142,8 +129,6 @@ const Footer = () => {
           <p>© 2025 Dee&Cee Labs. All rights reserved. Built with passion for innovation.</p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
