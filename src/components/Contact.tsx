@@ -107,7 +107,7 @@ const Contact = () => {
     {
       icon: Linkedin,
       label: 'Follow us on LinkedIn',
-      url: 'https://www.linkedin.com/company/dee-cee-labs/posts/?feedView=all',
+      url: 'https://www.linkedin.com/company/dee-cee-labs',
       color: 'linkedin'
     },
     {
