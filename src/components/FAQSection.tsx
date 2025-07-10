@@ -116,9 +116,12 @@ const FAQSection = memo(() => {
             <p className="text-[#1c1c1e]/80 mb-6 leading-relaxed tracking-wide">
               We're here to help! Reach out to our team for personalized answers and project consultation.
             </p>
-            <button className="bg-gray-800 text-white px-8 py-3 rounded-xl font-semibold hover:bg-gray-700 transition-colors duration-300 hover:scale-105 transform">
+            <a 
+              href="#contact" 
+              className="inline-block bg-gray-800 text-white px-8 py-3 rounded-xl font-semibold hover:bg-gray-700 transition-colors duration-300 hover:scale-105 transform"
+            >
               Contact Us
-            </button>
+            </a>
           </div>
         </div>
       </div>
