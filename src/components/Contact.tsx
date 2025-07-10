@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { Mail, Phone, MapPin, Send, MessageCircle, Instagram, Twitter, Youtube, Globe, Users, Target, ArrowRight, Linkedin, Facebook } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, MessageCircle, Instagram, Globe, Users, Target, ArrowRight, Linkedin, Facebook } from 'lucide-react';
 
 const Contact = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -81,24 +81,6 @@ const Contact = () => {
 
   const socialLinks = [
     {
-      icon: Instagram,
-      label: 'Instagram',
-      url: 'https://www.instagram.com/deeceelabs?utm_source=qr&igsh=MTBybzE5dnd6NXAZaQ==',
-      color: 'pink'
-    },
-    {
-      icon: Twitter,
-      label: 'Twitter',
-      url: '#',
-      color: 'blue'
-    },
-    {
-      icon: Youtube,
-      label: 'YouTube',
-      url: '#',
-      color: 'red'
-    },
-    {
       icon: MessageCircle,
       label: 'WhatsApp',
       url: 'https://wa.me/919289225663',
@@ -153,13 +135,6 @@ const Contact = () => {
       icon: 'bg-green-500/10 text-green-400 border-green-400/30',
       text: 'text-green-400',
       hover: 'hover:bg-green-500/10 hover:border-green-400/50'
-    },
-    red: {
-      border: 'border-red-400/30',
-      gradient: 'from-red-400/10 to-red-600/10',
-      icon: 'bg-red-500/10 text-red-400 border-red-400/30',
-      text: 'text-red-400',
-      hover: 'hover:bg-red-500/10 hover:border-red-400/50'
     },
     linkedin: {
       border: 'border-blue-600/30',

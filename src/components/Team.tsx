@@ -1,5 +1,5 @@
 
-import { Github, Linkedin, Twitter } from 'lucide-react';
+import { Github, Linkedin } from 'lucide-react';
 import { memo } from 'react';
 
 const Team = memo(() => {
@@ -62,9 +62,6 @@ const Team = memo(() => {
               <div className="flex justify-center space-x-3">
                 <a href="#" className="text-gray-400 hover:text-blue-600 transition-colors duration-200" aria-label={`${member.name} LinkedIn`}>
                   <Linkedin className="h-5 w-5" />
-                </a>
-                <a href="#" className="text-gray-400 hover:text-blue-600 transition-colors duration-200" aria-label={`${member.name} Twitter`}>
-                  <Twitter className="h-5 w-5" />
                 </a>
                 <a href="#" className="text-gray-400 hover:text-blue-600 transition-colors duration-200" aria-label={`${member.name} GitHub`}>
                   <Github className="h-5 w-5" />
