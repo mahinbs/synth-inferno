@@ -8,16 +8,15 @@ export interface Product {
   tag: string;
   icon: string;
   featured?: boolean;
-  caseStudyUrl?: string;
 }
 
 export const products: Product[] = [
   {
     id: 'speaksify',
     title: 'Speaksify',
-    tagline: 'AI-Powered Public Speaking Coach',
-    description: 'AI-powered platform that helps users practice, improve, and gain confidence in their communication skills through real-time feedback.',
-    ctaText: 'View Case Study →',
+    tagline: 'AI-Powered Voice Engagement Engine',
+    description: 'AI calls every lead in 30 seconds, engages in real time, and never misses a follow-up.',
+    ctaText: 'View Product →',
     ctaLink: '/products/speaksify',
     tag: 'Voice AI',
     icon: 'Brain',
