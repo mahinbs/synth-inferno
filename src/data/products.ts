@@ -8,6 +8,7 @@ export interface Product {
   tag: string;
   icon: string;
   featured?: boolean;
+  caseStudyUrl?: string;
 }
 
 export const products: Product[] = [
@@ -20,6 +21,7 @@ export const products: Product[] = [
     ctaLink: '/products/speaksify',
     tag: 'Voice AI',
     icon: 'Brain',
-    featured: true
+    featured: true,
+    caseStudyUrl: 'https://www.boostmysites.in/case-study/5ba46296-94a4-442b-97ad-c174d5e42665'
   }
 ];
