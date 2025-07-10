@@ -106,13 +106,13 @@ const Contact = () => {
     },
     {
       icon: Linkedin,
-      label: 'LinkedIn',
+      label: 'Follow us on LinkedIn',
       url: 'https://www.linkedin.com/company/dee-cee-labs/posts/?feedView=all',
       color: 'linkedin'
     },
     {
       icon: Facebook,
-      label: 'Facebook',
+      label: 'Visit our Facebook',
       url: 'https://www.facebook.com/profile.php?id=100084347787790',
       color: 'facebook'
     }
@@ -226,7 +226,7 @@ const Contact = () => {
             </div>
             <h3 className="text-lg font-semibold text-white mb-2">WhatsApp</h3>
             <a href="https://wa.me/919289225663" className="text-green-400 font-medium hover:text-green-300 transition-colors">
-              Quick Chat
+              +91 9289225663
             </a>
             <p className="text-gray-400 text-sm mt-1">Instant responses</p>
           </div>
