@@ -149,7 +149,7 @@ const Contact = () => {
               <Phone className="h-6 w-6" />
             </div>
             <h3 className="text-lg font-semibold text-white mb-2">Call Us</h3>
-            <p className="text-blue-400 font-medium">+91-9289225663</p>
+            <p className="text-blue-400 font-medium">+91 9289225663</p>
             <p className="text-gray-400 text-sm mt-1">24/7 Support Available</p>
           </div>
 
