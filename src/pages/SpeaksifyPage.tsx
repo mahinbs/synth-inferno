@@ -41,7 +41,7 @@ const SpeaksifyPage = () => {
 
   const techStack = [
     "React.js", "Tailwind CSS", "Node.js", "Express.js", 
-    "Whisper (OpenAI)", "TensorFlow.js", "MongoDB"
+    "Whisper (OpenAI)", "MongoDB", "Web Speech API"
   ];
   return (
     <div className="min-h-screen bg-background">
@@ -76,15 +76,14 @@ const SpeaksifyPage = () => {
             <div className="bg-card border rounded-xl p-8">
               <h3 className="text-xl font-semibold mb-4 text-primary">The Challenge</h3>
               <p className="text-muted-foreground leading-relaxed">
-                Build a platform to simulate a public speaking coach with AI analysis, a clean UI,
-                and real-time user feedback that could help users improve their communication skills effectively.
+                Simulate a public speaking coach using AI—simple yet impactful for first-time users.
               </p>
             </div>
             <div className="bg-card border rounded-xl p-8">
               <h3 className="text-xl font-semibold mb-4 text-primary">Our Solution</h3>
               <p className="text-muted-foreground leading-relaxed">
-                Integrated Web Speech API and Whisper AI for real-time analysis and progress tracking.
-                Clean UI and saved sessions improved user experience and coaching value significantly.
+                Integrated Web Speech API + Whisper AI for real-time feedback. Built a clean UI
+                with tracking and gamified practice tools.
               </p>
             </div>
           </div>
@@ -137,7 +136,7 @@ const SpeaksifyPage = () => {
           {/* Testimonial */}
           <div className="bg-card border rounded-xl p-8 max-w-4xl mx-auto">
             <blockquote className="text-lg text-center text-muted-foreground mb-4 italic">
-              "Working with the team brought clarity to our vision. They co-created a tool that's intuitive and powerful."
+              "Their team co-created a tool that's intuitive and powerful. Our users love it."
             </blockquote>
             <div className="text-center">
               <strong className="text-primary">– Jhon, Founder of Speaksify</strong>
