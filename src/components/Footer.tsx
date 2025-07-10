@@ -125,8 +125,14 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-          <p>© 2025 Dee&Cee Labs. All rights reserved. Built with passion for innovation.</p>
+        <div className="border-t border-gray-800 mt-12 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center text-gray-400">
+            <p className="text-center md:text-left">© 2025 Dee&Cee Labs. All rights reserved. Built with passion for innovation.</p>
+            <div className="flex items-center text-sm text-gray-500 mt-2 md:mt-0">
+              <span className="mr-1">⚡</span>
+              <span>Powered by @ACNS AI SOLUTIONS LLP</span>
+            </div>
+          </div>
         </div>
       </div>
     </footer>;
