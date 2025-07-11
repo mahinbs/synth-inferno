@@ -15,25 +15,14 @@ const Hero = memo(() => {
       });
     }
   };
-  return <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden hero-section">
+  return <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Video Background */}
       <div className="absolute inset-0 z-0">
-        <video 
-          className="hero-video"
-          autoPlay 
-          muted 
-          loop 
-          playsInline
-          onLoadedData={() => setVideoLoaded(true)}
-          style={{
-            transform: 'scale(1.1)',
-            filter: 'brightness(0.3)',
-            pointerEvents: 'none'
-          }}
-        >
-          <source src="https://res.cloudinary.com/dknafpppp/video/upload/v1673000000/0_Ai_Artificial_Intelligence_1280x720-2_wbcpcy.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        <iframe src="https://player.cloudinary.com/embed/?cloud_name=dknafpppp&public_id=0_Ai_Artificial_Intelligence_1280x720-2_wbcpcy&profile=cld-default&autoplay=true&loop=true&muted=true&controls=false" className="w-full h-full object-cover" style={{
+        transform: 'scale(1.1)',
+        filter: 'brightness(0.3)',
+        pointerEvents: 'none'
+      }} loading="lazy" onLoad={() => setVideoLoaded(true)} title="AI Technology Background Video" />
         
         {/* Fallback gradient overlay when video is loading */}
         {!videoLoaded && <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-gray-800 to-slate-800" />}
@@ -59,7 +48,7 @@ const Hero = memo(() => {
           {/* Main Headline */}
           <h1 className={`font-heading text-6xl md:text-8xl font-bold mb-8 text-white ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
             Engineering the 
-            <span className="block bg-gradient-to-r from-cyan-400 via-teal-400 to-blue-400 bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent">
               Future. Today.
             </span>
           </h1>

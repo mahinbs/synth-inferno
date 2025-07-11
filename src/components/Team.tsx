@@ -52,18 +52,18 @@ const Team = memo(() => {
                   decoding="async"
                   className="w-48 h-48 rounded-full mx-auto object-cover will-change-transform group-hover:scale-105 transition-transform duration-300"
                 />
-                <div className="absolute inset-0 rounded-full bg-gradient-to-br from-slate-600/20 to-gray-700/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-600/20 to-purple-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               
               <h3 className="text-xl font-semibold text-gray-900 mb-1">{member.name}</h3>
-              <p className="text-slate-700 font-medium mb-3">{member.role}</p>
+              <p className="text-blue-600 font-medium mb-3">{member.role}</p>
               <p className="text-gray-600 text-sm leading-relaxed mb-4">{member.bio}</p>
               
               <div className="flex justify-center space-x-3">
-                <a href="#" className="text-gray-400 hover:text-slate-700 transition-colors duration-200" aria-label={`${member.name} LinkedIn`}>
+                <a href="#" className="text-gray-400 hover:text-blue-600 transition-colors duration-200" aria-label={`${member.name} LinkedIn`}>
                   <Linkedin className="h-5 w-5" />
                 </a>
-                <a href="#" className="text-gray-400 hover:text-slate-700 transition-colors duration-200" aria-label={`${member.name} GitHub`}>
+                <a href="#" className="text-gray-400 hover:text-blue-600 transition-colors duration-200" aria-label={`${member.name} GitHub`}>
                   <Github className="h-5 w-5" />
                 </a>
               </div>

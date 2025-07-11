@@ -11,7 +11,7 @@ const BlogHero = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            <span className="text-slate-400">
+            <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
               Tech Insights
             </span>
           </h1>
@@ -20,9 +20,9 @@ const BlogHero = () => {
             AI, and digital transformation.
           </p>
           <div className="flex items-center justify-center gap-4 text-gray-400">
-            <div className="h-px bg-gradient-to-r from-transparent via-slate-500 to-transparent flex-1 max-w-32"></div>
-            <span className="text-slate-400 font-medium">Fresh insights weekly</span>
-            <div className="h-px bg-gradient-to-r from-transparent via-slate-500 to-transparent flex-1 max-w-32"></div>
+            <div className="h-px bg-gradient-to-r from-transparent via-cyan-500 to-transparent flex-1 max-w-32"></div>
+            <span className="text-cyan-400 font-medium">Fresh insights weekly</span>
+            <div className="h-px bg-gradient-to-r from-transparent via-cyan-500 to-transparent flex-1 max-w-32"></div>
           </div>
         </div>
       </div>

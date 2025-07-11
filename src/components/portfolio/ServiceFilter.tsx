@@ -2,7 +2,7 @@ import { Code, Cloud, Brain, Smartphone, Zap } from 'lucide-react';
 interface Service {
   id: string;
   title: string;
-  color: 'slate' | 'gray' | 'stone' | 'zinc' | 'neutral';
+  color: 'cyan' | 'blue' | 'pink' | 'purple' | 'green';
   projects: any[];
 }
 interface ServiceFilterProps {
@@ -18,20 +18,20 @@ const ServiceFilter = ({
   isVisible
 }: ServiceFilterProps) => {
   const colorClasses = {
-    slate: {
-      button: 'bg-slate-500/20 border-slate-400/30 text-slate-400 hover:bg-slate-500/30'
+    cyan: {
+      button: 'bg-cyan-500/20 border-cyan-400/30 text-cyan-400 hover:bg-cyan-500/30'
     },
-    gray: {
-      button: 'bg-gray-500/20 border-gray-400/30 text-gray-400 hover:bg-gray-500/30'
+    blue: {
+      button: 'bg-blue-500/20 border-blue-400/30 text-blue-400 hover:bg-blue-500/30'
     },
-    stone: {
-      button: 'bg-stone-500/20 border-stone-400/30 text-stone-400 hover:bg-stone-500/30'
+    pink: {
+      button: 'bg-pink-500/20 border-pink-400/30 text-pink-400 hover:bg-pink-500/30'
     },
-    zinc: {
-      button: 'bg-zinc-500/20 border-zinc-400/30 text-zinc-400 hover:bg-zinc-500/30'
+    purple: {
+      button: 'bg-purple-500/20 border-purple-400/30 text-purple-400 hover:bg-purple-500/30'
     },
-    neutral: {
-      button: 'bg-neutral-500/20 border-neutral-400/30 text-neutral-400 hover:bg-neutral-500/30'
+    green: {
+      button: 'bg-green-500/20 border-green-400/30 text-green-400 hover:bg-green-500/30'
     }
   };
   const getServiceIcon = (serviceId: string) => {
