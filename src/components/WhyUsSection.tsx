@@ -33,25 +33,25 @@ const WhyUsSection = memo(() => {
     title: "Cross-functional teams with product-first mindset",
     description: "Our diverse teams combine technical expertise with business acumen, ensuring every solution drives real business value and user satisfaction.",
     color: "blue-500",
-    gradient: "from-blue-500 to-blue-300"
+    gradient: "from-slate-500 to-slate-300"
   }, {
     icon: Zap,
     title: "Deep expertise across AI, cloud, web, mobile, and immersive tech",
     description: "From artificial intelligence and cloud architecture to immersive VR experiences, our comprehensive skill set covers the entire technology spectrum.",
-    color: "purple-500",
-    gradient: "from-purple-500 to-purple-300"
+    color: "stone-500",
+    gradient: "from-stone-500 to-stone-300"
   }, {
     icon: Shield,
     title: "Proven track record with startups, agencies, and scale-ups",
     description: "We've successfully partnered with organizations at every stage, from early-stage startups to established enterprises seeking digital transformation.",
-    color: "pink-500",
-    gradient: "from-pink-500 to-pink-300"
+    color: "gray-500",
+    gradient: "from-gray-500 to-gray-300"
   }, {
     icon: Rocket,
     title: "Design, develop, deploy — and scale with you",
     description: "Our partnership doesn't end at launch. We provide ongoing support, optimization, and scaling solutions as your business grows and evolves.",
-    color: "indigo-500",
-    gradient: "from-indigo-500 to-indigo-300"
+    color: "zinc-500",
+    gradient: "from-zinc-500 to-zinc-300"
   }];
 
   return (
@@ -61,7 +61,7 @@ const WhyUsSection = memo(() => {
         <div className="text-center mb-16">
           <h2 className={`font-heading text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
             Why Choose{' '}
-            <span className="bg-gradient-to-r from-blue-500 via-cyan-500 to-teal-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-slate-600 via-stone-600 to-zinc-600 bg-clip-text text-transparent">
               Dee&Cee Labs?
             </span>
           </h2>
@@ -98,7 +98,7 @@ const WhyUsSection = memo(() => {
           <div className="bg-white rounded-3xl p-12 md:p-16 max-w-5xl mx-auto shadow-lg">
             <h3 className="font-heading text-4xl md:text-5xl font-bold mb-6 leading-tight">
               Ready to Transform Your{' '}
-              <span className="bg-gradient-to-r from-blue-500 via-cyan-500 to-teal-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-slate-600 via-stone-600 to-zinc-600 bg-clip-text text-transparent">
                 Vision into Reality?
               </span>
             </h3>
@@ -106,9 +106,9 @@ const WhyUsSection = memo(() => {
               Let's discuss how our expertise can accelerate your digital transformation and drive meaningful results for your business.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <button onClick={() => openZohoForm('why-us')} className="group relative bg-gradient-to-r from-blue-600 to-purple-600 text-white px-10 py-5 rounded-2xl font-semibold text-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 hover:scale-105 transform shadow-lg hover:shadow-xl">
+              <button onClick={() => openZohoForm('why-us')} className="group relative bg-gradient-to-r from-slate-600 to-gray-700 text-white px-10 py-5 rounded-2xl font-semibold text-lg hover:from-slate-700 hover:to-gray-800 transition-all duration-300 hover:scale-105 transform shadow-lg hover:shadow-xl">
                 <span className="relative z-10">Start Your Project</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-stone-600 to-zinc-700 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </button>
               <button onClick={() => openZohoForm('why-us-consultation')} className="group bg-white border-2 border-gray-300 text-gray-700 px-10 py-5 rounded-2xl font-semibold text-lg hover:text-gray-900 transition-all duration-300 hover:scale-105 transform hover:border-gray-400 shadow-md hover:shadow-lg">
                 Schedule Consultation

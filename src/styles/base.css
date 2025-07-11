@@ -11,7 +11,7 @@
     --popover: 255 255 255;
     --popover-foreground: 15 23 42;
 
-    --primary: 29 78 216;
+    --primary: 0 74 173;
     --primary-foreground: 255 255 255;
 
     --secondary: 248 250 252;
@@ -28,21 +28,21 @@
 
     --border: 226 232 240;
     --input: 226 232 240;
-    --ring: 29 78 216;
+    --ring: 0 74 173;
 
     --radius: 0.5rem;
 
-    /* Brand colors - updated to deep blue theme */
-    --brand-primary: 29 78 216;
-    --brand-secondary: 37 99 235;
-    --brand-accent: 249 250 251;
-    --brand-neutral: 100 116 139;
-    --brand-light: 249 250 251;
-    --brand-dark: 15 23 42;
+    /* Brand colors - elegant neutral palette */
+    --brand-primary: 0 74 173;        /* Deep Navy */
+    --brand-secondary: 55 65 81;      /* Charcoal */
+    --brand-accent: 15 118 110;       /* Subtle Teal */
+    --brand-neutral: 100 116 139;     /* Medium Grey */
+    --brand-light: 250 250 250;       /* Soft White */
+    --brand-dark: 30 41 59;
     
     /* Header specific colors */
-    --header-text: 29 78 216;
-    --header-text-hover: 37 99 235;
+    --header-text: 0 74 173;
+    --header-text-hover: 15 118 110;
   }
 
   .dark {
@@ -52,7 +52,7 @@
     --card-foreground: 248 250 252;
     --popover: 30 41 59;
     --popover-foreground: 248 250 252;
-    --primary: 29 78 216;
+    --primary: 0 74 173;
     --primary-foreground: 255 255 255;
     --secondary: 51 65 85;
     --secondary-foreground: 226 232 240;
@@ -64,11 +64,11 @@
     --destructive-foreground: 255 255 255;
     --border: 51 65 85;
     --input: 51 65 85;
-    --ring: 29 78 216;
+    --ring: 0 74 173;
     
     /* Header specific colors for dark mode */
     --header-text: 148 163 184;
-    --header-text-hover: 29 78 216;
+    --header-text-hover: 0 74 173;
   }
 
   * {
@@ -203,13 +203,13 @@ body, html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, rgb(29, 78, 216), rgb(37, 99, 235));
+  background: linear-gradient(135deg, rgb(0, 74, 173), rgb(55, 65, 81));
   border-radius: 4px;
   transition: background 0.3s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, rgb(37, 99, 235), rgb(59, 130, 246));
+  background: linear-gradient(135deg, rgb(15, 118, 110), rgb(0, 74, 173));
 }
 
 ::-webkit-scrollbar-corner {
@@ -231,7 +231,7 @@ body, html {
 
 .focus-visible:focus {
   @apply outline-2 outline-offset-2;
-  outline-color: rgb(29, 78, 216);
+  outline-color: rgb(0, 74, 173);
 }
 
 @media (prefers-contrast: high) {
