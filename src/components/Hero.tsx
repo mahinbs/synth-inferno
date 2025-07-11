@@ -48,7 +48,7 @@ const Hero = memo(() => {
           {/* Main Headline */}
           <h1 className={`font-heading text-6xl md:text-8xl font-bold mb-8 text-white ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
             Engineering the 
-            <span className="block bg-gradient-to-r from-slate-400 via-stone-400 to-zinc-400 bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-cyan-400 via-teal-400 to-blue-400 bg-clip-text text-transparent">
               Future. Today.
             </span>
           </h1>
