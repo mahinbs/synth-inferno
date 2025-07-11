@@ -77,7 +77,8 @@ const ProjectGrid = ({ services, selectedService, isVisible, handleProjectClick 
         .filter(service => service.projects.length > 0) // Only show services with projects
         .filter(service => !selectedService || service.id === selectedService)
         .map((service, serviceIndex) => {
-          const colors = colorClasses[service.color];
+          console.log('Service color:', service.color, 'Available colors:', Object.keys(colorClasses));
+          const colors = colorClasses[service.color] || colorClasses.gray; // Fallback to gray
           const ServiceIcon = getServiceIcon(service.id);
           
           return (
