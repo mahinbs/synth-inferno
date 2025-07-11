@@ -55,16 +55,16 @@ const About = memo(() => {
                   
                   {/* Name and Title */}
                   <div className="space-y-2">
-                    <h2 className="text-3xl lg:text-4xl font-bold text-foreground">
+                    <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">
                       Chandrashekhar Saraswat
                     </h2>
-                    <p className="text-xl text-muted-foreground font-medium">
+                    <p className="text-xl text-gray-600 font-medium">
                       CEO, Dee&Cee Labs
                     </p>
                   </div>
 
                   {/* Quote */}
-                  <blockquote className="text-lg lg:text-xl leading-relaxed text-muted-foreground border-l-4 border-primary pl-6 italic">
+                  <blockquote className="text-lg lg:text-xl leading-relaxed text-gray-700 border-l-4 border-blue-500 pl-6 italic font-medium">
                     "The products I can build for you will be the creative ones which would need high level of human intellect. We at Dee&Cee Labs don't build things blindly but put our sweat and blood into creativity and innovation.
                     <br /><br />
                     We just don't build, we think and build.
@@ -98,10 +98,10 @@ const About = memo(() => {
           {/* Mission Statement */}
           <div className="mt-20 text-center">
             <div className="max-w-4xl mx-auto space-y-8">
-              <h3 className="text-2xl lg:text-3xl font-bold text-foreground">
+              <h3 className="text-2xl lg:text-3xl font-bold text-gray-900">
                 Our Mission
               </h3>
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="text-lg text-gray-700 leading-relaxed font-medium">
                 At Dee&Cee Labs, we believe in the power of thoughtful innovation. Every project we undertake 
                 is an opportunity to blend cutting-edge technology with human creativity, delivering solutions 
                 that don't just work—they inspire.
@@ -112,24 +112,24 @@ const About = memo(() => {
                   <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
                     <span className="text-2xl">🎯</span>
                   </div>
-                  <h4 className="text-xl font-semibold text-foreground">Think First</h4>
-                  <p className="text-muted-foreground">We approach every challenge with strategic thinking and creative problem-solving.</p>
+                  <h4 className="text-xl font-semibold text-gray-900">Think First</h4>
+                  <p className="text-gray-600">We approach every challenge with strategic thinking and creative problem-solving.</p>
                 </div>
                 
                 <div className="text-center space-y-4">
                   <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
                     <span className="text-2xl">🚀</span>
                   </div>
-                  <h4 className="text-xl font-semibold text-foreground">Build Smart</h4>
-                  <p className="text-muted-foreground">Our solutions are crafted with precision, scalability, and user experience in mind.</p>
+                  <h4 className="text-xl font-semibold text-gray-900">Build Smart</h4>
+                  <p className="text-gray-600">Our solutions are crafted with precision, scalability, and user experience in mind.</p>
                 </div>
                 
                 <div className="text-center space-y-4">
                   <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
                     <span className="text-2xl">💡</span>
                   </div>
-                  <h4 className="text-xl font-semibold text-foreground">Innovate Always</h4>
-                  <p className="text-muted-foreground">We're constantly exploring new technologies and methodologies to stay ahead.</p>
+                  <h4 className="text-xl font-semibold text-gray-900">Innovate Always</h4>
+                  <p className="text-gray-600">We're constantly exploring new technologies and methodologies to stay ahead.</p>
                 </div>
               </div>
             </div>
