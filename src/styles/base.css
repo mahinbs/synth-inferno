@@ -167,11 +167,42 @@
   }
 }
 
-/* Fix horizontal scrolling globally */
+/* Fix horizontal scrolling globally and enforce white backgrounds */
 body, html {
   overflow-x: hidden;
   max-width: 100vw;
   background-color: #ffffff !important;
+}
+
+/* CRITICAL: Override any fluorescent backgrounds across all devices */
+.hero-section, .mission-section, .about-section, section {
+  background-color: #FAFAFA !important;
+  color: #1A1A1A !important;
+}
+
+/* Force white backgrounds on all main containers */
+.bg-background, .bg-card, .bg-popover {
+  background-color: #ffffff !important;
+}
+
+/* Remove any yellow highlights */
+.highlight-bar {
+  background-color: transparent !important;
+  border-left: 4px solid #004AAD !important;
+}
+
+/* Device-specific overrides for problematic rendering */
+@media screen and (max-width: 768px) {
+  body, html, * {
+    background-color: #ffffff !important;
+  }
+}
+
+/* Windows-specific overrides */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  body, html, .bg-background {
+    background-color: #ffffff !important;
+  }
 }
 
 /* Enhanced glassmorphism */

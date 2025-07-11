@@ -15,7 +15,7 @@ const Hero = memo(() => {
       });
     }
   };
-  return <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+  return <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden hero-section bg-white">
       {/* Video Background */}
       <div className="absolute inset-0 z-0">
         <iframe src="https://player.cloudinary.com/embed/?cloud_name=dknafpppp&public_id=0_Ai_Artificial_Intelligence_1280x720-2_wbcpcy&profile=cld-default&autoplay=true&loop=true&muted=true&controls=false" className="w-full h-full object-cover" style={{
