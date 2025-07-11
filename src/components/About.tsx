@@ -79,7 +79,7 @@ const About = memo(() => {
                   <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-6">
                     <Button 
                       size="lg" 
-                      className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105"
+                      className="bg-gray-700 text-white hover:bg-gray-800 px-8 py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105"
                     >
                       Let's Build Together
                     </Button>
