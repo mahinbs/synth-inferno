@@ -58,7 +58,7 @@ export interface Service {
   id: string;
   icon: any;
   title: string;
-  color: "cyan" | "blue" | "purple" | "pink" | "green";
+  color: "slate" | "gray" | "stone" | "zinc" | "neutral";
   projects: Project[];
 }
 
@@ -67,7 +67,7 @@ export const projectsData: Service[] = [
     id: "web-apps",
     icon: Code,
     title: "Web Applications",
-    color: "cyan",
+    color: "slate",
     projects: [],
     //  webAppsProjects
   },
@@ -75,7 +75,7 @@ export const projectsData: Service[] = [
     id: "saas",
     icon: Cloud,
     title: "SAAS Solutions",
-    color: "blue",
+    color: "gray",
     projects: [],
     //  saasProjects
   },
@@ -83,7 +83,7 @@ export const projectsData: Service[] = [
     id: "mobile-apps",
     icon: Smartphone,
     title: "Mobile Applications",
-    color: "purple",
+    color: "stone",
     projects: [],
     //  mobileAppsProjects
   },
@@ -107,7 +107,7 @@ export const projectsData: Service[] = [
     id: "ai-calling",
     icon: Phone,
     title: "AI Calling Agency",
-    color: "pink",
+    color: "zinc",
     projects: [],
     //  aiCallingProjects
   },

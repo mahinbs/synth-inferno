@@ -55,14 +55,14 @@ const PortfolioSection = () => {
       className="py-20 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden"
     >
       {/* Subtle background pattern overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-transparent to-purple-50/20 pointer-events-none"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-50/30 via-transparent to-gray-50/20 pointer-events-none"></div>
 
       <div className="container mx-auto px-6 relative z-10">
         <PortfolioHeader isVisible={isVisible} setIsVisible={setIsVisible} />
         
         {loading ? (
           <div className="flex flex-col items-center justify-center py-16">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mb-4"></div>
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-slate-700 mb-4"></div>
             <p className="text-gray-600">Loading our amazing projects...</p>
           </div>
         ) : error ? (
@@ -70,7 +70,7 @@ const PortfolioSection = () => {
             <div className="text-red-500 mb-4">⚠️ {error}</div>
             <button 
               onClick={() => window.location.reload()} 
-              className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+              className="px-4 py-2 bg-slate-700 text-white rounded-lg hover:bg-slate-800 transition-colors"
             >
               Retry
             </button>

@@ -18,7 +18,7 @@ const RelatedPosts = ({ relatedPosts }: RelatedPostsProps) => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {relatedPosts.map((relatedPost) => (
           <Link key={relatedPost.id} to={`/blog/${relatedPost.id}`} className="group">
-            <article className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-xl overflow-hidden hover:border-cyan-500/50 transition-all duration-300">
+            <article className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-xl overflow-hidden hover:border-slate-500/50 transition-all duration-300">
               <div className="relative h-48 overflow-hidden">
                 <OptimizedImage
                   src={relatedPost.featuredImage}
@@ -27,7 +27,7 @@ const RelatedPosts = ({ relatedPosts }: RelatedPostsProps) => {
                 />
               </div>
               <div className="p-6">
-                <h3 className="font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors line-clamp-2">
+                <h3 className="font-bold text-white mb-2 group-hover:text-slate-400 transition-colors line-clamp-2">
                   {relatedPost.title}
                 </h3>
                 <p className="text-gray-300 text-sm line-clamp-2">

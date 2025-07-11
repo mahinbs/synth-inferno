@@ -30,7 +30,7 @@ const BlogSearch = ({ onSearch, placeholder = "Search blog posts..." }: BlogSear
         value={query}
         onChange={(e) => handleSearch(e.target.value)}
         placeholder={placeholder}
-        className="w-full pl-10 pr-10 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition-colors"
+        className="w-full pl-10 pr-10 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:border-slate-500 transition-colors"
       />
       {query && (
         <button

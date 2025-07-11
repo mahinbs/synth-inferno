@@ -10,7 +10,7 @@ const ExpertiseGrid = memo(({ isVisible }: ExpertiseGridProps) => {
     <div className={`mb-16 transition-all duration-700 delay-600 ${isVisible ? 'animate-fade-in opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
       <div className="text-center mb-12">
         <h3 className="text-3xl font-bold text-white mb-4">
-          Our <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Expertise</span>
+          Our <span className="text-slate-700">Expertise</span>
         </h3>
         <p className="text-gray-400 max-w-3xl mx-auto">
           At Dee&Cee Labs, expertise isn't just about the tools we use—it's about how we think, solve problems, and build systems that drive real-world outcomes.

@@ -5,7 +5,7 @@ import ProjectCard from './ProjectCard';
 interface Service {
   id: string;
   title: string;
-  color: 'cyan' | 'blue' | 'pink' | 'purple' | 'green';
+  color: 'slate' | 'gray' | 'stone' | 'zinc' | 'neutral';
   projects: any[];
 }
 
@@ -29,45 +29,45 @@ const ProjectGrid = ({ services, selectedService, isVisible, handleProjectClick 
   };
 
   const colorClasses = {
-    cyan: {
-      border: 'border-cyan-400/30',
-      gradient: 'from-cyan-400/10 to-cyan-600/10',
-      icon: 'bg-cyan-500/10 text-cyan-400 border-cyan-400/30',
-      text: 'text-cyan-400',
-      button: 'bg-cyan-500/20 border-cyan-400/30 text-cyan-400 hover:bg-cyan-500/30',
-      tag: 'bg-cyan-500/20 text-cyan-300 border-cyan-500/30'
+    slate: {
+      border: 'border-slate-400/30',
+      gradient: 'from-slate-400/10 to-slate-600/10',
+      icon: 'bg-slate-500/10 text-slate-400 border-slate-400/30',
+      text: 'text-slate-400',
+      button: 'bg-slate-500/20 border-slate-400/30 text-slate-400 hover:bg-slate-500/30',
+      tag: 'bg-slate-500/20 text-slate-300 border-slate-500/30'
     },
-    blue: {
-      border: 'border-blue-400/30',
-      gradient: 'from-blue-400/10 to-blue-600/10',
-      icon: 'bg-blue-500/10 text-blue-400 border-blue-400/30',
-      text: 'text-blue-400',
-      button: 'bg-blue-500/20 border-blue-400/30 text-blue-400 hover:bg-blue-500/30',
-      tag: 'bg-blue-500/20 text-blue-300 border-blue-500/30'
+    gray: {
+      border: 'border-gray-400/30',
+      gradient: 'from-gray-400/10 to-gray-600/10',
+      icon: 'bg-gray-500/10 text-gray-400 border-gray-400/30',
+      text: 'text-gray-400',
+      button: 'bg-gray-500/20 border-gray-400/30 text-gray-400 hover:bg-gray-500/30',
+      tag: 'bg-gray-500/20 text-gray-300 border-gray-500/30'
     },
-    pink: {
-      border: 'border-pink-400/30',
-      gradient: 'from-pink-400/10 to-pink-600/10',
-      icon: 'bg-pink-500/10 text-pink-400 border-pink-400/30',
-      text: 'text-pink-400',
-      button: 'bg-pink-500/20 border-pink-400/30 text-pink-400 hover:bg-pink-500/30',
-      tag: 'bg-pink-500/20 text-pink-300 border-pink-500/30'
+    stone: {
+      border: 'border-stone-400/30',
+      gradient: 'from-stone-400/10 to-stone-600/10',
+      icon: 'bg-stone-500/10 text-stone-400 border-stone-400/30',
+      text: 'text-stone-400',
+      button: 'bg-stone-500/20 border-stone-400/30 text-stone-400 hover:bg-stone-500/30',
+      tag: 'bg-stone-500/20 text-stone-300 border-stone-500/30'
     },
-    purple: {
-      border: 'border-purple-400/30',
-      gradient: 'from-purple-400/10 to-purple-600/10',
-      icon: 'bg-purple-500/10 text-purple-400 border-purple-400/30',
-      text: 'text-purple-400',
-      button: 'bg-purple-500/20 border-purple-400/30 text-purple-400 hover:bg-purple-500/30',
-      tag: 'bg-purple-500/20 text-purple-300 border-purple-500/30'
+    zinc: {
+      border: 'border-zinc-400/30',
+      gradient: 'from-zinc-400/10 to-zinc-600/10',
+      icon: 'bg-zinc-500/10 text-zinc-400 border-zinc-400/30',
+      text: 'text-zinc-400',
+      button: 'bg-zinc-500/20 border-zinc-400/30 text-zinc-400 hover:bg-zinc-500/30',
+      tag: 'bg-zinc-500/20 text-zinc-300 border-zinc-500/30'
     },
-    green: {
-      border: 'border-green-400/30',
-      gradient: 'from-green-400/10 to-green-600/10',
-      icon: 'bg-green-500/10 text-green-400 border-green-400/30',
-      text: 'text-green-400',
-      button: 'bg-green-500/20 border-green-400/30 text-green-400 hover:bg-green-500/30',
-      tag: 'bg-green-500/20 text-green-300 border-green-500/30'
+    neutral: {
+      border: 'border-neutral-400/30',
+      gradient: 'from-neutral-400/10 to-neutral-600/10',
+      icon: 'bg-neutral-500/10 text-neutral-400 border-neutral-400/30',
+      text: 'text-neutral-400',
+      button: 'bg-neutral-500/20 border-neutral-400/30 text-neutral-400 hover:bg-neutral-500/30',
+      tag: 'bg-neutral-500/20 text-neutral-300 border-neutral-500/30'
     }
   };
 

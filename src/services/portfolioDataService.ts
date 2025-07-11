@@ -85,16 +85,16 @@ export const getPortfolioData = async (): Promise<Service[]> => {
         uniqueAdminServiceIds.forEach(serviceId => {
           if (!existingServiceIds.includes(serviceId)) {
             let serviceTitle = serviceId;
-            let serviceColor: 'cyan' | 'blue' | 'pink' | 'purple' | 'green' = 'blue';
+            let serviceColor: 'slate' | 'gray' | 'stone' | 'zinc' | 'neutral' = 'gray';
             
             switch (serviceId) {
               case 'mobile-apps':
                 serviceTitle = 'Mobile Applications';
-                serviceColor = 'purple';
+                serviceColor = 'stone';
                 break;
               case 'ai-automation':
                 serviceTitle = 'AI Automation';
-                serviceColor = 'green';
+                serviceColor = 'neutral';
                 break;
               default:
                 serviceTitle = serviceId.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase());
