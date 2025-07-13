@@ -28,30 +28,6 @@ export const aiServices: ServiceData[] = [
     route: "/chatbot-development",
   },
   {
-    id: "sales-force",
-    icon: Brain,
-    title: "Sales Force",
-    description:
-      "End-to-end CRM and sales pipeline automation solutions tailored to boost lead conversions and manage enterprise relationships.",
-    detailedDescription:
-      "Comprehensive Salesforce platform setup and customization with automated workflows, lead tracking, and performance analytics. Transform your sales process with enterprise-grade CRM solutions.",
-    image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    backgroundImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-    features: [
-      "Salesforce Platform Setup",
-      "Sales Pipeline Automation",
-      "Lead Capture & Tracking",
-      "Real-time Reporting",
-      "CRM Data Migration",
-    ],
-    technologies: ["Salesforce", "Apex", "Lightning", "Pardot"],
-    startingPrice: "$9,000",
-    timeline: "6-12 weeks",
-    color: "blue" as const,
-    route: "/sales-force",
-  },
-  {
     id: "ai-calling",
     icon: Brain,
     title: "AI Calling Agency",
