@@ -75,7 +75,7 @@ const Hero = memo(() => {
                 <CheckCircle className="h-8 w-8 text-gray-300" />
               </div>
               <h3 className="text-xl font-semibold mb-2 text-white">AI-Powered Solutions</h3>
-              <p className="text-gray-300">Cutting edge artificial intelligence and machine learning implementations</p>
+              <p className="text-gray-300">Intelligent AI. From Machine Learning to Agents. Built to Scale.</p>
             </div>
             
             <div className="text-center group">

@@ -11,16 +11,15 @@ const contactFormSchema = z.object({
   lastName: z.string().min(2, 'Last name must be at least 2 characters'),
   email: z.string().email('Please enter a valid email address'),
   subject: z.string().min(5, 'Subject must be at least 5 characters'),
-  message: z.string().min(10, 'Message must be at least 10 characters'),
+  message: z.string().min(10, 'Message must be at least 10 characters')
 });
-
 type ContactFormData = z.infer<typeof contactFormSchema>;
-
 const Contact = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
-
+  const {
+    toast
+  } = useToast();
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: {
@@ -28,8 +27,8 @@ const Contact = () => {
       lastName: '',
       email: '',
       subject: '',
-      message: '',
-    },
+      message: ''
+    }
   });
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
@@ -53,7 +52,6 @@ const Contact = () => {
   // Handle form submission
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
-    
     try {
       // EmailJS configuration
       const templateParams = {
@@ -63,7 +61,7 @@ const Contact = () => {
         to_email: 'connect@deenceelabs.com',
         subject: data.subject,
         message: data.message,
-        reply_to: data.email,
+        reply_to: data.email
       };
 
       // Send email using EmailJS
@@ -72,30 +70,29 @@ const Contact = () => {
       // 2. Create an account and service
       // 3. Create an email template with variables: {{from_name}}, {{from_email}}, {{subject}}, {{message}}
       // 4. Replace the values below with your actual service ID, template ID, and public key
-      await emailjs.send(
-        'service_YOUR_SERVICE_ID', // Replace with your EmailJS service ID
-        'template_YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
-        templateParams,
-        'YOUR_PUBLIC_KEY' // Replace with your EmailJS public key
+      await emailjs.send('service_YOUR_SERVICE_ID',
+      // Replace with your EmailJS service ID
+      'template_YOUR_TEMPLATE_ID',
+      // Replace with your EmailJS template ID
+      templateParams, 'YOUR_PUBLIC_KEY' // Replace with your EmailJS public key
       );
 
       // Success feedback
       toast({
         title: "Message sent successfully!",
-        description: "Thank you for contacting us. We'll get back to you soon.",
+        description: "Thank you for contacting us. We'll get back to you soon."
       });
 
       // Reset form
       form.reset();
-      
     } catch (error) {
       console.error('EmailJS Error:', error);
-      
+
       // Error feedback
       toast({
         title: "Failed to send message",
         description: "Please try again or contact us directly at connect@deenceelabs.com",
-        variant: "destructive",
+        variant: "destructive"
       });
     } finally {
       setIsSubmitting(false);
@@ -221,7 +218,7 @@ const Contact = () => {
               <Mail className="h-6 w-6" />
             </div>
             <h3 className="text-lg font-semibold text-white mb-2">Email Us</h3>
-            <p className="text-cyan-400 font-medium">connect@deeceelabs.com</p>
+            <p className="text-cyan-400 font-medium">connect@deenceelabs.com</p>
             <p className="text-gray-400 text-sm mt-1">Business inquiries</p>
           </div>
 
@@ -258,35 +255,15 @@ const Contact = () => {
                     <label htmlFor="firstName" className="block text-sm font-medium text-gray-300 mb-2">
                       First Name *
                     </label>
-                    <input 
-                      type="text" 
-                      id="firstName" 
-                      {...form.register('firstName')}
-                      className={`w-full px-4 py-3 bg-gray-800/50 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition-all duration-200 text-white placeholder-gray-400 ${
-                        form.formState.errors.firstName ? 'border-red-500' : 'border-gray-600/50'
-                      }`}
-                      placeholder="John" 
-                    />
-                    {form.formState.errors.firstName && (
-                      <p className="text-red-400 text-sm mt-1">{form.formState.errors.firstName.message}</p>
-                    )}
+                    <input type="text" id="firstName" {...form.register('firstName')} className={`w-full px-4 py-3 bg-gray-800/50 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition-all duration-200 text-white placeholder-gray-400 ${form.formState.errors.firstName ? 'border-red-500' : 'border-gray-600/50'}`} placeholder="John" />
+                    {form.formState.errors.firstName && <p className="text-red-400 text-sm mt-1">{form.formState.errors.firstName.message}</p>}
                   </div>
                   <div>
                     <label htmlFor="lastName" className="block text-sm font-medium text-gray-300 mb-2">
                       Last Name *
                     </label>
-                    <input 
-                      type="text" 
-                      id="lastName" 
-                      {...form.register('lastName')}
-                      className={`w-full px-4 py-3 bg-gray-800/50 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition-all duration-200 text-white placeholder-gray-400 ${
-                        form.formState.errors.lastName ? 'border-red-500' : 'border-gray-600/50'
-                      }`}
-                      placeholder="Doe" 
-                    />
-                    {form.formState.errors.lastName && (
-                      <p className="text-red-400 text-sm mt-1">{form.formState.errors.lastName.message}</p>
-                    )}
+                    <input type="text" id="lastName" {...form.register('lastName')} className={`w-full px-4 py-3 bg-gray-800/50 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition-all duration-200 text-white placeholder-gray-400 ${form.formState.errors.lastName ? 'border-red-500' : 'border-gray-600/50'}`} placeholder="Doe" />
+                    {form.formState.errors.lastName && <p className="text-red-400 text-sm mt-1">{form.formState.errors.lastName.message}</p>}
                   </div>
                 </div>
 
@@ -294,72 +271,34 @@ const Contact = () => {
                   <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
                     Email Address *
                   </label>
-                  <input 
-                    type="email" 
-                    id="email" 
-                    {...form.register('email')}
-                    className={`w-full px-4 py-3 bg-gray-800/50 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition-all duration-200 text-white placeholder-gray-400 ${
-                      form.formState.errors.email ? 'border-red-500' : 'border-gray-600/50'
-                    }`}
-                    placeholder="john@example.com" 
-                  />
-                  {form.formState.errors.email && (
-                    <p className="text-red-400 text-sm mt-1">{form.formState.errors.email.message}</p>
-                  )}
+                  <input type="email" id="email" {...form.register('email')} className={`w-full px-4 py-3 bg-gray-800/50 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition-all duration-200 text-white placeholder-gray-400 ${form.formState.errors.email ? 'border-red-500' : 'border-gray-600/50'}`} placeholder="john@example.com" />
+                  {form.formState.errors.email && <p className="text-red-400 text-sm mt-1">{form.formState.errors.email.message}</p>}
                 </div>
 
                 <div>
                   <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
                     Subject *
                   </label>
-                  <input 
-                    type="text" 
-                    id="subject" 
-                    {...form.register('subject')}
-                    className={`w-full px-4 py-3 bg-gray-800/50 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition-all duration-200 text-white placeholder-gray-400 ${
-                      form.formState.errors.subject ? 'border-red-500' : 'border-gray-600/50'
-                    }`}
-                    placeholder="Project Discussion" 
-                  />
-                  {form.formState.errors.subject && (
-                    <p className="text-red-400 text-sm mt-1">{form.formState.errors.subject.message}</p>
-                  )}
+                  <input type="text" id="subject" {...form.register('subject')} className={`w-full px-4 py-3 bg-gray-800/50 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition-all duration-200 text-white placeholder-gray-400 ${form.formState.errors.subject ? 'border-red-500' : 'border-gray-600/50'}`} placeholder="Project Discussion" />
+                  {form.formState.errors.subject && <p className="text-red-400 text-sm mt-1">{form.formState.errors.subject.message}</p>}
                 </div>
 
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
                     Message *
                   </label>
-                  <textarea 
-                    id="message" 
-                    rows={5} 
-                    {...form.register('message')}
-                    className={`w-full px-4 py-3 bg-gray-800/50 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition-all duration-200 resize-none text-white placeholder-gray-400 ${
-                      form.formState.errors.message ? 'border-red-500' : 'border-gray-600/50'
-                    }`}
-                    placeholder="Tell us about your project..."
-                  />
-                  {form.formState.errors.message && (
-                    <p className="text-red-400 text-sm mt-1">{form.formState.errors.message.message}</p>
-                  )}
+                  <textarea id="message" rows={5} {...form.register('message')} className={`w-full px-4 py-3 bg-gray-800/50 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition-all duration-200 resize-none text-white placeholder-gray-400 ${form.formState.errors.message ? 'border-red-500' : 'border-gray-600/50'}`} placeholder="Tell us about your project..." />
+                  {form.formState.errors.message && <p className="text-red-400 text-sm mt-1">{form.formState.errors.message.message}</p>}
                 </div>
 
-                <button 
-                  type="submit" 
-                  disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-6 py-4 rounded-lg hover:from-cyan-400 hover:to-blue-500 transition-all duration-300 font-semibold flex items-center justify-center space-x-2 shadow-lg hover:shadow-cyan-500/25 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
-                >
-                  {isSubmitting ? (
-                    <>
+                <button type="submit" disabled={isSubmitting} className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-6 py-4 rounded-lg hover:from-cyan-400 hover:to-blue-500 transition-all duration-300 font-semibold flex items-center justify-center space-x-2 shadow-lg hover:shadow-cyan-500/25 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none">
+                  {isSubmitting ? <>
                       <Loader2 className="h-5 w-5 animate-spin" />
                       <span>Sending...</span>
-                    </>
-                  ) : (
-                    <>
+                    </> : <>
                       <span>Send Message</span>
                       <Send className="h-5 w-5" />
-                    </>
-                  )}
+                    </>}
                 </button>
               </form>
             </div>
@@ -392,7 +331,7 @@ const Contact = () => {
                     <Target className="h-4 w-4" />
                   </div>
                   <div>
-                    <p className="text-white font-medium">1,500+ Projects Delivered</p>
+                    <p className="text-white font-medium">15+ Projects Delivered</p>
                     <p className="text-gray-400 text-sm">Across 56+ cities worldwide</p>
                   </div>
                 </div>
@@ -401,7 +340,7 @@ const Contact = () => {
                     <Users className="h-4 w-4" />
                   </div>
                   <div>
-                    <p className="text-white font-medium">230+ Expert Team Members</p>
+                    <p className="text-white font-medium">20+ Expert Team Members</p>
                     <p className="text-gray-400 text-sm">Developers, designers & strategists</p>
                   </div>
                 </div>
@@ -410,8 +349,8 @@ const Contact = () => {
                     <Globe className="h-4 w-4" />
                   </div>
                   <div>
-                    <p className="text-white font-medium">7+ Years of Innovation</p>
-                    <p className="text-gray-400 text-sm">Since 2017, trusted globally</p>
+                    <p className="text-white font-medium">1+ Years of Innovation</p>
+                    <p className="text-gray-400 text-sm">Since 2024, trusted globally</p>
                   </div>
                 </div>
               </div>
@@ -469,9 +408,7 @@ const Contact = () => {
             <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Ready to <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Get Started?</span>
             </h3>
-            <p className="text-gray-300 mb-6 max-w-2xl mx-auto leading-relaxed">
-              Join 1,500+ satisfied clients who have transformed their businesses with our cutting-edge solutions.
-            </p>
+            <p className="text-gray-300 mb-6 max-w-2xl mx-auto leading-relaxed">Join 15+ satisfied clients who have transformed their businesses with our cutting-edge solutions.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <button className="inline-flex items-center space-x-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-8 py-4 rounded-xl hover:from-cyan-400 hover:to-blue-500 transition-all duration-300 font-medium shadow-lg hover:shadow-cyan-500/25 transform hover:scale-105">
                 <span>Start Your Project</span>

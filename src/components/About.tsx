@@ -24,12 +24,9 @@ const About = memo(() => {
       }
     };
   }, []);
-  return (
-    <section id="about" className="py-20 bg-white relative overflow-hidden about-section">
+  return <section id="about" className="py-20 bg-white relative overflow-hidden about-section">
       <div className="container mx-auto px-6 lg:px-8">
-        <div className={`transition-all duration-1000 ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        }`}>
+        <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           
           {/* CEO Profile Section */}
           <div className="max-w-6xl mx-auto">
@@ -38,11 +35,7 @@ const About = memo(() => {
               {/* Profile Image */}
               <div className="flex-shrink-0">
                 <Avatar className="w-48 h-48 lg:w-56 lg:h-56 ring-4 ring-primary/20 shadow-xl">
-                  <AvatarImage 
-                    src={ceoProfile} 
-                    alt="Chandrashekhar Saraswat"
-                    className="object-cover"
-                  />
+                  <AvatarImage src={ceoProfile} alt="Chandrashekhar Saraswat" className="object-cover" />
                   <AvatarFallback className="text-4xl font-bold bg-primary/10 text-primary">
                     CS
                   </AvatarFallback>
@@ -74,18 +67,11 @@ const About = memo(() => {
 
                   {/* CTA Section */}
                   <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-6">
-                    <Button 
-                      size="lg" 
-                      className="bg-gray-700 text-white hover:bg-gray-800 px-8 py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105"
-                    >
+                    <Button size="lg" className="bg-gray-700 text-white hover:bg-gray-800 px-8 py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105">
                       Let's Build Together
                     </Button>
                     
-                    <Button 
-                      variant="outline" 
-                      size="lg"
-                      className="bg-gray-700 text-white hover:bg-gray-800 px-6 py-3 rounded-lg font-medium transition-all duration-300"
-                    >
+                    <Button variant="outline" size="lg" className="bg-gray-700 text-white hover:bg-gray-800 px-6 py-3 rounded-lg font-medium transition-all duration-300">
                       <Linkedin className="w-5 h-5 mr-2" />
                       Connect on LinkedIn
                     </Button>
@@ -101,11 +87,7 @@ const About = memo(() => {
               <h3 className="text-2xl lg:text-3xl font-bold text-gray-900">
                 Our Mission
               </h3>
-              <p className="text-lg text-gray-700 leading-relaxed font-medium">
-                At Dee&Cee Labs, we believe in the power of thoughtful innovation. Every project we undertake 
-                is an opportunity to blend cutting-edge technology with human creativity, delivering solutions 
-                that don't just work—they inspire.
-              </p>
+              <p className="text-lg text-gray-700 leading-relaxed font-medium">At Dee&amp;Cee Labs, we believe in the power of thoughtful innovation. Every project we undertake is an opportunity to blend cutting-edge technology with human creativity, delivering solutions that don't just work, they inspire.</p>
               
               <div className="grid md:grid-cols-3 gap-8 mt-12">
                 <div className="text-center space-y-4">
@@ -137,8 +119,7 @@ const About = memo(() => {
 
         </div>
       </div>
-    </section>
-  );
+    </section>;
 });
 About.displayName = 'About';
 export default About;
