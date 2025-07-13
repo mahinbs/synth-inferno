@@ -42,7 +42,7 @@ const Contact = () => {
   }, {
     city: 'Uttar Pradesh',
     country: 'India',
-    address: 'Address to be confirmed', // Please provide specific address for Uttar Pradesh location
+    address: 'A-143, 7-C Shalimar Garden Extension 2, Sahibabad, Ghaziabad, 201005',
     phone: '+91 9289225663',
     email: 'connect@deenceelabs.com',
     color: 'purple',
