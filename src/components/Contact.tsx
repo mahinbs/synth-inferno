@@ -22,22 +22,31 @@ const Contact = () => {
   }, []);
 
   const offices = [{
-    city: 'Ghaziabad',
+    city: 'New Delhi',
     country: 'India',
-    address: 'A-143, 7-C Shalimar Garden Extension 2, Sahibabad, Ghaziabad 201005',
+    address: '5th floor, Caddie Commercial Tower, at Aerocity (DIAL), New Delhi, Delhi 110037',
     phone: '+91 9289225663',
     email: 'connect@deenceelabs.com',
     color: 'green',
     image: 'https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=800&q=80',
     timezone: 'GMT+5:30'
   }, {
-    city: 'Uttarakhand',
-    country: 'India',
-    address: 'House No. 12, Deoria, Udham Singh Nagar, Uttarakhand 263148',
+    city: 'Bengaluru',
+    country: 'BL Commerce, India',
+    address: '125, 7th Cross Rd, off Bannerghatta Main Road, Dollar Layout, BTM 2nd Stage, Bilekahalli, Bengaluru, Bangalore, Karnataka 560076',
     phone: '+91 9289225663',
     email: 'connect@deenceelabs.com',
     color: 'blue',
     image: 'https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=800&q=80',
+    timezone: 'GMT+5:30'
+  }, {
+    city: 'Uttar Pradesh',
+    country: 'India',
+    address: 'Address to be confirmed', // Please provide specific address for Uttar Pradesh location
+    phone: '+91 9289225663',
+    email: 'connect@deenceelabs.com',
+    color: 'purple',
+    image: 'https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=800&q=80',
     timezone: 'GMT+5:30'
   }];
   const socialLinks = [{
@@ -326,10 +335,10 @@ const Contact = () => {
             </h3>
             <p className="text-gray-300 mb-6 max-w-2xl mx-auto leading-relaxed">Join 15+ satisfied clients who have transformed their businesses with our cutting-edge solutions.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <button className="inline-flex items-center space-x-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-8 py-4 rounded-xl hover:from-cyan-400 hover:to-blue-500 transition-all duration-300 font-medium shadow-lg hover:shadow-cyan-500/25 transform hover:scale-105">
+              <a href="https://forms.zohopublic.in/deeampceelabs1/form/WebdevelopmentScopingSession/formperma/gV2LSwKARVxOQh4MSvJ86okXEO4nTIBcoMzrklJddqM" target="_blank" rel="noopener noreferrer" className="inline-flex items-center space-x-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-8 py-4 rounded-xl hover:from-cyan-400 hover:to-blue-500 transition-all duration-300 font-medium shadow-lg hover:shadow-cyan-500/25 transform hover:scale-105">
                 <span>Start Your Project</span>
                 <ArrowRight className="h-5 w-5" />
-              </button>
+              </a>
               <a href="https://wa.me/919289225663" className="inline-flex items-center space-x-2 border-2 border-green-400/50 text-green-300 px-8 py-4 rounded-xl hover:bg-green-400/10 hover:border-green-300 transition-all duration-300 font-medium backdrop-blur-sm">
                 <MessageCircle className="h-5 w-5" />
                 <span>WhatsApp Chat</span>
