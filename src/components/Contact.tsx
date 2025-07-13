@@ -1,35 +1,7 @@
 import { useState, useEffect } from 'react';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import * as z from 'zod';
-import emailjs from '@emailjs/browser';
-import { Mail, Phone, MapPin, Send, MessageCircle, Instagram, Globe, Users, Target, ArrowRight, Linkedin, Facebook, Loader2 } from 'lucide-react';
-import { useToast } from '@/hooks/use-toast';
-// Form validation schema
-const contactFormSchema = z.object({
-  firstName: z.string().min(2, 'First name must be at least 2 characters'),
-  lastName: z.string().min(2, 'Last name must be at least 2 characters'),
-  email: z.string().email('Please enter a valid email address'),
-  subject: z.string().min(5, 'Subject must be at least 5 characters'),
-  message: z.string().min(10, 'Message must be at least 10 characters')
-});
-type ContactFormData = z.infer<typeof contactFormSchema>;
+import { Mail, Phone, MapPin, Send, MessageCircle, Instagram, Globe, Users, Target, ArrowRight, Linkedin, Facebook } from 'lucide-react';
 const Contact = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const {
-    toast
-  } = useToast();
-  const form = useForm<ContactFormData>({
-    resolver: zodResolver(contactFormSchema),
-    defaultValues: {
-      firstName: '',
-      lastName: '',
-      email: '',
-      subject: '',
-      message: ''
-    }
-  });
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
@@ -49,55 +21,6 @@ const Contact = () => {
     };
   }, []);
 
-  // Handle form submission
-  const onSubmit = async (data: ContactFormData) => {
-    setIsSubmitting(true);
-    try {
-      // EmailJS configuration
-      const templateParams = {
-        from_name: `${data.firstName} ${data.lastName}`,
-        from_email: data.email,
-        to_name: 'Dee&Cee Labs',
-        to_email: 'connect@deenceelabs.com',
-        subject: data.subject,
-        message: data.message,
-        reply_to: data.email
-      };
-
-      // Send email using EmailJS
-      // TODO: Replace these placeholder values with your actual EmailJS credentials
-      // 1. Go to https://www.emailjs.com/
-      // 2. Create an account and service
-      // 3. Create an email template with variables: {{from_name}}, {{from_email}}, {{subject}}, {{message}}
-      // 4. Replace the values below with your actual service ID, template ID, and public key
-      await emailjs.send('service_YOUR_SERVICE_ID',
-      // Replace with your EmailJS service ID
-      'template_YOUR_TEMPLATE_ID',
-      // Replace with your EmailJS template ID
-      templateParams, 'YOUR_PUBLIC_KEY' // Replace with your EmailJS public key
-      );
-
-      // Success feedback
-      toast({
-        title: "Message sent successfully!",
-        description: "Thank you for contacting us. We'll get back to you soon."
-      });
-
-      // Reset form
-      form.reset();
-    } catch (error) {
-      console.error('EmailJS Error:', error);
-
-      // Error feedback
-      toast({
-        title: "Failed to send message",
-        description: "Please try again or contact us directly at connect@deenceelabs.com",
-        variant: "destructive"
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
   const offices = [{
     city: 'Ghaziabad',
     country: 'India',
@@ -249,21 +172,22 @@ const Contact = () => {
           <div className={`transition-all duration-1000 delay-400 ${isVisible ? 'animate-fade-in opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <div className="bg-gray-900/80 backdrop-blur-sm rounded-3xl border border-gray-700/30 p-8">
               <h3 className="text-2xl font-bold text-white mb-6">Send Us a Message</h3>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+              <form action="https://formsubmit.co/connect@deenceelabs.com" method="POST" className="space-y-6">
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_next" value={`${window.location.origin}`} />
+                
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="firstName" className="block text-sm font-medium text-gray-300 mb-2">
                       First Name *
                     </label>
-                    <input type="text" id="firstName" {...form.register('firstName')} className={`w-full px-4 py-3 bg-gray-800/50 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition-all duration-200 text-white placeholder-gray-400 ${form.formState.errors.firstName ? 'border-red-500' : 'border-gray-600/50'}`} placeholder="John" />
-                    {form.formState.errors.firstName && <p className="text-red-400 text-sm mt-1">{form.formState.errors.firstName.message}</p>}
+                    <input type="text" id="firstName" name="firstName" required className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600/50 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition-all duration-200 text-white placeholder-gray-400" placeholder="John" />
                   </div>
                   <div>
                     <label htmlFor="lastName" className="block text-sm font-medium text-gray-300 mb-2">
                       Last Name *
                     </label>
-                    <input type="text" id="lastName" {...form.register('lastName')} className={`w-full px-4 py-3 bg-gray-800/50 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition-all duration-200 text-white placeholder-gray-400 ${form.formState.errors.lastName ? 'border-red-500' : 'border-gray-600/50'}`} placeholder="Doe" />
-                    {form.formState.errors.lastName && <p className="text-red-400 text-sm mt-1">{form.formState.errors.lastName.message}</p>}
+                    <input type="text" id="lastName" name="lastName" required className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600/50 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition-all duration-200 text-white placeholder-gray-400" placeholder="Doe" />
                   </div>
                 </div>
 
@@ -271,34 +195,26 @@ const Contact = () => {
                   <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
                     Email Address *
                   </label>
-                  <input type="email" id="email" {...form.register('email')} className={`w-full px-4 py-3 bg-gray-800/50 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition-all duration-200 text-white placeholder-gray-400 ${form.formState.errors.email ? 'border-red-500' : 'border-gray-600/50'}`} placeholder="john@example.com" />
-                  {form.formState.errors.email && <p className="text-red-400 text-sm mt-1">{form.formState.errors.email.message}</p>}
+                  <input type="email" id="email" name="email" required className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600/50 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition-all duration-200 text-white placeholder-gray-400" placeholder="john@example.com" />
                 </div>
 
                 <div>
                   <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
                     Subject *
                   </label>
-                  <input type="text" id="subject" {...form.register('subject')} className={`w-full px-4 py-3 bg-gray-800/50 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition-all duration-200 text-white placeholder-gray-400 ${form.formState.errors.subject ? 'border-red-500' : 'border-gray-600/50'}`} placeholder="Project Discussion" />
-                  {form.formState.errors.subject && <p className="text-red-400 text-sm mt-1">{form.formState.errors.subject.message}</p>}
+                  <input type="text" id="subject" name="subject" required className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600/50 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition-all duration-200 text-white placeholder-gray-400" placeholder="Project Discussion" />
                 </div>
 
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
                     Message *
                   </label>
-                  <textarea id="message" rows={5} {...form.register('message')} className={`w-full px-4 py-3 bg-gray-800/50 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition-all duration-200 resize-none text-white placeholder-gray-400 ${form.formState.errors.message ? 'border-red-500' : 'border-gray-600/50'}`} placeholder="Tell us about your project..." />
-                  {form.formState.errors.message && <p className="text-red-400 text-sm mt-1">{form.formState.errors.message.message}</p>}
+                  <textarea id="message" name="message" rows={5} required className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600/50 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition-all duration-200 resize-none text-white placeholder-gray-400" placeholder="Tell us about your project..." />
                 </div>
 
-                <button type="submit" disabled={isSubmitting} className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-6 py-4 rounded-lg hover:from-cyan-400 hover:to-blue-500 transition-all duration-300 font-semibold flex items-center justify-center space-x-2 shadow-lg hover:shadow-cyan-500/25 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none">
-                  {isSubmitting ? <>
-                      <Loader2 className="h-5 w-5 animate-spin" />
-                      <span>Sending...</span>
-                    </> : <>
-                      <span>Send Message</span>
-                      <Send className="h-5 w-5" />
-                    </>}
+                <button type="submit" className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-6 py-4 rounded-lg hover:from-cyan-400 hover:to-blue-500 transition-all duration-300 font-semibold flex items-center justify-center space-x-2 shadow-lg hover:shadow-cyan-500/25 transform hover:scale-105">
+                  <span>Send Message</span>
+                  <Send className="h-5 w-5" />
                 </button>
               </form>
             </div>
