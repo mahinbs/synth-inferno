@@ -48,6 +48,15 @@ const Contact = () => {
     color: 'purple',
     image: 'https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=800&q=80',
     timezone: 'GMT+5:30'
+  }, {
+    city: 'Uttrakhand',
+    country: 'India',
+    address: 'Plot No 12, Deoria, Udham Singh Nagar, Uttrakhand, 263148',
+    phone: '+91 9289225663',
+    email: 'connect@deenceelabs.com',
+    color: 'teal',
+    image: 'https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=800&q=80',
+    timezone: 'GMT+5:30'
   }];
   const socialLinks = [{
     icon: Instagram,
