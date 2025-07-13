@@ -128,6 +128,13 @@ const Contact = () => {
       icon: 'bg-blue-500/10 text-blue-500 border-blue-500/30',
       text: 'text-blue-500',
       hover: 'hover:bg-blue-500/10 hover:border-blue-500/50'
+    },
+    teal: {
+      border: 'border-teal-400/30',
+      gradient: 'from-teal-400/10 to-teal-600/10',
+      icon: 'bg-teal-500/10 text-teal-400 border-teal-400/30',
+      text: 'text-teal-400',
+      hover: 'hover:bg-teal-500/10 hover:border-teal-400/50'
     }
   };
   return <section id="contact" className="py-20 bg-gradient-to-b from-gray-900 to-black relative overflow-hidden" style={{
