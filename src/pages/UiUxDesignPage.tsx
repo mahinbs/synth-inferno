@@ -120,8 +120,8 @@ const UiUxDesignPage = () => {
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Enterprise-Grade UI/UX Design Tech Stack</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">Enterprise-Grade UI/UX Design Tech Stack</h2>
+            <p className="text-xl text-foreground/70 max-w-3xl mx-auto">
               Professional design tools and methodologies for creating outstanding user experiences
             </p>
           </div>
@@ -130,7 +130,7 @@ const UiUxDesignPage = () => {
               <Card key={index} className="bg-card/50 backdrop-blur-sm border-primary/20">
                 <CardContent className="p-6">
                   <h3 className="text-lg font-semibold mb-2 text-primary">{stack.category}:</h3>
-                  <p className="text-muted-foreground">{stack.tools}</p>
+                  <p className="text-foreground/80">{stack.tools}</p>
                 </CardContent>
               </Card>
             ))}
@@ -143,7 +143,7 @@ const UiUxDesignPage = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose Dee&Cee Labs for UI/UX Design?</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-foreground/70 max-w-3xl mx-auto">
               Award-winning design team with proven expertise in creating user-centered digital experiences
             </p>
           </div>
@@ -152,7 +152,7 @@ const UiUxDesignPage = () => {
               <Card key={index} className="bg-card/50 backdrop-blur-sm border-primary/20 hover:border-primary/40 transition-colors duration-300">
                 <CardContent className="p-6 text-center">
                   <item.icon className="w-12 h-12 mx-auto mb-4 text-primary" />
-                  <p className="text-muted-foreground leading-relaxed">{item.title}</p>
+                  <p className="text-foreground/80 leading-relaxed">{item.title}</p>
                 </CardContent>
               </Card>
             ))}
@@ -165,7 +165,7 @@ const UiUxDesignPage = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Enterprise-Grade UI/UX Design Process</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-foreground/70 max-w-3xl mx-auto">
               Human-centered design approach that ensures every design decision is backed by user research and data
             </p>
           </div>
@@ -190,7 +190,7 @@ const UiUxDesignPage = () => {
       <section className="py-20">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your User Experience?</h2>
-          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-foreground/70 mb-8 max-w-2xl mx-auto">
             Let's create designs that not only look beautiful but also drive measurable business results and user satisfaction.
           </p>
           <a 
