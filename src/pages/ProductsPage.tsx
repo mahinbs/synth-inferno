@@ -49,27 +49,24 @@ const ProductsPage = () => {
       </section>
 
       {/* Products Grid Section */}
-      <section className="py-20 px-6 relative bg-gradient-to-br from-background via-background/80 to-background overflow-hidden">
+      <section className="py-12 px-6 relative bg-gradient-to-br from-background via-background/80 to-background overflow-hidden -mt-12">
         {/* Modern backdrop elements */}
         <div className="absolute inset-0">
           <div className="absolute top-1/4 -left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
           <div className="absolute bottom-1/4 -right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl"></div>
         </div>
         
-        <div className="container mx-auto max-w-6xl relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent"></span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto"></p>
-          </div>
-          
-          <div className="grid gap-8 max-w-md mx-auto">
-            {products.map((product, index) => <div key={product.id} className={`${isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{
-            animationDelay: `${index * 200}ms`
-          }}>
-                <ProductCard product={product} />
-              </div>)}
+        <div className="container mx-auto max-w-2xl relative z-10">
+          <div className="flex justify-center items-center">
+            <div className="grid gap-8 w-full max-w-lg mx-auto">
+              {products.map((product, index) => (
+                <div key={product.id} className={`${isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{
+                  animationDelay: `${index * 200}ms`
+                }}>
+                  <ProductCard product={product} />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
