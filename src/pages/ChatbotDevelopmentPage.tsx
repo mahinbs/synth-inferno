@@ -5,7 +5,13 @@ const ChatbotDevelopmentPage = () => {
   return (
     <div className="min-h-screen bg-slate-900">
       {/* Hero Section */}
-      <section className="bg-gradient-to-b from-slate-900 to-slate-800 px-6 py-16 text-center">
+      <section className="relative bg-gradient-to-b from-slate-900 to-slate-800 px-6 py-16 text-center overflow-hidden">
+        <div 
+          className="absolute inset-0 opacity-10 bg-cover bg-center"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=3882&q=80')`
+          }}
+        />
         <div className="container mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
             AI Autonomous Agents Development

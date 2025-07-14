@@ -23,6 +23,11 @@ const getTechStackTitle = (projectType?: string) => {
 const CaseStudyTechStack = ({
   project
 }: CaseStudyTechStackProps) => {
-  return;
+  return (
+    <div>
+      <h3>{getTechStackTitle(project.projectType)}</h3>
+      {/* Tech stack content will be implemented later */}
+    </div>
+  );
 };
 export default CaseStudyTechStack;
