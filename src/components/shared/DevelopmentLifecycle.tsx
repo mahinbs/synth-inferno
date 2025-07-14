@@ -68,18 +68,18 @@ const DevelopmentLifecycle = ({
             <Card key={index} className="p-6 bg-gray-800/50 rounded-xl border border-gray-700/50 hover:border-blue-400/30 transition-all duration-300 group">
               <CardHeader className="pb-4">
                 <div className="flex items-center space-x-4 mb-4">
-                  <div className="flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 text-primary font-bold text-lg group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
+                  <div className="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 text-cyan-400 font-bold text-lg group-hover:bg-blue-500/30 transition-colors duration-300">
                     {phase.phase}
                   </div>
-                  <CardTitle className="text-xl">{phase.title}</CardTitle>
+                  <CardTitle className="text-xl font-semibold text-cyan-400">{phase.title}</CardTitle>
                 </div>
               </CardHeader>
               <CardContent>
-                <p className="text-foreground/80 mb-4">{phase.description}</p>
+                <p className="text-gray-300 mb-4">{phase.description}</p>
                 <ul className="space-y-2">
                   {phase.activities.map((activity, idx) => (
-                    <li key={idx} className="flex items-center space-x-2 text-sm">
-                      <CheckCircle className="h-4 w-4 text-primary flex-shrink-0" />
+                    <li key={idx} className="flex items-center space-x-2 text-sm text-gray-300">
+                      <CheckCircle className="h-4 w-4 text-cyan-400 flex-shrink-0" />
                       <span>{activity}</span>
                     </li>
                   ))}
