@@ -180,46 +180,51 @@ const SaasPage = () => {
         </div>
       </section>
 
-      {/* Portfolio Section */}
+      {/* SAAS Tech Stack Section */}
       <section className="py-20 bg-gray-900/50">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Our SAAS Stack</h2>
+            <h2 className="text-4xl font-bold mb-4">Our SAAS Technology Stack</h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Explore our successful SAAS implementations across various industries
+              Cutting-edge technologies powering modern SAAS applications
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {portfolio.map((project, index) => <div key={index} className="group bg-gray-800/50 rounded-2xl overflow-hidden border border-gray-700/50 hover:border-blue-400/50 transition-all duration-300">
-                <div className="relative h-48 overflow-hidden">
-                  <img src={project.image} alt={project.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent"></div>
-                  <div className="absolute bottom-4 left-4">
-                    <span className="px-3 py-1 bg-blue-500/20 border border-blue-400/30 rounded-full text-sm text-blue-300">
-                      {project.category}
-                    </span>
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-3 group-hover:text-blue-300 transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="text-gray-400 mb-4 text-sm leading-relaxed">
-                    {project.description}
-                  </p>
-                  <div className="mb-4">
-                    <div className="flex flex-wrap gap-1 mb-3">
-                      {project.technologies.slice(0, 3).map((tech, idx) => <span key={idx} className="text-xs px-2 py-1 bg-purple-500/20 text-purple-300 rounded">
-                          {tech}
-                        </span>)}
-                    </div>
-                    <div className="text-sm text-gray-500">
-                      <div>{project.metrics}</div>
-                      <div>Timeline: {project.timeline}</div>
-                    </div>
-                  </div>
-                </div>
-              </div>)}
+          
+          <div className="saas-stack-section grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">
+            <div className="stack-group p-6 bg-gray-800/50 rounded-xl border border-gray-700/50 hover:border-blue-400/30 transition-all duration-300">
+              <h3 className="text-xl font-semibold mb-3 text-cyan-400">Frontend</h3>
+              <p className="text-gray-300 text-sm leading-relaxed">React / Next.js · Tailwind · AI UX (Chat/Voice)</p>
+            </div>
+
+            <div className="stack-group p-6 bg-gray-800/50 rounded-xl border border-gray-700/50 hover:border-blue-400/30 transition-all duration-300">
+              <h3 className="text-xl font-semibold mb-3 text-cyan-400">Backend</h3>
+              <p className="text-gray-300 text-sm leading-relaxed">Node.js / FastAPI · REST / GraphQL · OpenAI / LangChain APIs</p>
+            </div>
+
+            <div className="stack-group p-6 bg-gray-800/50 rounded-xl border border-gray-700/50 hover:border-blue-400/30 transition-all duration-300">
+              <h3 className="text-xl font-semibold mb-3 text-cyan-400">AI/ML Layer</h3>
+              <p className="text-gray-300 text-sm leading-relaxed">PyTorch · LLMs (GPT-4.5, Claude) · Vector DBs (Pinecone, Weaviate) · RAG · Agent Frameworks (CrewAI, AutoGen)</p>
+            </div>
+
+            <div className="stack-group p-6 bg-gray-800/50 rounded-xl border border-gray-700/50 hover:border-blue-400/30 transition-all duration-300">
+              <h3 className="text-xl font-semibold mb-3 text-cyan-400">DevOps & MLOps</h3>
+              <p className="text-gray-300 text-sm leading-relaxed">Docker · Kubernetes · MLflow · GitHub Actions · Weights & Biases</p>
+            </div>
+
+            <div className="stack-group p-6 bg-gray-800/50 rounded-xl border border-gray-700/50 hover:border-blue-400/30 transition-all duration-300">
+              <h3 className="text-xl font-semibold mb-3 text-cyan-400">Cloud & Infra</h3>
+              <p className="text-gray-300 text-sm leading-relaxed">AWS / GCP · Serverless · Cloudflare Workers AI · Terraform</p>
+            </div>
+
+            <div className="stack-group p-6 bg-gray-800/50 rounded-xl border border-gray-700/50 hover:border-blue-400/30 transition-all duration-300">
+              <h3 className="text-xl font-semibold mb-3 text-cyan-400">Data & Security</h3>
+              <p className="text-gray-300 text-sm leading-relaxed">Snowflake · Kafka · OAuth2 / SOC 2 / GDPR</p>
+            </div>
+
+            <div className="stack-group p-6 bg-gray-800/50 rounded-xl border border-gray-700/50 hover:border-blue-400/30 transition-all duration-300">
+              <h3 className="text-xl font-semibold mb-3 text-cyan-400">Product & Insights</h3>
+              <p className="text-gray-300 text-sm leading-relaxed">Mixpanel · LaunchDarkly · PostHog · LLM-driven Analytics</p>
+            </div>
           </div>
         </div>
       </section>
