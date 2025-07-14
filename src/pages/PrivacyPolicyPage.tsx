@@ -1,18 +1,14 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-
 const PrivacyPolicyPage = () => {
-  return (
-    <div className="min-h-screen bg-gradient-to-b from-[#0D0F21] to-[#13162B]">
+  return <div className="min-h-screen bg-gradient-to-b from-[#0D0F21] to-[#13162B]">
       <Header />
       
       <section className="pt-32 pb-20">
         <div className="container mx-auto px-6 max-w-6xl">
           {/* Header Section */}
           <div className="text-center mb-16">
-            <div className="inline-flex items-center px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full mb-6">
-              <span className="text-blue-400 text-sm font-medium">Legal Document</span>
-            </div>
+            
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent">
               Privacy Policy
             </h1>
@@ -78,18 +74,10 @@ const PrivacyPolicyPage = () => {
                 <div className="flex-1">
                   <h2 className="text-2xl font-semibold text-white mb-4">How We Use Your Information</h2>
                   <div className="space-y-3">
-                    {[
-                      "Personalizing our services",
-                      "Responding to inquiries", 
-                      "Improving our products",
-                      "Sending updates with your consent",
-                      "Ensuring compliance"
-                    ].map((item, index) => (
-                      <div key={index} className="flex items-center gap-3">
+                    {["Personalizing our services", "Responding to inquiries", "Improving our products", "Sending updates with your consent", "Ensuring compliance"].map((item, index) => <div key={index} className="flex items-center gap-3">
                         <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
                         <span className="text-[#B0B3C3]">{item}</span>
-                      </div>
-                    ))}
+                      </div>)}
                   </div>
                 </div>
               </div>
@@ -113,25 +101,33 @@ const PrivacyPolicyPage = () => {
                 <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center text-white font-bold text-sm mb-4">6</div>
                 <h3 className="text-lg font-semibold text-white mb-3">Your Rights</h3>
                 <div className="space-y-2 text-sm">
-                  {["Access, correct, or delete your data", "Withdraw consent anytime", "Object to data processing"].map((right, index) => (
-                    <div key={index} className="flex items-center gap-2">
+                  {["Access, correct, or delete your data", "Withdraw consent anytime", "Object to data processing"].map((right, index) => <div key={index} className="flex items-center gap-2">
                       <div className="w-1.5 h-1.5 bg-blue-400 rounded-full"></div>
                       <span className="text-[#B0B3C3]">{right}</span>
-                    </div>
-                  ))}
+                    </div>)}
                 </div>
               </div>
             </div>
 
             {/* Sections 7-10 in smaller cards */}
             <div className="grid md:grid-cols-2 gap-6">
-              {[
-                { num: 7, title: "Data Retention", content: "We keep data only as long as needed to fulfill services or meet legal obligations." },
-                { num: 8, title: "Third-Party Links", content: "We are not responsible for external website practices." },
-                { num: 9, title: "International Transfers", content: "Your data may be processed outside your country. We ensure data protection across all jurisdictions." },
-                { num: 10, title: "Updates to This Policy", content: "We update this policy as needed. Major changes will be notified via email or on the website." }
-              ].map((section) => (
-                <div key={section.num} className="bg-[#1C1E2F]/30 backdrop-blur-sm border border-white/5 rounded-xl p-6 hover:bg-[#1C1E2F]/50 hover:border-white/10 transition-all duration-300">
+              {[{
+              num: 7,
+              title: "Data Retention",
+              content: "We keep data only as long as needed to fulfill services or meet legal obligations."
+            }, {
+              num: 8,
+              title: "Third-Party Links",
+              content: "We are not responsible for external website practices."
+            }, {
+              num: 9,
+              title: "International Transfers",
+              content: "Your data may be processed outside your country. We ensure data protection across all jurisdictions."
+            }, {
+              num: 10,
+              title: "Updates to This Policy",
+              content: "We update this policy as needed. Major changes will be notified via email or on the website."
+            }].map(section => <div key={section.num} className="bg-[#1C1E2F]/30 backdrop-blur-sm border border-white/5 rounded-xl p-6 hover:bg-[#1C1E2F]/50 hover:border-white/10 transition-all duration-300">
                   <div className="flex items-start gap-4">
                     <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center text-white font-bold text-sm flex-shrink-0">{section.num}</div>
                     <div>
@@ -139,8 +135,7 @@ const PrivacyPolicyPage = () => {
                       <p className="text-[#B0B3C3] text-sm leading-relaxed">{section.content}</p>
                     </div>
                   </div>
-                </div>
-              ))}
+                </div>)}
             </div>
 
             {/* Contact Section */}
@@ -173,8 +168,6 @@ const PrivacyPolicyPage = () => {
       </section>
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default PrivacyPolicyPage;
