@@ -64,7 +64,7 @@ const WhyChooseUsSection = ({
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {reasons.map((reason, index) => (
-            <Card key={index} className="p-6 hover:shadow-lg transition-all duration-300 group border-0 bg-background/50 backdrop-blur-sm">
+            <Card key={index} className="p-6 bg-gray-800/50 rounded-xl border border-gray-700/50 hover:border-blue-400/30 transition-all duration-300 group">
               <CardHeader className="pb-4">
                 <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 mb-4 group-hover:bg-primary/20 transition-colors duration-300">
                   <reason.icon className="h-8 w-8 text-primary" />
