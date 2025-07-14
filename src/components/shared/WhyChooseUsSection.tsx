@@ -72,7 +72,7 @@ const WhyChooseUsSection = ({
                 <CardTitle className="text-xl">{reason.title}</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-foreground/80 leading-relaxed">{reason.description}</p>
+                <p className="text-gray-300 leading-relaxed">{reason.description}</p>
               </CardContent>
             </Card>
           ))}
