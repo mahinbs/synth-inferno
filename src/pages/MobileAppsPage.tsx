@@ -133,6 +133,30 @@ const MobileAppsPage = () => {
         </div>
       </section>
 
+      {/* Mobile Tech Stack Section */}
+      <section className="py-20 bg-gray-900/50">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4">Mobile Tech Stack</h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Complete technology ecosystem for building powerful mobile applications.
+            </p>
+          </div>
+          <div className="flex flex-wrap justify-center gap-4 max-w-6xl mx-auto">
+            {[
+              'React Native', 'Flutter', 'Swift', 'Kotlin', 'Firebase', 'AWS Amplify',
+              'Node.js', 'MongoDB', 'PostgreSQL', 'Redis', 'Docker', 'Kubernetes',
+              'GraphQL', 'REST API', 'WebRTC', 'Socket.io', 'Push Notifications',
+              'Apple Pay', 'Google Pay', 'Stripe', 'PayPal', 'Biometric Auth'
+            ].map((tech, index) => (
+              <div key={index} className="bg-purple-500/20 text-purple-300 px-4 py-2 rounded-full text-sm hover:bg-purple-500/30 transition-colors duration-300">
+                {tech}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-purple-500/10 to-pink-500/10">
         <div className="container mx-auto px-6 text-center">

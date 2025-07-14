@@ -15,6 +15,10 @@ import AiAutomationPage from "./pages/AiAutomationPage";
 import SpeaksifyPage from "./pages/SpeaksifyPage";
 import ProductsPage from "./pages/ProductsPage";
 import ArVrPage from "./pages/ArVrPage";
+import IotPage from "./pages/IotPage";
+import GameDevelopmentPage from "./pages/GameDevelopmentPage";
+import UiUxDesignPage from "./pages/UiUxDesignPage";
+import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import CaseStudy from "./pages/CaseStudy";
 import BlogsPage from "./pages/BlogsPage";
 import BlogPostPage from "./pages/BlogPostPage";
@@ -48,9 +52,14 @@ function App() {
             <Route path="/ai-calling" element={<AiCallingPage />} />
             <Route path="/ai-automation" element={<AiAutomationPage />} />
             <Route path="/ar-vr-development" element={<ArVrPage />} />
+            <Route path="/iot" element={<IotPage />} />
+            <Route path="/game-development" element={<GameDevelopmentPage />} />
+            <Route path="/ui-ux-design" element={<UiUxDesignPage />} />
             <Route path="/products" element={<ProductsPage />} />
+            <Route path="/speaksify" element={<SpeaksifyPage />} />
             <Route path="/products/speaksify" element={<SpeaksifyPage />} />
             <Route path="/case-study/:projectId" element={<CaseStudy />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
             <Route path="/blogs" element={<BlogsPage />} />
             <Route path="/blog/:slug" element={<BlogPostPage />} />
             <Route path="/reviews" element={<ReviewsPage />} />

@@ -1,93 +1,28 @@
 
-import { useState, useMemo, useEffect } from 'react';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import BlogHero from '@/components/blog/BlogHero';
-import BlogGrid from '@/components/blog/BlogGrid';
-import BlogCategories from '@/components/blog/BlogCategories';
-import BlogSearch from '@/components/blog/BlogSearch';
-import { getCombinedBlogs, onBlogsChange } from '@/services/blogDataService';
-import { BlogPost } from '@/data/blogs';
+import { useEffect } from 'react';
 
 const BlogsPage = () => {
-  const [selectedCategory, setSelectedCategory] = useState('All');
-  const [searchQuery, setSearchQuery] = useState('');
-  const [blogs, setBlogs] = useState<BlogPost[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  // Load data when component mounts
   useEffect(() => {
-    const loadBlogs = async () => {
-      try {
-        setLoading(true);
-        const blogsData = await getCombinedBlogs();
-        setBlogs(blogsData);
-      } catch (error) {
-        console.error('Error loading blogs:', error);
-        setBlogs([]);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    loadBlogs();
-    
-    const cleanup = onBlogsChange(() => {
-      loadBlogs();
-    });
-    return cleanup;
+    // Redirect to external blog
+    window.location.href = 'https://deenceee.blogspot.com/';
   }, []);
 
-  const filteredPosts = useMemo(() => {
-    let filtered = blogs;
-
-    // Filter by category
-    if (selectedCategory !== 'All') {
-      filtered = filtered.filter(post => post.category === selectedCategory);
-    }
-
-    // Filter by search query
-    if (searchQuery) {
-      const query = searchQuery.toLowerCase();
-      filtered = filtered.filter(post =>
-        post.title.toLowerCase().includes(query) ||
-        post.excerpt.toLowerCase().includes(query) ||
-        post.tags.some(tag => tag.toLowerCase().includes(query)) ||
-        post.author.name.toLowerCase().includes(query)
-      );
-    }
-
-    return filtered;
-  }, [blogs, selectedCategory, searchQuery]);
-
   return (
-    <div className="min-h-screen bg-black">
-      <Header />
-      <BlogHero />
-      
-      <section className="py-20">
-        <div className="container mx-auto px-6">
-          {loading ? (
-            <div className="flex items-center justify-center py-12">
-              <div className="text-white">Loading blogs...</div>
-            </div>
-          ) : (
-            <>
-              <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 mb-12">
-                <BlogCategories
-                  selectedCategory={selectedCategory}
-                  onCategoryChange={setSelectedCategory}
-                />
-                <BlogSearch onSearch={setSearchQuery} />
-              </div>
-              
-              <BlogGrid posts={filteredPosts} showFeatured={selectedCategory === 'All' && !searchQuery} />
-            </>
-          )}
-        </div>
-      </section>
-      
-      <Footer />
+    <div className="min-h-screen bg-background flex items-center justify-center">
+      <div className="text-center">
+        <h1 className="text-2xl font-bold mb-4">Redirecting to our blog...</h1>
+        <p className="text-muted-foreground">
+          If you're not redirected automatically, 
+          <a 
+            href="https://deenceee.blogspot.com/" 
+            className="text-primary hover:underline ml-1"
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            click here
+          </a>
+        </p>
+      </div>
     </div>
   );
 };
