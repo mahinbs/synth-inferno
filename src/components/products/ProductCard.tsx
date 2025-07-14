@@ -13,7 +13,7 @@ const ProductCard = ({
 
   return (
     <Link to={product.ctaLink} className="block">
-      <div className="bg-gradient-to-br from-slate-900 to-slate-800 border border-slate-700 rounded-xl p-6 cursor-pointer hover:shadow-xl hover:border-slate-600 transition-all duration-300 group">
+      <div className="bg-gradient-to-br from-slate-900 to-slate-800 border border-slate-700 rounded-xl p-6 cursor-pointer hover:shadow-xl hover:border-slate-600 transition-all duration-300 group -mt-2">
         <div className="mb-4">
           <div className="w-12 h-12 flex items-center justify-center bg-slate-800 rounded-full group-hover:bg-slate-700 transition-colors">
             <IconComponent className="w-6 h-6 text-cyan-400" />
