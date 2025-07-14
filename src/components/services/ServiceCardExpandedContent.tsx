@@ -14,7 +14,6 @@ interface ServiceCardExpandedContentProps {
   allProjects: Project[];
 }
 
-// Map service IDs to their existing route paths
 const getServiceRoute = (serviceId: string): string => {
   const routeMap: Record<string, string> = {
     'web-apps': '/web-apps',
@@ -22,6 +21,7 @@ const getServiceRoute = (serviceId: string): string => {
     'mobile-apps': '/mobile-apps',
     'ai-calling': '/ai-calling',
     'ai-automation': '/ai-automation',
+    'chatbot-development': '/chatbot-development',
     'sales-force': '/sales-force',
     'game-development': '/game-development',
     'gaming-ar-vr': '/gaming-ar-vr',
