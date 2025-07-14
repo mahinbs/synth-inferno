@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import ProductCard from './ProductCard';
+import SpeaksifyStaticCard from './SpeaksifyStaticCard';
 import { products } from '@/data/products';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 const ProductsSection = () => {
@@ -55,11 +56,18 @@ const ProductsSection = () => {
 
         {/* Products Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {featuredProducts.map((product, index) => <div key={product.id} className={`${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{
-          animationDelay: `${400 + index * 200}ms`
-        }}>
+          {/* Static Speaksify Card */}
+          <div className={`${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{ animationDelay: '400ms' }}>
+            <SpeaksifyStaticCard />
+          </div>
+          
+          {featuredProducts.filter(product => product.id !== 'speaksify').map((product, index) => (
+            <div key={product.id} className={`${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`} style={{
+              animationDelay: `${600 + index * 200}ms`
+            }}>
               <ProductCard product={product} />
-            </div>)}
+            </div>
+          ))}
         </div>
 
         {/* View All Products CTA */}
