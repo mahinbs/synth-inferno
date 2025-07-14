@@ -58,11 +58,7 @@ const About = memo(() => {
 
                   {/* Quote */}
                   <blockquote className="text-lg lg:text-xl leading-relaxed text-gray-700 border-l-4 border-blue-500 pl-6 italic font-medium">
-                    "The products I can build for you will be the creative ones which would need high level of human intellect. We at Dee&Cee Labs don't build things blindly but put our sweat and blood into creativity and innovation.
-                    <br /><br />
-                    We just don't build, we think and build.
-                    <br /><br />
-                    Being a startup, we are ready to build anything and everything."
+                    "At Dee&Cee Labs, we don't build generic software — we craft intelligent systems with purpose, precision, and innovation. We don't just write code. We design for scale, optimize for impact, and invent our own blueprints. As a startup, we move fast, think deeply, and push the limits of what's possible. If your idea needs muscle, mind, and momentum, we're the team to make it real."
                   </blockquote>
 
                   {/* CTA Section */}
