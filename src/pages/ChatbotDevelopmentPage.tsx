@@ -108,10 +108,10 @@ const ChatbotDevelopmentPage = () => {
                 icon: Cog
               }
             ].map((item, index) => (
-              <div key={index} className="p-6 rounded-lg bg-slate-900/80 border border-slate-700 hover:border-primary/50 transition-colors">
-                <item.icon className="h-6 w-6 text-primary mb-3" />
-                <h3 className="font-semibold text-white mb-2">{item.title}</h3>
-                <p className="text-slate-300 text-sm">{item.tech}</p>
+              <div key={index} className="group p-6 rounded-xl bg-gradient-to-br from-slate-800/90 to-slate-900/90 border border-slate-700/50 hover:border-primary/30 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 hover:scale-105 backdrop-blur-sm">
+                <item.icon className="h-6 w-6 text-primary mb-3 group-hover:scale-110 transition-transform duration-300" />
+                <h3 className="font-semibold text-white mb-2 group-hover:text-primary/90 transition-colors duration-300">{item.title}</h3>
+                <p className="text-slate-300 text-sm leading-relaxed">{item.tech}</p>
               </div>
             ))}
           </div>
