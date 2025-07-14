@@ -1,7 +1,10 @@
 
 import { Project } from '@/data/projects';
 import CaseStudyHero from './CaseStudyHero';
-import CaseStudyOverview from './CaseStudyOverview';
+import CaseStudyChallengeSolution from './CaseStudyChallengeSolution';
+import CaseStudyTechStack from './CaseStudyTechStack';
+import CaseStudyWhyChooseUs from './CaseStudyWhyChooseUs';
+import CaseStudyDevelopmentRoadmap from './CaseStudyDevelopmentRoadmap';
 import CaseStudyResults from './CaseStudyResults';
 import CaseStudyGallery from './CaseStudyGallery';
 import CaseStudyErrorBoundary from './CaseStudyErrorBoundary';
@@ -26,8 +29,20 @@ const CaseStudyComponents = ({ project }: CaseStudyComponentsProps) => {
         <CaseStudyHero project={project} />
       </CaseStudyErrorBoundary>
       
-      <CaseStudyErrorBoundary fallback={<SectionErrorFallback sectionName="Overview" />}>
-        <CaseStudyOverview project={project} />
+      <CaseStudyErrorBoundary fallback={<SectionErrorFallback sectionName="Challenge & Solution" />}>
+        <CaseStudyChallengeSolution project={project} />
+      </CaseStudyErrorBoundary>
+      
+      <CaseStudyErrorBoundary fallback={<SectionErrorFallback sectionName="Tech Stack" />}>
+        <CaseStudyTechStack project={project} />
+      </CaseStudyErrorBoundary>
+      
+      <CaseStudyErrorBoundary fallback={<SectionErrorFallback sectionName="Why Choose Us" />}>
+        <CaseStudyWhyChooseUs project={project} />
+      </CaseStudyErrorBoundary>
+      
+      <CaseStudyErrorBoundary fallback={<SectionErrorFallback sectionName="Development Roadmap" />}>
+        <CaseStudyDevelopmentRoadmap project={project} />
       </CaseStudyErrorBoundary>
       
       <CaseStudyErrorBoundary fallback={<SectionErrorFallback sectionName="Results" />}>

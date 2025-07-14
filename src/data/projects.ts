@@ -31,6 +31,7 @@ export interface Project {
   image: string;
   serviceId: string;
   liveUrl?: string;
+  projectType?: 'saas' | 'mobile' | 'web' | 'ai' | 'arvr' | 'iot';
   // Enhanced case study fields
   challenge: string;
   solution: string;
@@ -51,6 +52,11 @@ export interface Project {
     author: string;
     position: string;
     company: string;
+  };
+  metaInfo?: {
+    timeline: string;
+    teamSize: string;
+    industry: string;
   };
 }
 

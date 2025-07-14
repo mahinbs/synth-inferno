@@ -1,5 +1,5 @@
 
-import { ArrowLeft, Calendar, Users, Award } from 'lucide-react';
+import { ArrowLeft, Calendar, Users, Award, Building } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Project } from '@/data/projects';
 import OptimizedImage from '@/components/ui/OptimizedImage';
@@ -87,19 +87,31 @@ const CaseStudyHero = ({ project }: CaseStudyHeroProps) => {
             <div className="grid grid-cols-3 gap-6 mb-8">
               <div className="text-center">
                 <Calendar className="h-6 w-6 text-cyan-400 mx-auto mb-2" />
-                <p className="text-white font-semibold">{project.timeline}</p>
+                <p className="text-white font-semibold">{project.metaInfo?.timeline || project.timeline}</p>
                 <p className="text-gray-400 text-sm">Timeline</p>
               </div>
               <div className="text-center">
                 <Users className="h-6 w-6 text-cyan-400 mx-auto mb-2" />
-                <p className="text-white font-semibold">{project.team}</p>
+                <p className="text-white font-semibold">{project.metaInfo?.teamSize || project.team}</p>
                 <p className="text-gray-400 text-sm">Team Size</p>
               </div>
               <div className="text-center">
-                <Award className="h-6 w-6 text-cyan-400 mx-auto mb-2" />
-                <p className="text-white font-semibold">{project.industry}</p>
+                <Building className="h-6 w-6 text-cyan-400 mx-auto mb-2" />
+                <p className="text-white font-semibold">{project.metaInfo?.industry || project.industry}</p>
                 <p className="text-gray-400 text-sm">Industry</p>
               </div>
+            </div>
+
+            {/* CTA Button */}
+            <div className="mb-8">
+              <a
+                href="https://forms.zohopublic.in/deeampceelabs1/form/WebdevelopmentScopingSession/formperma/gV2LSwKARVxOQh4MSvJ86okXEO4nTIBcoMzrklJddqM"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:from-cyan-600 hover:to-blue-700 transition-colors"
+              >
+                Start Your Project
+              </a>
             </div>
 
             {/* Quick Metrics */}
