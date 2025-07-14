@@ -58,8 +58,8 @@ const DevelopmentLifecycle = ({
     <section className={`py-20 ${className}`}>
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">{title}</h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">{title}</h2>
+          <p className="text-xl text-foreground/80 max-w-3xl mx-auto">
             {subtitle}
           </p>
         </div>
@@ -75,7 +75,7 @@ const DevelopmentLifecycle = ({
                 </div>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground mb-4">{phase.description}</p>
+                <p className="text-foreground/80 mb-4">{phase.description}</p>
                 <ul className="space-y-2">
                   {phase.activities.map((activity, idx) => (
                     <li key={idx} className="flex items-center space-x-2 text-sm">

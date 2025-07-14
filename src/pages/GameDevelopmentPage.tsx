@@ -9,10 +9,35 @@ import { openZohoForm } from "@/utils/zohoForm";
 
 const GameDevelopmentPage = () => {
   const gameTechnologies = [
-    "Unity", "Unreal Engine", "Godot", "C#", "C++", "JavaScript",
-    "Blender", "Maya", "3ds Max", "Photon", "Mirror Networking", 
-    "PlayFab", "Firebase", "AWS GameLift", "Steam SDK", "iOS SDK",
-    "Android SDK", "WebGL", "OpenGL", "DirectX", "Vulkan"
+    // Game Engines & Frameworks
+    "Unity 2023", "Unreal Engine 5", "Godot 4", "GameMaker Studio", "Construct 3", "Defold",
+    
+    // Programming Languages
+    "C#", "C++", "JavaScript", "TypeScript", "Python", "Lua", "GDScript", "Rust",
+    
+    // Graphics & Rendering
+    "DirectX 12", "Vulkan API", "OpenGL", "Metal", "WebGL", "WebGPU", "Shader Graph", "HLSL",
+    
+    // 3D Modeling & Animation
+    "Blender", "Maya", "3ds Max", "ZBrush", "Substance Suite", "Houdini", "Cinema 4D",
+    
+    // Audio & Sound Design
+    "FMOD", "Wwise", "Unity Audio", "Unreal Audio", "Audacity", "Pro Tools", "Logic Pro",
+    
+    // Networking & Multiplayer
+    "Photon Fusion", "Mirror Networking", "Netcode for GameObjects", "Nakama", "GameSparks", "Playfab",
+    
+    // Backend & Cloud Services
+    "Firebase", "AWS GameLift", "Google Cloud Gaming", "Azure PlayFab", "Unity Cloud Build",
+    
+    // Platform SDKs
+    "Steam SDK", "Epic Games Store", "iOS Game Center", "Google Play Games", "Xbox Live", "PlayStation Network",
+    
+    // Mobile Development
+    "Android NDK", "iOS Metal", "ARKit", "ARCore", "Unity Mobile", "Unreal Mobile",
+    
+    // VR/AR Technologies
+    "Oculus SDK", "SteamVR", "ARKit", "ARCore", "WebXR", "Unity XR", "Unreal VR Template"
   ];
 
   return (
@@ -27,7 +52,7 @@ const GameDevelopmentPage = () => {
             <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
               Game Development Services
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed">
+            <p className="text-xl md:text-2xl text-foreground/80 mb-8 leading-relaxed">
               Create engaging, immersive gaming experiences across all platforms with cutting-edge technology and creative excellence.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -77,7 +102,7 @@ const GameDevelopmentPage = () => {
       <section className="py-20">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Create Your Game?</h2>
-          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-foreground/80 mb-8 max-w-2xl mx-auto">
             Turn your game idea into reality with our experienced development team and cutting-edge technology.
           </p>
           <a 

@@ -17,8 +17,8 @@ const TechStackSection = ({
     <section className={`py-20 bg-muted/30 ${className}`}>
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">{title}</h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">{title}</h2>
+          <p className="text-xl text-foreground/80 max-w-3xl mx-auto">
             {subtitle}
           </p>
         </div>
