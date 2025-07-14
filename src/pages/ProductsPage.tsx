@@ -49,7 +49,15 @@ const ProductsPage = () => {
       </section>
 
       {/* Products Grid Section */}
-      
+      <section className="py-20 px-6 relative">
+        <div className="container mx-auto max-w-6xl">
+          <div className="grid gap-8 max-w-md mx-auto">
+            {products.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+        </div>
+      </section>
 
       <Footer />
     </div>;
