@@ -134,7 +134,7 @@ const SpeaksifyPage = () => {
               <Button 
                 onClick={() => openZohoForm('speaksify-trial')} 
                 variant="outline"
-                className="border-2 border-white/30 text-white hover:bg-white/10 px-8 py-6 text-lg font-semibold rounded-xl transition-all duration-300 hover:scale-105"
+                className="border-2 border-cyan-400/80 bg-cyan-950/30 text-cyan-100 hover:bg-cyan-400/20 hover:border-cyan-300 px-8 py-6 text-lg font-semibold rounded-xl transition-all duration-300 hover:scale-105 backdrop-blur-sm"
               >
                 <Play className="mr-2 h-5 w-5" />
                 <span>Start Free Trial</span>
