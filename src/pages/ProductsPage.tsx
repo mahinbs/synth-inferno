@@ -59,25 +59,17 @@ const ProductsPage = () => {
         <div className="container mx-auto max-w-6xl relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent">
-                Featured Products
-              </span>
+              <span className="bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent"></span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Discover our cutting-edge AI solutions designed to revolutionize your business
-            </p>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto"></p>
           </div>
           
           <div className="grid gap-8 max-w-md mx-auto">
-            {products.map((product, index) => (
-              <div 
-                key={product.id} 
-                className={`${isVisible ? 'animate-fade-in' : 'opacity-0'}`}
-                style={{ animationDelay: `${index * 200}ms` }}
-              >
+            {products.map((product, index) => <div key={product.id} className={`${isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{
+            animationDelay: `${index * 200}ms`
+          }}>
                 <ProductCard product={product} />
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
