@@ -13,6 +13,9 @@ export interface DatabaseProject {
   detailedMetrics: Array<{ label: string; value: string; description: string; }>;
   gallery: string[];
   extendedTestimonial: { quote: string; author: string; position: string; company: string; };
+  timeline?: string;
+  teamSize?: string;
+  industry?: string;
 }
 
 export interface DatabaseBlogPost {

@@ -4,7 +4,9 @@ import { BlogPost } from '@/data/blogs';
 
 // Transform database row to Project type
 export const transformDbProjectToProject = (dbProject: any): Project => {
-  return {
+  console.log('Transformer - Raw DB project data:', dbProject);
+  
+  const transformedProject = {
     id: dbProject.id,
     title: dbProject.title,
     client: dbProject.client,
@@ -18,17 +20,21 @@ export const transformDbProjectToProject = (dbProject: any): Project => {
     detailedMetrics: dbProject.detailed_metrics || [],
     gallery: dbProject.gallery || [],
     extendedTestimonial: dbProject.extended_testimonial || { quote: '', author: '', position: '', company: '' },
-    // Add default values for required Project fields that don't exist in DB
+    // Map the missing fields from database
+    timeline: dbProject.timeline || dbProject.project_timeline || '',
+    team: dbProject.team_size || dbProject.team || '',
+    industry: dbProject.industry || dbProject.project_industry || '',
+    // Add default values for other required Project fields
     metrics: {},
-    timeline: '',
-    team: '',
-    industry: '',
     clientLogo: '',
     testimonial: dbProject.extended_testimonial?.quote || '',
     approach: [],
     techStack: [],
     features: []
   };
+  
+  console.log('Transformer - Transformed project:', transformedProject);
+  return transformedProject;
 };
 
 // Transform database row to BlogPost type

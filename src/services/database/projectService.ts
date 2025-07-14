@@ -46,7 +46,10 @@ export const projectService = {
             technologies: project.technologies,
             detailed_metrics: project.detailedMetrics,
             gallery: project.gallery,
-            extended_testimonial: project.extendedTestimonial
+            extended_testimonial: project.extendedTestimonial,
+            timeline: project.timeline,
+            team_size: project.teamSize,
+            industry: project.industry
           })
           .eq('id', project.id)
           .select()
@@ -71,7 +74,10 @@ export const projectService = {
             technologies: project.technologies,
             detailed_metrics: project.detailedMetrics,
             gallery: project.gallery,
-            extended_testimonial: project.extendedTestimonial
+            extended_testimonial: project.extendedTestimonial,
+            timeline: project.timeline,
+            team_size: project.teamSize,
+            industry: project.industry
           })
           .select()
           .single();
