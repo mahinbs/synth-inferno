@@ -43,18 +43,22 @@ const ServiceCardExpandedContent = memo(({
 
   return (
     <div 
-      className={`overflow-hidden transition-all duration-500 ease-out ${
+      className={`overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${
         isExpanded 
-          ? "max-h-[1000px] overflow-y-auto opacity-100 transform translate-y-0" 
-          : "max-h-0 opacity-0 transform -translate-y-2"
+          ? "max-h-[1000px] overflow-y-auto opacity-100 transform translate-y-0 animate-accordion-down" 
+          : "max-h-0 opacity-0 transform -translate-y-4 animate-accordion-up"
       }`}
       style={{
-        contentVisibility: isExpanded ? 'visible' : 'hidden'
+        contentVisibility: isExpanded ? 'visible' : 'hidden',
+        transformOrigin: 'top',
+        willChange: 'transform, opacity, max-height'
       }}
       onMouseEnter={onContentMouseEnter}
       onMouseLeave={onContentMouseLeave}
     >
-      <div className="px-6 pb-6 border-t border-gray-200/50 mt-4 pt-6">
+      <div className={`px-6 pb-6 border-t border-gray-200/50 mt-4 pt-6 transition-all duration-500 ease-out ${
+        isExpanded ? 'animate-fade-in opacity-100' : 'opacity-0'
+      }`}>
         <div className="grid md:grid-cols-2 gap-8">
           {/* Left Column */}
           <div className="space-y-6">
@@ -89,8 +93,17 @@ const ServiceCardExpandedContent = memo(({
               </h4>
               <ul className="space-y-3">
                 {service.features.map((feature, idx) => (
-                  <li key={idx} className="text-gray-700 flex items-center">
-                    <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 mr-3" />
+                  <li 
+                    key={idx} 
+                    className={`text-gray-700 flex items-center transition-all duration-300 ease-out ${
+                      isExpanded ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-0 translate-x-4'
+                    }`}
+                    style={{ 
+                      animationDelay: `${idx * 100 + 200}ms`,
+                      transitionDelay: `${idx * 50}ms`
+                    }}
+                  >
+                    <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 mr-3 transition-transform duration-300 hover:scale-125" />
                     {feature}
                   </li>
                 ))}
@@ -106,7 +119,13 @@ const ServiceCardExpandedContent = memo(({
                 {service.technologies.map((tech, idx) => (
                   <span 
                     key={idx} 
-                    className="px-3 py-1 rounded-full text-sm bg-gray-100/80 border border-gray-200/80 text-gray-700 hover:bg-gray-200/60 transition-colors duration-200"
+                    className={`px-3 py-1 rounded-full text-sm bg-gray-100/80 border border-gray-200/80 text-gray-700 hover:bg-gray-200/60 transition-all duration-300 hover:scale-105 hover:shadow-sm ${
+                      isExpanded ? 'animate-scale-in opacity-100' : 'opacity-0 scale-95'
+                    }`}
+                    style={{ 
+                      animationDelay: `${idx * 50 + 400}ms`,
+                      transitionDelay: `${idx * 30}ms`
+                    }}
                   >
                     {tech}
                   </span>
@@ -124,21 +143,23 @@ const ServiceCardExpandedContent = memo(({
 
         {/* Project Previews Section */}
         {isExpanded && (
-          <ServicePortfolioPreviews 
-            serviceId={service.id} 
-            projects={allProjects} 
-          />
+          <div className="animate-fade-in" style={{ animationDelay: '600ms' }}>
+            <ServicePortfolioPreviews 
+              serviceId={service.id} 
+              projects={allProjects} 
+            />
+          </div>
         )}
 
         {/* See All Projects Link */}
         {isExpanded && (
-          <div className="mt-6 pt-4 border-t border-gray-200/30 text-center">
+          <div className="mt-6 pt-4 border-t border-gray-200/30 text-center animate-fade-in" style={{ animationDelay: '700ms' }}>
             <a 
               href={`/portfolio?service=${service.id}`} 
-              className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium transition-colors duration-200"
+              className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium transition-all duration-300 hover:scale-105 hover:translate-x-1"
             >
               See All {service.title} Projects
-              <ArrowRight className="ml-1 h-4 w-4" />
+              <ArrowRight className="ml-1 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </a>
           </div>
         )}
