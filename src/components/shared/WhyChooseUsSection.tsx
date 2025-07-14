@@ -57,8 +57,8 @@ const WhyChooseUsSection = ({
     <section className={`py-20 bg-gray-900/50 ${className}`}>
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">{title}</h2>
-          <p className="text-xl text-foreground/80 max-w-3xl mx-auto">
+          <h2 className="text-4xl font-bold mb-4 text-white">{title}</h2>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             {subtitle}
           </p>
         </div>
