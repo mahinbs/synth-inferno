@@ -96,7 +96,7 @@ const Footer = () => {
                 </button>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition-colors duration-200">Privacy Policy</a>
+                <button onClick={() => handlePageLink('/privacy-policy')} className="hover:text-white transition-colors duration-200 text-left">Privacy Policy</button>
               </li>
             </ul>
           </div>

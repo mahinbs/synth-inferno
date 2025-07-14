@@ -3,116 +3,87 @@ import Footer from "@/components/Footer";
 
 const PrivacyPolicyPage = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gradient-to-b from-[#0D0F21] to-[#13162B]">
       <Header />
       
       <section className="pt-32 pb-20">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <h1 className="text-4xl md:text-5xl font-bold mb-8 text-center">Privacy Policy</h1>
-          <p className="text-muted-foreground text-center mb-12">Last updated: {new Date().toLocaleDateString()}</p>
-          
-          <div className="prose prose-lg max-w-none space-y-8">
+        <div className="container mx-auto px-6 max-w-5xl">
+          <h1 className="text-3xl font-bold text-white mb-6">Privacy Policy</h1>
+          <p className="text-[#B0B3C3] mb-8">Effective Date: July 14, 2025</p>
+
+          <div className="space-y-8">
+            <p className="mb-6 text-[#E6E6E6]">At Dee&Cee Labs, your privacy is not just a legal obligation—it's a cornerstone of trust in every interaction we have. This Privacy Policy explains how we collect, use, store, and protect your personal and business information when you engage with our website, platforms, services, or communicate with us directly.</p>
+
             <section>
-              <h2 className="text-2xl font-semibold mb-4">1. Information We Collect</h2>
-              <p className="text-muted-foreground mb-4">
-                We collect information you provide directly to us, such as when you:
-              </p>
-              <ul className="list-disc pl-6 text-muted-foreground space-y-2">
-                <li>Fill out contact forms or request quotes</li>
-                <li>Subscribe to our newsletter or marketing communications</li>
-                <li>Participate in surveys or provide feedback</li>
-                <li>Contact us for support or inquiries</li>
+              <h2 className="text-xl font-semibold text-white mt-8 mb-2">1. Who We Are</h2>
+              <p className="mb-4 text-[#B0B3C3]">Dee&Cee Labs is a digital engineering company specializing in AI-driven ecosystem design, enterprise-grade chatbot solutions, and intelligent automation. We serve global clients with high standards for security, performance, and compliance.</p>
+            </section>
+
+            <section>
+              <h2 className="text-xl font-semibold text-white mt-8 mb-2">2. Information We Collect</h2>
+              <ul className="list-disc ml-6 text-[#B0B3C3] space-y-1">
+                <li><strong>Personal Info:</strong> Name, email, phone, job title, company, IP, location</li>
+                <li><strong>Business Info:</strong> Project requirements, use-cases, platform/integration preferences</li>
+                <li><strong>Technical Info:</strong> Device/browser info, session data</li>
+                <li><strong>Cookies:</strong> We use tools like Google Analytics; you can manage via browser settings.</li>
               </ul>
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold mb-4">2. How We Use Your Information</h2>
-              <p className="text-muted-foreground mb-4">
-                We use the information we collect to:
-              </p>
-              <ul className="list-disc pl-6 text-muted-foreground space-y-2">
-                <li>Provide, maintain, and improve our services</li>
-                <li>Process transactions and send related information</li>
-                <li>Send you technical notices, updates, security alerts, and support messages</li>
-                <li>Respond to your comments, questions, and customer service requests</li>
-                <li>Communicate with you about products, services, and events</li>
+              <h2 className="text-xl font-semibold text-white mt-8 mb-2">3. How We Use Your Information</h2>
+              <ul className="list-disc ml-6 text-[#B0B3C3] space-y-1">
+                <li>Personalizing our services</li>
+                <li>Responding to inquiries</li>
+                <li>Improving our products</li>
+                <li>Sending updates with your consent</li>
+                <li>Ensuring compliance</li>
               </ul>
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold mb-4">3. Information Sharing</h2>
-              <p className="text-muted-foreground mb-4">
-                We do not sell, trade, or otherwise transfer your personal information to third parties without your consent, except as described in this policy. We may share information in the following circumstances:
-              </p>
-              <ul className="list-disc pl-6 text-muted-foreground space-y-2">
-                <li>With service providers who assist us in operating our website and conducting business</li>
-                <li>To comply with legal obligations or respond to lawful requests</li>
-                <li>To protect our rights, property, or safety, or that of our users</li>
+              <h2 className="text-xl font-semibold text-white mt-8 mb-2">4. How We Share Your Info</h2>
+              <p className="mb-4 text-[#B0B3C3]">We do not sell or trade your info. We may share it with trusted partners or legal authorities under strict confidentiality.</p>
+            </section>
+
+            <section>
+              <h2 className="text-xl font-semibold text-white mt-8 mb-2">5. Data Security</h2>
+              <p className="mb-4 text-[#B0B3C3]">We use encryption, secure cloud infrastructure, and role-based access control. While no system is 100% secure, we proactively protect your data.</p>
+            </section>
+
+            <section>
+              <h2 className="text-xl font-semibold text-white mt-8 mb-2">6. Your Rights</h2>
+              <ul className="list-disc ml-6 text-[#B0B3C3] space-y-1">
+                <li>Access, correct, or delete your data</li>
+                <li>Withdraw consent anytime</li>
+                <li>Object to data processing</li>
               </ul>
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold mb-4">4. Data Security</h2>
-              <p className="text-muted-foreground">
-                We implement appropriate security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the internet or electronic storage is completely secure.
-              </p>
+              <h2 className="text-xl font-semibold text-white mt-8 mb-2">7. Data Retention</h2>
+              <p className="mb-4 text-[#B0B3C3]">We keep data only as long as needed to fulfill services or meet legal obligations.</p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold mb-4">5. Cookies and Tracking Technologies</h2>
-              <p className="text-muted-foreground">
-                We use cookies and similar tracking technologies to track activity on our website and hold certain information. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent.
-              </p>
+              <h2 className="text-xl font-semibold text-white mt-8 mb-2">8. Third-Party Links</h2>
+              <p className="mb-4 text-[#B0B3C3]">We are not responsible for external website practices.</p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold mb-4">6. Your Rights</h2>
-              <p className="text-muted-foreground mb-4">
-                Depending on your location, you may have the following rights regarding your personal information:
-              </p>
-              <ul className="list-disc pl-6 text-muted-foreground space-y-2">
-                <li>The right to access, update, or delete your information</li>
-                <li>The right to rectification if your information is inaccurate</li>
-                <li>The right to object to our processing of your information</li>
-                <li>The right to data portability</li>
-                <li>The right to withdraw consent</li>
-              </ul>
+              <h2 className="text-xl font-semibold text-white mt-8 mb-2">9. International Transfers</h2>
+              <p className="mb-4 text-[#B0B3C3]">Your data may be processed outside your country. We ensure data protection across all jurisdictions.</p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold mb-4">7. Children's Privacy</h2>
-              <p className="text-muted-foreground">
-                Our services are not intended for children under 13 years of age. We do not knowingly collect personal information from children under 13.
-              </p>
+              <h2 className="text-xl font-semibold text-white mt-8 mb-2">10. Updates to This Policy</h2>
+              <p className="mb-4 text-[#B0B3C3]">We update this policy as needed. Major changes will be notified via email or on the website.</p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold mb-4">8. International Data Transfers</h2>
-              <p className="text-muted-foreground">
-                Your information may be transferred to and processed in countries other than your own. We ensure appropriate safeguards are in place to protect your information in accordance with this privacy policy.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-semibold mb-4">9. Changes to This Policy</h2>
-              <p className="text-muted-foreground">
-                We may update this privacy policy from time to time. We will notify you of any changes by posting the new policy on this page and updating the "Last updated" date.
-              </p>
-            </section>
-
-            <section>
-              <h2 className="text-2xl font-semibold mb-4">10. Contact Us</h2>
-              <p className="text-muted-foreground">
-                If you have any questions about this Privacy Policy, please contact us at:
-              </p>
-              <div className="bg-muted/30 p-6 rounded-lg mt-4">
-                <p className="text-muted-foreground">
-                  <strong>DeeCee Technologies</strong><br />
-                  Email: privacy@deecee.com<br />
-                  Phone: +1 (555) 123-4567<br />
-                  Address: 123 Tech Street, Innovation City, IC 12345
-                </p>
-              </div>
+              <h2 className="text-xl font-semibold text-white mt-8 mb-2">11. Contact Us</h2>
+              <p className="mb-1 text-[#B0B3C3]">Dee&Cee Labs</p>
+              <p className="mb-1 text-[#B0B3C3]">Email: <a href="mailto:privacy@deenceelabs.com" className="text-blue-400 underline">privacy@deenceelabs.com</a></p>
+              <p className="text-[#B0B3C3]">Website: www.deenceelabs.com</p>
             </section>
           </div>
         </div>
