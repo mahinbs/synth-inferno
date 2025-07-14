@@ -69,7 +69,7 @@ const WhyChooseUsSection = ({
                 <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 mb-4 group-hover:bg-primary/20 transition-colors duration-300">
                   <reason.icon className="h-8 w-8 text-primary" />
                 </div>
-                <CardTitle className="text-xl">{reason.title}</CardTitle>
+                <CardTitle className="text-xl font-semibold text-cyan-400">{reason.title}</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-300 leading-relaxed">{reason.description}</p>
