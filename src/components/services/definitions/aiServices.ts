@@ -6,22 +6,23 @@ export const aiServices: ServiceData[] = [
   {
     id: "chatbot-development",
     icon: Bot,
-    title: "Chatbot Development",
+    title: "AI Autonomous Agents Development",
     description:
-      "From linear bots to self‑evolving AI assistants — we engineer conversational agents capable of holding memory, inferring emotions, and performing multi‑step workflows across platforms.",
+      "From Chatbots to Goal‑Driven Digital Workers — we build everything from high-performance enterprise chatbots to autonomous agents that execute tasks, make decisions, and evolve with usage.",
     detailedDescription:
-      "These bots aren't scripts — they're miniature AI workers embedded into your business. We create intelligent conversational agents that can understand context, maintain memory across conversations, and execute complex workflows while adapting to user behavior and business needs.",
+      "These aren't linear scripts. Our conversational systems are autonomous micro-agents designed to handle real-world workflows, adapt to user context, and integrate seamlessly with your internal tools and APIs.",
     image:
       "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     backgroundImage: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
     features: [
-      "Role-based multi‑agent chatbots (Seller, Scheduler, QA Agent)",
-      "Voice‑activated assistants for apps & IVRs",
-      "Code‑executing agents with workflow automation",
-      "Hybrid AI + rule‑based bots with CRM action sync",
-      "Multi-platform deployment (Slack, WhatsApp, Web, iOS)",
+      "Chatbots with memory and RAG for customer support/internal use",
+      "Multi-agent systems with distributed roles (scheduler, analyst, seller)",
+      "Voice-driven agents via Whisper, ElevenLabs, Twilio",
+      "Code-executing bots with fallback logic and custom workflows",
+      "Hybrid LLM + rules engines for edge cases & compliance",
+      "Deployable on Web, Slack, WhatsApp, IVRs, iOS, and custom stacks",
     ],
-    technologies: ["LangGraph", "AutoGen", "OpenAI Assistants API", "Pinecone", "Weaviate", "OpenRouter", "LangServe", "OpenAI Whisper", "ElevenLabs", "Twilio Voice AI"],
+    technologies: ["LangGraph", "AutoGen", "CrewAI", "ReAct", "CAMEL", "GPT-4o", "Claude 3 Opus", "Pinecone", "ChromaDB", "AgentLLM", "Unstructured.io", "LangChain"],
     startingPrice: "$15,000",
     timeline: "8-16 weeks",
     color: "indigo" as const,

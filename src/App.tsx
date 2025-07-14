@@ -18,6 +18,7 @@ import ArVrPage from "./pages/ArVrPage";
 import IotPage from "./pages/IotPage";
 import GameDevelopmentPage from "./pages/GameDevelopmentPage";
 import UiUxDesignPage from "./pages/UiUxDesignPage";
+import ChatbotDevelopmentPage from "./pages/ChatbotDevelopmentPage";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import CaseStudy from "./pages/CaseStudy";
 import BlogsPage from "./pages/BlogsPage";
@@ -55,6 +56,7 @@ function App() {
             <Route path="/iot" element={<IotPage />} />
             <Route path="/game-development" element={<GameDevelopmentPage />} />
             <Route path="/ui-ux-design" element={<UiUxDesignPage />} />
+            <Route path="/chatbot-development" element={<ChatbotDevelopmentPage />} />
             <Route path="/products" element={<ProductsPage />} />
             <Route path="/speaksify" element={<SpeaksifyPage />} />
             <Route path="/products/speaksify" element={<SpeaksifyPage />} />
