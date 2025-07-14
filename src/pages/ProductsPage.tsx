@@ -49,7 +49,7 @@ const ProductsPage = () => {
       </section>
 
       {/* Products Grid Section */}
-      <section className="py-20 px-6 relative">
+      <section className="py-20 px-6 relative bg-gradient-to-br from-slate-900 via-gray-800 to-slate-800">
         <div className="container mx-auto max-w-6xl">
           <div className="grid gap-8 max-w-md mx-auto">
             {products.map((product) => (
