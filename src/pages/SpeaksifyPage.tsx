@@ -1,4 +1,8 @@
-import { Phone, Brain, BarChart3, Zap, Users, Clock, CheckCircle, ArrowRight, Play } from 'lucide-react';
+import { 
+  Phone, Brain, BarChart3, Zap, Users, Clock, CheckCircle, ArrowRight, Play,
+  MessageCircle, Database, Globe, Bot, Activity, Target, Cpu, Server,
+  Code, Cloud, Smartphone, PhoneCall, FileText, BarChart, TrendingUp
+} from 'lucide-react';
 import { useState, useEffect } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -7,282 +11,298 @@ import { Badge } from '@/components/ui/badge';
 import { openZohoForm } from '@/utils/zohoForm';
 const SpeaksifyPage = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [videoLoaded, setVideoLoaded] = useState(false);
+
   useEffect(() => {
     setIsVisible(true);
   }, []);
-  const keyFeatures = [{
-    icon: Clock,
-    title: 'AI calls every lead in 30 seconds',
-    description: 'Lightning-fast response time ensures no lead goes cold while maintaining perfect conversation quality.'
-  }, {
-    icon: BarChart3,
-    title: 'Real-time voice analytics',
-    description: 'Advanced voice AI analyzes tone, sentiment, and intent to optimize every conversation for maximum conversion.'
-  }, {
-    icon: CheckCircle,
-    title: 'Never miss a follow-up',
-    description: 'Intelligent scheduling and automated reminders ensure every lead gets the attention they deserve.'
-  }];
-  const integrations = [{
-    name: 'HubSpot',
-    description: 'Seamlessly sync leads and conversation data',
-    category: 'CRM'
-  }, {
-    name: 'Zoho',
-    description: 'Complete CRM integration for lead management',
-    category: 'CRM'
-  }, {
-    name: 'Zapier',
-    description: 'Connect with 5000+ apps and workflows',
-    category: 'Automation'
-  }, {
-    name: 'WhatsApp',
-    description: 'Multi-channel communication support',
-    category: 'Messaging'
-  }];
-  const howItWorks = [{
-    step: '01',
-    title: 'Lead Detection',
-    description: 'Speaksify automatically detects new leads from your integrated systems and CRM platforms.'
-  }, {
-    step: '02',
-    title: 'Instant Engagement',
-    description: 'AI calls the lead within 30 seconds using natural, conversational voice technology.'
-  }, {
-    step: '03',
-    title: 'Voice Analysis',
-    description: 'Real-time analysis of voice responses, sentiment, and engagement level to optimize the conversation.'
-  }, {
-    step: '04',
-    title: 'Smart Follow-up',
-    description: 'Automatically schedules and executes follow-ups based on conversation outcomes and lead behavior.'
-  }];
-  const testimonials = [{
-    quote: "Speaksify increased our lead conversion rate by 340%. The AI calls are so natural, our leads can't tell the difference.",
-    author: "Sarah Chen",
-    position: "VP of Sales",
-    company: "TechFlow Solutions"
-  }, {
-    quote: "We went from calling 50 leads per day to 500. Speaksify handles the volume while we focus on closing deals.",
-    author: "Marcus Rodriguez",
-    position: "Sales Director",
-    company: "GrowthLab Inc"
-  }];
-  return <div className="min-h-screen text-white">
+
+  // Core Features - 7 specific features from user content
+  const coreFeatures = [
+    {
+      icon: PhoneCall,
+      title: 'Automated Calling',
+      description: 'AI makes real-time calls and follows up instantly'
+    },
+    {
+      icon: Bot,
+      title: 'Conversational AI',
+      description: 'Smart agents engage and qualify leads'
+    },
+    {
+      icon: BarChart,
+      title: 'Lead Pipeline Management',
+      description: 'Custom status tracking'
+    },
+    {
+      icon: MessageCircle,
+      title: 'Omnichannel Support',
+      description: 'SMS, Email, WhatsApp synced follow-ups'
+    },
+    {
+      icon: FileText,
+      title: 'Call History & Intent Logs',
+      description: 'Track every AI-human interaction'
+    },
+    {
+      icon: Database,
+      title: 'CRM Integration',
+      description: 'Centralized actionable view'
+    },
+    {
+      icon: Globe,
+      title: 'Time Zone Intelligence',
+      description: 'Smart region-based scheduling'
+    }
+  ];
+
+  // AI Stack
+  const aiStack = [
+    { name: 'OpenAI GPT-4o / Claude', icon: Brain },
+    { name: 'Twilio Voice & WhatsApp APIs', icon: Phone },
+    { name: 'Whisper API for call transcription', icon: Activity },
+    { name: 'Custom lead scoring & qualification logic', icon: Target }
+  ];
+
+  // Tech Stack
+  const techStack = [
+    { name: 'React.js + TailwindCSS', category: 'Frontend', icon: Code },
+    { name: 'Node.js + Express', category: 'Backend', icon: Server },
+    { name: 'PostgreSQL', category: 'Database', icon: Database },
+    { name: 'AWS (Lambda, S3), Vercel', category: 'Infrastructure', icon: Cloud },
+    { name: 'OpenAI, ElevenLabs, LangChain', category: 'AI Tools', icon: Brain }
+  ];
+
+  // Results & Adoption
+  const results = [
+    { stat: '70%', description: 'Reduced manual follow-up time', icon: Clock },
+    { stat: '3x', description: 'Boosted qualified lead response', icon: TrendingUp },
+    { stat: '6+', description: 'Countries live', icon: Globe },
+    { stat: '5K+', description: 'Daily interactions', icon: Activity }
+  ];
+
+  return (
+    <div className="min-h-screen text-white">
       <Header />
       
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Video Background */}
-        <div className="absolute inset-0 z-0">
-          <iframe src="https://player.cloudinary.com/embed/?cloud_name=dknafpppp&public_id=0_Ai_Artificial_Intelligence_1280x720-2_wbcpcy&profile=cld-default&autoplay=true&loop=true&muted=true&controls=false" className="w-full h-full object-cover" style={{
-          transform: 'scale(1.1)',
-          filter: 'brightness(0.3)',
-          pointerEvents: 'none'
-        }} loading="lazy" onLoad={() => setVideoLoaded(true)} title="AI Technology Background Video" />
-          
-          {/* Fallback gradient overlay when video is loading */}
-          {!videoLoaded && <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-gray-800 to-slate-800" />}
-          
-          {/* Dark overlay for better text readability */}
-          <div className="absolute inset-0 bg-black/40" />
+        {/* Dark gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-gray-800 to-slate-800" />
+        
+        {/* Animated background elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-cyan-400/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute top-3/4 right-1/4 w-96 h-96 bg-teal-400/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute top-1/2 left-3/4 w-48 h-48 bg-blue-400/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '4s' }}></div>
         </div>
 
-        {/* Animated Background Elements */}
-        <div className="absolute inset-0 z-10">
-          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-gray-400/10 rounded-full blur-3xl animate-float"></div>
-          <div className="absolute top-3/4 right-1/4 w-96 h-96 bg-slate-400/10 rounded-full blur-3xl animate-float" style={{
-          animationDelay: '2s'
-        }}></div>
-          <div className="absolute top-1/2 left-3/4 w-48 h-48 bg-zinc-400/10 rounded-full blur-3xl animate-float" style={{
-          animationDelay: '4s'
-        }}></div>
-        </div>
-
-        <div className="container mx-auto px-6 relative z-20">
+        <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-6xl mx-auto text-center">
-            <div className="flex justify-center mb-6">
-              <Badge variant="outline" className="px-4 py-2 text-gray-300 border-white/30 bg-white/10 backdrop-blur-sm">
-                Voice AI • AI-Powered Engagement • Conversational Intelligence
-              </Badge>
+            {/* Brand Icon */}
+            <div className="flex justify-center mb-8">
+              <div className="relative">
+                <div className="w-20 h-20 bg-gradient-to-r from-cyan-400 to-teal-400 rounded-2xl flex items-center justify-center shadow-2xl">
+                  <Brain className="w-10 h-10 text-white" />
+                </div>
+                <Badge className="absolute -top-2 -right-2 bg-teal-400 text-white px-2 py-1 text-xs">
+                  Voice AI
+                </Badge>
+              </div>
             </div>
-            <h1 className={`font-heading text-6xl md:text-8xl font-bold mb-6 leading-tight ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
-              <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent">
+
+            <h1 className="text-6xl md:text-7xl font-bold mb-6 leading-tight">
+              <span className="text-white">Speaksify</span>
+              <br />
+              <span className="bg-gradient-to-r from-cyan-400 via-teal-400 to-blue-400 bg-clip-text text-transparent text-4xl md:text-5xl">
                 AI-Powered Voice Engagement Engine
               </span>
-              <br />
-              <span className="text-white text-4xl md:text-5xl">
-                Built to Convert Leads in Real-Time
-              </span>
             </h1>
-            <p className={`text-xl md:text-2xl text-gray-200 mb-10 leading-relaxed max-w-4xl mx-auto ${isVisible ? 'animate-fade-in-up animate-stagger-1' : 'opacity-0'}`}>
-              Speaksify is an AI calling engine that connects with leads within 30 seconds, analyzes voice responses, and ensures no follow-ups are missed.
+            
+            <p className="text-xl md:text-2xl text-gray-200 mb-10 leading-relaxed max-w-4xl mx-auto">
+              AI calls every lead in 30 seconds, engages in real time, and never misses a follow-up.
             </p>
-            <div className={`flex flex-col sm:flex-row gap-4 justify-center mb-12 ${isVisible ? 'animate-fade-in-up animate-stagger-2' : 'opacity-0'}`}>
-              <button onClick={() => openZohoForm('speaksify-demo')} className="group relative bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white/20 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center space-x-3">
-                <span>Request a Demo</span>
-                <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
-              </button>
-              <button onClick={() => openZohoForm('speaksify-trial')} className="group relative bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white/20 hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-3">
-                <Play className="h-5 w-5" />
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+              <Button 
+                onClick={() => openZohoForm('speaksify-demo')} 
+                className="bg-gradient-to-r from-cyan-400 to-teal-400 hover:from-cyan-500 hover:to-teal-500 text-white px-8 py-6 text-lg font-semibold rounded-xl transition-all duration-300 hover:scale-105 shadow-lg"
+              >
+                <span>Request Demo</span>
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+              
+              <Button 
+                onClick={() => openZohoForm('speaksify-trial')} 
+                variant="outline"
+                className="border-2 border-white/30 text-white hover:bg-white/10 px-8 py-6 text-lg font-semibold rounded-xl transition-all duration-300 hover:scale-105"
+              >
+                <Play className="mr-2 h-5 w-5" />
                 <span>Start Free Trial</span>
-              </button>
-            </div>
-            <div className="text-center">
-              <p className={`text-2xl md:text-3xl font-bold text-white mb-2 italic ${isVisible ? 'animate-fade-in-up animate-stagger-3' : 'opacity-0'}`}>
-                "Stop chasing leads. Let AI call them all."
-              </p>
-              <p className="text-gray-300">The future of lead engagement is here</p>
+              </Button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Key Features Section */}
-      <section className="py-20 bg-gradient-to-br from-slate-900 via-gray-800 to-slate-800">
+      {/* Product Overview Section */}
+      <section className="py-20 bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
+          <div className="max-w-4xl mx-auto text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
-              Core <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent">Capabilities</span>
+              Product <span className="bg-gradient-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent">Overview</span>
             </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Revolutionary AI technology that transforms how you connect with leads and drive conversions.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {keyFeatures.map((feature, index) => <div key={index} className="p-8 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 hover:border-white/30 transition-all duration-300 group hover:bg-white/15">
-                <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-gray-500/20 backdrop-blur-sm mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <feature.icon className="h-8 w-8 text-gray-300" />
+            <div className="grid md:grid-cols-2 gap-8 text-left">
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+                <h3 className="text-2xl font-semibold text-white mb-4">🎯 Problem It Solves</h3>
+                <p className="text-gray-300 leading-relaxed">
+                  Manual follow-ups and inconsistent lead engagement delay conversions and reduce closure rates. 
+                  Speaksify fixes this by automating outbound voice calls, tracking lead responses, and centralizing CRM actions — all powered by AI.
+                </p>
+              </div>
+              <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+                <h3 className="text-2xl font-semibold text-white mb-4">✅ Target Audience</h3>
+                <ul className="text-gray-300 space-y-2">
+                  <li>• Sales teams</li>
+                  <li>• Marketing teams</li>
+                  <li>• Founders</li>
+                  <li>• Lead gen professionals</li>
+                </ul>
+                <div className="mt-4 pt-4 border-t border-white/10">
+                  <p className="text-sm text-cyan-400">Platform: SaaS Web App • Region: Global</p>
                 </div>
-                <h3 className="text-xl font-semibold mb-4 text-white">{feature.title}</h3>
-                <p className="text-gray-300 leading-relaxed">{feature.description}</p>
-              </div>)}
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* How It Works Section */}
-      <section className="py-20 bg-gradient-to-br from-slate-900 via-gray-800 to-slate-800">
+      {/* Core Features Section */}
+      <section className="py-20 bg-gradient-to-br from-slate-900 via-gray-800 to-slate-900">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
-              How <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent">Speaksify</span> Works
+              🚀 Core <span className="bg-gradient-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent">Features</span>
             </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              From lead detection to conversion, see how AI transforms your entire sales process.
-            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {coreFeatures.map((feature, index) => (
+              <div key={index} className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-cyan-400/30 transition-all duration-300 group hover:bg-white/10">
+                <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-r from-cyan-400/20 to-teal-400/20 mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <feature.icon className="h-6 w-6 text-cyan-400" />
+                </div>
+                <h3 className="text-lg font-semibold mb-3 text-white">{feature.title}</h3>
+                <p className="text-gray-300 text-sm leading-relaxed">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* AI Stack Section */}
+      <section className="py-20 bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+              🧠 AI <span className="bg-gradient-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent">Stack</span>
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            {aiStack.map((tech, index) => (
+              <div key={index} className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-cyan-400/30 transition-all duration-300">
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-cyan-400/20 to-teal-400/20 rounded-xl flex items-center justify-center">
+                    <tech.icon className="h-6 w-6 text-cyan-400" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-white">{tech.name}</h3>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Tech Stack Section */}
+      <section className="py-20 bg-gradient-to-br from-slate-900 via-gray-800 to-slate-900">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+              🔧 Tech <span className="bg-gradient-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent">Stack</span>
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {techStack.map((tech, index) => (
+              <div key={index} className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-cyan-400/30 transition-all duration-300">
+                <div className="flex items-center space-x-4 mb-3">
+                  <div className="w-10 h-10 bg-gradient-to-r from-cyan-400/20 to-teal-400/20 rounded-lg flex items-center justify-center">
+                    <tech.icon className="h-5 w-5 text-cyan-400" />
+                  </div>
+                  <Badge variant="outline" className="text-xs text-cyan-400 border-cyan-400/30">
+                    {tech.category}
+                  </Badge>
+                </div>
+                <h3 className="text-white font-semibold">{tech.name}</h3>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Results & Adoption Section */}
+      <section className="py-20 bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+              📈 Results & <span className="bg-gradient-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent">Adoption</span>
+            </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {howItWorks.map((step, index) => <div key={index} className="text-center relative">
-                <div className="flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 text-2xl font-bold mb-6 mx-auto text-white">
-                  {step.step}
+            {results.map((result, index) => (
+              <div key={index} className="text-center bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-cyan-400/30 transition-all duration-300">
+                <div className="w-16 h-16 bg-gradient-to-r from-cyan-400/20 to-teal-400/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <result.icon className="h-8 w-8 text-cyan-400" />
                 </div>
-                <h3 className="text-xl font-semibold mb-4 text-white">{step.title}</h3>
-                <p className="text-gray-300 leading-relaxed">{step.description}</p>
-                {index < howItWorks.length - 1 && <div className="hidden lg:block absolute top-10 left-full w-full">
-                    <ArrowRight className="h-6 w-6 text-cyan-400 mx-auto" />
-                  </div>}
-              </div>)}
-          </div>
-        </div>
-      </section>
-
-      {/* Integrations Section */}
-      <section className="py-20 bg-gradient-to-br from-slate-900 via-gray-800 to-slate-800">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
-              Seamless <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent">Integrations</span>
-            </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Connect Speaksify with your existing tools and workflows for maximum efficiency.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {integrations.map((integration, index) => <div key={index} className="p-6 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 hover:border-white/30 transition-all duration-300 text-center group hover:bg-white/15">
-                <Badge variant="secondary" className="mb-4 bg-white/20 text-gray-300 border-white/30">
-                  {integration.category}
-                </Badge>
-                <h3 className="text-lg font-semibold mb-2 text-white">{integration.name}</h3>
-                <p className="text-gray-300 text-sm">{integration.description}</p>
-              </div>)}
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section className="py-20 bg-gradient-to-br from-slate-900 via-gray-800 to-slate-800">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
-              Customer <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent">Success Stories</span>
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {testimonials.map((testimonial, index) => <div key={index} className="p-8 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20">
-                <p className="text-lg text-gray-300 mb-6 italic">"{testimonial.quote}"</p>
-                <div className="flex items-center">
-                  <div>
-                    <div className="font-semibold text-white">{testimonial.author}</div>
-                    <div className="text-gray-400">{testimonial.position}</div>
-                    <div className="text-cyan-400">{testimonial.company}</div>
-                  </div>
-                </div>
-              </div>)}
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-20 bg-gradient-to-br from-slate-900 via-gray-800 to-slate-800">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-4xl font-bold text-cyan-400 mb-2">30s</div>
-              <div className="text-grey-300">Average Response Time</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-cyan-400 mb-2">340%</div>
-              <div className="text-gray-300">Conversion Increase</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-cyan-400 mb-2">24/7</div>
-              <div className="text-gray-300">AI Availability</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-cyan-400 mb-2">99.9%</div>
-              <div className="text-gray-300">Uptime Guarantee</div>
-            </div>
+                <div className="text-4xl font-bold text-cyan-400 mb-2">{result.stat}</div>
+                <div className="text-gray-300">{result.description}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-slate-900 via-gray-800 to-slate-800">
+      <section className="py-20 bg-gradient-to-br from-slate-900 via-gray-800 to-slate-900">
         <div className="container mx-auto px-6 text-center">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
-              Ready to <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent">Transform</span> Your Lead Engagement?
+              Ready to <span className="bg-gradient-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent">Transform</span> Your Lead Engagement?
             </h2>
             <p className="text-xl text-gray-300 mb-10 max-w-3xl mx-auto">
               Join hundreds of companies using Speaksify to convert more leads, faster than ever before.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button onClick={() => openZohoForm('speaksify-demo-final')} className="group relative bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white/20 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center space-x-3">
-                <span>Request a Demo</span>
-                <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
-              </button>
-              <button onClick={() => openZohoForm('speaksify-trial-final')} className="group relative bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white/20 hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-3">
-                <Play className="h-5 w-5" />
+              <Button 
+                onClick={() => openZohoForm('speaksify-demo-final')} 
+                className="bg-gradient-to-r from-cyan-400 to-teal-400 hover:from-cyan-500 hover:to-teal-500 text-white px-8 py-6 text-lg font-semibold rounded-xl transition-all duration-300 hover:scale-105 shadow-lg"
+              >
+                <span>Request Demo</span>
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+              
+              <Button 
+                onClick={() => openZohoForm('speaksify-trial-final')} 
+                variant="outline"
+                className="border-2 border-white/30 text-white hover:bg-white/10 px-8 py-6 text-lg font-semibold rounded-xl transition-all duration-300 hover:scale-105"
+              >
+                <Play className="mr-2 h-5 w-5" />
                 <span>Start Free Trial</span>
-              </button>
+              </Button>
             </div>
           </div>
         </div>
       </section>
 
       <Footer />
-    </div>;
+    </div>
+  );
 };
 export default SpeaksifyPage;
