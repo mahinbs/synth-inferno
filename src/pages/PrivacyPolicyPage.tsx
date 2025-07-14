@@ -19,9 +19,7 @@ const PrivacyPolicyPage = () => {
 
           {/* Introduction Card */}
           <div className="bg-[#1C1E2F]/50 backdrop-blur-sm border border-white/10 rounded-2xl p-8 md:p-10 mb-12 hover:border-white/20 transition-all duration-300">
-            <p className="text-lg text-[#E6E6E6] leading-relaxed">
-              At Dee&Cee Labs, your privacy is not just a legal obligation—it's a cornerstone of trust in every interaction we have. This Privacy Policy explains how we collect, use, store, and protect your personal and business information when you engage with our website, platforms, services, or communicate with us directly.
-            </p>
+            <p className="text-lg text-[#E6E6E6] leading-relaxed">At Dee&Cee Labs, your privacy is not just a legal obligation, it's a cornerstone of trust in every interaction we have. This Privacy Policy explains how we collect, use, store, and protect your personal and business information when you engage with our website, platforms, services, or communicate with us directly.</p>
           </div>
 
           {/* Content Grid */}
@@ -32,9 +30,7 @@ const PrivacyPolicyPage = () => {
                 <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center text-white font-bold text-sm flex-shrink-0 mt-1">1</div>
                 <div className="flex-1">
                   <h2 className="text-2xl font-semibold text-white mb-4">Who We Are</h2>
-                  <p className="text-[#B0B3C3] leading-relaxed">
-                    Dee&Cee Labs is a digital engineering company specializing in AI-driven ecosystem design, enterprise-grade chatbot solutions, and intelligent automation. We serve global clients with high standards for security, performance, and compliance.
-                  </p>
+                  <p className="text-[#B0B3C3] leading-relaxed">Dee&Cee Labs is a digital engineering company specializing in AI-driven ecosystem design, enterprise, grade AI enabled autonomous agent, and intelligent automation. We serve global clients with high standards for security, performance, and compliance.</p>
                 </div>
               </div>
             </div>
