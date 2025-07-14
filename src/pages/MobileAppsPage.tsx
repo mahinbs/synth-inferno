@@ -144,18 +144,108 @@ const MobileAppsPage = () => {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">Mobile Tech Stack</h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Complete technology ecosystem for building powerful mobile applications.
+              A robust, scalable technology foundation powering modern mobile apps.
             </p>
           </div>
-          <div className="flex flex-wrap justify-center gap-4 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {[
-              'React Native', 'Flutter', 'Swift', 'Kotlin', 'Firebase', 'AWS Amplify',
-              'Node.js', 'MongoDB', 'PostgreSQL', 'Redis', 'Docker', 'Kubernetes',
-              'GraphQL', 'REST API', 'WebRTC', 'Socket.io', 'Push Notifications',
-              'Apple Pay', 'Google Pay', 'Stripe', 'PayPal', 'Biometric Auth'
-            ].map((tech, index) => (
-              <div key={index} className="bg-purple-500/20 text-purple-300 px-4 py-2 rounded-full text-sm hover:bg-purple-500/30 transition-colors duration-300">
-                {tech}
+              {
+                title: "1. Planning & Architecture",
+                items: [
+                  { category: "Project Management", tech: "Jira · Asana · Linear" },
+                  { category: "Tech Architecture", tech: "Modular, AI-ready, Offline-first design" },
+                  { category: "API Protocols", tech: "REST · GraphQL (Apollo, Relay)" }
+                ]
+              },
+              {
+                title: "2. UI/UX Design",
+                items: [
+                  { category: "Tools", tech: "Figma · Adobe XD" },
+                  { category: "Voice/Chat UI", tech: "Planning for AI interfaces" }
+                ]
+              },
+              {
+                title: "3. Frontend Development (Mobile)",
+                items: [
+                  { category: "Native", tech: "Kotlin · Swift / Obj-C" },
+                  { category: "Cross-Platform", tech: "Flutter · React Native · Xamarin (.NET/C#)" },
+                  { category: "IDEs", tech: "Android Studio · Xcode · VS Code" },
+                  { category: "State Management", tech: "Redux · MobX · Provider · Bloc" },
+                  { category: "Image Optimization", tech: "Glide · SDWebImage · FastImage" }
+                ]
+              },
+              {
+                title: "4. Data Layer & Local Persistence",
+                items: [
+                  { category: "Databases", tech: "SQLite · Realm · Core Data · Room" },
+                  { category: "Offline Sync", tech: "Firebase Offline · AWS AppSync" }
+                ]
+              },
+              {
+                title: "5. Backend & Cloud Integration",
+                items: [
+                  { category: "Platforms", tech: "Firebase · Supabase · AWS Amplify · GCP · Azure Mobile Apps" }
+                ]
+              },
+              {
+                title: "6. AI/ML Integration",
+                items: [
+                  { category: "ML Frameworks", tech: "TensorFlow Lite · Core ML · ML Kit · SageMaker · Azure ML" },
+                  { category: "NLP & Vision", tech: "spaCy · NLTK · Vision AI · LangChain" },
+                  { category: "AI Services", tech: "Midjourney · GPT · Dialogflow · Rasa" },
+                  { category: "Edge AI", tech: "ONNX · OpenVINO" }
+                ]
+              },
+              {
+                title: "7. Testing & QA",
+                items: [
+                  { category: "Testing", tech: "JUnit · XCTest · Jest · Appium · Flutter Testing" },
+                  { category: "Crash Reporting", tech: "Crashlytics · Sentry" },
+                  { category: "Performance", tech: "Xcode Instruments · AppSignal" }
+                ]
+              },
+              {
+                title: "8. CI/CD & Deployment",
+                items: [
+                  { category: "CI/CD", tech: "Fastlane · GitHub Actions · GitLab · Jenkins · Azure DevOps" },
+                  { category: "Distribution", tech: "Firebase App Distribution · TestFlight · Microsoft App Center" }
+                ]
+              },
+              {
+                title: "9. Security & Compliance",
+                items: [
+                  { category: "Authentication", tech: "OAuth 2.0 · OpenID · AES 256" },
+                  { category: "Device Security", tech: "Secure Enclave · Android Keystore" },
+                  { category: "Security Tools", tech: "MAST Tools · Code Obfuscation · Biometric APIs" }
+                ]
+              },
+              {
+                title: "10. Analytics & Engagement",
+                items: [
+                  { category: "Analytics", tech: "Google Analytics · Mixpanel · Amplitude" },
+                  { category: "Push Notifications", tech: "OneSignal · FCM · Remote Config" },
+                  { category: "A/B Testing", tech: "Optimizely" }
+                ]
+              },
+              {
+                title: "11. Post-Launch Monitoring",
+                items: [
+                  { category: "Monitoring", tech: "Datadog · New Relic · Prometheus · Grafana" },
+                  { category: "App Intelligence", tech: "App Annie · Sensor Tower" },
+                  { category: "MLOps", tech: "Feedback Loop: Continuous AI tuning" }
+                ]
+              }
+            ].map((category, index) => (
+              <div key={index} className="p-6 rounded-2xl bg-gray-800/50 border border-gray-700/50 hover:border-purple-400/50 transition-all duration-300">
+                <h3 className="text-lg font-bold mb-4 text-purple-400">{category.title}</h3>
+                <div className="space-y-3">
+                  {category.items.map((item, idx) => (
+                    <div key={idx} className="text-sm">
+                      <span className="font-semibold text-gray-200">{item.category}:</span>
+                      <span className="text-gray-400 ml-1">{item.tech}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             ))}
           </div>
