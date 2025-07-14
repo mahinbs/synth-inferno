@@ -65,7 +65,7 @@ const DevelopmentLifecycle = ({
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {phases.map((phase, index) => (
-            <Card key={index} className="p-6 hover:shadow-lg transition-all duration-300 group">
+            <Card key={index} className="p-6 bg-gray-800/50 rounded-xl border border-gray-700/50 hover:border-blue-400/30 transition-all duration-300 group">
               <CardHeader className="pb-4">
                 <div className="flex items-center space-x-4 mb-4">
                   <div className="flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 text-primary font-bold text-lg group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
