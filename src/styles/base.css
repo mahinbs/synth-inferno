@@ -2,73 +2,73 @@
 
 @layer base {
   :root {
-    --background: 255 255 255;
-    --foreground: 15 23 42;
+    --background: 0 0% 100%;
+    --foreground: 222 84% 4.9%;
 
-    --card: 255 255 255;
-    --card-foreground: 15 23 42;
+    --card: 0 0% 100%;
+    --card-foreground: 222 84% 4.9%;
 
-    --popover: 255 255 255;
-    --popover-foreground: 15 23 42;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 84% 4.9%;
 
-    --primary: 29 78 216;
-    --primary-foreground: 255 255 255;
+    --primary: 221 83% 53%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 248 250 252;
-    --secondary-foreground: 51 65 85;
+    --secondary: 210 40% 98%;
+    --secondary-foreground: 222 47% 11%;
 
-    --muted: 248 250 252;
-    --muted-foreground: 100 116 139;
+    --muted: 210 40% 98%;
+    --muted-foreground: 215 16% 47%;
 
-    --accent: 249 250 251;
-    --accent-foreground: 51 65 85;
+    --accent: 210 40% 98%;
+    --accent-foreground: 222 47% 11%;
 
-    --destructive: 239 68 68;
-    --destructive-foreground: 255 255 255;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 226 232 240;
-    --input: 226 232 240;
-    --ring: 29 78 216;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 221 83% 53%;
 
     --radius: 0.5rem;
 
-    /* Brand colors - updated to deep blue theme */
-    --brand-primary: 29 78 216;
-    --brand-secondary: 37 99 235;
-    --brand-accent: 249 250 251;
-    --brand-neutral: 100 116 139;
-    --brand-light: 249 250 251;
-    --brand-dark: 15 23 42;
+    /* Brand colors - updated to proper HSL values */
+    --brand-primary: 221 83% 53%;
+    --brand-secondary: 221 83% 53%;
+    --brand-accent: 210 40% 98%;
+    --brand-neutral: 215 16% 47%;
+    --brand-light: 210 40% 98%;
+    --brand-dark: 222 84% 4.9%;
     
     /* Header specific colors */
-    --header-text: 29 78 216;
-    --header-text-hover: 37 99 235;
+    --header-text: 221 83% 53%;
+    --header-text-hover: 221 83% 53%;
   }
 
   .dark {
-    --background: 15 23 42;
-    --foreground: 248 250 252;
-    --card: 30 41 59;
-    --card-foreground: 248 250 252;
-    --popover: 30 41 59;
-    --popover-foreground: 248 250 252;
-    --primary: 29 78 216;
-    --primary-foreground: 255 255 255;
-    --secondary: 51 65 85;
-    --secondary-foreground: 226 232 240;
-    --muted: 51 65 85;
-    --muted-foreground: 148 163 184;
-    --accent: 51 65 85;
-    --accent-foreground: 226 232 240;
-    --destructive: 239 68 68;
-    --destructive-foreground: 255 255 255;
-    --border: 51 65 85;
-    --input: 51 65 85;
-    --ring: 29 78 216;
+    --background: 222 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 221 83% 53%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 217 32% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 32% 17.5%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 217 32% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 217 32% 17.5%;
+    --input: 217 32% 17.5%;
+    --ring: 221 83% 53%;
     
     /* Header specific colors for dark mode */
-    --header-text: 148 163 184;
-    --header-text-hover: 29 78 216;
+    --header-text: 215 20% 65%;
+    --header-text-hover: 221 83% 53%;
   }
 
   * {
