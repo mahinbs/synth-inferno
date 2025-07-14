@@ -39,13 +39,13 @@ const ProductCard = ({ product }: ProductCardProps) => {
       </p>
 
       {/* CTA Button */}
-      <button 
-        onClick={() => openZohoForm(`product-${product.id}`)}
+      <Link 
+        to={product.ctaLink}
         className="inline-flex items-center space-x-2 bg-gradient-to-r from-cyan-600/30 to-blue-600/30 backdrop-blur-sm border border-cyan-400/50 text-cyan-200 px-6 py-3 rounded-xl font-semibold hover:from-cyan-500/40 hover:to-blue-500/40 hover:border-cyan-300/70 hover:text-white hover:scale-110 hover:shadow-[0_0_25px_rgba(34,211,238,0.5)] transition-all duration-500 group"
       >
         <span>{product.ctaText}</span>
         <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
-      </button>
+      </Link>
     </div>
   );
 };
