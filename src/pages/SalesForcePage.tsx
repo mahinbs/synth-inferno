@@ -83,14 +83,15 @@ const SalesForcePage = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button 
-                  size="lg" 
-                  onClick={handleContactClick}
-                  className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white px-8 py-4 text-lg shadow-lg hover:shadow-cyan-500/25 transition-all duration-300"
+                <a 
+                  href="https://forms.zohopublic.in/deeampceelabs1/form/WebdevelopmentScopingSession/formperma/gV2LSwKARVxOQh4MSvJ86okXEO4nTIBcoMzrklJddqM"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white px-8 py-4 text-lg shadow-lg hover:shadow-cyan-500/25 transition-all duration-300 rounded-md font-medium"
                 >
-                  Start Your CRM Transformation
+                  Get Started
                   <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
+                </a>
                 <Button 
                   size="lg" 
                   variant="outline" 

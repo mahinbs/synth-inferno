@@ -74,9 +74,14 @@ const MobileAppsPage = () => {
               Create powerful mobile experiences that engage users and drive business growth with native and cross-platform solutions.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-600 rounded-xl font-semibold hover:from-purple-400 hover:to-pink-500 transition-all duration-300 transform hover:scale-105">
-                Start Development
-              </button>
+              <a 
+                href="https://forms.zohopublic.in/deeampceelabs1/form/WebdevelopmentScopingSession/formperma/gV2LSwKARVxOQh4MSvJ86okXEO4nTIBcoMzrklJddqM"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-600 rounded-xl font-semibold hover:from-purple-400 hover:to-pink-500 transition-all duration-300 transform hover:scale-105"
+              >
+                Get Started
+              </a>
               <button className="px-8 py-4 border border-purple-400/30 rounded-xl font-semibold hover:bg-purple-500/10 transition-all duration-300">
                 View Portfolio
               </button>
@@ -164,12 +169,14 @@ const MobileAppsPage = () => {
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
             Let's create a mobile application that delights users and drives business success.
           </p>
-          <Link 
-            to="/contact"
+          <a 
+            href="https://forms.zohopublic.in/deeampceelabs1/form/WebdevelopmentScopingSession/formperma/gV2LSwKARVxOQh4MSvJ86okXEO4nTIBcoMzrklJddqM"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-block px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-600 rounded-xl font-semibold hover:from-purple-400 hover:to-pink-500 transition-all duration-300 transform hover:scale-105"
           >
             Get Started
-          </Link>
+          </a>
         </div>
       </section>
 

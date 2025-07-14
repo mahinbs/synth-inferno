@@ -116,9 +116,14 @@ const WebAppsPage = () => {
               Transform your business with custom web applications built using cutting-edge technologies and modern development practices.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl font-semibold hover:from-blue-400 hover:to-blue-500 transition-all duration-300 transform hover:scale-105">
-                Start Your Project
-              </button>
+              <a 
+                href="https://forms.zohopublic.in/deeampceelabs1/form/WebdevelopmentScopingSession/formperma/gV2LSwKARVxOQh4MSvJ86okXEO4nTIBcoMzrklJddqM"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl font-semibold hover:from-blue-400 hover:to-blue-500 transition-all duration-300 transform hover:scale-105"
+              >
+                Get Started
+              </a>
               <button className="px-8 py-4 border border-blue-400/30 rounded-xl font-semibold hover:bg-blue-500/10 transition-all duration-300">
                 View Portfolio
               </button>
@@ -281,9 +286,14 @@ const WebAppsPage = () => {
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
             Let's discuss your project and create a web application that transforms your business.
           </p>
-          <Link to="/contact" className="inline-block px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl font-semibold hover:from-blue-400 hover:to-blue-500 transition-all duration-300 transform hover:scale-105">
-            Get Started Today
-          </Link>
+          <a 
+            href="https://forms.zohopublic.in/deeampceelabs1/form/WebdevelopmentScopingSession/formperma/gV2LSwKARVxOQh4MSvJ86okXEO4nTIBcoMzrklJddqM"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl font-semibold hover:from-blue-400 hover:to-blue-500 transition-all duration-300 transform hover:scale-105"
+          >
+            Get Started
+          </a>
         </div>
       </section>
 

@@ -321,10 +321,15 @@ const ReviewsPage = () => {
             <p className="text-lg text-gray-300 mb-6 max-w-2xl mx-auto">
               Enter the future of digital innovation. Let's architect your next breakthrough together.
             </p>
-            <Button className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-8 py-3 rounded-full hover:from-blue-400 hover:to-blue-500 transition-all duration-300 font-semibold">
+            <a 
+              href="https://forms.zohopublic.in/deeampceelabs1/form/WebdevelopmentScopingSession/formperma/gV2LSwKARVxOQh4MSvJ86okXEO4nTIBcoMzrklJddqM"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center bg-gradient-to-r from-blue-500 to-blue-600 text-white px-8 py-3 rounded-full hover:from-blue-400 hover:to-blue-500 transition-all duration-300 font-semibold"
+            >
               <Zap className="h-4 w-4 mr-2" />
-              Start Your Project
-            </Button>
+              Get Started
+            </a>
           </div>
         </div>
       </section>

@@ -74,9 +74,14 @@ const AiCallingPage = () => {
               Transform your business communications with intelligent AI-powered calling systems that generate leads and enhance customer experiences.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-8 py-4 bg-gradient-to-r from-pink-500 to-orange-600 rounded-xl font-semibold hover:from-pink-400 hover:to-orange-500 transition-all duration-300 transform hover:scale-105">
-                Start Calling Campaign
-              </button>
+              <a 
+                href="https://forms.zohopublic.in/deeampceelabs1/form/WebdevelopmentScopingSession/formperma/gV2LSwKARVxOQh4MSvJ86okXEO4nTIBcoMzrklJddqM"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-8 py-4 bg-gradient-to-r from-pink-500 to-orange-600 rounded-xl font-semibold hover:from-pink-400 hover:to-orange-500 transition-all duration-300 transform hover:scale-105"
+              >
+                Get Started
+              </a>
               <button className="px-8 py-4 border border-pink-400/30 rounded-xl font-semibold hover:bg-pink-500/10 transition-all duration-300">
                 Listen to Demo
               </button>
@@ -165,12 +170,14 @@ const AiCallingPage = () => {
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
             Let's implement AI calling solutions that drive results and scale your business.
           </p>
-          <Link 
-            to="/contact"
+          <a 
+            href="https://forms.zohopublic.in/deeampceelabs1/form/WebdevelopmentScopingSession/formperma/gV2LSwKARVxOQh4MSvJ86okXEO4nTIBcoMzrklJddqM"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-block px-8 py-4 bg-gradient-to-r from-pink-500 to-orange-600 rounded-xl font-semibold hover:from-pink-400 hover:to-orange-500 transition-all duration-300 transform hover:scale-105"
           >
-            Start Your Campaign
-          </Link>
+            Get Started
+          </a>
         </div>
       </section>
 

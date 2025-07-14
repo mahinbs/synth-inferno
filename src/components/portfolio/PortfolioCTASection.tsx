@@ -23,14 +23,16 @@ const PortfolioCTASection = () => {
           Let's discuss how we can bring your vision to life with cutting-edge technology and innovative solutions.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <button 
-            onClick={() => openZohoForm('portfolio')}
+          <a 
+            href="https://forms.zohopublic.in/deeampceelabs1/form/WebdevelopmentScopingSession/formperma/gV2LSwKARVxOQh4MSvJ86okXEO4nTIBcoMzrklJddqM"
+            target="_blank"
+            rel="noopener noreferrer"
             className="group bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl flex items-center space-x-3"
           >
             <MessageCircle className="h-5 w-5" />
-            <span>Get Started Today</span>
+            <span>Get Started</span>
             <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
-          </button>
+          </a>
         </div>
       </div>
     </div>

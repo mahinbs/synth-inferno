@@ -171,9 +171,14 @@ const SaasPage = () => {
               Build scalable software-as-a-service platforms with subscription management, multi-tenancy, and enterprise features.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl font-semibold hover:from-blue-400 hover:to-purple-500 transition-all duration-300 transform hover:scale-105">
-                Start Building
-              </button>
+              <a 
+                href="https://forms.zohopublic.in/deeampceelabs1/form/WebdevelopmentScopingSession/formperma/gV2LSwKARVxOQh4MSvJ86okXEO4nTIBcoMzrklJddqM"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl font-semibold hover:from-blue-400 hover:to-purple-500 transition-all duration-300 transform hover:scale-105"
+              >
+                Get Started
+              </a>
               
             </div>
           </div>
@@ -297,9 +302,14 @@ const SaasPage = () => {
                       {feature}
                     </li>)}
                 </ul>
-                <button className={`w-full py-3 rounded-xl font-semibold transition-all duration-300 ${tier.popular ? 'bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-400 hover:to-purple-500' : 'border border-blue-400/30 hover:bg-blue-500/10'}`}>
+                <a 
+                  href="https://forms.zohopublic.in/deeampceelabs1/form/WebdevelopmentScopingSession/formperma/gV2LSwKARVxOQh4MSvJ86okXEO4nTIBcoMzrklJddqM"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`w-full inline-block text-center py-3 rounded-xl font-semibold transition-all duration-300 ${tier.popular ? 'bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-400 hover:to-purple-500' : 'border border-blue-400/30 hover:bg-blue-500/10'}`}
+                >
                   Get Started
-                </button>
+                </a>
               </div>)}
           </div>
         </div>
@@ -312,9 +322,14 @@ const SaasPage = () => {
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
             Let's build a scalable SAAS platform that grows with your business.
           </p>
-          <Link to="/contact" className="inline-block px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl font-semibold hover:from-blue-400 hover:to-purple-500 transition-all duration-300 transform hover:scale-105">
+          <a 
+            href="https://forms.zohopublic.in/deeampceelabs1/form/WebdevelopmentScopingSession/formperma/gV2LSwKARVxOQh4MSvJ86okXEO4nTIBcoMzrklJddqM"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl font-semibold hover:from-blue-400 hover:to-purple-500 transition-all duration-300 transform hover:scale-105"
+          >
             Start Your SAAS Journey
-          </Link>
+          </a>
         </div>
       </section>
 

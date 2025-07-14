@@ -25,13 +25,15 @@ const PortfolioCTA = ({ isVisible }: PortfolioCTAProps) => {
             <span>View Full Portfolio</span>
             <ArrowRight className="h-4 w-4" />
           </Link>
-          <button 
-            onClick={() => openZohoForm('portfolio-cta')}
+          <a 
+            href="https://forms.zohopublic.in/deeampceelabs1/form/WebdevelopmentScopingSession/formperma/gV2LSwKARVxOQh4MSvJ86okXEO4nTIBcoMzrklJddqM"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center space-x-2 bg-gray-800/50 border border-gray-600 text-gray-300 px-6 py-3 rounded-xl hover:bg-gray-700/50 hover:border-gray-500 transition-all duration-300 font-medium"
           >
-            <span>Start Your Project</span>
+            <span>Get Started</span>
             <ExternalLink className="h-4 w-4" />
-          </button>
+          </a>
         </div>
       </div>
     </div>

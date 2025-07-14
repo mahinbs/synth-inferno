@@ -50,14 +50,15 @@ const ArVrPage = () => {
               Create immersive experiences that bridge the gap between digital and physical worlds with cutting-edge AR/VR technology.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                size="lg" 
-                onClick={() => openZohoForm('ar-vr-development')}
-                className="px-8 py-4 text-lg hover:scale-105 transition-all duration-300"
+              <a 
+                href="https://forms.zohopublic.in/deeampceelabs1/form/WebdevelopmentScopingSession/formperma/gV2LSwKARVxOQh4MSvJ86okXEO4nTIBcoMzrklJddqM"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center px-8 py-4 text-lg hover:scale-105 transition-all duration-300 bg-primary text-primary-foreground hover:bg-primary/90 rounded-md font-medium"
               >
-                Start Your AR/VR Project
+                Get Started
                 <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
+              </a>
               <Button 
                 variant="outline" 
                 size="lg"
@@ -118,14 +119,15 @@ const ArVrPage = () => {
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Let's create immersive AR/VR experiences that will captivate your audience and transform your business.
           </p>
-          <Button 
-            size="lg"
-            onClick={() => openZohoForm('ar-vr-final-cta')}
-            className="px-8 py-4 text-lg hover:scale-105 transition-all duration-300"
+          <a 
+            href="https://forms.zohopublic.in/deeampceelabs1/form/WebdevelopmentScopingSession/formperma/gV2LSwKARVxOQh4MSvJ86okXEO4nTIBcoMzrklJddqM"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center px-8 py-4 text-lg hover:scale-105 transition-all duration-300 bg-primary text-primary-foreground hover:bg-primary/90 rounded-md font-medium"
           >
-            Start Your AR/VR Project
+            Get Started
             <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
+          </a>
         </div>
       </section>
 

@@ -106,10 +106,15 @@ const WhyUsSection = memo(() => {
               Let's discuss how our expertise can accelerate your digital transformation and drive meaningful results for your business.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <button onClick={() => openZohoForm('why-us')} className="group relative bg-gradient-to-r from-blue-600 to-purple-600 text-white px-10 py-5 rounded-2xl font-semibold text-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 hover:scale-105 transform shadow-lg hover:shadow-xl">
-                <span className="relative z-10">Start Your Project</span>
+              <a 
+                href="https://forms.zohopublic.in/deeampceelabs1/form/WebdevelopmentScopingSession/formperma/gV2LSwKARVxOQh4MSvJ86okXEO4nTIBcoMzrklJddqM"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative bg-gradient-to-r from-blue-600 to-purple-600 text-white px-10 py-5 rounded-2xl font-semibold text-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 hover:scale-105 transform shadow-lg hover:shadow-xl inline-block"
+              >
+                <span className="relative z-10">Get Started</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </button>
+              </a>
               <button onClick={() => openZohoForm('why-us-consultation')} className="group bg-white border-2 border-gray-300 text-gray-700 px-10 py-5 rounded-2xl font-semibold text-lg hover:text-gray-900 transition-all duration-300 hover:scale-105 transform hover:border-gray-400 shadow-md hover:shadow-lg">
                 Schedule Consultation
               </button>

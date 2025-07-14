@@ -30,10 +30,12 @@ const SpeaksifyStaticCard = () => {
           </li>
         </ul>
         <a
+          href="https://forms.zohopublic.in/deeampceelabs1/form/WebdevelopmentScopingSession/formperma/gV2LSwKARVxOQh4MSvJ86okXEO4nTIBcoMzrklJddqM"
+          target="_blank"
+          rel="noopener noreferrer"
           className="cta-button inline-block w-full text-center bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-3 rounded-lg font-medium transition-colors duration-200"
-          href="/speaksify"
         >
-          View More
+          Get Started
         </a>
       </div>
     </div>

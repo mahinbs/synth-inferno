@@ -31,14 +31,15 @@ const IotPage = () => {
               Connect the physical and digital worlds with intelligent IoT solutions that drive automation, efficiency, and innovation across industries.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                size="lg" 
-                onClick={() => openZohoForm('iot-development')}
-                className="px-8 py-4 text-lg hover:scale-105 transition-all duration-300"
+              <a 
+                href="https://forms.zohopublic.in/deeampceelabs1/form/WebdevelopmentScopingSession/formperma/gV2LSwKARVxOQh4MSvJ86okXEO4nTIBcoMzrklJddqM"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center px-8 py-4 text-lg hover:scale-105 transition-all duration-300 bg-primary text-primary-foreground hover:bg-primary/90 rounded-md font-medium"
               >
-                Start Your IoT Project
+                Get Started
                 <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
+              </a>
               <Button 
                 variant="outline" 
                 size="lg"
@@ -79,14 +80,15 @@ const IotPage = () => {
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Transform your business with intelligent IoT solutions that connect devices, analyze data, and drive actionable insights.
           </p>
-          <Button 
-            size="lg"
-            onClick={() => openZohoForm('iot-final-cta')}
-            className="px-8 py-4 text-lg hover:scale-105 transition-all duration-300"
+          <a 
+            href="https://forms.zohopublic.in/deeampceelabs1/form/WebdevelopmentScopingSession/formperma/gV2LSwKARVxOQh4MSvJ86okXEO4nTIBcoMzrklJddqM"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center px-8 py-4 text-lg hover:scale-105 transition-all duration-300 bg-primary text-primary-foreground hover:bg-primary/90 rounded-md font-medium"
           >
-            Get Started Today
+            Get Started
             <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
+          </a>
         </div>
       </section>
 
