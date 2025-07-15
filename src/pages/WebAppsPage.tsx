@@ -129,48 +129,7 @@ const WebAppsPage = () => {
       </section>
 
       {/* Portfolio Section - Now using data from projects.ts */}
-      <section className="py-20 bg-gray-900/70">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Our Web Application Portfolio</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Showcasing our expertise across various industries and technologies
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {webAppProjects.map((project, index) => <div key={project.id} className="group bg-gray-800/50 rounded-2xl overflow-hidden border border-gray-700/50 hover:border-blue-400/50 transition-all duration-300">
-                <div className="relative h-48 overflow-hidden">
-                  <OptimizedImage src={project.image} alt={`${project.title} - ${project.industry} project showcase`} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" priority={index < 3} onLoad={() => console.log(`WebAppsPage portfolio image loaded: ${project.title}`)} />
-                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent"></div>
-                  <div className="absolute bottom-4 left-4">
-                    <span className="px-3 py-1 bg-blue-500/20 border border-blue-400/30 rounded-full text-sm text-blue-300">
-                      {project.industry}
-                    </span>
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-3 group-hover:text-blue-300 transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="text-gray-400 mb-4 text-sm leading-relaxed">
-                    {project.description}
-                  </p>
-                  <div className="mb-4">
-                    <div className="flex flex-wrap gap-1 mb-3">
-                      {project.technologies.slice(0, 3).map((tech, idx) => <span key={idx} className="text-xs px-2 py-1 bg-blue-500/20 text-blue-300 rounded">
-                          {tech}
-                        </span>)}
-                    </div>
-                    <div className="text-sm text-gray-500">
-                      <div>Client: {project.client}</div>
-                      <div>Timeline: {project.timeline}</div>
-                    </div>
-                  </div>
-                </div>
-              </div>)}
-          </div>
-        </div>
-      </section>
+      
 
       {/* Case Studies Section */}
       
