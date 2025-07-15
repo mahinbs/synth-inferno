@@ -116,12 +116,7 @@ const WebAppsPage = () => {
               Transform your business with custom web applications built using cutting-edge technologies and modern development practices.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
-                href="https://forms.zohopublic.in/deeampceelabs1/form/WebdevelopmentScopingSession/formperma/gV2LSwKARVxOQh4MSvJ86okXEO4nTIBcoMzrklJddqM"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl font-semibold hover:from-blue-400 hover:to-blue-500 transition-all duration-300 transform hover:scale-105"
-              >
+              <a href="https://forms.zohopublic.in/deeampceelabs1/form/WebdevelopmentScopingSession/formperma/gV2LSwKARVxOQh4MSvJ86okXEO4nTIBcoMzrklJddqM" target="_blank" rel="noopener noreferrer" className="inline-block px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl font-semibold hover:from-blue-400 hover:to-blue-500 transition-all duration-300 transform hover:scale-105">
                 Get Started
               </a>
               <button className="px-8 py-4 border border-blue-400/30 rounded-xl font-semibold hover:bg-blue-500/10 transition-all duration-300">
@@ -177,54 +172,7 @@ const WebAppsPage = () => {
       </section>
 
       {/* Case Studies Section */}
-      <section className="py-20 bg-black/50">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Success Stories</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Real results from our web application development projects
-            </p>
-          </div>
-          <div className="space-y-16">
-            {caseStudies.map((study, index) => <div key={index} className="bg-gray-800/30 rounded-2xl p-8 border border-gray-700/50">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                  <div>
-                    <div className="mb-6">
-                      <h3 className="text-2xl font-bold text-blue-400 mb-2">{study.client}</h3>
-                      <p className="text-gray-400">{study.industry} • {study.duration} • {study.teamSize}</p>
-                    </div>
-                    
-                    <div className="space-y-4">
-                      <div>
-                        <h4 className="font-semibold text-white mb-2">Challenge:</h4>
-                        <p className="text-gray-300 text-sm leading-relaxed">{study.challenge}</p>
-                      </div>
-                      
-                      <div>
-                        <h4 className="font-semibold text-white mb-2">Solution:</h4>
-                        <p className="text-gray-300 text-sm leading-relaxed">{study.solution}</p>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <div className="mb-6">
-                      <h4 className="font-semibold text-white mb-4">Results:</h4>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        {study.results.map((result, idx) => <div key={idx} className="flex items-start space-x-2">
-                            <CheckCircle className="h-5 w-5 text-green-400 mt-0.5 flex-shrink-0" />
-                            <span className="text-gray-300 text-sm">{result}</span>
-                          </div>)}
-                      </div>
-                    </div>
-                    
-                    
-                  </div>
-                </div>
-              </div>)}
-          </div>
-        </div>
-      </section>
+      
 
       {/* Features Section */}
       <section className="py-20 bg-gray-900/70">
@@ -286,12 +234,7 @@ const WebAppsPage = () => {
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
             Let's discuss your project and create a web application that transforms your business.
           </p>
-          <a 
-            href="https://forms.zohopublic.in/deeampceelabs1/form/WebdevelopmentScopingSession/formperma/gV2LSwKARVxOQh4MSvJ86okXEO4nTIBcoMzrklJddqM"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl font-semibold hover:from-blue-400 hover:to-blue-500 transition-all duration-300 transform hover:scale-105"
-          >
+          <a href="https://forms.zohopublic.in/deeampceelabs1/form/WebdevelopmentScopingSession/formperma/gV2LSwKARVxOQh4MSvJ86okXEO4nTIBcoMzrklJddqM" target="_blank" rel="noopener noreferrer" className="inline-block px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl font-semibold hover:from-blue-400 hover:to-blue-500 transition-all duration-300 transform hover:scale-105">
             Get Started
           </a>
         </div>
