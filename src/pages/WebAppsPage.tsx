@@ -5,6 +5,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { projectsData } from '@/data/projects';
 import OptimizedImage from '@/components/ui/OptimizedImage';
+import CategorizedTechStackSection from '@/components/shared/CategorizedTechStackSection';
 const WebAppsPage = () => {
   const [webAppProjects, setWebAppProjects] = useState<any[]>([]);
   useEffect(() => {
@@ -205,6 +206,9 @@ const WebAppsPage = () => {
           </div>
         </div>
       </section>
+
+      {/* Tech Stack Section */}
+      <CategorizedTechStackSection />
 
       {/* Process Section */}
       <section className="py-20 bg-black/50">
