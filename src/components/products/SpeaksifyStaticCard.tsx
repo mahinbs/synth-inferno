@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const SpeaksifyStaticCard = () => {
   return (
@@ -25,15 +26,13 @@ const SpeaksifyStaticCard = () => {
             <span>300–500% ROI in 90 days*</span>
           </li>
         </ul>
-        <a
-          href="https://forms.zohopublic.in/deeampceelabs1/form/WebdevelopmentScopingSession/formperma/gV2LSwKARVxOQh4MSvJ86okXEO4nTIBcoMzrklJddqM"
-          target="_blank"
-          rel="noopener noreferrer"
+        <Link
+          to="/products/speaksify"
           className="cta-button inline-block w-full text-center px-6 py-3 rounded-lg font-medium transition-colors duration-200"
           style={{ backgroundColor: '#3b82f6', color: 'white' }}
         >
           Get Started
-        </a>
+        </Link>
       </div>
     </div>
   );
