@@ -114,7 +114,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <MapPin className="h-4 w-4 flex-shrink-0" />
-                <span>Ghaziabad, India</span>
+                <span>Delhi, India</span>
               </div>
               <div className="mt-4">
                 <button onClick={() => openZohoForm('footer')} className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors duration-200">
