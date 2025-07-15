@@ -81,9 +81,7 @@ const Footer = () => {
                 </button>
               </li>
               <li>
-                <button onClick={() => handleSectionLink('team')} className="hover:text-white transition-colors duration-200 text-left">
-                  Our Team
-                </button>
+                
               </li>
               <li>
                 <button onClick={() => handlePageLink('/blogs')} className="hover:text-white transition-colors duration-200 text-left">
