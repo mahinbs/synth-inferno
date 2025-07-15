@@ -59,17 +59,21 @@ const About = memo(() => {
                   {/* Quote */}
                   <blockquote className="text-lg lg:text-xl leading-relaxed text-gray-700 border-l-4 border-blue-500 pl-6 italic font-medium">"At Dee&Cee Labs, we don't build generic software, we craft intelligent systems with purpose, precision, and innovation. We don't just write code. We design for scale, optimize for impact, and invent our own blueprints. As a startup, we move fast, think deeply, and push the limits of what's possible. If your idea needs muscle, mind, and momentum, we're the team to make it real."</blockquote>
 
-                  {/* CTA Section */}
-                  <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-6">
-                    <Button size="lg" className="bg-gray-700 text-white hover:bg-gray-800 px-8 py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105">
-                      Let's Build Together
-                    </Button>
-                    
-                    <Button variant="outline" size="lg" className="bg-gray-700 text-white hover:bg-gray-800 px-6 py-3 rounded-lg font-medium transition-all duration-300">
-                      <Linkedin className="w-5 h-5 mr-2" />
-                      Connect on LinkedIn
-                    </Button>
-                  </div>
+                   {/* CTA Section */}
+                   <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-6">
+                     <a href="https://forms.zohopublic.in/deeampceelabs1/form/WebdevelopmentScopingSession/formperma/gV2LSwKARVxOQh4MSvJ86okXEO4nTIBcoMzrklJddqM" target="_blank" rel="noopener noreferrer">
+                       <Button size="lg" className="bg-gray-700 text-white hover:bg-gray-800 px-8 py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105">
+                         Let's Build Together
+                       </Button>
+                     </a>
+                     
+                     <a href="https://www.linkedin.com/in/chandra-shekhar-s-b23216256/" target="_blank" rel="noopener noreferrer">
+                       <Button variant="outline" size="lg" className="bg-gray-700 text-white hover:bg-gray-800 px-6 py-3 rounded-lg font-medium transition-all duration-300">
+                         <Linkedin className="w-5 h-5 mr-2" />
+                         Connect on LinkedIn
+                       </Button>
+                     </a>
+                   </div>
                 </div>
               </div>
             </div>
