@@ -65,14 +65,6 @@ const ArVrPage = () => {
                 Start Your Project
                 <ArrowRight className="ml-2 h-5 w-5" />
               </a>
-              <Button 
-                variant="outline" 
-                size="lg"
-                onClick={() => openZohoForm('ar-vr-consultation')}
-                className="px-8 py-4 text-lg"
-              >
-                Get Free Consultation
-              </Button>
             </div>
           </div>
         </div>
