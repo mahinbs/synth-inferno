@@ -53,7 +53,7 @@ const ArVrPage = () => {
               AR/VR Development
             </h1>
             <p className="text-xl md:text-2xl text-foreground/80 mb-8 leading-relaxed">
-              Build immersive AR/VR experiences with spatial storytelling, real-time interaction, and AI-enhanced environments — ready for next-gen platforms like Vision Pro, Meta Quest, and WebXR.
+              Build immersive AR/VR experiences with spatial storytelling, real-time interaction, and AI-enhanced environments ready for next-gen platforms like Vision Pro, Meta Quest, and WebXR.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a 
