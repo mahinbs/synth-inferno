@@ -71,20 +71,28 @@ const ArVrPage = () => {
       </section>
 
       {/* Applications Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Our AR/VR Solutions</h2>
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      <section className="py-20 bg-gray-900/70">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4">Our AR/VR Solutions</h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Cutting-edge immersive experiences that engage users and transform digital interaction.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {applications.map((app, index) => (
-              <Card key={index} className="p-6 hover:shadow-lg transition-shadow">
-                <CardHeader className="flex flex-row items-center space-y-0 pb-4">
-                  <app.icon className="h-8 w-8 text-primary mr-4" />
-                  <CardTitle className="text-xl">{app.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-base">{app.description}</CardDescription>
-                </CardContent>
-              </Card>
+              <div key={index} className="group relative p-8 rounded-2xl bg-gray-800/50 border border-gray-700/50 hover:border-primary/50 transition-all duration-300 overflow-hidden">
+                {/* Content */}
+                <div className="relative z-10">
+                  <div className="flex items-center mb-6">
+                    <div className="w-12 h-12 rounded-xl bg-primary/20 border border-primary/30 flex items-center justify-center mr-4">
+                      <app.icon className="h-6 w-6 text-primary" />
+                    </div>
+                    <h3 className="text-xl font-semibold">{app.title}</h3>
+                  </div>
+                  <p className="text-gray-300 leading-relaxed">{app.description}</p>
+                </div>
+              </div>
             ))}
           </div>
         </div>
