@@ -16,7 +16,8 @@ interface ServiceCardExpandedContentProps {
 
 const getServiceRoute = (serviceId: string): string => {
   const routeMap: Record<string, string> = {
-    'web-apps': '/ar-vr-development',
+    'web-apps': '/web-apps',
+    'ar-vr-development': '/ar-vr-development',
     'saas': '/saas',
     'mobile-apps': '/mobile-apps',
     'ai-calling': '/ai-calling',
