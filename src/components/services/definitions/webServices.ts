@@ -44,6 +44,26 @@ export const webServices: ServiceData[] = [
     route: '/saas'
   },
   {
+    id: 'mobile-apps',
+    icon: Smartphone,
+    title: 'Mobile Applications',
+    description: 'Native and cross-platform mobile apps with intuitive user experiences.',
+    detailedDescription: 'iOS and Android applications built with React Native or native technologies. Focus on performance, user experience, and app store optimization.',
+    image: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    backgroundImage: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+    features: [
+      'iOS & Android',
+      'Cross-platform',
+      'App Store Optimization',
+      'Push Notifications'
+    ],
+    technologies: ['React Native', 'Swift', 'Kotlin', 'Firebase'],
+    startingPrice: '$10,000',
+    timeline: '6-14 weeks',
+    color: 'purple',
+    route: '/mobile-apps'
+  },
+  {
     id: 'ar-vr-development',
     icon: Headphones,
     title: 'AR/VR Development',
