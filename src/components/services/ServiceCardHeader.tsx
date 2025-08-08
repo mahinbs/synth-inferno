@@ -106,14 +106,14 @@ const ServiceCardHeader = memo(({
             src={service.backgroundImage}
             alt={`${service.title} background`}
             className={`w-full h-full object-cover transition-all duration-300 ${
-              imageLoaded ? 'opacity-3' : 'opacity-0'
-            } ${isExpanded ? 'opacity-5 scale-105' : 'group-hover:opacity-5 group-hover:scale-102'}`}
+              imageLoaded ? 'opacity-20' : 'opacity-0'
+            } ${isExpanded ? 'opacity-30 scale-105' : 'group-hover:opacity-25 group-hover:scale-102'}`}
             onLoad={onImageLoad}
             loading="lazy"
           />
           
           {/* Clean overlay for text readability */}
-          <div className="absolute inset-0 bg-white/95" />
+          <div className="absolute inset-0 bg-white/90" />
         </div>
       )}
     </div>

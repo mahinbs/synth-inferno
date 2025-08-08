@@ -1,0 +1,24 @@
+<svg width="160" height="120" viewBox="0 0 160 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- VR Headset -->
+  <ellipse cx="80" cy="60" rx="35" ry="20" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.3"/>
+  <ellipse cx="80" cy="60" rx="25" ry="12" fill="none" stroke="currentColor" stroke-width="1" opacity="0.2"/>
+  
+  <!-- AR Elements -->
+  <rect x="20" y="20" width="30" height="20" rx="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.2"/>
+  <rect x="110" y="20" width="30" height="20" rx="4" fill="none" stroke="currentColor" stroke-width="1" opacity="0.2"/>
+  
+  <!-- Immersive Elements -->
+  <circle cx="40" cy="40" r="3" fill="currentColor" opacity="0.2"/>
+  <circle cx="120" cy="40" r="3" fill="currentColor" opacity="0.2"/>
+  <circle cx="80" cy="80" r="2" fill="currentColor" opacity="0.15"/>
+  
+  <!-- Motion Lines -->
+  <path d="M15 30 Q25 25 35 30" stroke="currentColor" stroke-width="1" fill="none" opacity="0.2"/>
+  <path d="M125 30 Q135 25 145 30" stroke="currentColor" stroke-width="1" fill="none" opacity="0.2"/>
+  <path d="M70 90 Q80 85 90 90" stroke="currentColor" stroke-width="1" fill="none" opacity="0.15"/>
+  
+  <!-- AR Overlay Elements -->
+  <rect x="60" y="35" width="40" height="2" rx="1" fill="currentColor" opacity="0.15"/>
+  <rect x="60" y="40" width="30" height="2" rx="1" fill="currentColor" opacity="0.15"/>
+  <rect x="60" y="45" width="35" height="2" rx="1" fill="currentColor" opacity="0.15"/>
+</svg> 

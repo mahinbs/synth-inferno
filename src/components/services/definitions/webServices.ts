@@ -1,6 +1,6 @@
 
 import { ServiceData } from '../types';
-import { Code, Globe, Smartphone, Headphones } from 'lucide-react';
+import { Code, Globe, Smartphone, Headphones, Cloud } from 'lucide-react';
 
 export const webServices: ServiceData[] = [
   {
@@ -9,8 +9,8 @@ export const webServices: ServiceData[] = [
     title: 'Web Applications',
     description: 'Scalable web applications built with modern frameworks and architectures for optimal performance and maintainability.',
     detailedDescription: 'Our web application development service delivers cutting-edge solutions using the latest technologies and best practices. We focus on creating scalable, maintainable, and high-performance applications that grow with your business needs.',
-    image: '/images/bg-web-ui.svg',
-    backgroundImage: '/images/bg-web-ui.svg',
+    image: 'https://res.cloudinary.com/dknafpppp/image/upload/v1754647711/2150201871_ayygpj.jpg',
+    backgroundImage: 'https://res.cloudinary.com/dknafpppp/image/upload/v1754647711/2150201871_ayygpj.jpg',
     features: [
       'Custom web application development',
       'Progressive Web App (PWA) implementation', 
@@ -24,13 +24,33 @@ export const webServices: ServiceData[] = [
     route: '/web-apps'
   },
   {
+    id: 'saas-solutions',
+    icon: Cloud,
+    title: 'SAAS Solutions',
+    description: 'Scalable software-as-a-service platforms with subscription management and analytics.',
+    detailedDescription: 'Complete SAAS platforms with multi-tenancy, payment processing, analytics dashboards, and user management. Built for scale and optimized for recurring revenue.',
+    image: 'https://res.cloudinary.com/dknafpppp/image/upload/v1754647710/2149399290_d2hp75.jpg',
+    backgroundImage: 'https://res.cloudinary.com/dknafpppp/image/upload/v1754647710/2149399290_d2hp75.jpg',
+    features: [
+      'Multi-tenant Architecture',
+      'Payment Integration',
+      'Analytics Dashboard',
+      'API Management'
+    ],
+    technologies: ['React', 'Stripe', 'AWS', 'Redis'],
+    startingPrice: '$15,000',
+    timeline: '8-16 weeks',
+    color: 'blue',
+    route: '/saas'
+  },
+  {
     id: 'ar-vr-development',
     icon: Headphones,
     title: 'AR/VR Development',
     description: 'Digital immersion that educates, entertains, and transforms reality with cutting-edge AR/VR experiences.',
     detailedDescription: 'Our AR/VR development services combine artistry with engineering precision to craft immersive experiences that educate, train, and engage users. From gesture-based interfaces to spatial storytelling, our solutions push the boundaries of digital interaction.',
-    image: '/images/bg-ar-vr.svg',
-    backgroundImage: '/images/bg-ar-vr.svg',
+    image: 'https://res.cloudinary.com/dknafpppp/image/upload/v1754648501/2151908116_sz3fko.jpg',
+    backgroundImage: 'https://res.cloudinary.com/dknafpppp/image/upload/v1754648501/2151908116_sz3fko.jpg',
     features: [
       'VR Training & Safety Modules',
       'AR Retail Try-ons & Filters', 

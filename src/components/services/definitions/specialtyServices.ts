@@ -75,28 +75,5 @@ export const specialtyServices: ServiceData[] = [
     color: "teal" as const,
     route: "/iot",
   },
-  {
-    id: "ar-vr-development",
-    icon: Eye,
-    title: "AR / VR Development",
-    description:
-      "Digital immersion that educates, entertains, and transforms reality.",
-    detailedDescription:
-      "Our AR/VR solutions blend artistry and precision engineering to create experiences that inform, train, or mesmerize. We specialize in real-time 3D interaction, gesture tracking, and spatial storytelling.",
-    image:
-      "https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    backgroundImage: "https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-    features: [
-      "VR Training & Safety Modules",
-      "AR Retail Try-ons & Filters",
-      "Virtual Product Demos",
-      "Spatial Storytelling",
-      "WebAR Experiences",
-    ],
-    technologies: ["Unity", "Unreal Engine", "Spark AR", "8thWall", "WebXR", "Blender", "ARKit", "ARCore"],
-    startingPrice: "$22,000",
-    timeline: "12-18 weeks",
-    color: "purple" as const,
-    route: "/ar-vr-development",
-  },
+
 ];

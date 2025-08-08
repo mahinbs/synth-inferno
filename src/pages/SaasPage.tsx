@@ -5,7 +5,7 @@ import Footer from '@/components/Footer';
 const SaasPage = () => {
   const features = [{
     icon: Cloud,
-    title: 'Multi-Tenant Architecture',
+    title: 'Multi-tenant Architecture',
     description: 'Scalable infrastructure that efficiently serves multiple customers from a single instance.'
   }, {
     icon: CreditCard,
@@ -16,17 +16,9 @@ const SaasPage = () => {
     title: 'Analytics Dashboard',
     description: 'Comprehensive analytics to track user behavior, revenue, and business metrics.'
   }, {
-    icon: Users,
-    title: 'User Management',
-    description: 'Advanced user roles, permissions, and team collaboration features.'
-  }, {
     icon: Settings,
-    title: 'API Integration',
+    title: 'API Management',
     description: 'RESTful APIs and webhooks for seamless third-party integrations.'
-  }, {
-    icon: Zap,
-    title: 'Auto-Scaling',
-    description: 'Cloud infrastructure that automatically scales based on demand.'
   }];
   const portfolio = [{
     title: 'TaskFlow Pro',
@@ -168,7 +160,7 @@ const SaasPage = () => {
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed">
-              Build scalable software-as-a-service platforms with subscription management, multi-tenancy, and enterprise features.
+              Scalable software-as-a-service platforms with subscription management and analytics.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a 
@@ -198,37 +190,22 @@ const SaasPage = () => {
           <div className="saas-stack-section grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">
             <div className="stack-group p-6 bg-gray-800/50 rounded-xl border border-gray-700/50 hover:border-blue-400/30 transition-all duration-300">
               <h3 className="text-xl font-semibold mb-3 text-cyan-400">Frontend</h3>
-              <p className="text-gray-300 text-sm leading-relaxed">React / Next.js · Tailwind · AI UX (Chat/Voice)</p>
+              <p className="text-gray-300 text-sm leading-relaxed">React · Modern UI/UX · Responsive Design</p>
             </div>
 
             <div className="stack-group p-6 bg-gray-800/50 rounded-xl border border-gray-700/50 hover:border-blue-400/30 transition-all duration-300">
-              <h3 className="text-xl font-semibold mb-3 text-cyan-400">Backend</h3>
-              <p className="text-gray-300 text-sm leading-relaxed">Node.js / FastAPI · REST / GraphQL · OpenAI / LangChain APIs</p>
+              <h3 className="text-xl font-semibold mb-3 text-cyan-400">Payment Processing</h3>
+              <p className="text-gray-300 text-sm leading-relaxed">Stripe · Subscription Management · Secure Transactions</p>
             </div>
 
             <div className="stack-group p-6 bg-gray-800/50 rounded-xl border border-gray-700/50 hover:border-blue-400/30 transition-all duration-300">
-              <h3 className="text-xl font-semibold mb-3 text-cyan-400">AI/ML Layer</h3>
-              <p className="text-gray-300 text-sm leading-relaxed">PyTorch · LLMs (GPT-4.5, Claude) · Vector DBs (Pinecone, Weaviate) · RAG · Agent Frameworks (CrewAI, AutoGen)</p>
+              <h3 className="text-xl font-semibold mb-3 text-cyan-400">Cloud Infrastructure</h3>
+              <p className="text-gray-300 text-sm leading-relaxed">AWS · Scalable Architecture · Auto-scaling</p>
             </div>
 
             <div className="stack-group p-6 bg-gray-800/50 rounded-xl border border-gray-700/50 hover:border-blue-400/30 transition-all duration-300">
-              <h3 className="text-xl font-semibold mb-3 text-cyan-400">DevOps & MLOps</h3>
-              <p className="text-gray-300 text-sm leading-relaxed">Docker · Kubernetes · MLflow · GitHub Actions · Weights & Biases</p>
-            </div>
-
-            <div className="stack-group p-6 bg-gray-800/50 rounded-xl border border-gray-700/50 hover:border-blue-400/30 transition-all duration-300">
-              <h3 className="text-xl font-semibold mb-3 text-cyan-400">Cloud & Infra</h3>
-              <p className="text-gray-300 text-sm leading-relaxed">AWS / GCP · Serverless · Cloudflare Workers AI · Terraform</p>
-            </div>
-
-            <div className="stack-group p-6 bg-gray-800/50 rounded-xl border border-gray-700/50 hover:border-blue-400/30 transition-all duration-300">
-              <h3 className="text-xl font-semibold mb-3 text-cyan-400">Data & Security</h3>
-              <p className="text-gray-300 text-sm leading-relaxed">Snowflake · Kafka · OAuth2 / SOC 2 / GDPR</p>
-            </div>
-
-            <div className="stack-group p-6 bg-gray-800/50 rounded-xl border border-gray-700/50 hover:border-blue-400/30 transition-all duration-300">
-              <h3 className="text-xl font-semibold mb-3 text-cyan-400">Product & Insights</h3>
-              <p className="text-gray-300 text-sm leading-relaxed">Mixpanel · LaunchDarkly · PostHog · LLM-driven Analytics</p>
+              <h3 className="text-xl font-semibold mb-3 text-cyan-400">Caching & Performance</h3>
+              <p className="text-gray-300 text-sm leading-relaxed">Redis · Fast Response Times · Optimized Performance</p>
             </div>
           </div>
         </div>

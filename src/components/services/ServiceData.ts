@@ -71,7 +71,7 @@ export const services: Service[] = [
     ],
     technologies: ['React', 'Next.js', 'Node.js', 'TypeScript', 'PostgreSQL', 'GraphQL'],
     highlights: ['Server-side rendering and static generation', 'Progressive Web App development', 'API design and microservices architecture'],
-    backgroundImage: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+    backgroundImage: 'https://res.cloudinary.com/dknafpppp/image/upload/v1754647711/2150201871_ayygpj.jpg',
     price: '$5,000',
     duration: '4-12 weeks'
   },
@@ -80,17 +80,17 @@ export const services: Service[] = [
     icon: Cloud,
     title: 'SAAS Solutions',
     category: 'saas',
-    intro: 'Complete Software-as-a-Service platforms with user management, billing, analytics, and scalable cloud infrastructure.',
-    aboutService: 'We build comprehensive SAAS platforms from the ground up, including user management, subscription billing, analytics dashboards, and scalable cloud infrastructure that can handle millions of users.',
+    intro: 'Scalable software-as-a-service platforms with subscription management and analytics.',
+    aboutService: 'Complete SAAS platforms with multi-tenancy, payment processing, analytics dashboards, and user management. Built for scale and optimized for recurring revenue.',
     keyFeatures: [
-      'Multi-tenant architecture design',
-      'Subscription billing and payment processing',
-      'Real-time analytics and reporting',
-      'Auto-scaling cloud infrastructure'
+      'Multi-tenant Architecture',
+      'Payment Integration',
+      'Analytics Dashboard',
+      'API Management'
     ],
-    technologies: ['React', 'Node.js', 'AWS', 'Stripe', 'PostgreSQL', 'Redis'],
-    highlights: ['Multi-tenant architecture', 'Subscription billing integration', 'Real-time analytics dashboard'],
-    backgroundImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+    technologies: ['React', 'Stripe', 'AWS', 'Redis'],
+    highlights: ['Multi-tenant Architecture', 'Payment Integration', 'Analytics Dashboard', 'API Management'],
+    backgroundImage: 'https://res.cloudinary.com/dknafpppp/image/upload/v1754647710/2149399290_d2hp75.jpg',
     price: '$15,000',
     duration: '8-16 weeks'
   },
