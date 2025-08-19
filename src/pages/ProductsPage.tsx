@@ -13,7 +13,7 @@ const ProductsPage = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
         {/* Animated Background Elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800/80 to-slate-900">
           <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/10 rounded-full blur-3xl animate-float"></div>

@@ -9,7 +9,7 @@ import Footer from "@/components/Footer";
 import TechStackSection from "@/components/shared/TechStackSection";
 import WhyChooseUsSection from "@/components/shared/WhyChooseUsSection";
 import DevelopmentLifecycle from "@/components/shared/DevelopmentLifecycle";
-import { openZohoForm } from "@/utils/zohoForm";
+
 
 const ArVrPage = () => {
   const technologies = [

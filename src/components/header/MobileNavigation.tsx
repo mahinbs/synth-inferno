@@ -26,7 +26,7 @@ const MobileNavigation = ({ menuItems, isActive, isHomePage, onSmoothScroll, onC
             <Link 
               key={item.name} 
               to={item.href} 
-              className={`block text-lg font-medium py-3 px-4 rounded-lg transition-all duration-300 ${active ? "text-slate-600 bg-slate-100" : "text-slate-500 hover:text-slate-600 hover:bg-slate-50"}`} 
+              className={`block text-lg font-medium py-3 px-4 rounded-lg transition-all duration-300 ${active ? "text-slate-800 bg-slate-100" : "text-slate-800 hover:text-slate-600 hover:bg-slate-50"}`} 
               onClick={() => {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
                 onClose();
@@ -40,7 +40,7 @@ const MobileNavigation = ({ menuItems, isActive, isHomePage, onSmoothScroll, onC
             <button 
               key={item.name} 
               onClick={() => onSmoothScroll(item.href, item.section)} 
-              className={`block w-full text-left text-lg font-medium py-3 px-4 rounded-lg transition-all duration-300 ${active ? "text-slate-600 bg-slate-100" : "text-slate-500 hover:text-slate-600 hover:bg-slate-50"}`}
+              className={`block w-full text-left text-lg font-medium py-3 px-4 rounded-lg transition-all duration-300 ${active ? "text-slate-800 bg-slate-100" : "text-slate-600 hover:text-slate-600 hover:bg-slate-50"}`}
             >
               {item.name}
             </button>
@@ -50,7 +50,7 @@ const MobileNavigation = ({ menuItems, isActive, isHomePage, onSmoothScroll, onC
             <Link 
               key={item.name} 
               to={item.href} 
-              className={`block text-lg font-medium py-3 px-4 rounded-lg transition-all duration-300 ${active ? "text-slate-600 bg-slate-100" : "text-slate-500 hover:text-slate-600 hover:bg-slate-50"}`} 
+              className={`block text-lg font-medium py-3 px-4 rounded-lg transition-all duration-300 ${active ? "text-slate-800 bg-slate-100" : "text-slate-600 hover:text-slate-600 hover:bg-slate-50"}`} 
               onClick={() => {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
                 onClose();

@@ -1,6 +1,7 @@
 
 import { memo } from 'react';
 import { ArrowRight } from 'lucide-react';
+import { navigateToContact } from '@/utils/navigation';
 
 interface MissionStatementProps {
   isVisible: boolean;
@@ -16,15 +17,13 @@ const MissionStatement = memo(({ isVisible }: MissionStatementProps) => {
         <p className="text-gray-300 mb-6 max-w-3xl mx-auto leading-relaxed">
           We continue to innovate with one goal: empowering businesses to build smarter solutions and scale faster than ever before.
         </p>
-        <a 
-          href="https://forms.zohopublic.in/deeampceelabs1/form/WebdevelopmentScopingSession/formperma/gV2LSwKARVxOQh4MSvJ86okXEO4nTIBcoMzrklJddqM"
-          target="_blank"
-          rel="noopener noreferrer"
+        <button 
+          onClick={() => navigateToContact('about-mission')}
           className="inline-flex items-center space-x-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-8 py-4 rounded-xl hover:from-cyan-400 hover:to-blue-500 transition-all duration-300 font-medium shadow-lg hover:shadow-cyan-500/25 transform hover:scale-105"
         >
           <span>Get Started</span>
           <ArrowRight className="h-5 w-5" />
-        </a>
+        </button>
       </div>
     </div>
   );

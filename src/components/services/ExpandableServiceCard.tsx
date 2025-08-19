@@ -5,7 +5,7 @@ import { ChevronDown, Clock, DollarSign } from "lucide-react";
 import { ServiceData, ColorType } from "./ServicesData";
 import { colorClasses } from "./ServiceColorClasses";
 import { useRoutePreloading } from "@/hooks/useRoutePreloading";
-import { openZohoForm } from "@/utils/zohoForm";
+import { navigateToContact } from "@/utils/navigation";
 
 interface ExpandableServiceCardProps {
   service: ServiceData;
@@ -195,7 +195,7 @@ const ExpandableServiceCard = memo(({
                   Learn More
                 </Link>
                 <button
-                  onClick={() => openZohoForm(`services-${service.id}`)}
+                  onClick={() => navigateToContact(`services-${service.id}`)}
                   className={`px-6 py-3 rounded-xl border ${colors.border} ${colors.text} hover:bg-gray-700/50 transition-all duration-300 font-medium backdrop-blur-sm bg-white/10 hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900`}
                   aria-label={`Get quote for ${service.title}`}
                 >

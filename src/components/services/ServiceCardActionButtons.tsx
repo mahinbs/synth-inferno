@@ -3,7 +3,7 @@ import { memo } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { useRoutePreloading } from '@/hooks/useRoutePreloading';
-import { openZohoForm } from '@/utils/zohoForm';
+import { navigateToContact } from '@/utils/navigation';
 
 interface ServiceCardActionButtonsProps {
   learnMorePath: string;
@@ -41,7 +41,7 @@ const ServiceCardActionButtons = memo(({ learnMorePath, serviceTitle, serviceId 
         <ArrowRight className="ml-2 h-4 w-4" />
       </Link>
       <button 
-        onClick={() => openZohoForm(`services-${serviceId || 'unknown'}`)}
+        onClick={() => navigateToContact(`services-${serviceId || 'unknown'}`)}
         className="px-6 py-3 rounded-xl border border-blue-300/60 text-blue-700 hover:bg-blue-50/80 transition-all duration-400 font-medium backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
         aria-label={`Get quote for ${serviceTitle}`}
       >

@@ -4,8 +4,11 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { openZohoForm } from '@/utils/zohoForm';
+import { useNavigate } from 'react-router-dom';
+import { createContactNavigator } from '@/utils/navigation';
 const SpeaksifyPage = () => {
+  const navigate = useNavigate();
+  const navigateToContact = createContactNavigator(navigate);
   const [isVisible, setIsVisible] = useState(false);
   useEffect(() => {
     setIsVisible(true);
@@ -144,12 +147,12 @@ const SpeaksifyPage = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-              <Button onClick={() => openZohoForm('speaksify-demo')} className="bg-gradient-to-r from-cyan-400 to-teal-400 hover:from-cyan-500 hover:to-teal-500 text-white px-8 py-6 text-lg font-semibold rounded-xl transition-all duration-300 hover:scale-105 shadow-lg">
+              <Button onClick={() => navigateToContact('speaksify-demo')} className="bg-gradient-to-r from-cyan-400 to-teal-400 hover:from-cyan-500 hover:to-teal-500 text-white px-8 py-6 text-lg font-semibold rounded-xl transition-all duration-300 hover:scale-105 shadow-lg">
                 <span>Request Demo</span>
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
               
-              <Button onClick={() => openZohoForm('speaksify-trial')} variant="outline" className="border-2 border-cyan-400/80 bg-cyan-950/30 text-cyan-100 hover:bg-cyan-400/20 hover:border-cyan-300 px-8 py-6 text-lg font-semibold rounded-xl transition-all duration-300 hover:scale-105 backdrop-blur-sm">
+              <Button onClick={() => navigateToContact('speaksify-trial')} variant="outline" className="border-2 border-cyan-400/80 bg-cyan-950/30 text-cyan-100 hover:bg-cyan-400/20 hover:border-cyan-300 px-8 py-6 text-lg font-semibold rounded-xl transition-all duration-300 hover:scale-105 backdrop-blur-sm">
                 <Play className="mr-2 h-5 w-5" />
                 <span>Start Free Trial</span>
               </Button>
@@ -286,7 +289,7 @@ const SpeaksifyPage = () => {
               Join hundreds of companies using Speaksify to convert more leads, faster than ever before.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button onClick={() => openZohoForm('speaksify-demo-final')} className="bg-gradient-to-r from-cyan-400 to-teal-400 hover:from-cyan-500 hover:to-teal-500 text-white px-8 py-6 text-lg font-semibold rounded-xl transition-all duration-300 hover:scale-105 shadow-lg">
+              <Button onClick={() => navigateToContact('speaksify-demo-final')} className="bg-gradient-to-r from-cyan-400 to-teal-400 hover:from-cyan-500 hover:to-teal-500 text-white px-8 py-6 text-lg font-semibold rounded-xl transition-all duration-300 hover:scale-105 shadow-lg">
                 <span>Request Demo</span>
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>

@@ -42,7 +42,7 @@ const getWhyChooseUsContent = (projectType?: string) => {
       };
     case 'ai':
       return {
-        title: 'Why Choose Dee&Cee Labs for AI/ML Development',
+        title: 'Why Choose Synth Inferno for AI/ML Development',
         points: [
           { icon: Target, text: 'Custom ML model development and training' },
           { icon: Zap, text: 'MLOps pipeline and automated model deployment' },
@@ -53,7 +53,7 @@ const getWhyChooseUsContent = (projectType?: string) => {
       };
     case 'arvr':
       return {
-        title: 'Why Choose Dee&Cee Labs for AR/VR Development',
+        title: 'Why Choose Synth Inferno for AR/VR Development',
         points: [
           { icon: Target, text: 'Unity/Unreal expertise across XR platforms' },
           { icon: Zap, text: 'Immersive experience design for real business use cases' },
@@ -64,7 +64,7 @@ const getWhyChooseUsContent = (projectType?: string) => {
       };
     case 'iot':
       return {
-        title: 'Why Choose Dee&Cee Labs for IoT Development',
+        title: 'Why Choose Synth Inferno for IoT Development',
         points: [
           { icon: Target, text: 'End-to-end IoT solution development' },
           { icon: Zap, text: 'Real-time data processing and edge computing' },
@@ -75,7 +75,7 @@ const getWhyChooseUsContent = (projectType?: string) => {
       };
     default:
       return {
-        title: 'Why Choose Dee&Cee Labs',
+        title: 'Why Choose Synth Inferno',
         points: [
           { icon: Target, text: 'Proven expertise across multiple technologies' },
           { icon: Zap, text: 'Rapid development and deployment cycles' },

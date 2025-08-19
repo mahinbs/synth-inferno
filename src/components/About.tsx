@@ -3,6 +3,7 @@ import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { Linkedin } from 'lucide-react';
 import ceoProfile from '@/assets/ceo-profile.jpg';
+
 const About = memo(() => {
   const [isVisible, setIsVisible] = useState(false);
   useEffect(() => {
@@ -35,9 +36,9 @@ const About = memo(() => {
               {/* Profile Image */}
               <div className="flex-shrink-0">
                 <Avatar className="w-48 h-48 lg:w-56 lg:h-56 ring-4 ring-primary/20 shadow-xl">
-                  <AvatarImage src={ceoProfile} alt="Chandrashekhar Saraswat" className="object-cover" />
+                  <AvatarImage src='' alt="Hardik" className="object-cover" />
                   <AvatarFallback className="text-4xl font-bold bg-primary/10 text-primary">
-                    CS
+                    HK
                   </AvatarFallback>
                 </Avatar>
               </div>
@@ -49,7 +50,7 @@ const About = memo(() => {
                   {/* Name and Title */}
                   <div className="space-y-2">
                     <h2 className="text-3xl lg:text-4xl font-bold text-gray-900">
-                      Chandrashekhar Saraswat
+                      Hardik
                     </h2>
                     <p className="text-xl text-gray-600 font-medium">
                       CEO, Synth Inferno
@@ -61,13 +62,13 @@ const About = memo(() => {
 
                    {/* CTA Section */}
                    <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-6">
-                     <a href="https://forms.zohopublic.in/deeampceelabs1/form/WebdevelopmentScopingSession/formperma/gV2LSwKARVxOQh4MSvJ86okXEO4nTIBcoMzrklJddqM" target="_blank" rel="noopener noreferrer">
+                     <a href="#contact">
                        <Button size="lg" className="bg-gray-700 text-white hover:bg-gray-800 px-8 py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105">
                          Let's Build Together
                        </Button>
                      </a>
                      
-                     <a href="https://www.linkedin.com/in/chandra-shekhar-s-b23216256/" target="_blank" rel="noopener noreferrer">
+                     <a href="" target="_blank" rel="noopener noreferrer">
                        <Button variant="outline" size="lg" className="bg-gray-700 text-white hover:bg-gray-800 px-6 py-3 rounded-lg font-medium transition-all duration-300">
                          <Linkedin className="w-5 h-5 mr-2" />
                          Connect on LinkedIn

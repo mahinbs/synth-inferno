@@ -3,9 +3,12 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { openZohoForm } from "@/utils/zohoForm";
+import { useNavigate } from "react-router-dom";
+import { createContactNavigator } from "@/utils/navigation";
 
 const UiUxDesignPage = () => {
+  const navigate = useNavigate();
+  const navigateToContact = createContactNavigator(navigate);
   const designTechStack = [
     {
       category: "Research & Strategy",
@@ -105,7 +108,7 @@ const UiUxDesignPage = () => {
               <Button 
                 variant="outline" 
                 size="lg"
-                onClick={() => openZohoForm('design-consultation')}
+                onClick={() => navigateToContact('design-consultation')}
                 className="px-8 py-4 text-lg border-2 border-gray-600 text-white hover:border-purple-500 hover:bg-purple-500/10 rounded-xl"
               >
                 Free Design Audit
@@ -141,7 +144,7 @@ const UiUxDesignPage = () => {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Why Choose Dee&Cee Labs for UI/UX Design?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Why Choose Synth Inferno for UI/UX Design?</h2>
             <p className="text-xl text-[#B0B3C3] max-w-3xl mx-auto">
               Award-winning design team with proven expertise in creating user-centered digital experiences
             </p>

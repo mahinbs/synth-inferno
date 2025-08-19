@@ -2,7 +2,7 @@ import { ArrowRight, Brain } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Badge } from '@/components/ui/badge';
 import { Product } from '@/data/products';
-import { openZohoForm } from '@/utils/zohoForm';
+
 interface ProductCardProps {
   product: Product;
 }

@@ -2,7 +2,7 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { openZohoForm } from "@/utils/zohoForm";
+
 const IotPage = () => {
   return <div className="min-h-screen" style={{
     background: 'linear-gradient(180deg, #0D0F21 0%, #13162B 100%)'
