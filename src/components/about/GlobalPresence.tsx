@@ -21,7 +21,7 @@ const GlobalPresence = memo(({ isVisible }: GlobalPresenceProps) => {
           </div>
         </div>
         <p className="text-gray-300 leading-relaxed">
-          Today, Dee&Cee Labs operates across <span className="text-purple-400 font-semibold">56+ cities worldwide</span>, empowering clients with not just code, but complete business ecosystems — from product design and development to deployment, branding, and growth marketing.
+          Today, Synth Inferno operates across <span className="text-purple-400 font-semibold">56+ cities worldwide</span>, empowering clients with not just code, but complete business ecosystems — from product design and development to deployment, branding, and growth marketing.
         </p>
       </div>
 

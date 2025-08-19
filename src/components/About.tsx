@@ -52,12 +52,12 @@ const About = memo(() => {
                       Chandrashekhar Saraswat
                     </h2>
                     <p className="text-xl text-gray-600 font-medium">
-                      CEO, Dee&Cee Labs
+                      CEO, Synth Inferno
                     </p>
                   </div>
 
                   {/* Quote */}
-                  <blockquote className="text-lg lg:text-xl leading-relaxed text-gray-700 border-l-4 border-blue-500 pl-6 italic font-medium">"At Dee&Cee Labs, we don't build generic software, we craft intelligent systems with purpose, precision, and innovation. We don't just write code. We design for scale, optimize for impact, and invent our own blueprints. As a startup, we move fast, think deeply, and push the limits of what's possible. If your idea needs muscle, mind, and momentum, we're the team to make it real."</blockquote>
+                  <blockquote className="text-lg lg:text-xl leading-relaxed text-gray-700 border-l-4 border-blue-500 pl-6 italic font-medium">"At Synth Inferno, we don't build generic software, we craft intelligent systems with purpose, precision, and innovation. We don't just write code. We design for scale, optimize for impact, and invent our own blueprints. As a startup, we move fast, think deeply, and push the limits of what's possible. If your idea needs muscle, mind, and momentum, we're the team to make it real."</blockquote>
 
                    {/* CTA Section */}
                    <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-6">
@@ -85,7 +85,7 @@ const About = memo(() => {
               <h3 className="text-2xl lg:text-3xl font-bold text-gray-900">
                 Our Mission
               </h3>
-              <p className="text-lg text-gray-700 leading-relaxed font-medium">At Dee&amp;Cee Labs, we believe in the power of thoughtful innovation. Every project we undertake is an opportunity to blend cutting-edge technology with human creativity, delivering solutions that don't just work, they inspire.</p>
+              <p className="text-lg text-gray-700 leading-relaxed font-medium">At Synth Inferno, we believe in the power of thoughtful innovation. Every project we undertake is an opportunity to blend cutting-edge technology with human creativity, delivering solutions that don't just work, they inspire.</p>
               
               <div className="grid md:grid-cols-3 gap-8 mt-12">
                 <div className="text-center space-y-4">

@@ -13,7 +13,7 @@ const ExpertiseGrid = memo(({ isVisible }: ExpertiseGridProps) => {
           Our <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Expertise</span>
         </h3>
         <p className="text-gray-400 max-w-3xl mx-auto">
-          At Dee&Cee Labs, expertise isn't just about the tools we use—it's about how we think, solve problems, and build systems that drive real-world outcomes.
+          At Synth Inferno, expertise isn't just about the tools we use—it's about how we think, solve problems, and build systems that drive real-world outcomes.
         </p>
       </div>
 

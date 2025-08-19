@@ -35,7 +35,7 @@ const MobileMenuOverlay = memo(({
           {/* Header */}
           <div className="flex justify-between items-center p-6 border-b border-white/20">
             <div className="font-heading text-xl font-bold text-slate-600">
-              Dee&Cee Labs
+              Synth Inferno
             </div>
             <button onClick={onClose} aria-label="Close menu">
               <X className="h-6 w-6 text-slate-600" />

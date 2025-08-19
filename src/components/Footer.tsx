@@ -39,8 +39,8 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center space-x-3 mb-4">
-              <img src="https://res.cloudinary.com/dknafpppp/image/upload/v1751309533/logo_1_1_hh0yjm.png" alt="Dee&Cee Labs Logo" className="h-8 w-8 object-contain" loading="lazy" />
-              <span className="text-xl font-bold">Dee&Cee Labs</span>
+              <img src="https://res.cloudinary.com/dtq6gshzf/image/upload/v1755595529/synthinferno-logo_socawa.png" alt="Synth Inferno Logo" className="h-8 w-8 object-contain" loading="lazy" />
+              <span className="text-xl font-bold">Synth Inferno</span>
             </div>
             <p className="text-gray-400 mb-6 leading-relaxed">
               Building innovative AI-powered software solutions that transform businesses and drive digital success.
@@ -55,7 +55,7 @@ const Footer = () => {
               <a href="https://www.facebook.com/profile.php?id=100084347787790" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gray-300 transition-colors duration-200">
                 <Facebook className="h-5 w-5" />
               </a>
-              <a href="https://wa.me/919289225663" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gray-300 transition-colors duration-200">
+              <a href="https://wa.me/919819041299" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gray-300 transition-colors duration-200">
                 <Phone className="h-5 w-5" />
               </a>
             </div>
@@ -104,11 +104,11 @@ const Footer = () => {
             <div className="space-y-3 text-gray-400">
               <div className="flex items-center space-x-3">
                 <Mail className="h-4 w-4 flex-shrink-0" />
-                <span>connect@deenceelabs.com</span>
+                <span>SynthInferno@gmail.com</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="h-4 w-4 flex-shrink-0" />
-                <span>+91 9289225663</span>
+                <span>+91 919819041299</span>
               </div>
               <div className="flex items-center space-x-3">
                 <MapPin className="h-4 w-4 flex-shrink-0" />
@@ -126,7 +126,7 @@ const Footer = () => {
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center text-gray-400">
             <div className="flex flex-col space-y-2">
-              <p className="text-center md:text-left">© 2025 Dee&Cee Labs. All rights reserved. Built with passion for innovation.</p>
+              <p className="text-center md:text-left">© 2025 Synth Inferno. All rights reserved. Built with passion for innovation.</p>
               <div className="flex items-center text-sm text-gray-500">
                 <span className="mr-1">⚡</span>
                 <span>Powered by @ACNS AI SOLUTIONS LLP</span>

@@ -34,7 +34,7 @@ export const specialtyServices: ServiceData[] = [
     description:
       "Design systems engineered from empathy, validated by data, and refined by interaction science.",
     detailedDescription:
-      "We believe that great design is not what it looks like — but how it thinks. At Dee&Cee Labs, our design team fuses behavioral psychology with information architecture and digital ergonomics to craft unforgettable experiences. We're not pixel-pushers — we're product thinkers.",
+      "We believe that great design is not what it looks like — but how it thinks. At Synth Inferno, our design team fuses behavioral psychology with information architecture and digital ergonomics to craft unforgettable experiences. We're not pixel-pushers — we're product thinkers.",
     image:
       "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     backgroundImage: "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",

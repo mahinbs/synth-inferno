@@ -19,7 +19,7 @@ const PrivacyPolicyPage = () => {
 
           {/* Introduction Card */}
           <div className="bg-[#1C1E2F]/50 backdrop-blur-sm border border-white/10 rounded-2xl p-8 md:p-10 mb-12 hover:border-white/20 transition-all duration-300">
-            <p className="text-lg text-[#E6E6E6] leading-relaxed">At Dee&Cee Labs, your privacy is not just a legal obligation, it's a cornerstone of trust in every interaction we have. This Privacy Policy explains how we collect, use, store, and protect your personal and business information when you engage with our website, platforms, services, or communicate with us directly.</p>
+            <p className="text-lg text-[#E6E6E6] leading-relaxed">At Synth Inferno, your privacy is not just a legal obligation, it's a cornerstone of trust in every interaction we have. This Privacy Policy explains how we collect, use, store, and protect your personal and business information when you engage with our website, platforms, services, or communicate with us directly.</p>
           </div>
 
           {/* Content Grid */}
@@ -30,7 +30,7 @@ const PrivacyPolicyPage = () => {
                 <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center text-white font-bold text-sm flex-shrink-0 mt-1">1</div>
                 <div className="flex-1">
                   <h2 className="text-2xl font-semibold text-white mb-4">Who We Are</h2>
-                  <p className="text-[#B0B3C3] leading-relaxed">Dee&Cee Labs is a digital engineering company specializing in AI-driven ecosystem design, enterprise, grade AI enabled autonomous agent, and intelligent automation. We serve global clients with high standards for security, performance, and compliance.</p>
+                  <p className="text-[#B0B3C3] leading-relaxed">Synth Inferno is a digital engineering company specializing in AI-driven ecosystem design, enterprise, grade AI enabled autonomous agent, and intelligent automation. We serve global clients with high standards for security, performance, and compliance.</p>
                 </div>
               </div>
             </div>
@@ -143,17 +143,17 @@ const PrivacyPolicyPage = () => {
                   <div className="grid md:grid-cols-3 gap-6">
                     <div className="text-center">
                       <div className="text-blue-400 font-semibold mb-2">Company</div>
-                      <div className="text-[#B0B3C3]">Dee&Cee Labs</div>
+                      <div className="text-[#B0B3C3]">Synth Inferno</div>
                     </div>
                     <div className="text-center">
                       <div className="text-blue-400 font-semibold mb-2">Email</div>
-                      <a href="mailto:privacy@deenceelabs.com" className="text-blue-400 hover:text-blue-300 transition-colors underline">
-                        privacy@deenceelabs.com
+                      <a href="mailto:SynthInferno@gmail.com" className="text-blue-400 hover:text-blue-300 transition-colors underline">
+                        SynthInferno@gmail.com
                       </a>
                     </div>
                     <div className="text-center">
                       <div className="text-blue-400 font-semibold mb-2">Website</div>
-                      <div className="text-[#B0B3C3]">www.deenceelabs.com</div>
+                      <div className="text-[#B0B3C3]">www.synthinferno.com</div>
                     </div>
                   </div>
                 </div>

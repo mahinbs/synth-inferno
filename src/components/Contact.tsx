@@ -25,8 +25,8 @@ const Contact = () => {
     city: 'New Delhi',
     country: 'India',
     address: '5th floor, Caddie Commercial Tower, at Aerocity (DIAL), New Delhi, Delhi 110037',
-    phone: '+91 9289225663',
-    email: 'connect@deenceelabs.com',
+    phone: '+91 919819041299',
+    email: 'SynthInferno@gmail.com',
     color: 'green',
     image: 'https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=800&q=80',
     timezone: 'GMT+5:30'
@@ -34,8 +34,8 @@ const Contact = () => {
     city: 'Bengaluru',
     country: 'BL Commerce, India',
     address: '125, 7th Cross Rd, off Bannerghatta Main Road, Dollar Layout, BTM 2nd Stage, Bilekahalli, Bengaluru, Bangalore, Karnataka 560076',
-    phone: '+91 9289225663',
-    email: 'connect@deenceelabs.com',
+    phone: '+91 919819041299',
+    email: 'SynthInferno@gmail.com',
     color: 'blue',
     image: 'https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=800&q=80',
     timezone: 'GMT+5:30'
@@ -43,8 +43,8 @@ const Contact = () => {
     city: 'Uttar Pradesh',
     country: 'India',
     address: 'A-143, 7-C Shalimar Garden Extension 2, Sahibabad, Ghaziabad, 201005',
-    phone: '+91 9289225663',
-    email: 'connect@deenceelabs.com',
+    phone: '+91 919819041299',
+    email: 'SynthInferno@gmail.com',
     color: 'purple',
     image: 'https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=800&q=80',
     timezone: 'GMT+5:30'
@@ -52,8 +52,8 @@ const Contact = () => {
     city: 'Uttrakhand',
     country: 'India',
     address: 'Plot No 12, Deoria, Udham Singh Nagar, Uttrakhand, 263148',
-    phone: '+91 9289225663',
-    email: 'connect@deenceelabs.com',
+    phone: '+91 919819041299',
+    email: 'SynthInferno@gmail.com',
     color: 'teal',
     image: 'https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=800&q=80',
     timezone: 'GMT+5:30'
@@ -66,7 +66,7 @@ const Contact = () => {
   }, {
     icon: MessageCircle,
     label: 'WhatsApp',
-    url: 'https://wa.me/919289225663',
+    url: 'https://wa.me/919819041299',
     color: 'green'
   }, {
     icon: Linkedin,
@@ -166,7 +166,7 @@ const Contact = () => {
               <Mail className="h-6 w-6" />
             </div>
             <h3 className="text-lg font-semibold text-white mb-2">Email Us</h3>
-            <p className="text-cyan-400 font-medium">connect@deenceelabs.com</p>
+            <p className="text-cyan-400 font-medium">SynthInferno@gmail.com</p>
             <p className="text-gray-400 text-sm mt-1">Business inquiries</p>
           </div>
 
@@ -175,7 +175,7 @@ const Contact = () => {
               <Phone className="h-6 w-6" />
             </div>
             <h3 className="text-lg font-semibold text-white mb-2">Call Us</h3>
-            <p className="text-blue-400 font-medium">+91 9289225663</p>
+            <p className="text-blue-400 font-medium">+91 919819041299</p>
             <p className="text-gray-400 text-sm mt-1">24/7 Support Available</p>
           </div>
 
@@ -184,8 +184,8 @@ const Contact = () => {
               <MessageCircle className="h-6 w-6" />
             </div>
             <h3 className="text-lg font-semibold text-white mb-2">WhatsApp</h3>
-            <a href="https://wa.me/919289225663" className="text-green-400 font-medium hover:text-green-300 transition-colors">
-              +91 9289225663
+            <a href="https://wa.me/919819041299" className="text-green-400 font-medium hover:text-green-300 transition-colors">
+              +91 919819041299
             </a>
             <p className="text-gray-400 text-sm mt-1">Instant responses</p>
           </div>
@@ -197,7 +197,7 @@ const Contact = () => {
           <div className={`transition-all duration-1000 delay-400 ${isVisible ? 'animate-fade-in opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <div className="bg-gray-900/80 backdrop-blur-sm rounded-3xl border border-gray-700/30 p-8">
               <h3 className="text-2xl font-bold text-white mb-6">Send Us a Message</h3>
-              <form action="https://formsubmit.co/connect@deenceelabs.com" method="POST" className="space-y-6">
+              <form action="https://formsubmit.co/SynthInferno@gmail.com" method="POST" className="space-y-6">
                 <input type="hidden" name="_captcha" value="false" />
                 <input type="hidden" name="_next" value={`${window.location.origin}`} />
                 
@@ -355,7 +355,7 @@ const Contact = () => {
                 <span>Start Your Project</span>
                 <ArrowRight className="h-5 w-5" />
               </a>
-              <a href="https://wa.me/919289225663" className="inline-flex items-center space-x-2 border-2 border-green-400/50 text-green-300 px-8 py-4 rounded-xl hover:bg-green-400/10 hover:border-green-300 transition-all duration-300 font-medium backdrop-blur-sm">
+              <a href="https://wa.me/919819041299" className="inline-flex items-center space-x-2 border-2 border-green-400/50 text-green-300 px-8 py-4 rounded-xl hover:bg-green-400/10 hover:border-green-300 transition-all duration-300 font-medium backdrop-blur-sm">
                 <MessageCircle className="h-5 w-5" />
                 <span>WhatsApp Chat</span>
               </a>

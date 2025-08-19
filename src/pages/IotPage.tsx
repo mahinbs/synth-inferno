@@ -115,7 +115,7 @@ const IotPage = () => {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Why Choose Dee&Cee Labs for IoT Development?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Why Choose Synth Inferno for IoT Development?</h2>
             <p className="text-xl text-[#B0B3C3] max-w-3xl mx-auto">
               Deep expertise in industrial-grade IoT solutions with proven track record across industries
             </p>

@@ -138,7 +138,7 @@ export const services: Service[] = [
     title: 'UI/UX Design',
     category: 'design',
     intro: 'Design systems engineered from empathy, validated by data, and refined by interaction science.',
-    aboutService: 'We believe that great design is not what it looks like — but how it thinks. At Dee&Cee Labs, our design team fuses behavioral psychology with information architecture and digital ergonomics to craft unforgettable experiences. We\'re not pixel-pushers — we\'re product thinkers.',
+    aboutService: 'We believe that great design is not what it looks like — but how it thinks. At Synth Inferno, our design team fuses behavioral psychology with information architecture and digital ergonomics to craft unforgettable experiences. We\'re not pixel-pushers — we\'re product thinkers.',
     keyFeatures: [
       'UX Heatmaps & User Flow Optimization',
       'Design Systems for Scalable Product Ecosystems',

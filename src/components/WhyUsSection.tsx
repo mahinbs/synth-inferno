@@ -62,7 +62,7 @@ const WhyUsSection = memo(() => {
           <h2 className={`font-heading text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
             Why Choose{' '}
             <span className="bg-gradient-to-r from-blue-500 via-cyan-500 to-teal-500 bg-clip-text text-transparent">
-              Dee&Cee Labs?
+              Synth Inferno?
             </span>
           </h2>
           <p className={`text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto mb-8 leading-relaxed ${isVisible ? 'animate-fade-in-up animate-stagger-1' : 'opacity-0'}`}>
