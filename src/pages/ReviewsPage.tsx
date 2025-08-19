@@ -23,7 +23,7 @@ const reviews: Review[] = [
     role: "COO",
     company: "FinEdge Systems",
     rating: 5,
-    review: "The team at Synth Inferno delivered a sleek, high-performance web app that transformed our manual processes into a seamless digital experience. Their responsiveness and attention to detail were unmatched.",
+    review: "The team at Dee&Cee Labs delivered a sleek, high-performance web app that transformed our manual processes into a seamless digital experience. Their responsiveness and attention to detail were unmatched.",
     service: "Web Applications",
     image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=150&h=150&fit=crop&crop=face"
   }, {
@@ -32,7 +32,7 @@ const reviews: Review[] = [
     role: "CEO",
     company: "Craftly Digital",
     rating: 5,
-    review: "Synth Inferno created a powerful web platform for us that handles thousands of users daily without a hitch. The interface is clean, responsive, and exactly what we envisioned.",
+    review: "Dee&Cee Labs created a powerful web platform for us that handles thousands of users daily without a hitch. The interface is clean, responsive, and exactly what we envisioned.",
     service: "Web Applications",
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=150&h=150&fit=crop&crop=face"
   }, {
@@ -50,7 +50,7 @@ const reviews: Review[] = [
     role: "Founder",
     company: "EduFlex LMS",
     rating: 5,
-    review: "From ideation to execution, Synth Inferno helped us launch a complete SaaS platform that's now being used by over 3,000 customers. Their understanding of subscription models and analytics made all the difference.",
+    review: "From ideation to execution, Dee&Cee Labs helped us launch a complete SaaS platform that's now being used by over 3,000 customers. Their understanding of subscription models and analytics made all the difference.",
     service: "SaaS Solutions",
     image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=150&h=150&fit=crop&crop=face"
   }, {
@@ -59,7 +59,7 @@ const reviews: Review[] = [
     role: "Founder",
     company: "InvoicePro",
     rating: 5,
-    review: "Building a SaaS from scratch felt overwhelming until we partnered with Synth Inferno. They managed everything—multi-tenancy, payment gateways, analytics, and more.",
+    review: "Building a SaaS from scratch felt overwhelming until we partnered with Dee&Cee Labs. They managed everything—multi-tenancy, payment gateways, analytics, and more.",
     service: "SaaS Solutions",
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=150&h=150&fit=crop&crop=face"
   }, {
@@ -77,7 +77,7 @@ const reviews: Review[] = [
     role: "Product Lead",
     company: "FitHabit",
     rating: 5,
-    review: "Our mobile app needed to work flawlessly on both Android and iOS. Synth Inferno built an intuitive cross-platform experience that our users love. 5-star app ratings speak for themselves!",
+    review: "Our mobile app needed to work flawlessly on both Android and iOS. Dee&Cee Labs built an intuitive cross-platform experience that our users love. 5-star app ratings speak for themselves!",
     service: "Mobile Applications",
     image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=150&h=150&fit=crop&crop=face"
   }, {
@@ -86,7 +86,7 @@ const reviews: Review[] = [
     role: "Head of Product",
     company: "PetTrack",
     rating: 5,
-    review: "Our app needed real-time updates and a slick user interface. Synth Inferno nailed both. It's fast, modern, and users are staying longer.",
+    review: "Our app needed real-time updates and a slick user interface. Dee&Cee Labs nailed both. It's fast, modern, and users are staying longer.",
     service: "Mobile Applications",
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=150&h=150&fit=crop&crop=face"
   }, {
@@ -104,7 +104,7 @@ const reviews: Review[] = [
     role: "Head of Ops",
     company: "Rentzy",
     rating: 5,
-    review: "The AI calling system Synth Inferno built has automated 90% of our outbound calls, saving us over 300 hours/month. The natural language interaction is so good most customers don't even realize it's AI.",
+    review: "The AI calling system Dee&Cee Labs built has automated 90% of our outbound calls, saving us over 300 hours/month. The natural language interaction is so good most customers don't even realize it's AI.",
     service: "AI Calling Agency",
     image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=150&h=150&fit=crop&crop=face"
   }, {
@@ -113,7 +113,7 @@ const reviews: Review[] = [
     role: "CEO",
     company: "LoanKart365",
     rating: 5,
-    review: "Our sales team reduced cold-call hours by 80% thanks to the AI calling system Synth Inferno built. The voice tech feels incredibly human.",
+    review: "Our sales team reduced cold-call hours by 80% thanks to the AI calling system Dee&Cee Labs built. The voice tech feels incredibly human.",
     service: "AI Calling Agency",
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=150&h=150&fit=crop&crop=face"
   }, {
@@ -131,7 +131,7 @@ const reviews: Review[] = [
     role: "CTO",
     company: "Medicare Desk",
     rating: 5,
-    review: "They didn't just build automation—they helped us rethink how we work. Our internal workflows are now lightning-fast thanks to their AI integrations. Synth Inferno is a real game-changer.",
+    review: "They didn't just build automation—they helped us rethink how we work. Our internal workflows are now lightning-fast thanks to their AI integrations. Dee&Cee Labs is a real game-changer.",
     service: "AI Automation",
     image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=150&h=150&fit=crop&crop=face"
   }, {
@@ -140,7 +140,7 @@ const reviews: Review[] = [
     role: "Co-founder",
     company: "LearnChamp",
     rating: 5,
-    review: "Synth Inferno automated our entire lead qualification process using AI, cutting down response time from 2 hours to 2 minutes.",
+    review: "Dee&Cee Labs automated our entire lead qualification process using AI, cutting down response time from 2 hours to 2 minutes.",
     service: "AI Automation",
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=150&h=150&fit=crop&crop=face"
   }, {
@@ -204,8 +204,8 @@ const ReviewsPage = () => {
         {/* Extra Large Logo Overlay - Desktop */}
         <div className="absolute top-8 left-8 z-15 hidden lg:block">
           <img 
-            src="https://res.cloudinary.com/dtq6gshzf/image/upload/v1755595529/synthinferno-logo_socawa.png"
-            alt="Synth Inferno Logo"
+            src="https://res.cloudinary.com/dknafpppp/image/upload/v1748806784/freepik_br_f976b57b-9b0c-47dc-8aa0-439758154a91_cpevk3.png" 
+            alt="Dee&Cee Labs Logo" 
             className="h-72 w-72 object-contain opacity-90 hover:opacity-100 transition-all duration-500 hover:scale-110 filter drop-shadow-2xl animate-pulse-light"
             loading="lazy"
           />
@@ -216,21 +216,21 @@ const ReviewsPage = () => {
           {/* Giant Mobile/Tablet Logo */}
           <div className="lg:hidden mb-12 flex justify-center">
             <img 
-              src="https://res.cloudinary.com/dtq6gshzf/image/upload/v1755595529/synthinferno-logo_socawa.png" 
-              alt="Synth Inferno Logo" 
+              src="https://res.cloudinary.com/dknafpppp/image/upload/v1748806784/freepik_br_f976b57b-9b0c-47dc-8aa0-439758154a91_cpevk3.png" 
+              alt="Dee&Cee Labs Logo" 
               className="h-64 w-64 md:h-72 md:w-72 object-contain opacity-95 animate-fade-in filter drop-shadow-2xl"
               loading="lazy"
             />
           </div>
 
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">Synth Inferno</span>
+            <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">Dee&Cee Labs</span>
             {' '}Reviews
           </h1>
 
           <p className="text-xl text-gray-300 mb-12 max-w-4xl mx-auto">
             Experience testimonials from the digital frontier - 
-            authentic feedback from clients who've ventured into the future with Synth Inferno
+            authentic feedback from clients who've ventured into the future with Dee&Cee Labs
           </p>
 
           {/* Stats Grid */}
