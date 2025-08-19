@@ -2,7 +2,7 @@ import { Project } from '@/data/projects';
 import { CheckCircle } from 'lucide-react';
 
 interface CaseStudyDevelopmentRoadmapProps {
-  project: Project;
+  project: Project & { projectType?: 'saas' | 'mobile' | 'web' | 'ai' | 'arvr' | 'iot' };
 }
 
 const getDevelopmentSteps = (projectType?: string) => {

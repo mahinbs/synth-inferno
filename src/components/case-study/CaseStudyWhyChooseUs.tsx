@@ -2,14 +2,14 @@ import { Project } from '@/data/projects';
 import { Award, Target, Zap, Shield, Users } from 'lucide-react';
 
 interface CaseStudyWhyChooseUsProps {
-  project: Project;
+  project: Project & { projectType?: 'saas' | 'mobile' | 'web' | 'ai' | 'arvr' | 'iot' };
 }
 
 const getWhyChooseUsContent = (projectType?: string) => {
   switch (projectType) {
     case 'saas':
       return {
-        title: 'Why Choose Dee&Cee Labs for SaaS Development',
+        title: 'Why Choose Synth Inferno for SaaS Development',
         points: [
           { icon: Target, text: 'Product-market fit expertise and user research' },
           { icon: Zap, text: 'Scalable APIs and microservices architecture' },
@@ -20,7 +20,7 @@ const getWhyChooseUsContent = (projectType?: string) => {
       };
     case 'mobile':
       return {
-        title: 'Why Choose Dee&Cee Labs for Mobile Development',
+        title: 'Why Choose Synth Inferno for Mobile Development',
         points: [
           { icon: Target, text: 'Native iOS and Android expertise' },
           { icon: Zap, text: 'Offline-first architecture and seamless sync' },
@@ -31,7 +31,7 @@ const getWhyChooseUsContent = (projectType?: string) => {
       };
     case 'web':
       return {
-        title: 'Why Choose Dee&Cee Labs for Web Development',
+        title: 'Why Choose Synth Inferno for Web Development',
         points: [
           { icon: Target, text: 'Modern framework expertise (React, Next.js, Vue)' },
           { icon: Zap, text: 'Performance optimization and Core Web Vitals' },

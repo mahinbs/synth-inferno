@@ -1,6 +1,6 @@
 import { Project } from '@/data/projects';
 interface CaseStudyTechStackProps {
-  project: Project;
+  project: Project & { projectType?: 'saas' | 'mobile' | 'web' | 'ai' | 'arvr' | 'iot' };
 }
 const getTechStackTitle = (projectType?: string) => {
   switch (projectType) {
