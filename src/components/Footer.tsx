@@ -55,7 +55,7 @@ const Footer = () => {
               <a href="https://www.facebook.com/profile.php?id=100084347787790" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gray-300 transition-colors duration-200">
                 <Facebook className="h-5 w-5" />
               </a>
-              <a href="https://wa.me/9819041299" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gray-300 transition-colors duration-200">
+              <a href="https://wa.me/9324054346" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gray-300 transition-colors duration-200">
                 <Phone className="h-5 w-5" />
               </a>
             </div>
@@ -108,11 +108,11 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="h-4 w-4 flex-shrink-0" />
-                <span>+91 9819041299</span>
+                <span>+91 9324054346</span>
               </div>
               <div className="flex items-center space-x-3">
                 <MapPin className="h-4 w-4 flex-shrink-0" />
-                <span>Delhi, India</span>
+                <span>Mumbai, India</span>
               </div>
               <div className="mt-4">
                 <button onClick={() => navigateToContact('footer')} className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg transition-colors duration-200">

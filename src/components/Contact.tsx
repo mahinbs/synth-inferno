@@ -43,7 +43,7 @@ const Contact = () => {
     //   country: "India",
     //   address:
     //     "5th floor, Caddie Commercial Tower, at Aerocity (DIAL), New Delhi, Delhi 110037",
-    //   phone: "+91 9819041299",
+    //   phone: "+91 9324054346",
     //   email: "SynthInferno@gmail.com",
     //   color: "green",
     //   image:
@@ -61,7 +61,7 @@ const Contact = () => {
     {
       icon: MessageCircle,
       label: "WhatsApp",
-      url: "https://wa.me/9819041299",
+      url: "https://wa.me/9324054346",
       color: "green",
     },
     {
@@ -194,7 +194,7 @@ const Contact = () => {
               <Phone className="h-6 w-6" />
             </div>
             <h3 className="text-lg font-semibold text-white mb-2">Call Us</h3>
-            <p className="text-blue-400 font-medium">+91 9819041299</p>
+            <p className="text-blue-400 font-medium">+91 9324054346</p>
             <p className="text-gray-400 text-sm mt-1">24/7 Support Available</p>
           </div>
 
@@ -204,10 +204,10 @@ const Contact = () => {
             </div>
             <h3 className="text-lg font-semibold text-white mb-2">WhatsApp</h3>
             <a
-              href="https://wa.me/9819041299"
+              href="https://wa.me/9324054346"
               className="text-green-400 font-medium hover:text-green-300 transition-colors"
             >
-              +91 9819041299
+              +91 9324054346
             </a>
             <p className="text-gray-400 text-sm mt-1">Instant responses</p>
           </div>
@@ -510,7 +510,7 @@ const Contact = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <a
-                href="https://wa.me/9819041299"
+                href="https://wa.me/9324054346"
                 className="inline-flex items-center space-x-2 border-2 border-green-400/50 text-green-300 px-8 py-4 rounded-xl hover:bg-green-400/10 hover:border-green-300 transition-all duration-300 font-medium backdrop-blur-sm"
               >
                 <MessageCircle className="h-5 w-5" />
