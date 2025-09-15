@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import SEOHead from '@/components/seo/SEOHead';
 import PortfolioHero from '@/components/portfolio/PortfolioHero';
 import PortfolioServiceFilter from '@/components/portfolio/PortfolioServiceFilter';
 import PortfolioProjectsGrid from '@/components/portfolio/PortfolioProjectsGrid';
@@ -10,6 +11,7 @@ import FloatingChatbot from '@/components/chatbot/FloatingChatbot';
 import { getPortfolioData } from '@/services/portfolioDataService';
 import { Service } from '@/data/projects';
 import { usePerformanceOptimization } from '@/hooks/usePerformanceOptimization';
+import { generateBreadcrumbSchema } from '@/components/seo/StructuredData';
 
 const Portfolio = () => {
   const [selectedService, setSelectedService] = useState<string | null>(null);
@@ -128,8 +130,20 @@ const Portfolio = () => {
     );
   }
 
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Home', url: 'https://www.deeceelabs.com' },
+    { name: 'Portfolio', url: 'https://www.deeceelabs.com/portfolio' }
+  ]);
+
   return (
     <div className="min-h-screen">
+      <SEOHead
+        title="Our Portfolio | Web Development, Mobile Apps & AI Solutions Showcase"
+        description="Explore our portfolio of successful projects. Web applications, mobile apps, AI solutions, and innovative technology implementations that have transformed businesses."
+        keywords="portfolio, web development projects, mobile app projects, AI solutions, case studies, project showcase, development examples, React projects, Node.js projects, mobile app development"
+        canonical="/portfolio"
+        structuredData={breadcrumbSchema}
+      />
       <Header />
       
       <PortfolioHero totalProjects={totalProjects} />

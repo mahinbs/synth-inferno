@@ -1,7 +1,22 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEOHead from "@/components/seo/SEOHead";
+import { generateBreadcrumbSchema } from "@/components/seo/StructuredData";
+
 const PrivacyPolicyPage = () => {
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Home', url: 'https://www.deeceelabs.com' },
+    { name: 'Privacy Policy', url: 'https://www.deeceelabs.com/privacy-policy' }
+  ]);
+
   return <div className="min-h-screen bg-gradient-to-b from-[#0D0F21] to-[#13162B]">
+      <SEOHead
+        title="Privacy Policy | Data Protection & Privacy Information"
+        description="Learn about our privacy policy and how we protect your data. Comprehensive information about data collection, usage, and protection at Synth Inferno."
+        keywords="privacy policy, data protection, privacy information, data security, GDPR compliance, privacy rights, data collection, data usage"
+        canonical="/privacy-policy"
+        structuredData={breadcrumbSchema}
+      />
       <Header />
       
       <section className="pt-32 pb-20">

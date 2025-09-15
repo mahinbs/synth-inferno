@@ -2,11 +2,22 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEOHead from "@/components/seo/SEOHead";
+import { generateServicePageStructuredData } from "@/utils/seoServicePages";
 
 const IotPage = () => {
+  const serviceSchema = generateServicePageStructuredData('iot');
+
   return <div className="min-h-screen" style={{
     background: 'linear-gradient(180deg, #0D0F21 0%, #13162B 100%)'
   }}>
+      <SEOHead
+        title="IoT Development Services | Internet of Things Solutions & Smart Device Development"
+        description="Connect and automate with IoT solutions. Expert IoT development for smart devices, sensor networks, and connected systems."
+        keywords="IoT development, internet of things, smart devices, sensor networks, connected systems, IoT solutions, embedded systems, IoT architecture"
+        canonical="/iot"
+        structuredData={serviceSchema}
+      />
       <Header />
       
       {/* Hero Section */}

@@ -1,15 +1,45 @@
 import { useState, useEffect } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import SEOHead from '@/components/seo/SEOHead';
 import ProductCard from '@/components/products/ProductCard';
 import { products } from '@/data/products';
 import { Badge } from '@/components/ui/badge';
+import { generateBreadcrumbSchema, generateProductSchema } from '@/components/seo/StructuredData';
 const ProductsPage = () => {
   const [isVisible, setIsVisible] = useState(false);
   useEffect(() => {
     setIsVisible(true);
   }, []);
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Home', url: 'https://www.deeceelabs.com' },
+    { name: 'Products', url: 'https://www.deeceelabs.com/products' }
+  ]);
+
+  // Generate product schemas for each product
+  const productSchemas = products.map(product => generateProductSchema({
+    name: product.name,
+    description: product.description,
+    image: product.image,
+    brand: {
+      name: 'Synth Inferno'
+    },
+    offers: {
+      price: product.price || 'Contact for pricing',
+      priceCurrency: 'USD',
+      availability: 'InStock'
+    },
+    url: `https://www.deeceelabs.com/products/${product.slug}`
+  }));
+
   return <div className="min-h-screen bg-slate-900 text-foreground">
+      <SEOHead
+        title="Our Products | AI Solutions & Technology Products"
+        description="Discover our innovative products and AI solutions. Speaksify and other cutting-edge technology products designed to transform businesses and enhance productivity."
+        keywords="products, AI products, technology solutions, Speaksify, software products, AI tools, business solutions, productivity tools, AI automation"
+        canonical="/products"
+        structuredData={[breadcrumbSchema, ...productSchemas]}
+      />
       <Header />
       
       {/* Hero Section */}

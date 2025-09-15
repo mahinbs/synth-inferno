@@ -3,8 +3,10 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEOHead from "@/components/seo/SEOHead";
 import { useNavigate } from "react-router-dom";
 import { createContactNavigator } from "@/utils/navigation";
+import { generateServicePageStructuredData } from "@/utils/seoServicePages";
 
 const UiUxDesignPage = () => {
   const navigate = useNavigate();
@@ -81,8 +83,17 @@ const UiUxDesignPage = () => {
     "Post-Launch Feedback & Continuous UX Optimization"
   ];
 
+  const serviceSchema = generateServicePageStructuredData('ui-ux-design');
+
   return (
     <div className="min-h-screen" style={{ background: 'linear-gradient(180deg, #0D0F21 0%, #13162B 100%)' }}>
+      <SEOHead
+        title="UI/UX Design Services | User Experience Design & Interface Design"
+        description="Create exceptional user experiences with expert UI/UX design. User-centered design, interface design, and usability optimization."
+        keywords="UI design, UX design, user experience design, interface design, usability design, user interface, user research, design thinking"
+        canonical="/ui-ux-design"
+        structuredData={serviceSchema}
+      />
       <Header />
       
       {/* Hero Section */}

@@ -3,6 +3,8 @@ import { Zap, Brain, Settings, BarChart3, Shield, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import SEOHead from '@/components/seo/SEOHead';
+import { generateServicePageStructuredData } from '@/utils/seoServicePages';
 
 const AiAutomationPage = () => {
   const features = [
@@ -61,8 +63,17 @@ const AiAutomationPage = () => {
     }
   ];
 
+  const serviceSchema = generateServicePageStructuredData('ai-automation');
+
   return (
     <div className="min-h-screen bg-black text-white">
+      <SEOHead
+        title="AI Automation Services | Intelligent Process Automation & AI Solutions"
+        description="Streamline business operations with AI automation. Intelligent process automation, workflow optimization, and AI-powered business solutions."
+        keywords="AI automation, process automation, intelligent automation, workflow optimization, AI business solutions, robotic process automation, smart automation"
+        canonical="/ai-automation"
+        structuredData={serviceSchema}
+      />
       <Header />
       
       {/* Hero Section */}

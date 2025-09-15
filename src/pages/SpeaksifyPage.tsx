@@ -2,10 +2,12 @@ import { Phone, Brain, BarChart3, Zap, Users, Clock, CheckCircle, ArrowRight, Pl
 import { useState, useEffect } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import SEOHead from '@/components/seo/SEOHead';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { useNavigate } from 'react-router-dom';
 import { createContactNavigator } from '@/utils/navigation';
+import { generateProductSchema, generateBreadcrumbSchema } from '@/components/seo/StructuredData';
 const SpeaksifyPage = () => {
   const navigate = useNavigate();
   const navigateToContact = createContactNavigator(navigate);
@@ -101,7 +103,35 @@ const SpeaksifyPage = () => {
     description: 'Daily interactions',
     icon: Activity
   }];
+  const productSchema = generateProductSchema({
+    name: "Speaksify",
+    description: "AI-powered voice automation platform that transforms customer communication with intelligent calling solutions, automated voice systems, and AI-driven customer service.",
+    image: "https://res.cloudinary.com/dtq6gshzf/image/upload/v1755595529/synthinferno-logo_socawa.png",
+    brand: {
+      name: "Synth Inferno"
+    },
+    offers: {
+      price: "Contact for pricing",
+      priceCurrency: "USD",
+      availability: "InStock"
+    },
+    url: "https://www.deeceelabs.com/speaksify"
+  });
+
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Home', url: 'https://www.deeceelabs.com' },
+    { name: 'Products', url: 'https://www.deeceelabs.com/products' },
+    { name: 'Speaksify', url: 'https://www.deeceelabs.com/speaksify' }
+  ]);
+
   return <div className="min-h-screen text-white">
+      <SEOHead
+        title="Speaksify | AI-Powered Voice Automation Platform"
+        description="Transform customer communication with Speaksify - AI-powered voice automation platform. Intelligent calling solutions, automated voice systems, and AI-driven customer service."
+        keywords="Speaksify, AI voice automation, voice AI, automated calling, AI phone systems, voice automation platform, AI customer service, intelligent voice solutions"
+        canonical="/speaksify"
+        structuredData={[productSchema, breadcrumbSchema]}
+      />
       <Header />
       
       {/* Hero Section */}

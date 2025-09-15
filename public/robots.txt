@@ -12,3 +12,13 @@ Allow: /
 
 User-agent: *
 Allow: /
+
+# Sitemap
+Sitemap: https://www.deeceelabs.com/sitemap.xml
+
+# Disallow admin areas
+Disallow: /admin/
+Disallow: /admin
+
+# Allow all other content
+Allow: /

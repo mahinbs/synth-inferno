@@ -1,8 +1,10 @@
 import { ArrowRight } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEOHead from "@/components/seo/SEOHead";
 import WhyChooseUsSection from "@/components/shared/WhyChooseUsSection";
 import DevelopmentLifecycle from "@/components/shared/DevelopmentLifecycle";
+import { generateServicePageStructuredData } from "@/utils/seoServicePages";
 
 const GameDevelopmentPage = () => {
   const techStackCategories = [
@@ -40,8 +42,17 @@ const GameDevelopmentPage = () => {
     }
   ];
 
+  const serviceSchema = generateServicePageStructuredData('game-development');
+
   return (
     <div className="min-h-screen bg-black text-white" style={{background: 'linear-gradient(180deg, #0D0F21 0%, #13162B 100%)'}}>
+      <SEOHead
+        title="Game Development Services | Custom Game Development & Interactive Experiences"
+        description="Create engaging games and interactive experiences. Expert game development with Unity, Unreal Engine, and modern game technologies."
+        keywords="game development, Unity development, Unreal Engine, game design, interactive experiences, mobile games, web games, game programming"
+        canonical="/game-development"
+        structuredData={serviceSchema}
+      />
       <Header />
       
       {/* Hero Section */}

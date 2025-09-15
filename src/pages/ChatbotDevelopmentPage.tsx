@@ -1,9 +1,20 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Bot, Brain, Zap, Shield, Eye, Cog } from "lucide-react";
+import SEOHead from "@/components/seo/SEOHead";
+import { generateServicePageStructuredData } from "@/utils/seoServicePages";
 
 const ChatbotDevelopmentPage = () => {
+  const serviceSchema = generateServicePageStructuredData('chatbot-development');
+
   return (
     <div className="min-h-screen bg-slate-900">
+      <SEOHead
+        title="Chatbot Development Services | AI Chatbots & Conversational AI Solutions"
+        description="Build intelligent chatbots and conversational AI solutions. Expert chatbot development with natural language processing and AI integration."
+        keywords="chatbot development, conversational AI, AI chatbots, natural language processing, customer service automation, intelligent assistants, chatbot solutions"
+        canonical="/chatbot-development"
+        structuredData={serviceSchema}
+      />
       {/* Hero Section */}
       <section className="relative bg-gradient-to-b from-slate-900 to-slate-800 px-6 py-16 text-center overflow-hidden">
         <div 

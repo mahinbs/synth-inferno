@@ -2,7 +2,9 @@ import { Smartphone, Zap, Users, Shield, Globe, TrendingUp, ArrowRight, CheckCir
 import { Link, useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import SEOHead from '@/components/seo/SEOHead';
 import { createContactNavigator } from '@/utils/navigation';
+import { generateServiceSchema } from '@/components/seo/StructuredData';
 
 const MobileAppsPage = () => {
   const navigate = useNavigate();
@@ -173,8 +175,27 @@ const MobileAppsPage = () => {
     { metric: '50+', label: 'Apps Launched', description: 'Across iOS and Android platforms' }
   ];
 
+  const serviceSchema = generateServiceSchema({
+    name: "Mobile App Development",
+    description: "Create powerful mobile applications for iOS and Android. Expert mobile app development with React Native, Flutter, and native technologies. User-centric design and seamless performance.",
+    provider: {
+      name: "Synth Inferno",
+      url: "https://www.deeceelabs.com"
+    },
+    areaServed: "Worldwide",
+    serviceType: "Mobile Development",
+    url: "https://www.deeceelabs.com/mobile-apps"
+  });
+
   return (
     <div className="min-h-screen bg-black text-white">
+      <SEOHead
+        title="Mobile App Development Services | iOS & Android App Development"
+        description="Create powerful mobile applications for iOS and Android. Expert mobile app development with React Native, Flutter, and native technologies. User-centric design and seamless performance."
+        keywords="mobile app development, iOS app development, Android app development, React Native, Flutter, mobile app design, app store optimization, cross-platform development, native app development"
+        canonical="/mobile-apps"
+        structuredData={serviceSchema}
+      />
       <Header />
       
       {/* Hero Section */}

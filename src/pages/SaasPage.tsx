@@ -2,7 +2,9 @@ import { Cloud, CreditCard, BarChart3, Users, Settings, Zap, ArrowRight, CheckCi
 import { Link, useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import SEOHead from '@/components/seo/SEOHead';
 import { createContactNavigator } from '@/utils/navigation';
+import { generateServiceSchema } from '@/components/seo/StructuredData';
 
 const SaasPage = () => {
   const navigate = useNavigate();
@@ -214,8 +216,27 @@ const SaasPage = () => {
     { metric: '85%', label: 'User Retention Rate', description: 'Engaging experiences that keep users' }
   ];
 
+  const serviceSchema = generateServiceSchema({
+    name: "SaaS Development",
+    description: "Build scalable SaaS applications with modern cloud technologies. Expert SaaS development including multi-tenancy, subscription management, and cloud infrastructure.",
+    provider: {
+      name: "Synth Inferno",
+      url: "https://www.deeceelabs.com"
+    },
+    areaServed: "Worldwide",
+    serviceType: "SaaS Development",
+    url: "https://www.deeceelabs.com/saas"
+  });
+
   return (
     <div className="min-h-screen bg-black text-white">
+      <SEOHead
+        title="SaaS Development Services | Custom SaaS Solutions & Cloud Applications"
+        description="Build scalable SaaS applications with modern cloud technologies. Expert SaaS development including multi-tenancy, subscription management, and cloud infrastructure."
+        keywords="SaaS development, cloud applications, multi-tenant applications, subscription management, cloud infrastructure, scalable web applications, software as a service, SaaS architecture"
+        canonical="/saas"
+        structuredData={serviceSchema}
+      />
       <Header />
       
       {/* Hero Section */}

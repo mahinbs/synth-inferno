@@ -2,12 +2,14 @@
 import { useState, useEffect } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import SEOHead from '@/components/seo/SEOHead';
 import FloatingChatbot from '@/components/chatbot/FloatingChatbot';
 import ServicePortfolioPreviews from '@/components/services/ServicePortfolioPreviews';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Users, CheckCircle, ArrowRight, Star, Clock, Shield, TrendingUp } from 'lucide-react';
+import { generateServicePageStructuredData } from '@/utils/seoServicePages';
 import { usePerformanceOptimization } from '@/hooks/usePerformanceOptimization';
 import { getPortfolioData } from '@/services/portfolioDataService';
 import { Service } from '@/data/projects';
@@ -48,8 +50,17 @@ const SalesForcePage = () => {
     window.location.href = '/portfolio';
   };
 
+  const serviceSchema = generateServicePageStructuredData('sales-force');
+
   return (
     <div className="min-h-screen">
+      <SEOHead
+        title="Salesforce Development Services | Custom Salesforce Solutions & CRM Development"
+        description="Maximize your Salesforce investment with custom development. Expert Salesforce solutions, CRM customization, and business process automation."
+        keywords="Salesforce development, CRM development, Salesforce customization, business process automation, Salesforce integration, CRM solutions"
+        canonical="/sales-force"
+        structuredData={serviceSchema}
+      />
       <Header />
       
       {/* Hero Section */}

@@ -2,8 +2,10 @@ import React, { useState, useMemo } from 'react';
 import { Star, Filter, Zap, Shield, Users, TrendingUp } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import SEOHead from '@/components/seo/SEOHead';
 import { Button } from '@/components/ui/button';
 import ReviewCard from '@/components/ReviewCard';
+import { generateBreadcrumbSchema, generateFAQSchema } from '@/components/seo/StructuredData';
 
 interface Review {
   id: number;
@@ -177,8 +179,35 @@ const ReviewsPage = () => {
     };
   }, []);
 
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Home', url: 'https://www.deeceelabs.com' },
+    { name: 'Reviews', url: 'https://www.deeceelabs.com/reviews' }
+  ]);
+
+  const faqSchema = generateFAQSchema([
+    {
+      question: "What services does Synth Inferno provide?",
+      answer: "We provide comprehensive technology solutions including web application development, mobile app development, SaaS solutions, AI calling services, AI automation, AR/VR development, IoT solutions, game development, UI/UX design, and chatbot development."
+    },
+    {
+      question: "How do I get started with a project?",
+      answer: "Contact us through our website or schedule a consultation. We'll discuss your requirements, provide a detailed proposal, and guide you through the development process."
+    },
+    {
+      question: "What technologies do you use?",
+      answer: "We use modern technologies including React, Node.js, TypeScript, Python, AI/ML frameworks, cloud platforms, and cutting-edge development tools to deliver high-quality solutions."
+    }
+  ]);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black">
+      <SEOHead
+        title="Client Reviews & Testimonials | What Our Clients Say"
+        description="Read reviews and testimonials from our satisfied clients. Discover why businesses choose Synth Inferno for their technology needs. Real feedback from real clients."
+        keywords="client reviews, testimonials, customer feedback, client success stories, business reviews, service reviews, web development reviews, mobile app reviews, AI development reviews"
+        canonical="/reviews"
+        structuredData={[breadcrumbSchema, faqSchema]}
+      />
       {/* Background Effects */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(29,78,216,0.02),transparent_50%)]"></div>
       

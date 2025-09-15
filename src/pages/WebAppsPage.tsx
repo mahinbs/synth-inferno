@@ -3,10 +3,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import SEOHead from '@/components/seo/SEOHead';
 import { projectsData } from '@/data/projects';
 import OptimizedImage from '@/components/ui/OptimizedImage';
 import CategorizedTechStackSection from '@/components/shared/CategorizedTechStackSection';
 import { createContactNavigator } from '@/utils/navigation';
+import { generateServiceSchema } from '@/components/seo/StructuredData';
 
 const WebAppsPage = () => {
   const navigate = useNavigate();
@@ -146,6 +148,18 @@ const WebAppsPage = () => {
     }
   ];
 
+  const serviceSchema = generateServiceSchema({
+    name: "Web Application Development",
+    description: "Transform your business with cutting-edge web applications built using modern technologies. We specialize in full-stack development, creating scalable, secure, and user-friendly web solutions.",
+    provider: {
+      name: "Synth Inferno",
+      url: "https://www.deeceelabs.com"
+    },
+    areaServed: "Worldwide",
+    serviceType: "Web Development",
+    url: "https://www.deeceelabs.com/web-apps"
+  });
+
   return (
     <div className="min-h-screen bg-black text-white" style={{
       backgroundImage: 'url("https://res.cloudinary.com/dknafpppp/image/upload/v1748810561/2150323552_rl9lps.jpg")',
@@ -154,6 +168,13 @@ const WebAppsPage = () => {
       backgroundRepeat: 'no-repeat',
       backgroundAttachment: 'fixed'
     }}>
+      <SEOHead
+        title="Web Application Development Services | Custom Web Apps & Full-Stack Solutions"
+        description="Transform your business with cutting-edge web applications. Expert full-stack development using React, Node.js, TypeScript. Scalable, secure, and user-friendly web solutions."
+        keywords="web application development, full-stack development, React development, Node.js, TypeScript, web app development, custom web applications, progressive web apps, web development services"
+        canonical="/web-apps"
+        structuredData={serviceSchema}
+      />
       <Header />
       
       {/* Hero Section */}

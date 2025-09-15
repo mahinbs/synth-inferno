@@ -2,7 +2,9 @@ import { Phone, Brain, BarChart3, Users, Zap, Shield, ArrowRight, CheckCircle, M
 import { Link, useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import SEOHead from '@/components/seo/SEOHead';
 import { createContactNavigator } from '@/utils/navigation';
+import { generateServicePageStructuredData } from '@/utils/seoServicePages';
 
 const AiCallingPage = () => {
   const navigate = useNavigate();
@@ -200,8 +202,17 @@ const AiCallingPage = () => {
     { metric: '40%', label: 'Cost Savings', description: 'Reduction in call center costs' }
   ];
 
+  const serviceSchema = generateServicePageStructuredData('ai-calling');
+
   return (
     <div className="min-h-screen bg-black text-white">
+      <SEOHead
+        title="AI Calling Solutions | Intelligent Voice Automation & AI Phone Systems"
+        description="Revolutionize customer communication with AI-powered calling solutions. Automated voice systems, intelligent call routing, and AI-driven customer service."
+        keywords="AI calling, voice automation, AI phone systems, intelligent call routing, automated customer service, voice AI, conversational AI, call center automation"
+        canonical="/ai-calling"
+        structuredData={serviceSchema}
+      />
       <Header />
       
       {/* Hero Section */}

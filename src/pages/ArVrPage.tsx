@@ -6,8 +6,10 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEOHead from "@/components/seo/SEOHead";
 import TechStackSection from "@/components/shared/TechStackSection";
 import WhyChooseUsSection from "@/components/shared/WhyChooseUsSection";
+import { generateServicePageStructuredData } from "@/utils/seoServicePages";
 import DevelopmentLifecycle from "@/components/shared/DevelopmentLifecycle";
 
 
@@ -37,8 +39,17 @@ const ArVrPage = () => {
     description: "Create narrative experiences that unfold in three-dimensional space around users."
   }];
 
+  const serviceSchema = generateServicePageStructuredData('ar-vr-development');
+
   return (
     <div className="min-h-screen bg-black text-white">
+      <SEOHead
+        title="AR/VR Development Services | Immersive Experiences & Virtual Reality Solutions"
+        description="Create immersive AR/VR experiences for business and entertainment. Expert AR/VR development with Unity, Unreal Engine, and cutting-edge technologies."
+        keywords="AR development, VR development, augmented reality, virtual reality, immersive experiences, Unity development, Unreal Engine, AR/VR solutions, mixed reality"
+        canonical="/ar-vr-development"
+        structuredData={serviceSchema}
+      />
       <Header />
       
       {/* Hero Section */}
