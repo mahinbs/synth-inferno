@@ -78,8 +78,8 @@ const ServiceCardHeader = memo(({
         </div>
 
         {/* Right Side - Stacked Price and Duration Tags */}
-        <div className="flex-shrink-0 flex flex-col space-y-3">
-          {/* Price Tag */}
+        {/* <div className="flex-shrink-0 flex flex-col space-y-3">
+         
           <div className={`px-4 py-2.5 rounded-lg text-sm font-bold transition-colors duration-200 text-center min-w-[100px] ${
             isExpanded 
               ? 'bg-blue-600 text-white shadow-lg' 
@@ -88,7 +88,7 @@ const ServiceCardHeader = memo(({
             {service.startingPrice}
           </div>
           
-          {/* Timeline Tag */}
+          
           <div className={`px-4 py-2.5 rounded-lg text-sm font-medium transition-colors duration-200 text-center min-w-[100px] ${
             isExpanded 
               ? 'bg-green-100 text-green-800 border border-green-200' 
@@ -96,7 +96,7 @@ const ServiceCardHeader = memo(({
           }`}>
             {service.timeline}
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* Background Image - Very Subtle */}

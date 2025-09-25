@@ -73,7 +73,7 @@ const ServiceCardExpandedContent = memo(({
             </div>
 
             {/* Mobile Price/Timeline */}
-            <div className="md:hidden flex space-x-4">
+            {/* <div className="md:hidden flex space-x-4">
               <div className="px-4 py-2 rounded-lg bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200/60 text-sm font-medium flex items-center space-x-2 text-gray-800">
                 <DollarSign className="h-4 w-4 text-blue-600" />
                 <span>{service.startingPrice}</span>
@@ -82,7 +82,7 @@ const ServiceCardExpandedContent = memo(({
                 <Clock className="h-4 w-4 text-purple-600" />
                 <span>{service.timeline}</span>
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* Right Column */}

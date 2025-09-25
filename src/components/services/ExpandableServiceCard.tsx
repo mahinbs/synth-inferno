@@ -79,7 +79,7 @@ const ExpandableServiceCard = memo(({
             </div>
 
             {/* Price and Timeline Badges with glassmorphic enhancement */}
-            <div className="hidden md:flex flex-col space-y-2 mr-6">
+            {/* <div className="hidden md:flex flex-col space-y-2 mr-6">
               <div
                 className={`px-4 py-2 rounded-lg ${colors.button} border text-sm font-medium flex items-center space-x-2 backdrop-blur-sm bg-white/10`}
               >
@@ -92,7 +92,7 @@ const ExpandableServiceCard = memo(({
                 <Clock className="h-4 w-4" />
                 <span>{service.timeline}</span>
               </div>
-            </div>
+            </div> */}
 
             {/* Expand Icon */}
             <ChevronDown
@@ -129,7 +129,7 @@ const ExpandableServiceCard = memo(({
               </div>
 
               {/* Mobile Price/Timeline with glassmorphic effect */}
-              <div className="md:hidden flex space-x-4">
+              {/* <div className="md:hidden flex space-x-4">
                 <div
                   className={`px-4 py-2 rounded-lg ${colors.button} border text-sm font-medium flex items-center space-x-2 backdrop-blur-sm bg-white/10`}
                 >
@@ -142,7 +142,7 @@ const ExpandableServiceCard = memo(({
                   <Clock className="h-4 w-4" />
                   <span>{service.timeline}</span>
                 </div>
-              </div>
+              </div> */}
             </div>
 
             {/* Right Column */}
