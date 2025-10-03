@@ -3,8 +3,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SEOHead from '@/components/seo/SEOHead';
+import ServicePortfolioSection from '@/components/portfolio/ServicePortfolioSection';
 import { createContactNavigator } from '@/utils/navigation';
 import { generateServiceSchema } from '@/components/seo/StructuredData';
+import SimpleContactForm from '@/components/SimpleContactForm';
 
 const MobileAppsPage = () => {
   const navigate = useNavigate();
@@ -199,7 +201,7 @@ const MobileAppsPage = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-24 relative overflow-hidden">
+      <section className="pt-32 pb-24 min-h-screen flex flex-col justify-center relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-orange-500/10"></div>
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="container mx-auto px-6 relative z-10">
@@ -235,6 +237,12 @@ const MobileAppsPage = () => {
           </div>
         </div>
       </section>
+
+      <SimpleContactForm
+        variant="minimal"
+        showQuickContact={false}
+        title="Contact Us"
+      />
 
       {/* Success Metrics */}
       <section className="py-16 bg-gray-900/50 backdrop-blur-sm">
@@ -437,7 +445,7 @@ const MobileAppsPage = () => {
                     {String(index + 1).padStart(2, '0')}
                   </div>
                   <h3 className="text-lg font-bold mb-2">{phase.phase}</h3>
-                  <div className="text-pink-400 text-sm font-semibold mb-3">{phase.duration}</div>
+                  
                   <p className="text-gray-400 text-sm mb-4">{phase.description}</p>
                   <div className="space-y-1">
                     {phase.activities.map((activity, idx) => (
@@ -452,6 +460,12 @@ const MobileAppsPage = () => {
           </div>
         </div>
       </section>
+
+      <SimpleContactForm
+        variant="minimal"
+        showQuickContact={false}
+        title="Contact Us"
+      />
 
       {/* CTA Section */}
       <section className="py-24 bg-gradient-to-r from-purple-500/20 via-pink-500/20 to-orange-500/20 backdrop-blur-sm">
@@ -480,6 +494,13 @@ const MobileAppsPage = () => {
           </div>
         </div>
       </section>
+
+      {/* Portfolio Section */}
+      <ServicePortfolioSection 
+        serviceId="mobile-apps" 
+        serviceTitle="Mobile Applications" 
+        serviceColor="purple" 
+      />
 
       <Footer />
     </div>

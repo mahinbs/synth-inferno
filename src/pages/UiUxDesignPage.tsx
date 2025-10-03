@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/seo/SEOHead";
+import ServicePortfolioSection from "@/components/portfolio/ServicePortfolioSection";
 import { useNavigate } from "react-router-dom";
 import { createContactNavigator } from "@/utils/navigation";
 import { generateServicePageStructuredData } from "@/utils/seoServicePages";
@@ -217,6 +218,13 @@ const UiUxDesignPage = () => {
           </a>
         </div>
       </section>
+
+      {/* Portfolio Section */}
+      <ServicePortfolioSection 
+        serviceId="ui-ux-design" 
+        serviceTitle="UI/UX Design" 
+        serviceColor="pink" 
+      />
 
       <Footer />
     </div>

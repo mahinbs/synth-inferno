@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/seo/SEOHead";
+import ServicePortfolioSection from "@/components/portfolio/ServicePortfolioSection";
 import TechStackSection from "@/components/shared/TechStackSection";
 import WhyChooseUsSection from "@/components/shared/WhyChooseUsSection";
 import { generateServicePageStructuredData } from "@/utils/seoServicePages";
@@ -325,6 +326,13 @@ const ArVrPage = () => {
           </a>
         </div>
       </section>
+
+      {/* Portfolio Section */}
+      <ServicePortfolioSection 
+        serviceId="ar-vr-development" 
+        serviceTitle="AR/VR Development" 
+        serviceColor="purple" 
+      />
 
       <Footer />
     </div>

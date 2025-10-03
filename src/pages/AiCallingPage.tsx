@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SEOHead from '@/components/seo/SEOHead';
+import ServicePortfolioSection from '@/components/portfolio/ServicePortfolioSection';
 import { createContactNavigator } from '@/utils/navigation';
 import { generateServicePageStructuredData } from '@/utils/seoServicePages';
 
@@ -480,6 +481,13 @@ const AiCallingPage = () => {
           </div>
         </div>
       </section>
+
+      {/* Portfolio Section */}
+      <ServicePortfolioSection 
+        serviceId="ai-calling" 
+        serviceTitle="AI Calling Solutions" 
+        serviceColor="pink" 
+      />
 
       <Footer />
     </div>

@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/seo/SEOHead";
+import ServicePortfolioSection from "@/components/portfolio/ServicePortfolioSection";
 import { generateServicePageStructuredData } from "@/utils/seoServicePages";
 
 const IotPage = () => {
@@ -212,6 +213,13 @@ const IotPage = () => {
           </a>
         </div>
       </section>
+
+      {/* Portfolio Section */}
+      <ServicePortfolioSection 
+        serviceId="iot" 
+        serviceTitle="IoT Development" 
+        serviceColor="green" 
+      />
 
       <Footer />
     </div>;

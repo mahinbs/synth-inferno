@@ -13,7 +13,7 @@ import {
   Linkedin,
   Facebook,
 } from "lucide-react";
-const Contact = () => {
+const Contact = ({ hideCTA }) => {
   const [isVisible, setIsVisible] = useState(false);
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -490,7 +490,7 @@ const Contact = () => {
         </div>
 
         {/* CTA Section */}
-        <div
+        {!hideCTA&&<div
           className={`text-center mt-16 transition-all duration-1000 delay-1000 ${
             isVisible
               ? "animate-fade-in opacity-100 translate-y-0"
@@ -518,7 +518,7 @@ const Contact = () => {
               </a>
             </div>
           </div>
-        </div>
+        </div>}
       </div>
     </section>
   );

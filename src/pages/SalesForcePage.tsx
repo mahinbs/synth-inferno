@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SEOHead from '@/components/seo/SEOHead';
+import ServicePortfolioSection from '@/components/portfolio/ServicePortfolioSection';
 import FloatingChatbot from '@/components/chatbot/FloatingChatbot';
 import ServicePortfolioPreviews from '@/components/services/ServicePortfolioPreviews';
 import { Badge } from '@/components/ui/badge';
@@ -248,6 +249,13 @@ const SalesForcePage = () => {
           </div>
         </div>
       </section>
+
+      {/* Portfolio Section */}
+      <ServicePortfolioSection 
+        serviceId="sales-force" 
+        serviceTitle="Salesforce Development" 
+        serviceColor="blue" 
+      />
 
       <Footer />
       <FloatingChatbot 

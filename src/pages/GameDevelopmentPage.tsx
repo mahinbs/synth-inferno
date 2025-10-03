@@ -2,6 +2,7 @@ import { ArrowRight } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/seo/SEOHead";
+import ServicePortfolioSection from "@/components/portfolio/ServicePortfolioSection";
 import WhyChooseUsSection from "@/components/shared/WhyChooseUsSection";
 import DevelopmentLifecycle from "@/components/shared/DevelopmentLifecycle";
 import { generateServicePageStructuredData } from "@/utils/seoServicePages";
@@ -135,6 +136,13 @@ const GameDevelopmentPage = () => {
           </a>
         </div>
       </section>
+
+      {/* Portfolio Section */}
+      <ServicePortfolioSection 
+        serviceId="game-development" 
+        serviceTitle="Game Development" 
+        serviceColor="purple" 
+      />
 
       <Footer />
     </div>

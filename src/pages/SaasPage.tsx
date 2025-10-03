@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SEOHead from '@/components/seo/SEOHead';
+import ServicePortfolioSection from '@/components/portfolio/ServicePortfolioSection';
 import { createContactNavigator } from '@/utils/navigation';
 import { generateServiceSchema } from '@/components/seo/StructuredData';
 
@@ -430,7 +431,7 @@ const SaasPage = () => {
                     {String(index + 1).padStart(2, '0')}
                   </div>
                   <h3 className="text-lg font-bold mb-2">{phase.phase}</h3>
-                  <div className="text-purple-400 text-sm font-semibold mb-3">{phase.duration}</div>
+                  
                   <p className="text-gray-400 text-sm mb-4">{phase.description}</p>
                   <div className="space-y-1">
                     {phase.activities.map((activity, idx) => (
@@ -514,6 +515,13 @@ const SaasPage = () => {
           </div>
         </div>
       </section>
+
+      {/* Portfolio Section */}
+      <ServicePortfolioSection 
+        serviceId="saas" 
+        serviceTitle="SaaS Solutions" 
+        serviceColor="blue" 
+      />
 
       <Footer />
     </div>

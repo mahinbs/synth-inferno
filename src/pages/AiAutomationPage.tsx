@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SEOHead from '@/components/seo/SEOHead';
+import ServicePortfolioSection from '@/components/portfolio/ServicePortfolioSection';
 import { generateServicePageStructuredData } from '@/utils/seoServicePages';
 
 const AiAutomationPage = () => {
@@ -195,6 +196,13 @@ const AiAutomationPage = () => {
           </Link>
         </div>
       </section>
+
+      {/* Portfolio Section */}
+      <ServicePortfolioSection 
+        serviceId="ai-automation" 
+        serviceTitle="AI Automation" 
+        serviceColor="green" 
+      />
 
       <Footer />
     </div>

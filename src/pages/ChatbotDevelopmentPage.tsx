@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Bot, Brain, Zap, Shield, Eye, Cog } from "lucide-react";
 import SEOHead from "@/components/seo/SEOHead";
+import ServicePortfolioSection from "@/components/portfolio/ServicePortfolioSection";
 import { generateServicePageStructuredData } from "@/utils/seoServicePages";
 
 const ChatbotDevelopmentPage = () => {
@@ -183,6 +184,13 @@ const ChatbotDevelopmentPage = () => {
           </Button>
         </div>
       </section>
+
+      {/* Portfolio Section */}
+      <ServicePortfolioSection 
+        serviceId="chatbot-development" 
+        serviceTitle="Chatbot Development" 
+        serviceColor="blue" 
+      />
     </div>
   );
 };
