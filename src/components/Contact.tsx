@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useForm } from "react-hook-form";
 import {
   Mail,
   Phone,
@@ -13,8 +14,27 @@ import {
   Linkedin,
   Facebook,
 } from "lucide-react";
+
+interface FormData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  subject: string;
+  message: string;
+}
+
 const Contact = ({ hideCTA }) => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset
+  } = useForm<FormData>();
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -36,6 +56,42 @@ const Contact = ({ hideCTA }) => {
       }
     };
   }, []);
+
+  const onSubmit = async (data: FormData) => {
+    setIsSubmitting(true);
+    setSubmitError(null);
+    
+    try {
+      const response = await fetch('https://send-mail-redirect-boostmysites.vercel.app/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          body: `Name: ${data.firstName} ${data.lastName}\nEmail: ${data.email}\nMessage: ${data.message}`,
+          name: "Synth Inferno",
+          subject: data.subject,
+          to: "SynthInferno@gmail.com"
+        })
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        reset();
+        // Reset success message after 5 seconds
+        setTimeout(() => {
+          setIsSubmitted(false);
+        }, 5000);
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
+      console.error('Error sending message:', error);
+      setSubmitError('Failed to send message. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   const offices = [
     // {
@@ -227,17 +283,20 @@ const Contact = ({ hideCTA }) => {
               <h3 className="text-2xl font-bold text-white mb-6">
                 Send Us a Message
               </h3>
-              <form
-                action="https://formsubmit.co/SynthInferno@gmail.com"
-                method="POST"
-                className="space-y-6"
-              >
-                <input type="hidden" name="_captcha" value="false" />
-                <input
-                  type="hidden"
-                  name="_next"
-                  value={`${window.location.origin}`}
-                />
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                {/* Error Message */}
+                {submitError && (
+                  <div className="bg-red-500/10 border border-red-500/30 rounded-lg p-4">
+                    <p className="text-red-400 text-sm">{submitError}</p>
+                  </div>
+                )}
+
+                {/* Success Message */}
+                {isSubmitted && (
+                  <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-4">
+                    <p className="text-green-400 text-sm">Message sent successfully! We'll get back to you within 24 hours.</p>
+                  </div>
+                )}
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
@@ -250,11 +309,18 @@ const Contact = ({ hideCTA }) => {
                     <input
                       type="text"
                       id="firstName"
-                      name="firstName"
-                      required
-                      className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600/50 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition-all duration-200 text-white placeholder-gray-400"
+                      {...register("firstName", { 
+                        required: "First name is required",
+                        minLength: { value: 2, message: "First name must be at least 2 characters" }
+                      })}
+                      className={`w-full px-4 py-3 bg-gray-800/50 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition-all duration-200 text-white placeholder-gray-400 ${
+                        errors.firstName ? 'border-red-500/50' : 'border-gray-600/50'
+                      }`}
                       placeholder="John"
                     />
+                    {errors.firstName && (
+                      <p className="text-red-400 text-sm mt-1">{errors.firstName.message}</p>
+                    )}
                   </div>
                   <div>
                     <label
@@ -266,11 +332,18 @@ const Contact = ({ hideCTA }) => {
                     <input
                       type="text"
                       id="lastName"
-                      name="lastName"
-                      required
-                      className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600/50 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition-all duration-200 text-white placeholder-gray-400"
+                      {...register("lastName", { 
+                        required: "Last name is required",
+                        minLength: { value: 2, message: "Last name must be at least 2 characters" }
+                      })}
+                      className={`w-full px-4 py-3 bg-gray-800/50 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition-all duration-200 text-white placeholder-gray-400 ${
+                        errors.lastName ? 'border-red-500/50' : 'border-gray-600/50'
+                      }`}
                       placeholder="Doe"
                     />
+                    {errors.lastName && (
+                      <p className="text-red-400 text-sm mt-1">{errors.lastName.message}</p>
+                    )}
                   </div>
                 </div>
 
@@ -284,11 +357,21 @@ const Contact = ({ hideCTA }) => {
                   <input
                     type="email"
                     id="email"
-                    name="email"
-                    required
-                    className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600/50 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition-all duration-200 text-white placeholder-gray-400"
+                    {...register("email", { 
+                      required: "Email is required",
+                      pattern: {
+                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                        message: "Invalid email address"
+                      }
+                    })}
+                    className={`w-full px-4 py-3 bg-gray-800/50 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition-all duration-200 text-white placeholder-gray-400 ${
+                      errors.email ? 'border-red-500/50' : 'border-gray-600/50'
+                    }`}
                     placeholder="john@example.com"
                   />
+                  {errors.email && (
+                    <p className="text-red-400 text-sm mt-1">{errors.email.message}</p>
+                  )}
                 </div>
 
                 <div>
@@ -301,11 +384,18 @@ const Contact = ({ hideCTA }) => {
                   <input
                     type="text"
                     id="subject"
-                    name="subject"
-                    required
-                    className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600/50 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition-all duration-200 text-white placeholder-gray-400"
+                    {...register("subject", { 
+                      required: "Subject is required",
+                      minLength: { value: 5, message: "Subject must be at least 5 characters" }
+                    })}
+                    className={`w-full px-4 py-3 bg-gray-800/50 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition-all duration-200 text-white placeholder-gray-400 ${
+                      errors.subject ? 'border-red-500/50' : 'border-gray-600/50'
+                    }`}
                     placeholder="Project Discussion"
                   />
+                  {errors.subject && (
+                    <p className="text-red-400 text-sm mt-1">{errors.subject.message}</p>
+                  )}
                 </div>
 
                 <div>
@@ -317,20 +407,37 @@ const Contact = ({ hideCTA }) => {
                   </label>
                   <textarea
                     id="message"
-                    name="message"
                     rows={5}
-                    required
-                    className="w-full px-4 py-3 bg-gray-800/50 border border-gray-600/50 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition-all duration-200 resize-none text-white placeholder-gray-400"
+                    {...register("message", { 
+                      required: "Message is required",
+                      minLength: { value: 10, message: "Message must be at least 10 characters" }
+                    })}
+                    className={`w-full px-4 py-3 bg-gray-800/50 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition-all duration-200 resize-none text-white placeholder-gray-400 ${
+                      errors.message ? 'border-red-500/50' : 'border-gray-600/50'
+                    }`}
                     placeholder="Tell us about your project..."
                   />
+                  {errors.message && (
+                    <p className="text-red-400 text-sm mt-1">{errors.message.message}</p>
+                  )}
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-6 py-4 rounded-lg hover:from-cyan-400 hover:to-blue-500 transition-all duration-300 font-semibold flex items-center justify-center space-x-2 shadow-lg hover:shadow-cyan-500/25 transform hover:scale-105"
+                  disabled={isSubmitting}
+                  className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-6 py-4 rounded-lg hover:from-cyan-400 hover:to-blue-500 transition-all duration-300 font-semibold flex items-center justify-center space-x-2 shadow-lg hover:shadow-cyan-500/25 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                 >
-                  <span>Send Message</span>
-                  <Send className="h-5 w-5" />
+                  {isSubmitting ? (
+                    <>
+                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                      <span>Sending...</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>Send Message</span>
+                      <Send className="h-5 w-5" />
+                    </>
+                  )}
                 </button>
               </form>
             </div>
