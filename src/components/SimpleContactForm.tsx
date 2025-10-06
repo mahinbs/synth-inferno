@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import { Send, Mail, Phone, MessageCircle } from "lucide-react";
 
 interface SimpleContactFormProps {
@@ -14,6 +15,7 @@ interface FormData {
   firstName: string;
   lastName: string;
   email: string;
+  phone: string;
   subject: string;
   message: string;
 }
@@ -26,8 +28,8 @@ const SimpleContactForm = ({
   variant = 'default'
 }: SimpleContactFormProps) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const navigate = useNavigate();
 
   const {
     register,
@@ -47,7 +49,7 @@ const SimpleContactForm = ({
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          body: `Name: ${data.firstName} ${data.lastName}\nEmail: ${data.email}\nMessage: ${data.message}`,
+          body: `Name: ${data.firstName} ${data.lastName}\nEmail: ${data.email}\nPhone: ${data.phone}\nMessage: ${data.message}`,
           name: "Synth Inferno",
           subject: data.subject,
           to: "SynthInferno@gmail.com"
@@ -55,12 +57,9 @@ const SimpleContactForm = ({
       });
 
       if (response.ok) {
-        setIsSubmitted(true);
         reset();
-        // Reset success message after 5 seconds
-        setTimeout(() => {
-          setIsSubmitted(false);
-        }, 5000);
+        // Redirect to thank you page
+        navigate('/thank-you');
       } else {
         throw new Error('Failed to send message');
       }
@@ -100,36 +99,6 @@ const SimpleContactForm = ({
 
   const variantClasses = getVariantClasses();
 
-  if (isSubmitted) {
-    return (
-      <section 
-        className={`py-20 bg-gradient-to-b from-gray-900 to-black relative overflow-hidden ${variantClasses.container} ${className}`}
-        style={{
-          backgroundImage: `url('/lovable-uploads/d0fa4f38-5951-4a69-9df8-13d4faa03aaa.png')`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          backgroundAttachment: "fixed",
-        }}
-      >
-        {/* Background Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/60 to-gray-900/75"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/20"></div>
-        
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-2xl mx-auto text-center">
-            <div className="bg-gray-900/80 backdrop-blur-sm border border-green-400/30 rounded-2xl p-8">
-              <div className="w-16 h-16 bg-green-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Send className="h-8 w-8 text-green-400" />
-              </div>
-              <h3 className="text-2xl font-bold text-white mb-2">Message Sent Successfully!</h3>
-              <p className="text-gray-300">Thank you for reaching out. We'll get back to you within 24 hours.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-    );
-  }
 
   return (
     <section 
@@ -299,6 +268,33 @@ const SimpleContactForm = ({
                     />
                     {errors.email && (
                       <p className="text-red-400 text-sm mt-1">{errors.email.message}</p>
+                    )}
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="phone"
+                      className="block text-sm font-medium text-gray-300 mb-2"
+                    >
+                      Phone Number *
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      {...register("phone", { 
+                        required: "Phone number is required",
+                        pattern: {
+                          value: /^[\+]?[1-9][\d]{0,15}$/,
+                          message: "Please enter a valid phone number"
+                        }
+                      })}
+                      className={`w-full px-4 py-3 bg-gray-800/50 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition-all duration-200 text-white placeholder-gray-400 ${
+                        errors.phone ? 'border-red-500/50' : 'border-gray-600/50'
+                      }`}
+                      placeholder="+91 9876543210"
+                    />
+                    {errors.phone && (
+                      <p className="text-red-400 text-sm mt-1">{errors.phone.message}</p>
                     )}
                   </div>
 

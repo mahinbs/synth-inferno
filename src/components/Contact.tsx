@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import {
   Mail,
   Phone,
@@ -19,6 +20,7 @@ interface FormData {
   firstName: string;
   lastName: string;
   email: string;
+  phone: string;
   subject: string;
   message: string;
 }
@@ -26,8 +28,8 @@ interface FormData {
 const Contact = ({ hideCTA }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const navigate = useNavigate();
 
   const {
     register,
@@ -68,7 +70,7 @@ const Contact = ({ hideCTA }) => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          body: `Name: ${data.firstName} ${data.lastName}\nEmail: ${data.email}\nMessage: ${data.message}`,
+          body: `Name: ${data.firstName} ${data.lastName}\nEmail: ${data.email}\nPhone: ${data.phone}\nMessage: ${data.message}`,
           name: "Synth Inferno",
           subject: data.subject,
           to: "SynthInferno@gmail.com"
@@ -76,12 +78,9 @@ const Contact = ({ hideCTA }) => {
       });
 
       if (response.ok) {
-        setIsSubmitted(true);
         reset();
-        // Reset success message after 5 seconds
-        setTimeout(() => {
-          setIsSubmitted(false);
-        }, 5000);
+        // Redirect to thank you page
+        navigate('/thank-you');
       } else {
         throw new Error('Failed to send message');
       }
@@ -291,12 +290,6 @@ const Contact = ({ hideCTA }) => {
                   </div>
                 )}
 
-                {/* Success Message */}
-                {isSubmitted && (
-                  <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-4">
-                    <p className="text-green-400 text-sm">Message sent successfully! We'll get back to you within 24 hours.</p>
-                  </div>
-                )}
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
@@ -371,6 +364,33 @@ const Contact = ({ hideCTA }) => {
                   />
                   {errors.email && (
                     <p className="text-red-400 text-sm mt-1">{errors.email.message}</p>
+                  )}
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="phone"
+                    className="block text-sm font-medium text-gray-300 mb-2"
+                  >
+                    Phone Number *
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    {...register("phone", { 
+                      required: "Phone number is required",
+                      pattern: {
+                        value: /^[\+]?[1-9][\d]{0,15}$/,
+                        message: "Please enter a valid phone number"
+                      }
+                    })}
+                    className={`w-full px-4 py-3 bg-gray-800/50 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition-all duration-200 text-white placeholder-gray-400 ${
+                      errors.phone ? 'border-red-500/50' : 'border-gray-600/50'
+                    }`}
+                    placeholder="+91 9876543210"
+                  />
+                  {errors.phone && (
+                    <p className="text-red-400 text-sm mt-1">{errors.phone.message}</p>
                   )}
                 </div>
 

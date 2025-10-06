@@ -26,6 +26,7 @@ import BlogsPage from "./pages/BlogsPage";
 import BlogPostPage from "./pages/BlogPostPage";
 import ReviewsPage from "./pages/ReviewsPage";
 import SitemapPage from "./pages/SitemapPage";
+import ThankYouPage from "./pages/ThankYouPage";
 import NotFound from "./pages/NotFound";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import PortfolioForm from "./pages/admin/PortfolioForm";
@@ -69,6 +70,7 @@ function App() {
             <Route path="/blog/:slug" element={<BlogPostPage />} />
             <Route path="/reviews" element={<ReviewsPage />} />
             <Route path="/sitemap.xml" element={<SitemapPage />} />
+            <Route path="/thank-you" element={<ThankYouPage />} />
             
             {/* Admin Routes */}
             <Route path="/admin" element={
