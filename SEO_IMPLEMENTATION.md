@@ -57,7 +57,7 @@ This document outlines the comprehensive SEO implementation for the Synth Infern
 #### Sitemap (`public/sitemap.xml`)
 - **Purpose**: Static sitemap for search engines
 - **Content**: All major pages with proper priorities and change frequencies
-- **URL**: `https://www.deeceelabs.com/sitemap.xml`
+- **URL**: `https://www.synthinferno.com/sitemap.xml`
 
 #### Robots.txt (`public/robots.txt`)
 - **Purpose**: Search engine crawling instructions
@@ -193,7 +193,7 @@ The sitemap is automatically generated and includes:
 ## 🚀 Next Steps
 
 ### Recommended Actions
-1. **Submit Sitemap**: Submit `https://www.deeceelabs.com/sitemap.xml` to Google Search Console
+1. **Submit Sitemap**: Submit `https://www.synthinferno.com/sitemap.xml` to Google Search Console
 2. **Monitor Performance**: Track SEO performance in Google Search Console
 3. **Update Content**: Regularly update meta descriptions and titles
 4. **Add More Structured Data**: Consider adding more specific schemas as needed

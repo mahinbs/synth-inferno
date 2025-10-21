@@ -33,7 +33,7 @@ const Index = () => {
 
   const organizationSchema = generateOrganizationSchema({
     name: "Synth Inferno",
-    url: "https://www.deeceelabs.com",
+    url: "https://www.synthinferno.com",
     logo: "https://res.cloudinary.com/dtq6gshzf/image/upload/v1755595529/synthinferno-logo_socawa.png",
     description: "Engineering the Future Today - AI, Web, Mobile & AR/VR Development",
     address: {
@@ -43,17 +43,17 @@ const Index = () => {
       contactType: "customer service"
     },
     sameAs: [
-      "https://www.linkedin.com/company/deeceelabs",
-      "https://twitter.com/deeceelabs"
+      "",
+      ""
     ]
   });
 
   const websiteSchema = generateWebSiteSchema({
     name: "Synth Inferno",
-    url: "https://www.deeceelabs.com",
+    url: "https://www.synthinferno.com",
     description: "Transform your business with cutting-edge AI solutions, mobile apps, web development, and immersive AR/VR experiences.",
     potentialAction: {
-      target: "https://www.deeceelabs.com/search?q={search_term_string}",
+      target: "https://www.synthinferno.com/search?q={search_term_string}",
       queryInput: "required name=search_term_string"
     }
   });

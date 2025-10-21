@@ -6,7 +6,7 @@ export interface SitemapUrl {
 }
 
 export const generateSitemap = (urls: SitemapUrl[]): string => {
-  const baseUrl = 'https://www.deeceelabs.com';
+  const baseUrl = 'https://www.synthinferno.com';
   const currentDate = new Date().toISOString().split('T')[0];
   
   const sitemapUrls = urls.map(url => {

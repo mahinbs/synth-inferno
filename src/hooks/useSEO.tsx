@@ -13,7 +13,7 @@ export interface SEOConfig {
 
 export const useSEO = (config: SEOConfig = {}) => {
   const location = useLocation();
-  const baseUrl = 'https://www.deeceelabs.com';
+  const baseUrl = 'https://www.synthinferno.com';
   
   // Generate canonical URL
   const canonical = config.canonical || location.pathname;

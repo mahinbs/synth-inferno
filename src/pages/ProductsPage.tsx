@@ -12,8 +12,8 @@ const ProductsPage = () => {
     setIsVisible(true);
   }, []);
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'Home', url: 'https://www.deeceelabs.com' },
-    { name: 'Products', url: 'https://www.deeceelabs.com/products' }
+    { name: 'Home', url: 'https://www.synthinferno.com' },
+    { name: 'Products', url: 'https://www.synthinferno.com/products' }
   ]);
 
   // Generate product schemas for each product
@@ -29,7 +29,7 @@ const ProductsPage = () => {
       priceCurrency: 'USD',
       availability: 'InStock'
     },
-    url: `https://www.deeceelabs.com/products/${product.slug}`
+    url: `https://www.synthinferno.com/products/${product.slug}`
   }));
 
   return <div className="min-h-screen bg-slate-900 text-foreground">

@@ -14,7 +14,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://www.deeceelabs.com/sitemap.xml
+Sitemap: https://www.synthinferno.com/sitemap.xml
 
 # Disallow admin areas
 Disallow: /admin/

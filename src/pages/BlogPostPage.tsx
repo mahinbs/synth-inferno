@@ -85,7 +85,7 @@ const BlogPostPage = () => {
     image: post.featuredImage || 'https://res.cloudinary.com/dtq6gshzf/image/upload/v1755595529/synthinferno-logo_socawa.png',
     author: {
       name: post.author || 'Synth Inferno Team',
-      url: 'https://www.deeceelabs.com'
+      url: 'https://www.synthinferno.com'
     },
     publisher: {
       name: 'Synth Inferno',
@@ -93,14 +93,14 @@ const BlogPostPage = () => {
     },
     datePublished: post.publishedAt || new Date().toISOString(),
     dateModified: post.updatedAt || post.publishedAt || new Date().toISOString(),
-    url: `https://www.deeceelabs.com/blog/${post.slug}`,
-    mainEntityOfPage: `https://www.deeceelabs.com/blog/${post.slug}`
+    url: `https://www.synthinferno.com/blog/${post.slug}`,
+    mainEntityOfPage: `https://www.synthinferno.com/blog/${post.slug}`
   }) : null;
 
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'Home', url: 'https://www.deeceelabs.com' },
-    { name: 'Blog', url: 'https://www.deeceelabs.com/blogs' },
-    { name: post?.title || 'Blog Post', url: `https://www.deeceelabs.com/blog/${post?.slug}` }
+    { name: 'Home', url: 'https://www.synthinferno.com' },
+    { name: 'Blog', url: 'https://www.synthinferno.com/blogs' },
+    { name: post?.title || 'Blog Post', url: `https://www.synthinferno.com/blog/${post?.slug}` }
   ]);
 
   return (

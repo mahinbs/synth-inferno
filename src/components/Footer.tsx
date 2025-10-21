@@ -46,13 +46,13 @@ const Footer = () => {
               Building innovative AI-powered software solutions that transform businesses and drive digital success.
             </p>
             <div className="flex space-x-4">
-              <a href="https://www.instagram.com/deeceelabs?utm_source=qr&igsh=MTBybzE5dnd6NXAZaQ==" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gray-300 transition-colors duration-200">
+              <a href="" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gray-300 transition-colors duration-200">
                 <Instagram className="h-5 w-5" />
               </a>
-              <a href="https://www.linkedin.com/company/dee-cee-labs" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gray-300 transition-colors duration-200">
+              <a href="" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gray-300 transition-colors duration-200">
                 <Linkedin className="h-5 w-5" />
               </a>
-              <a href="https://www.facebook.com/profile.php?id=100084347787790" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gray-300 transition-colors duration-200">
+              <a href="" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gray-300 transition-colors duration-200">
                 <Facebook className="h-5 w-5" />
               </a>
               <a href="https://wa.me/9324054346" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gray-300 transition-colors duration-200">

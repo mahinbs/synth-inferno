@@ -182,11 +182,11 @@ const MobileAppsPage = () => {
     description: "Create powerful mobile applications for iOS and Android. Expert mobile app development with React Native, Flutter, and native technologies. User-centric design and seamless performance.",
     provider: {
       name: "Synth Inferno",
-      url: "https://www.deeceelabs.com"
+      url: "https://www.synthinferno.com"
     },
     areaServed: "Worldwide",
     serviceType: "Mobile Development",
-    url: "https://www.deeceelabs.com/mobile-apps"
+    url: "https://www.synthinferno.com/mobile-apps"
   });
 
   return (

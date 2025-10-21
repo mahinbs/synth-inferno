@@ -240,11 +240,11 @@ const WebAppsPage = () => {
       "Transform your business with cutting-edge web applications built using modern technologies. We specialize in full-stack development, creating scalable, secure, and user-friendly web solutions.",
     provider: {
       name: "Synth Inferno",
-      url: "https://www.deeceelabs.com",
+      url: "https://www.synthinferno.com",
     },
     areaServed: "Worldwide",
     serviceType: "Web Development",
-    url: "https://www.deeceelabs.com/web-apps",
+    url: "https://www.synthinferno.com/web-apps",
   });
 
   return (

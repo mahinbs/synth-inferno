@@ -180,8 +180,8 @@ const ReviewsPage = () => {
   }, []);
 
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'Home', url: 'https://www.deeceelabs.com' },
-    { name: 'Reviews', url: 'https://www.deeceelabs.com/reviews' }
+    { name: 'Home', url: 'https://www.synthinferno.com' },
+    { name: 'Reviews', url: 'https://www.synthinferno.com/reviews' }
   ]);
 
   const faqSchema = generateFAQSchema([

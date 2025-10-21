@@ -131,8 +131,8 @@ const Portfolio = () => {
   }
 
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'Home', url: 'https://www.deeceelabs.com' },
-    { name: 'Portfolio', url: 'https://www.deeceelabs.com/portfolio' }
+    { name: 'Home', url: 'https://www.synthinferno.com' },
+    { name: 'Portfolio', url: 'https://www.synthinferno.com/portfolio' }
   ]);
 
   return (

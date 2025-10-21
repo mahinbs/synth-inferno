@@ -115,13 +115,13 @@ const SpeaksifyPage = () => {
       priceCurrency: "USD",
       availability: "InStock"
     },
-    url: "https://www.deeceelabs.com/speaksify"
+    url: "https://www.synthinferno.com/speaksify"
   });
 
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'Home', url: 'https://www.deeceelabs.com' },
-    { name: 'Products', url: 'https://www.deeceelabs.com/products' },
-    { name: 'Speaksify', url: 'https://www.deeceelabs.com/speaksify' }
+    { name: 'Home', url: 'https://www.synthinferno.com' },
+    { name: 'Products', url: 'https://www.synthinferno.com/products' },
+    { name: 'Speaksify', url: 'https://www.synthinferno.com/speaksify' }
   ]);
 
   return <div className="min-h-screen text-white">

@@ -5,8 +5,8 @@ import { generateBreadcrumbSchema } from "@/components/seo/StructuredData";
 
 const PrivacyPolicyPage = () => {
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: 'Home', url: 'https://www.deeceelabs.com' },
-    { name: 'Privacy Policy', url: 'https://www.deeceelabs.com/privacy-policy' }
+    { name: 'Home', url: 'https://www.synthinferno.com' },
+    { name: 'Privacy Policy', url: 'https://www.synthinferno.com/privacy-policy' }
   ]);
 
   return <div className="min-h-screen bg-gradient-to-b from-[#0D0F21] to-[#13162B]">

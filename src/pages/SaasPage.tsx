@@ -222,11 +222,11 @@ const SaasPage = () => {
     description: "Build scalable SaaS applications with modern cloud technologies. Expert SaaS development including multi-tenancy, subscription management, and cloud infrastructure.",
     provider: {
       name: "Synth Inferno",
-      url: "https://www.deeceelabs.com"
+      url: "https://www.synthinferno.com"
     },
     areaServed: "Worldwide",
     serviceType: "SaaS Development",
-    url: "https://www.deeceelabs.com/saas"
+    url: "https://www.synthinferno.com/saas"
   });
 
   return (

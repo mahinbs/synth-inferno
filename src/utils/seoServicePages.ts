@@ -105,10 +105,10 @@ export const generateServicePageStructuredData = (serviceKey: string) => {
     description: seoConfig.serviceDescription,
     provider: {
       name: 'Synth Inferno',
-      url: 'https://www.deeceelabs.com'
+      url: 'https://www.synthinferno.com'
     },
     areaServed: 'Worldwide',
     serviceType: seoConfig.serviceType,
-    url: `https://www.deeceelabs.com${seoConfig.canonical}`
+    url: `https://www.synthinferno.com${seoConfig.canonical}`
   });
 };

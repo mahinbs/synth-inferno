@@ -33,7 +33,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
   section,
   tags = []
 }) => {
-  const baseUrl = "https://www.deeceelabs.com";
+  const baseUrl = "https://www.synthinferno.com";
   const fullCanonical = canonical ? `${baseUrl}${canonical}` : baseUrl;
   const fullOgImage = ogImage.startsWith('http') ? ogImage : `${baseUrl}${ogImage}`;
   
