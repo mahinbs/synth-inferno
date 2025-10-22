@@ -46,10 +46,10 @@ const Footer = () => {
               Building innovative AI-powered software solutions that transform businesses and drive digital success.
             </p>
             <div className="flex space-x-4">
-              <a href="" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gray-300 transition-colors duration-200">
+              <a href="https://www.instagram.com/synthinferno?igsh=enFuOW1kazFwdDhw&utm_source=qr" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gray-300 transition-colors duration-200">
                 <Instagram className="h-5 w-5" />
               </a>
-              <a href="" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gray-300 transition-colors duration-200">
+              <a href="https://www.linkedin.com/in/synthinferno-44a4182b8" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gray-300 transition-colors duration-200">
                 <Linkedin className="h-5 w-5" />
               </a>
               <a href="" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gray-300 transition-colors duration-200">

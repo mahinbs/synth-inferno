@@ -110,7 +110,7 @@ const Contact = ({ hideCTA }) => {
     {
       icon: Instagram,
       label: "Follow us on Instagram",
-      url: "",
+      url: "https://www.instagram.com/synthinferno?igsh=enFuOW1kazFwdDhw&utm_source=qr",
       color: "pink",
     },
     {
@@ -122,7 +122,7 @@ const Contact = ({ hideCTA }) => {
     {
       icon: Linkedin,
       label: "Follow us on LinkedIn",
-      url: "",
+      url: "https://www.linkedin.com/in/synthinferno-44a4182b8",
       color: "linkedin",
     },
     {

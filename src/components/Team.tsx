@@ -60,7 +60,7 @@ const Team = memo(() => {
               <p className="text-gray-600 text-sm leading-relaxed mb-4">{member.bio}</p>
               
               <div className="flex justify-center space-x-3">
-                <a href="#" className="text-gray-400 hover:text-blue-600 transition-colors duration-200" aria-label={`${member.name} LinkedIn`}>
+                <a href="https://www.linkedin.com/in/synthinferno-44a4182b8" className="text-gray-400 hover:text-blue-600 transition-colors duration-200" aria-label={`${member.name} LinkedIn`}>
                   <Linkedin className="h-5 w-5" />
                 </a>
                 <a href="#" className="text-gray-400 hover:text-blue-600 transition-colors duration-200" aria-label={`${member.name} GitHub`}>
